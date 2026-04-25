@@ -264,3 +264,122 @@ footer {
 .license a:hover {
     text-decoration: underline;
 }
+
+/* New Layout Styles */
+.content-section {
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+}
+
+.content-section h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--tertiary);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.content-section strong {
+    color: var(--text-main);
+}
+
+/* ASCII Hero */
+.ascii-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.ascii-art {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    color: var(--tertiary);
+    text-shadow: 0 0 5px var(--tertiary);
+    overflow-x: auto;
+    white-space: pre;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .ascii-art {
+        font-size: 0.8rem;
+    }
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: rgba(255, 42, 95, 0.05);
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+}
+
+.highlight-box h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Space Mono', monospace;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(255, 42, 95, 0.4);
+}
+
+/* People Grid */
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.person-group h3 {
+    color: var(--secondary);
+    font-family: 'Space Mono', monospace;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.person-group ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.person-group li {
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.person-group li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--tertiary);
+    font-weight: bold;
+}
