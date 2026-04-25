@@ -9,15 +9,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-pink: #ff2e88;
-            --neon-blue: #00ffd9;
-            --dark-bg: #0a0a0f;
-            --darker-bg: #070709;
-            --text-glow: 0 0 10px rgba(255, 46, 136, 0.7);
-            --blue-glow: 0 0 10px rgba(0, 255, 217, 0.5),
-                        0 0 20px rgba(0, 255, 217, 0.3),
-                        0 0 30px rgba(0, 255, 217, 0.1);
+            /* Theme 1: Arai-eek Cyber (Default) */
+            --theme-primary: #ff2a5f;
+            --theme-secondary: #00ff88;
+            --theme-primary-rgb: 255, 42, 95;
+            --theme-secondary-rgb: 0, 255, 136;
+            --theme-bg: #0a0f12;
+            --theme-bg-darker: rgba(20, 25, 30, 0.4);
+            --theme-text-glow: 0 0 10px rgba(var(--theme-primary-rgb), 0.7);
+            --theme-blue-glow: 0 0 10px rgba(var(--theme-secondary-rgb), 0.5),
+                        0 0 20px rgba(var(--theme-secondary-rgb), 0.3),
+                        0 0 30px rgba(var(--theme-secondary-rgb), 0.1);
+            --theme-border: var(--theme-secondary);
             --scale-factor: 0.8;
+        }
+
+        [data-theme="logo"] {
+            /* Theme 2: Logo Style */
+            --theme-primary: #ED1C24; /* Red */
+            --theme-secondary: #2E3192; /* Navy */
+            --theme-primary-rgb: 237, 28, 36;
+            --theme-secondary-rgb: 46, 49, 146;
+            --theme-bg: #f0f4f8;
+            --theme-bg-darker: #ffffff;
+            --theme-text-glow: none;
+            --theme-blue-glow: 0 8px 24px rgba(46, 49, 146, 0.08);
+            --theme-border: rgba(46, 49, 146, 0.2);
         }
 
         html {
@@ -26,13 +43,13 @@
 
         body {
             font-family: 'Orbitron', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--neon-blue);
+            background-color: var(--theme-bg);
+            color: var(--theme-secondary);
             margin: 0;
             padding: 20px;
             min-height: 100vh;
             box-sizing: border-box;
-            text-shadow: var(--text-glow);
+            text-shadow: var(--theme-text-glow);
             transform: scale(var(--scale-factor));
             transform-origin: top center;
             height: calc(100% / var(--scale-factor));
@@ -41,38 +58,42 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%) scale(var(--scale-factor));
+            transition: background-color 0.5s, color 0.5s, text-shadow 0.5s;
         }
 
         .container {
             max-width: calc(1000px / var(--scale-factor));
             margin: 0 auto;
             padding: 20px;
-            background: var(--darker-bg);
-            border: 1px solid var(--neon-blue);
-            box-shadow: var(--blue-glow);
+            background: var(--theme-bg-darker);
+            border: 1px solid var(--theme-border);
+            box-shadow: var(--theme-blue-glow);
             border-radius: 10px;
             box-sizing: border-box;
+            transition: background 0.5s, border-color 0.5s, box-shadow 0.5s;
         }
 
         h1 {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
-            color: var(--neon-blue);
+            color: var(--theme-secondary);
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 30px;
             font-size: 1.6em;
-            text-shadow: 0 0 20px rgba(0, 255, 217, 0.9);
+            text-shadow: 0 0 20px rgba(var(--theme-secondary-rgb), 0.9);
             font-weight: 700;
             line-height: 1.4;
+            transition: color 0.5s, text-shadow 0.5s;
         }
 
         h1 .location {
             display: block;
-            color: var(--neon-pink);
+            color: var(--theme-primary);
             font-size: 0.9em;
             margin-top: 5px;
-            text-shadow: var(--text-glow);
+            text-shadow: var(--theme-text-glow);
+            transition: color 0.5s, text-shadow 0.5s;
         }
 
         .status-bar {
@@ -86,17 +107,20 @@
             font-size: 1.2em;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--neon-blue);
+            color: var(--theme-secondary);
+            transition: color 0.5s;
         }
 
         .refresh-button {
-            background: var(--darker-bg);
-            color: var(--neon-pink);
-            border: 1px solid var(--neon-blue);
+            background: var(--theme-bg-darker);
+            color: var(--theme-primary);
+            border: 1px solid var(--theme-border);
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
             font-family: 'Orbitron', sans-serif;
+            margin-left: 10px;
+            transition: all 0.3s ease;
         }
 
         .refresh-button:hover {
@@ -104,27 +128,29 @@
         }
 
         @keyframes glow {
-            0% { box-shadow: 0 0 10px var(--neon-pink); }
-            50% { box-shadow: 0 0 20px var(--neon-blue); }
-            100% { box-shadow: 0 0 10px var(--neon-pink); }
+            0% { box-shadow: 0 0 10px var(--theme-primary); }
+            50% { box-shadow: 0 0 20px var(--theme-secondary); }
+            100% { box-shadow: 0 0 10px var(--theme-primary); }
         }
 
         .data-card {
-            background: var(--darker-bg);
+            background: var(--theme-bg-darker);
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid var(--neon-blue);
-            box-shadow: var(--blue-glow);
+            border: 1px solid var(--theme-border);
+            box-shadow: var(--theme-blue-glow);
             margin-bottom: 20px;
             box-sizing: border-box;
             width: 100%;
+            transition: all 0.5s;
         }
 
         h2 {
-            color: var(--neon-blue);
+            color: var(--theme-secondary);
             margin-top: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
+            transition: color 0.5s;
         }
 
         .current-values {
@@ -139,29 +165,32 @@
         }
 
         .value-card {
-            background: var(--darker-bg);
+            background: var(--theme-bg-darker);
             padding: 15px;
             border-radius: 6px;
             text-align: center;
-            border: 1px solid var(--neon-blue);
-            box-shadow: var(--blue-glow);
+            border: 1px solid var(--theme-border);
+            box-shadow: var(--theme-blue-glow);
             min-width: 150px;
+            transition: all 0.5s;
         }
 
         .value-card h3 {
             margin: 0;
-            color: var(--neon-pink);
+            color: var(--theme-primary);
             font-size: 0.9em;
             text-transform: uppercase;
             letter-spacing: 2px;
+            transition: color 0.5s;
         }
 
         .value-card p {
             margin: 10px 0 0;
             font-size: 1.8em;
             font-weight: bold;
-            color: var(--neon-blue);
-            text-shadow: var(--blue-glow);
+            color: var(--theme-secondary);
+            text-shadow: var(--theme-blue-glow);
+            transition: all 0.5s;
         }
 
         .gauge-container {
@@ -179,31 +208,34 @@
         .gauge-label {
             margin-top: 10px;
             font-weight: bold;
-            color: var(--neon-pink);
+            color: var(--theme-primary);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.9em;
+            transition: color 0.5s;
         }
 
         #latestTemp {
             margin-top: 5px;
             font-size: 1.8em;
             font-weight: bold;
-            color: var(--neon-blue);
-            text-shadow: var(--blue-glow);
+            color: var(--theme-secondary);
+            text-shadow: var(--theme-blue-glow);
+            transition: all 0.5s;
         }
 
         .chart-container {
             position: relative;
             height: 350px;
-            background: var(--darker-bg);
+            background: var(--theme-bg-darker);
             padding: 15px;
             border-radius: 8px;
-            border: 1px solid var(--neon-blue);
-            box-shadow: var(--blue-glow);
+            border: 1px solid var(--theme-secondary);
+            box-shadow: var(--theme-blue-glow);
             width: 100%;
             box-sizing: border-box;
             min-width: 0;
+            transition: all 0.5s;
         }
 
         .charts-grid {
@@ -267,9 +299,9 @@
         }
 
         #errorContainer {
-            color: var(--neon-pink);
+            color: var(--theme-primary);
             margin-bottom: 20px;
-            text-shadow: var(--text-glow);
+            text-shadow: var(--theme-text-glow);
         }
 
         #lastUpdateContainer {
@@ -277,7 +309,8 @@
             font-size: 0.8em;
             text-align: center;
             margin-top: 20px;
-            color: var(--neon-blue);
+            color: var(--theme-secondary);
+            transition: color 0.5s;
         }
     </style>
 </head>
@@ -285,7 +318,10 @@
     <div class="container">
         <div class="status-bar">
             <span class="last-update">Last updated: <span id="lastUpdate">Never</span></span>
-            <button class="refresh-button" onclick="fetchData(true)">Refresh Now</button>
+            <div>
+                <button class="refresh-button" onclick="toggleTheme()">Switch Theme</button>
+                <button class="refresh-button" onclick="fetchData(true)">Refresh Now</button>
+            </div>
         </div>
 
         <h1>
@@ -342,52 +378,114 @@
             const TEMP_SENSOR_ID = "85708";
             const THAILAND_OFFSET = 7 * 60 * 60 * 1000; // 7 hours in ms
 
-            function initTempGauge() {
-                const opts = {
-                    angle: -0.2,
-                    lineWidth: 0.2,
-                    radiusScale: 0.9,
-                    pointer: {
-                        length: 0.6,
-                        strokeWidth: 0.035,
-                        color: '#ff2e88'
-                    },
-                    staticLabels: {
-                        font: "10px Orbitron",
-                        labels: [0, 10, 20, 30, 40],
-                        color: "#00ffd9",
-                        fractionDigits: 0
-                    },
-                    staticZones: [
-                        {strokeStyle: "rgba(0, 255, 217, 0.2)", min: 0, max: 10},
-                        {strokeStyle: "rgba(0, 255, 217, 0.4)", min: 10, max: 20},
-                        {strokeStyle: "rgba(0, 255, 217, 0.6)", min: 20, max: 30},
-                        {strokeStyle: "rgba(255, 46, 136, 0.8)", min: 30, max: 40}
-                    ],
-                    limitMax: false,
-                    limitMin: false,
-                    highDpiSupport: true,
-                    renderTicks: {
-                        divisions: 4,
-                        divWidth: 1.1,
-                        divLength: 0.7,
-                        divColor: '#00ffd9',
-                        subDivisions: 3,
-                        subLength: 0.5,
-                        subWidth: 0.6,
-                        subColor: 'rgba(0, 255, 217, 0.5)'
-                    }
+            function getThemeColors() {
+                const root = document.documentElement;
+                const computed = getComputedStyle(root);
+                return {
+                    primary: computed.getPropertyValue('--theme-primary').trim(),
+                    secondary: computed.getPropertyValue('--theme-secondary').trim(),
+                    primaryRgb: computed.getPropertyValue('--theme-primary-rgb').trim(),
+                    secondaryRgb: computed.getPropertyValue('--theme-secondary-rgb').trim(),
                 };
+            }
 
+            function toggleTheme() {
+                const root = document.documentElement;
+                if (root.getAttribute('data-theme') === 'logo') {
+                    root.removeAttribute('data-theme');
+                } else {
+                    root.setAttribute('data-theme', 'logo');
+                }
+                updateThemeVisuals();
+            }
+
+            function updateThemeVisuals() {
+                const colors = getThemeColors();
+                
+                // Update Gauge Options
+                if (tempGauge) {
+                    const opts = {
+                        angle: -0.2,
+                        lineWidth: 0.2,
+                        radiusScale: 0.9,
+                        pointer: {
+                            length: 0.6,
+                            strokeWidth: 0.035,
+                            color: colors.primary
+                        },
+                        staticLabels: {
+                            font: "10px Orbitron",
+                            labels: [0, 10, 20, 30, 40],
+                            color: colors.secondary,
+                            fractionDigits: 0
+                        },
+                        staticZones: [
+                            {strokeStyle: `rgba(${colors.secondaryRgb}, 0.2)`, min: 0, max: 10},
+                            {strokeStyle: `rgba(${colors.secondaryRgb}, 0.4)`, min: 10, max: 20},
+                            {strokeStyle: `rgba(${colors.secondaryRgb}, 0.6)`, min: 20, max: 30},
+                            {strokeStyle: `rgba(${colors.primaryRgb}, 0.8)`, min: 30, max: 40}
+                        ],
+                        limitMax: false,
+                        limitMin: false,
+                        highDpiSupport: true,
+                        renderTicks: {
+                            divisions: 4,
+                            divWidth: 1.1,
+                            divLength: 0.7,
+                            divColor: colors.secondary,
+                            subDivisions: 3,
+                            subLength: 0.5,
+                            subWidth: 0.6,
+                            subColor: `rgba(${colors.secondaryRgb}, 0.5)`
+                        }
+                    };
+                    tempGauge.setOptions(opts);
+                    // Re-render gauge at current value
+                    tempGauge.set(tempGauge.value || 0);
+                }
+
+                // Update PM Chart
+                if (pmChartHistory) {
+                    pmChartHistory.data.datasets[0].borderColor = colors.primary;
+                    pmChartHistory.data.datasets[0].pointBackgroundColor = colors.primary;
+                    pmChartHistory.data.datasets[0].backgroundColor = `rgba(${colors.primaryRgb}, 0.1)`;
+                    pmChartHistory.options.plugins.title.color = colors.secondary;
+                    pmChartHistory.options.plugins.legend.labels.color = colors.secondary;
+                    pmChartHistory.options.scales.x.ticks.color = colors.secondary;
+                    pmChartHistory.options.scales.x.title.color = colors.secondary;
+                    pmChartHistory.options.scales.y.ticks.color = colors.secondary;
+                    pmChartHistory.options.scales.x.grid.color = `rgba(${colors.secondaryRgb}, 0.1)`;
+                    pmChartHistory.options.scales.y.grid.color = `rgba(${colors.secondaryRgb}, 0.1)`;
+                    pmChartHistory.update();
+                }
+
+                // Update Temp Chart
+                if (tempChartHistory) {
+                    tempChartHistory.data.datasets[0].borderColor = colors.secondary;
+                    tempChartHistory.data.datasets[0].pointBackgroundColor = colors.secondary;
+                    tempChartHistory.data.datasets[0].backgroundColor = `rgba(${colors.secondaryRgb}, 0.1)`;
+                    tempChartHistory.options.plugins.title.color = colors.secondary;
+                    tempChartHistory.options.plugins.legend.labels.color = colors.secondary;
+                    tempChartHistory.options.scales.x.ticks.color = colors.secondary;
+                    tempChartHistory.options.scales.x.title.color = colors.secondary;
+                    tempChartHistory.options.scales.y.ticks.color = colors.secondary;
+                    tempChartHistory.options.scales.x.grid.color = `rgba(${colors.secondaryRgb}, 0.1)`;
+                    tempChartHistory.options.scales.y.grid.color = `rgba(${colors.secondaryRgb}, 0.1)`;
+                    tempChartHistory.update();
+                }
+            }
+
+            function initTempGauge() {
                 const target = document.getElementById('tempGauge');
-                tempGauge = new Gauge(target).setOptions(opts);
+                tempGauge = new Gauge(target);
                 tempGauge.maxValue = 40;
                 tempGauge.setMinValue(0);
                 tempGauge.animationSpeed = 32;
-                tempGauge.set(0);
+                updateThemeVisuals(); // This will apply options based on current theme
             }
 
             function createHistoricalPMChart(ctx, data, title) {
+                const colors = getThemeColors();
                 const chartOptions = {
                     type: 'line',
                     data: {
@@ -395,11 +493,11 @@
                         datasets: [{
                             label: 'PM2.5 (µg/m³)',
                             data: data.pm25,
-                            borderColor: '#ff2e88',
-                            backgroundColor: 'rgba(255, 46, 136, 0.1)',
+                            borderColor: colors.primary,
+                            backgroundColor: `rgba(${colors.primaryRgb}, 0.1)`,
                             borderWidth: 2,
                             pointRadius: 3,
-                            pointBackgroundColor: '#ff2e88',
+                            pointBackgroundColor: colors.primary,
                             tension: 0.4,
                             fill: true
                         }]
@@ -408,46 +506,23 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            title: {
-                                display: true,
-                                text: title,
-                                color: '#00ffd9',
-                                font: {
-                                    family: 'Orbitron',
-                                    size: 14
-                                }
-                            },
-                            legend: {
-                                labels: {
-                                    color: '#00ffd9',
-                                    font: {
-                                        family: 'Orbitron'
-                                    }
-                                }
-                            }
+                            title: { display: true, text: title, color: colors.secondary, font: { family: 'Orbitron', size: 14 } },
+                            legend: { labels: { color: colors.secondary, font: { family: 'Orbitron' } } }
                         },
                         scales: {
                             x: {
-                                grid: {
-                                    color: 'rgba(0, 255, 217, 0.1)'
+                                title: {
+                                    display: true,
+                                    text: 'Local Time (UTC+7)',
+                                    color: colors.secondary,
+                                    font: { family: 'Orbitron', size: 12 }
                                 },
-                                ticks: {
-                                    color: '#00ffd9',
-                                    font: {
-                                        family: 'Orbitron'
-                                    }
-                                }
+                                grid: { color: `rgba(${colors.secondaryRgb}, 0.1)` },
+                                ticks: { color: colors.secondary, font: { family: 'Orbitron' } }
                             },
                             y: {
-                                grid: {
-                                    color: 'rgba(0, 255, 217, 0.1)'
-                                },
-                                ticks: {
-                                    color: '#00ffd9',
-                                    font: {
-                                        family: 'Orbitron'
-                                    }
-                                }
+                                grid: { color: `rgba(${colors.secondaryRgb}, 0.1)` },
+                                ticks: { color: colors.secondary, font: { family: 'Orbitron' } }
                             }
                         }
                     }
@@ -456,6 +531,7 @@
             }
 
             function createHistoricalTempChart(ctx, data, title) {
+                const colors = getThemeColors();
                 const chartOptions = {
                     type: 'line',
                     data: {
@@ -463,11 +539,11 @@
                         datasets: [{
                             label: 'Temperature (°C)',
                             data: data.temperature,
-                            borderColor: '#00ffd9',
-                            backgroundColor: 'rgba(0, 255, 217, 0.1)',
+                            borderColor: colors.secondary,
+                            backgroundColor: `rgba(${colors.secondaryRgb}, 0.1)`,
                             borderWidth: 2,
                             pointRadius: 3,
-                            pointBackgroundColor: '#00ffd9',
+                            pointBackgroundColor: colors.secondary,
                             tension: 0.4,
                             fill: true
                         }]
@@ -476,46 +552,23 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            title: {
-                                display: true,
-                                text: title,
-                                color: '#00ffd9',
-                                font: {
-                                    family: 'Orbitron',
-                                    size: 14
-                                }
-                            },
-                            legend: {
-                                labels: {
-                                    color: '#00ffd9',
-                                    font: {
-                                        family: 'Orbitron'
-                                    }
-                                }
-                            }
+                            title: { display: true, text: title, color: colors.secondary, font: { family: 'Orbitron', size: 14 } },
+                            legend: { labels: { color: colors.secondary, font: { family: 'Orbitron' } } }
                         },
                         scales: {
                             x: {
-                                grid: {
-                                    color: 'rgba(0, 255, 217, 0.1)'
+                                title: {
+                                    display: true,
+                                    text: 'Local Time (UTC+7)',
+                                    color: colors.secondary,
+                                    font: { family: 'Orbitron', size: 12 }
                                 },
-                                ticks: {
-                                    color: '#00ffd9',
-                                    font: {
-                                        family: 'Orbitron'
-                                    }
-                                }
+                                grid: { color: `rgba(${colors.secondaryRgb}, 0.1)` },
+                                ticks: { color: colors.secondary, font: { family: 'Orbitron' } }
                             },
                             y: {
-                                grid: {
-                                    color: 'rgba(0, 255, 217, 0.1)'
-                                },
-                                ticks: {
-                                    color: '#00ffd9',
-                                    font: {
-                                        family: 'Orbitron'
-                                    }
-                                }
+                                grid: { color: `rgba(${colors.secondaryRgb}, 0.1)` },
+                                ticks: { color: colors.secondary, font: { family: 'Orbitron' } }
                             }
                         }
                     }
@@ -538,22 +591,26 @@
                     const pmData = await fetchLiveSensorData(PM_SENSOR_ID);
                     const tempData = await fetchLiveSensorData(TEMP_SENSOR_ID);
                     
-                    if (!pmData && !tempData) {
-                        throw new Error('No data available from sensors');
+                    if ((!pmData || pmData.length === 0) && (!tempData || tempData.length === 0)) {
+                        throw new Error('Sensor is offline or no data available.');
                     }
                     
                     let latestPM25 = null;
+                    let pmTime = null;
                     if (pmData && pmData.length > 0) {
                         const pmSensorValues = pmData[0].sensordatavalues;
                         const p2Obj = pmSensorValues.find(v => v.value_type === 'P2');
                         if (p2Obj) latestPM25 = parseFloat(p2Obj.value);
+                        pmTime = new Date(pmData[0].timestamp + 'Z');
                     }
                     
                     let latestTemp = null;
+                    let tempTime = null;
                     if (tempData && tempData.length > 0) {
                         const tempSensorValues = tempData[0].sensordatavalues;
                         const tempObj = tempSensorValues.find(v => v.value_type === 'temperature');
                         if (tempObj) latestTemp = parseFloat(tempObj.value);
+                        tempTime = new Date(tempData[0].timestamp + 'Z');
                     }
 
                     if (latestPM25 !== null) {
@@ -571,7 +628,29 @@
                         document.getElementById('latestTemp').textContent = 'N/A';
                     }
 
-                    const timeStr = new Date().toLocaleTimeString();
+                    let latestTime = pmTime;
+                    if (tempTime && (!pmTime || tempTime > pmTime)) latestTime = tempTime;
+                    
+                    let timeStr = 'Unknown';
+                    if (latestTime) {
+                        const localD = new Date(latestTime.getTime() + THAILAND_OFFSET);
+                        const year = localD.getUTCFullYear();
+                        const month = (localD.getUTCMonth() + 1).toString().padStart(2, '0');
+                        const day = localD.getUTCDate().toString().padStart(2, '0');
+                        const hours = localD.getUTCHours().toString().padStart(2, '0');
+                        const mins = localD.getUTCMinutes().toString().padStart(2, '0');
+                        timeStr = `${year}-${month}-${day} ${hours}:${mins}`;
+                        
+                        const now = new Date();
+                        const diffMs = now.getTime() - latestTime.getTime();
+                        const diffHours = diffMs / (1000 * 60 * 60);
+                        if (diffHours >= 48) {
+                            timeStr += ` (Offline for ${Math.floor(diffHours / 24)} days)`;
+                        } else if (diffHours >= 2) {
+                            timeStr += ` (Offline for ${Math.floor(diffHours)} hours)`;
+                        }
+                    }
+
                     document.getElementById('lastUpdate').textContent = timeStr;
                     document.getElementById('lastUpdateFooter').textContent = timeStr;
                     document.getElementById('errorContainer').style.display = 'none';
@@ -579,15 +658,9 @@
                     console.error('Error:', error);
                     document.getElementById('errorContainer').style.display = 'block';
                     document.getElementById('errorMessage').textContent = error.message;
+                    document.getElementById('lastUpdate').textContent = "Offline";
+                    document.getElementById('lastUpdateFooter').textContent = "Offline";
                 }
-            }
-
-            function adjustToThailandTime(utcDateStr) {
-                const d = new Date(utcDateStr + 'Z');
-                const localD = new Date(d.getTime() + THAILAND_OFFSET);
-                const hours = localD.getUTCHours().toString().padStart(2, '0');
-                const mins = localD.getUTCMinutes().toString().padStart(2, '0');
-                return `${hours}:${mins}`;
             }
 
             async function getLatestArchiveDate() {
@@ -637,10 +710,12 @@
                 
                 const unique = new Map();
                 for (const m of measurements) {
-                    const localD = new Date(m.rawDate + THAILAND_OFFSET);
-                    const hours = localD.getUTCHours().toString().padStart(2, '0');
-                    const mins = localD.getUTCMinutes().toString().padStart(2, '0');
-                    const timeLabel = `${hours}:${mins}`;
+                    const d = new Date(m.rawDate);
+                    const timeLabel = d.toLocaleTimeString('en-GB', {
+                        timeZone: 'Asia/Bangkok',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
                     
                     unique.set(timeLabel, { timeLabel: timeLabel, rawDate: m.rawDate, value: m.value });
                 }
