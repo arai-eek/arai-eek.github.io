@@ -364,6 +364,22 @@
                 </div>
             </div>
 
+            <div class="charts-grid">
+                <div class="data-card" style="margin-bottom: 0;">
+                    <h2>PM2.5 History (28 Days)</h2>
+                    <div class="iframe-container" style="position: relative; width: 100%; height: 350px; overflow: hidden; border-radius: 6px; margin-top: 15px;">
+                        <iframe id="grafanaIframePM" src="https://api-rrd.madavi.de:3000/grafana/d-solo/GUaL5aZMz/pm-sensors?panelId=14&var-chipID=esp8266-11025538&orgId=1&from=now-28d&to=now&timezone=browser&theme=dark" width="100%" height="100%" frameborder="0" style="position: absolute; top: 0; left: 0;"></iframe>
+                    </div>
+                </div>
+
+                <div class="data-card" style="margin-bottom: 0;">
+                    <h2>Temperature History (28 Days)</h2>
+                    <div class="iframe-container" style="position: relative; width: 100%; height: 350px; overflow: hidden; border-radius: 6px; margin-top: 15px;">
+                        <iframe id="grafanaIframeTemp" src="https://api-rrd.madavi.de:3000/grafana/d-solo/q87EBfWGk/temperature-humidity-pressure?panelId=8&var-chipID=esp8266-11025538&orgId=1&from=now-28d&to=now&timezone=browser&theme=dark" width="100%" height="100%" frameborder="0" style="position: absolute; top: 0; left: 0;"></iframe>
+                    </div>
+                </div>
+            </div>
+
             <div id="lastUpdateContainer">
                 Last update: <span id="lastUpdateFooter"></span>
             </div>
@@ -473,6 +489,21 @@
                     tempChartHistory.options.scales.y.grid.color = `rgba(${colors.secondaryRgb}, 0.1)`;
                     tempChartHistory.update();
                 }
+
+                // Update Grafana iframe themes
+                const grafanaIframes = ['grafanaIframePM', 'grafanaIframeTemp'];
+                grafanaIframes.forEach(id => {
+                    const iframe = document.getElementById(id);
+                    if (iframe) {
+                        const currentSrc = iframe.src;
+                        const isLight = document.documentElement.getAttribute('data-theme') === 'logo';
+                        const targetTheme = isLight ? 'light' : 'dark';
+                        
+                        if (currentSrc.includes('theme=') && !currentSrc.includes('theme=' + targetTheme)) {
+                            iframe.src = currentSrc.replace(/theme=(dark|light)/, 'theme=' + targetTheme);
+                        }
+                    }
+                });
             }
 
             function initTempGauge() {
