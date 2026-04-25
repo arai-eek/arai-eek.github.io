@@ -20,3 +20,24 @@ document.addEventListener('mouseleave', () => {
         container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     }
 });
+
+// Theme toggling functionality
+function toggleTheme() {
+    const root = document.documentElement;
+    const currentTheme = root.getAttribute('data-theme');
+    const newTheme = currentTheme === 'logo' ? 'default' : 'logo';
+    root.setAttribute('data-theme', newTheme);
+    
+    // Also save it to localStorage so it persists across pages if we want to add that later
+    localStorage.setItem('theme', newTheme);
+}
+
+// Ensure correct switch state on load
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('themeToggle');
+    if (toggle && document.documentElement.getAttribute('data-theme') === 'logo') {
+        toggle.checked = true;
+    }
+});
+
+

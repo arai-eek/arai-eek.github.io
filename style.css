@@ -7,6 +7,19 @@
     --glass-border: rgba(255, 255, 255, 0.1);
     --text-main: #f0f4f8;
     --text-muted: #a0aab2;
+    --highlight-bg: rgba(255, 42, 95, 0.05);
+}
+
+:root[data-theme="logo"] {
+    --bg-dark: #f8f9fa;
+    --primary: #ED1C24; /* Logo Red */
+    --secondary: #2E3192; /* Logo Navy */
+    --tertiary: #2E3192; /* Logo Navy Accent */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --text-main: #2E3192;
+    --text-muted: #555555;
+    --highlight-bg: rgba(237, 28, 36, 0.05);
 }
 
 * {
@@ -317,7 +330,7 @@ footer {
 
 /* Highlight Box */
 .highlight-box {
-    background: rgba(255, 42, 95, 0.05);
+    background: var(--highlight-bg);
     border-left: 4px solid var(--primary);
     padding: 1.5rem;
     border-radius: 0 12px 12px 0;
@@ -382,4 +395,77 @@ footer {
     left: 0;
     color: var(--tertiary);
     font-weight: bold;
+}
+
+/* Theme Toggle Switch */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+}
+
+.theme-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+:root .theme-label.lanna { color: var(--primary); font-weight: bold; text-shadow: 0 0 5px var(--primary); }
+:root .theme-label.araieek { color: var(--text-muted); font-weight: normal; text-shadow: none; }
+
+:root[data-theme="logo"] .theme-label.lanna { color: var(--text-muted); font-weight: normal; text-shadow: none; }
+:root[data-theme="logo"] .theme-label.araieek { color: var(--primary); font-weight: bold; text-shadow: none; } /* Logo theme has no text glow */
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--primary);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--primary);
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--primary);
+}
+
+input:checked + .slider {
+    background-color: rgba(0,0,0,0.1);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
 }

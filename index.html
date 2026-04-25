@@ -11,9 +11,24 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'logo' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.setAttribute('data-theme', 'logo');
+        }
+    </script>
 </head>
 
 <body>
+    <div class="theme-switch-wrapper">
+        <span class="theme-label lanna">Lanna Futurist</span>
+        <label class="theme-switch" for="themeToggle">
+            <input type="checkbox" id="themeToggle" onclick="toggleTheme()" />
+            <span class="slider"></span>
+        </label>
+        <span class="theme-label araieek">Arai-eek</span>
+    </div>
+
     <div class="background-animation">
         <div class="glow-orb red"></div>
         <div class="glow-orb yellow"></div>
@@ -182,10 +197,51 @@
 
         <!-- Local Environment Data -->
         <section class="content-section">
-            <div class="highlight-box" style="border-color: var(--secondary);">
+            <div class="highlight-box" style="border-color: var(--secondary); text-align: center;">
                 <h3>🌡️ Local Environment Data</h3>
-                <p>Check the live temperature and PM2.5 air quality in Chiang Mai via the <a href="https://parangair.onrender.com/" target="_blank" style="color: var(--secondary); text-decoration: underline; font-weight: bold;">Pa Rang Air Quality Monitor</a>. A DIY hardware project developed by dusjagr in February 2025.</p>
+                <p>Live conditions at Pa Rang Cafe & Art Stay in Chiang Mai</p>
+                <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
+                    <div class="card" style="min-width: 140px; text-align: center; padding: 15px; background: rgba(0,0,0,0.2);">
+                        <h3 style="color: var(--primary); margin: 0; font-size: 0.9em; letter-spacing: 1px; text-transform: uppercase;">PM2.5</h3>
+                        <p id="indexPM25" style="font-size: 1.8em; font-weight: bold; margin: 10px 0 0; color: var(--secondary); text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);">--</p>
+                    </div>
+                    <div class="card" style="min-width: 140px; text-align: center; padding: 15px; background: rgba(0,0,0,0.2);">
+                        <h3 style="color: var(--primary); margin: 0; font-size: 0.9em; letter-spacing: 1px; text-transform: uppercase;">Temperature</h3>
+                        <p id="indexTemp" style="font-size: 1.8em; font-weight: bold; margin: 10px 0 0; color: var(--secondary); text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);">--</p>
+                    </div>
+                </div>
+                <p style="margin-bottom: 0;">A DIY hardware project developed by dusjagr in February 2025. <br>
+                <a href="experiments/parang-air.html" style="color: var(--secondary); text-decoration: underline; font-weight: bold; margin-top: 15px; display: inline-block;">View the full 28-Day Historical Dashboard 📈</a></p>
             </div>
+            
+            <script>
+                async function fetchMiniDashboard() {
+                    try {
+                        const pmRes = await fetch("https://data.sensor.community/airrohr/v1/sensor/85707/");
+                        const tempRes = await fetch("https://data.sensor.community/airrohr/v1/sensor/85708/");
+                        
+                        if (pmRes.ok) {
+                            const pmData = await pmRes.json();
+                            if (pmData.length > 0) {
+                                const val = pmData[0].sensordatavalues.find(v => v.value_type === 'P2');
+                                if (val) document.getElementById('indexPM25').textContent = parseFloat(val.value).toFixed(1) + ' µg/m³';
+                            }
+                        }
+                        
+                        if (tempRes.ok) {
+                            const tempData = await tempRes.json();
+                            if (tempData.length > 0) {
+                                const val = tempData[0].sensordatavalues.find(v => v.value_type === 'temperature');
+                                if (val) document.getElementById('indexTemp').textContent = parseFloat(val.value).toFixed(1) + ' °C';
+                            }
+                        }
+                    } catch(e) {
+                        console.error("Mini dashboard error:", e);
+                    }
+                }
+                fetchMiniDashboard();
+                setInterval(fetchMiniDashboard, 60000); // refresh every minute
+            </script>
         </section>
 
         <footer>

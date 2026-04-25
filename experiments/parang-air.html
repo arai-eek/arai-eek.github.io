@@ -7,6 +7,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'logo' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.setAttribute('data-theme', 'logo');
+        }
+    </script>
     <style>
         :root {
             /* Theme 1: Arai-eek Cyber (Default) */
@@ -131,6 +137,75 @@
             0% { box-shadow: 0 0 10px var(--theme-primary); }
             50% { box-shadow: 0 0 20px var(--theme-secondary); }
             100% { box-shadow: 0 0 10px var(--theme-primary); }
+        }
+
+        /* Theme Toggle Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-label {
+            font-size: 0.85em;
+            color: var(--theme-secondary);
+            transition: color 0.5s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.5;
+        }
+
+        :root .theme-label.lanna { opacity: 1; font-weight: bold; text-shadow: var(--theme-text-glow); }
+        :root .theme-label.araieek { opacity: 0.5; font-weight: normal; text-shadow: none; }
+
+        :root[data-theme="logo"] .theme-label.lanna { opacity: 0.5; font-weight: normal; text-shadow: none; }
+        :root[data-theme="logo"] .theme-label.araieek { opacity: 1; font-weight: bold; text-shadow: none; }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 20px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--theme-bg-darker);
+            border: 1px solid var(--theme-primary);
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--theme-primary);
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 0 5px var(--theme-primary);
+        }
+
+        input:checked + .slider {
+            background-color: var(--theme-bg-darker);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
         }
 
         .data-card {
@@ -318,8 +393,15 @@
     <div class="container">
         <div class="status-bar">
             <span class="last-update">Last updated: <span id="lastUpdate">Never</span></span>
-            <div>
-                <button class="refresh-button" onclick="toggleTheme()">Switch Theme</button>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="theme-switch-wrapper">
+                    <span class="theme-label lanna">Lanna Futurist</span>
+                    <label class="theme-switch" for="themeToggle">
+                        <input type="checkbox" id="themeToggle" onclick="toggleTheme()" />
+                        <span class="slider"></span>
+                    </label>
+                    <span class="theme-label araieek">Arai-eek</span>
+                </div>
                 <button class="refresh-button" onclick="fetchData(true)">Refresh Now</button>
             </div>
         </div>
@@ -407,13 +489,25 @@
 
             function toggleTheme() {
                 const root = document.documentElement;
+                let newTheme;
                 if (root.getAttribute('data-theme') === 'logo') {
                     root.removeAttribute('data-theme');
+                    newTheme = 'default';
                 } else {
                     root.setAttribute('data-theme', 'logo');
+                    newTheme = 'logo';
                 }
+                
+                localStorage.setItem('theme', newTheme);
                 updateThemeVisuals();
             }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const toggle = document.getElementById('themeToggle');
+                if (toggle && document.documentElement.getAttribute('data-theme') === 'logo') {
+                    toggle.checked = true;
+                }
+            });
 
             function updateThemeVisuals() {
                 const colors = getThemeColors();
