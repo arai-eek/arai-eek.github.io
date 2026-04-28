@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>arai-eek? walking walking!</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <!-- Theme -->
+    <meta name="theme-color" content="#2733A0">
+
+    <!-- External Libs -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --blue: #2733A0;
+            --red: #EE1B26;
+            --white: #FFFFFF;
+            --user-color: #2733A0;
+            --glass: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .overlay * {
+            pointer-events: auto;
+        }
+
+        /* Header & Lang Toggle */
+        header {
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .lang-btn.active {
+            background: var(--blue);
+            color: white;
+        }
+
+        /* Setup Screen */
+        .setup-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--blue);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .setup-card {
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .setup-input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .setup-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* GitHub Settings Sidebar */
+        .github-sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 90%;
+            max-width: 350px;
+            height: 100%;
+            background: white;
+            z-index: 1100;
+            transition: 0.4s;
+            padding: 30px 20px;
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .github-sidebar.open {
+            left: 0;
+        }
+
+        /* Stats & Controls */
+        .stats {
+            top: 85px;
+            left: 20px;
+            background: var(--user-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 12px;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .controls {
+            bottom: 30px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .btn-main {
+            width: 75px;
+            height: 75px;
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: #333;
+        }
+
+        .btn-red {
+            background: var(--red);
+            color: white;
+        }
+
+        .tracking-active {
+            animation: pulse 2s infinite;
+            background: var(--red);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(238, 27, 38, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(238, 27, 38, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(238, 27, 38, 0);
+            }
+        }
+
+        /* UI Helpers */
+        .hidden {
+            display: none !important;
+        }
+
+        .color-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .color-dot.active {
+            transform: scale(1.3);
+            outline: 2px solid white;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 90%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 1100;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-body {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Language Selector -->
+    <div class="lang-selector overlay" style="top: 20px; right: 20px; z-index: 20;"></div>
+
+    <!-- Login/Setup Screen -->
+    <div id="setup-screen" class="setup-screen hidden">
+        <div class="setup-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMzkuOTIgMzE3LjY3Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzJlMzE5Mjt9PC9zdHlsZT48L2RlZnM+PGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj48Zz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03Ny4yNyw2OC44NWMtMTAuOTMuNjUtMjQuOTEsMi40Ny0zNC4wNSw4LjgxLTEzLjU2LDkuNDItMTQuNDMsMjMuNzUtMTUuMDgsMzkuMTAsMTcuMjUsNS45MSwzNS4xNiwxMC41OSw1My4yOSwxMi45OSwyNy41NywzLjY1LDU0Ljk4LDIuMDYsODIuMDMtNC4zNSwxMi4zNC0yLjkyLDIyLjg4LTcuNTcsMzQuNzctMTEuNTgtMS43Ny0yOS4xMi0yMy45Ni00NC41My01MC42Ny00OS40OC0yLjQ5LS40Ni04Ljk1LTIuMzctMTAuMDEuNTQsMTguNTksNC45NSw0MC4wOSwyMC4xNCw0Ni4wOSwzOS4yMywxLjA3LDMuNDEsMy43NCwxMC4zMS0yLjY4LDguODQtLjgxLS4xOS0zLjM5LTEwLjU4LTQuMzgtMTIuNzUtOS42LTIxLjIzLTQ2LjE5LTM4LjI2LTY4LjktMzIuMzEsMS4xLTE2LjQ3LDMuOTEtMzQuNTcsMTAuNzgtNDkuNjcsMy4zNC03LjMzLDQuNDgtMTAuNjMsOC42My0xMS44M2gwYy03LjgxLTQuOTktOS40NS0xLjQ4LTkuNDUtMS40OC0xMC40LDE5LjYyLTE0Ljg5LDQwLjkyLTE2LjM3LDYzLjA1LTEuMzIsMS45LTIwLjAyLjY2LTI0LjAxLjg5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIzOC42LDE2Mi45NGMtMi44LTQuNDQtOC44OS04Ljk2LTE0LjQtOC4wNS0xLjE1LTQuMTIsMS44OS01LjQ3LDIuOTMtOC41NiwzLjA2LTkuMDYsMi42NS0zNS42MSwyLjA0LTQ1LjkzLTMuMDktNTIuMjctNDAuMzktOTIuMDUtOTMuMTItOTQuNS00LjE0LS4xOS02LjkyLS4xLTguOTYuNDktNC4xNSwxLjIsNS4yOSw0LjQ5LTguNjMsMTEuODMtNi44NywxNS4xLTkuNjgsMzMuMi0xMC43OCw0OS42NywyMi43MS01Ljk1LDU5LjMsMTEuMDgsNjguOSwzMi4zMS45OCwyLjE3LDMuNTYsMTIuNTcsNC4zOCwxMi43NSw2LjQyLDEuNDcsMy43NS01LjQzLDIuNjgtOC44NC02LTE5LjEtMjcuNS0zNC4yOC00Ni4wOS0zOS4yMywxLjA2LTIuOTEsNy41Mi0xLDEwLjAxLS41NCwyNi43MSw0Ljk1LDQ4LjksMjAuMzYsNTAuNjcsNDkuNDgtMTEuODksNC4wMS0yMi40Myw4LjY2LTM0Ljc3LDExLjU4LTI3LjA1LDYuNC01NC40Niw4LTgyLjAzLDQuMzUtMTguMTMtMi40LTM2LjA0LTcuMDctNTMuMjktMTIuOTkuNjUtMTUuMzQsMS41MS0yOS42OCwxNS4wOC0zOS4xLDkuMTMtNi4zNCwyMy4xMS04LjE2LDM0LjA1LTguODEsMy45OS0uMjQsMjIuNjksMS4wMSwyNC4wMS0uODksMS40OC0yMi4xMyw1Ljk3LTQzLjQzLDE2LjM3LTYzLjA1Qzg4LjkxLTUuODMsNTAuNjcsLjY0LDM0LjI0LDI4LjRsMy4yLDIuNDhjNy45Ny0xMy44OSwyNi4xMy0yNC4zMiw0MS44Ny0yNS45OSw1LjUtLjU5LDExLjgyLjQzLDE3LjQzLDAsLjI0LDEuNTEtMS44NiwxLjI1LTIuOTcsMS41LTExLjMyLDIuNjEtMTYuNzgsMi4zNS0yNy41Nyw4LjMzQzMzLjQzLDMyLjg1LDEyLjgzLDczLjE4LDkuNDksMTA5LjU4Yy0uMTEsMS4xNS43MiwyLjU3LjQzLDMuNjItLjQ3LDEuNzEtNS44Miw0LjQ0LTcuNjMsNy4zNy01LjcyLDkuMjIuODYsMTQuNjAsMi41OCwyMy4wNiwyLjY4LDEzLjIxLDEuODIsMzguMDEsMTEuNzIsNDguMjMsMS42OCwxLjczLDMuOTUsMS44Niw0LjQ3LDIuNzQsMS40NCwyLjQxLDQuOTksMjcuODYsNi4yNiwzMy40OCw0LjQ4LDE5Ljg1LDkuOTcsMzAuNTcsMjIuMiw0Ni43MSwzMS42Nyw0MS44MSw1MS43OCw1Ni42NCwxMDEuNjUsMjguMjcsMjQuNTYtMTMuOTcsNTIuMDQtMzguOTgsNTQuMjgtNjguOTksMjUuNzQtMS43NiwxOC45My0xNi43MywyMy4xOS0zNC4yMiwyLjMtOS40MiwxNS40Mi0yOC4yNSw5Ljk0LTM2LjkyTTIyMC40MywxNDguNjFjLTEuMjYsMy4wOC0uNjYsNy4zMy0yLjk0LDExLjAxLS42NSwxLjA0LjA0LDEuNzUtMi4yNCwxLjI3bC45OS0xN2g3Ljk3Yy40MiwyLjg3LTIuODcsMi41My0zLjc3LDQuNzJNMiI1LjIsMTMwLjg5bC0uNDMsOS4wN2MtMTEuMTQsNS42NS03Ljk0LTExLjAyLjQzLTkuMDdNMTI2LjIzLDEzNC4wMWMyMS42Mi0yLjM3LDM2Ljc1LTQuMyw1Ny42OS0xMS4wOCw4Ljc1LTIuODMsMjIuNzctMTIuNjQsMzAuODktMy4xMSw2LjQsNy41LTEuMjEsMTYuMTktMi4yOSwyMy44My0uNjYsNC42OCwxLjMzLDExLjQ1LTIuMjQsMTQuMjQtLjc4LTcuNDMtOS41OS0xNi42NS0xNi4yMy0xOS4yMi0xLjIxLS40Ny0xMC40My0yLjc4LTExLjE3LTIuNzhoLTYxLjI1Yy0uMDgtMS40OSwzLjU2LTEuNzcsNC42MC0xLjg4TTguMSwxNTUuODljMy4zNC0xMC44NS05LjkzLTI3LjAyLTIuMDItMzUuNTIsMy41Ny0zLjgzLDguMjUtMy43OSwxMy4wMi0zLjAzLDExLjk1LDEuOTAsMjcuNjQsOS4yNyw0MC43NCwxMi4wOCw4LjYxLDEuODUsMTguNjgsMy40NSwyNy40Myw0LjQ1LDMuNzYuNDMsOS45My0xLjQxLDEyLjQ0LDIuMDFIMzQuNDljLTcuNzkuOTgtMTYuNTQsNi4zNy0yMS4zOSwxMi41My0xLjk5LDIuNTItMi42NCw1LjYyLTQuOTksNy40N00xODQuNzcsMjcxLjhjLTExLjA1LDEzLjY0LTQzLjU3LDMzLjM4LTYwLjQ4LDM5LjI3LTQwLjQyLDE0LjA4LTc3LjI3LTQxLjg2LTg5LjA1LTczLjkzLTMuNS05LjUzLTguNTctMjUuODQtOS4yMy0zNS43NS0uMjUtMy44LDUuNjIuOTUsNy40MywxLjU2LDIuOTMuOTgsMTIuNTgsMy45NSwxNC45OSwzLjk1aDI0LjRsLTUuOTgsMjYuNXYzNi41bDQuODQtMS42NC4xNS0xMS4zNmM4Ljc0LDMuMTksMTguMTEsMTIuNjksMjYuNjMsMTQuNzUsMTQuOTEsMy42MSwzMC4wNi0xLjE2LDQzLjExLTguMjEsMS44Ny0xLjAxLDUuODEtNC44Nyw3LjQxLTQuNTQsMi42My41NS43MSw3LjE0LDEuOTksOS4wMywxLjE1LDEuNzEsMy43MiwxLjM1LDQuMzQtLjY5LDEuMTItMy42NS0xLjAxLTEzLjQ3LTIuMzUtMTcuMzItMy42Ny0wLjU3LTE0LjI4LTE4LjU3LTE2LjE3LTI5Ljc2LTEuMzctOC4wNy43LTE4Ljk2LTguNy0yMy4zMC02LjA2LDEuOTUsMS40Miw2LjY0LDIuMjYsMTAuNzYuNTUsMi43Mi4xNCw1LjUzLjIyLDguMjctMi4xMS0xLjA4LTEuNDctMy43My00LjAzLTUuNDMtOC4wNy01LjM0LTI2LjI0LDguNDQtMTYuNjEsMTMuNjcsNi4wMSwzLjI2LDE1Ljk5LDEuNzEsMjEuMTUtMi4yMSwyLjMyLDMuNTMsMy41Miw3LjYzLDUuNjcsMTEuMjksMS42MywyLjc2LDExLjE2LDE0LjgzLDkuNzYsMTYuNjktNi42MS00LjgzLTE4Ljg1LTExLjI4LTI3LjE0LTkuNzctMy41MC42NC03LDQuMDItMTEuMTcsMy44NS0zLjM0LS4xNC00LjktMi41OS03LjY2LTMuNDEtMTEuMjUtMy4zMi0yNy42NywxMS41MS0yOC43MSwxMC4zMi0uMy05LjM5LjU4LTE4LjgxLDIuNDctMjguMStsOC4wOCwyLjkzYzQuNC40OCwxNy41OS42NSwxOS4xNy00LjYxLDIuNzctOS4yMi0yMy41MC0xOS42OC0yMS43NS0zLjI5LTMuMDIsMS4xMS0yLjI1LTQuODItMi4wMS02LjUzLDEuMTQtOC4yNiwxMC43NS0xMS45OSwxNS40MC0xOC41NCw1LjI0LTcuMzgsNS41OC0yMS40MiwxNy4wOC0yMS44OCw5LjA0LS4zNiwxMC44NSwxMC42MCwxNC4xOSwxNi42MSwxMi43NCwyMi45Miw0My40MiwyNS4wMSw2NS4xMiwxNC4wNSwxLjYxLS44MSwxMC4xOS03LjMyLDEwLjczLTYuNzEsMi44MiwyNy4xMSwyLjM0LDU0Ljg0LTE1LjUzLDc2LjkwTTg1Ljc3LDI1OC40bDUzLjc4LTEuNDljLjU2LDIuMzktLjQzLDEuNjItMS4zMCwyLjIzLTEwLjQsNy4yNi0yNy4yNyw5LjkzLTM5LjU4LDcuMzItNS4yMi0xLjExLTguMTQtNS45My0xMi40MC04LjA2TTIwNC40OCwxODQuNTljLTE0LjcsMjMuNDktNjIuMDMsMjguNjUtNzYuNzIsMi42NS00LjA3LTcuMi01LjY4LTE5LjA2LTE2LjU4LTE5LjQzLTE0LjU5LS41LTE0LjQ1LDEzLjQyLTIwLjU5LDIyLjQyLTEyLjMsMTguMDEtMzguMjQsMTYuNTgtNTYuNTgsOS4xNS0yOS42OS0xMi4wMy0zNC4xMy01Ny4zNCw2LjQ3LTYwLjQ3LDQ2LjgzLTMuNjEsOTcuMjIsMy4yNiwxNDQuMzgsMSw1LjIzLjUzLDEyLjM0LDMuNjQsMTYuMDksNy4zNCw5LjM5LDkuMjksMTAuNDQsMjYuMzAsMy41NCwzNy4zNE0yMjQuNDksMTk1LjY4Yy0xLjA2LDMuNTYtMS43Miw4LjkxLTIuMjYsMTIuNzMtMS4xNCw4LjA3LDIuMDksMTYuMDQtOC43NCwxOS4yMi0xLjMyLjM5LTcuMDMsMS42Mi03LjE3LS4yMi0uMDItLjI2Ljk2LTEuNzIuOTctMi45OS4wNi04LjM0LTMuNDYtMzAuNzUuOTctMzYuMDQuODktMS4wNywxLjQ0LTIuMDYsMi41MS0uNS44NiwyLjk0LDIuMzQsNi41MiwyLjUwLDkuNTUuMjYsNC44Mi0zLjQ3LDEwLjQxLDM5NSwxMC40NiwxLjIyLTQuMTcsMS40Mi05LjA0LjktMTMuMzktLjY0LTUuMzMtMy44MS04LjcwLTQuNDgtMTMuNjcsMy4zMi00LjgxLDguNjktNy4yLDE0LjU5LTYuMzVsMS4wMS0zLjk5Yy0zLjUwLTIuODMtOC4xNC0xLjQ4LTExLjcxLjItMi4wNC45Ni0yLjksMy4zNi01LjI3LDMuMi0xLjgtNy42OCw5LjMzLTE1LjM2LDE2LjIxLTEzLjc5LDE1Ljc5LDMuNjEtMS42NCwyNy43Mi0zLjk5LDM1LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE4OS41NiwyMDEuNjFjLTIxLjcsMTAuOTctNTIuMzcsOC44Ny02NS4xMi0xNC4wNS0zLjM0LTYuMDEtNS4xNS0xNi45Ny0xNC4xOS0xNi42MS0xMS40OS40Ni0xMS44NCwxNC41MC0xNy4wOCwyMS44OC00LjY1LDYuNTUtMTQuMjUsMS4yOC0xNS40LDE4LjU0LS4yNCwxLjcxLTEuMDEsNy42MywyLjAxLDYuNTMtMS43NS0xNi4zOSwyNC41Mi01LjkzLDIxLjc1LDMuMjktMS41OCw1LjI2LTE0Ljc3LDUuMDktMTkuMTcsNC42MWwtOC4wOC0yLjkzYy0xLjg5LDkuMjEtMi43NiwxOC42My0yLjQ3LDI4LjAxLDEuMDQsMS4xOSwxNy40Ni0xMy42NCwyOC43MS0xMC4zMiwyLjc2LjgyLDQuMzIsMy4yNyw3LjY2LDMuNDEsNC4xOC4xNyw3LjY3LTMuMjEsMTEuMTctMy44NSw4LjI4LTEuNTEsMjAuNTMsNC45NCwyNy4xNCw5Ljc3LDEuNC0xLjg3LTguMTMtMTMuOTMtOS43Ni0xNi42OS0yLjE1LTMuNjUtMy4zNS03Ljc2LTUuNjctMTEuMjktNS4zNiwzLjkyLTE1LjEzLDUuNDgtMjEuMTUsMi4yMS05LjY0LTUuMjMsOC41My0xOS4wMSwxNi42MS0xMy42NywyLjU2LDEuNzAsMS45Miw0LjM1LDQuMDMsNS40My0uMDgtMi43My4zMy01LjU0LS4yMi04LjI3LS44My00LjEyLTguMzItOC44MS0yLjI2LTEwLjc2LDkuNCw0LjM0LDcuMzMsMTUuMjMsOC43LDIzLjMwLDEuODksMTEuMTksMTIuNTAsMTkuMTksMTYuMTcsMjkuNzYsMS4zMywzLjg0LDMuNDYsMTMuNjcsMi4zNSwxNy4zMi0uNjIsMi4wNC0zLjE5LDIuNC00LjM0LjY5LTEuMjctMS44OS42NS04LjQ4LTEuOTktOS4wMy0xLjYtLjMzLTUuNTUsMy41My03LjQxLDQuNTQtMTMuMDUsNy4wNS0yOC4yMCwxMS44Mi00My4xMSw4LjIxLTguNTItMi4wNi0xNy44OS0xMS41Ni0yNi42My0xNC43NWwtLjE1LDExLjM2LTQuODQsMS42NHYtMzYuNTBsNS45OC0yNi41aC0yNC40Yy0yLjQxLDAtMTIuMDYtMi45Ni0xNC45OS0zLjk1LTEuODEtLjYxLTcuNjgtNS4zNi03LjQzLTEuNTYuNjYsOS45Miw1LjczLDI2LjIyLDkuMjMsMzUuNzUsMTEuNzgsMzIuMDcsNDguNjMsODgsODkuMDUsNzMuOTMsMTYuOTItNS44OSw0OS40My0yNS42Myw2MC40OC0zOS4yNywxNy44Ny0yMi4wNSwxOC4zNC00OS43OCwxNS41My03Ni45MC0uNTUtLjYxLTkuMTMsNS45MC0xMC43Myw2LjcxWk0xMjEuNjMsMjgxLjg4Yy0xLjMzLDEuOTAtNy42My0uNzUtOS41Ny0uODgtNS43NC0uMzgtMTAuNy4yNi0xNi4zMi45bC0uMDYtNC4zOGMuNzItMi43MywyMC45NC0xLjg0LDI0LjM3LjQ3LDEuMjkuODcsMi4zNywyLjc3LDEuNTgsMy45WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIwMC45NCwxNDcuMjVjLTMuNzUtMy43MS0xMC44Ni02LjgxLTE2LjA5LTcuMzQtNDcuMTctMi4yNy05Ny41NS00LjYxLTE0NC4zOC0xLTQwLjYsMy4xMy0zNi4xNiw0OC40NC02LjQ3LDYwLjQ3LDE4LjM0LDcuNDMsNDQuMjgsMS44Niw1Ni41OC05LjE1LDYuMTQtOC45OSw2LTIyLjkyLDIwLjU5LTIyLjQyLDEwLjkwLjM3LDEyLjUxLDEyLjIzLDE2LjU4LDE5LjQzLDE0LjY5LDI2LDYyLjAzLDIwLjg0LDc2LjcyLTIuNjUs電力９MS0xMS4wNCw1Ljg1LTI4LjA1LTMuNTQtMzczNFpNMTk5LjI4LDE4NC4zN2MtMTIuNTUsMTYuMjUtNDkuNDMsMjIuNjUtNjQuMzYsNy4xNy05LjUyLTkuODctNi42NS0yOC41My0yNS42MS0yNy41OS0xOC4yNy45MS0xMy42OCwxOS40MS0yNS41MSwyOS40Ny05Ljg3LDguNDAtMjkuMjAsOS4xNC00MS4wOCw1LjItMi4wMy0uNjctNS41Ny0yLjk0LTIuMjMtMy43MSwyLjE2LS41MCw5LjYzLDEuODYsMTIuODcsMi4wMyw5LjE1LjQ4LDE2LjkzLjYzLDI1LjEwLTMuODgsMS41NS0uODUsNC44OC0xLjg4LDQuMzEtNC4xNS0yMi4zNSw2LjEwLTQ4LjgtMS42NC02NC4yMy0xOS0yLjA4LDIuODAsNi44MiwxMS4zMCwwLDExLjAyLTguODgtMTIuNjQtMi4zNC0zNS4wOSwxMy45Mi0zNy4wNSwxNC44Ny0xLjc5LDQ4LjIxLTIuNzUsNjIuNzktMSw1LjUyLjY2LDkuODcsNy4xNywxNC45Myw3LjEwLDMuNi0uMDUsOC44Mi02LjM0LDE1LjkzLTcuMDYsMTAuOTQtMS4xMSw1MC41My0xLjYxLDYwLjMsLjQzLDE4LjI1LDMuODAsMjMuODksMjYuNzUsMTIuODYsNDEuMDNaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTk0LjA1LDEzOC42OGM2LjYzLDIuNTcsMTUuNDQsMTEuNzksMTYuMjMsMTkuMjIsMy41Ny0yLjc4LDEuNTgtOS41NiwyLjI0LTE0LjI0LDEuMDgtNy42Myw4LjY5LTE2LjMyLDIuMjktMjMuODMtOC4xMi05LjUzLTIyLjE1LjI4LTMwLjg5LDMuMTEtMjAuOTQsNi43OC0zNi4wNyw4LjcxLTU3LjY5LDExLjA4LTEuMDQuMTEtNC42OC40LTQuNiwxLjg4aDYxLjI1Yy43NCwwLDkuOTYsMi4zMSwxMS4xNywyLjc4WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM0LjQ5LDEzNS45aDY1LjIzYy0yLjUxLTMuNDItOC42OC0xLjU4LTEyLjQ0LTIuMDEtOC43NS0xLTE4LjgyLTIuNjEtMjcuNDMtNC40NS0xMy4xLTIuODEtMjguNzktMTAuMTgtNDAuNzQtMTIuMDgtNC43Ny0uNzYtOS40Ni0uODEtMTMuMDIsMy4wMy03LjksOC41MCw1LjM3LDI0LjY3LDIuMDIsMzUuNTIsMi4zNi0xLjg1LDMuMDEtNC45NSw0Ljk5LTcuNDcsNC44NS02LjE1LDEzLjYtMTEuNTQsMjEuMzktMTIuNTNaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjI4LjQ3LDE2MC4xYy02Ljg4LTEuNTctMTguMDEsNi4xMC0xNi4yMSwxMy43OSwyLjM4LjE2LDMuMjMtMi4yNCw1LjI3LTMuMjAsMy41Ny0xLjY4LDguMjEtMy4wMywxMS43MS0uMmwtMS4wMSwzLjk5Yy01Ljg5LS44NS0xMS4yNywxLjU1LTE0LjU5LDYuMzUuNjcsNC45OCwzLjg0LDguMzUsNC40OCwxMy42Ny41Miw0LjM1LjMzLDkuMjEtLjksMTMuMzktNy40Mi0uMDUtMy42OS01LjY0LTMuOTUtMTAuNDYtLjE2LTMuMDItMS42NC02LjYxLTIuNS05LjU1LTEuMDYtMS41Ni0xLjYxLS41Ny0yLjUxLjUtNC40Miw1LjI5LS45MSwyNy43MC0uOTcsMzYuMDQsMCwxLjI3LS45OSwyLjczLS45NywyLjk5LjE0LDEuODMsNS44NS42LDcuMTcuMjIsMTAuODMtMy4xOCw3LjYtMTEuMTUsOC43NC0xOS4yMi41NC0zLjgyLDEuMTktOS4xOCwyLjI2LTEyLjczLDIuMzUtNy44NiwxOS43OC0zMS45NywzLjk5LTM1LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEzOC4yNSwyNTkuMTNjLjg3LS42MSwxLjg2LjE3LDEuMy0yLjIzbC01My43OCwxLjQ5YzQuNzYsMi4xMiw3LjY4LDYuOTUsMTIuOTAsOC4wNiwxMi4zMSwyLjYxLDI5LjE5LS4wNywzOS41OC03LjMyWiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxNi4yMywxNDMuODlsLS45OSwxN2MyLjI4LjQ4LDEuNi0uMjMsMi4yNC0xLjI3LDIuMjgtMy42OCwxLjY4LTcuOTQsMi45NC0xMS4wMS45LTIuMTksNC4xOC0xLjg1LDMuNzctNC43MWgtNy45N1oiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMjQuNzcsMTM5Ljk2bC40My05LjA3Yy04LjM4LTEuOTUtMTEuNTgsMTQuNzItLjQzLDkuMDdaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTIwLjA0LDI3Ny45OWMtMy40Mi0yLjMxLTIzLjY1LTMuMi0yNC4zNy0uNDdsLjA2LDQuMzhjNS42My0uNjQsMTAuNTgtMS4yOCwxNi4zMi0uOSwxLjk0LjEzLDguMjQsMi43OCw5LjU3Ljg4Ljc5LTEuMTMtLjMtMy4wMy0xLjU4LTMuOVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xODYuNDIsMTQzLjM0Yy05Ljc3LTIuMDQtNDkuMzUtMS41NC02MC4zLS40My03LjExLjcyLTEyLjMzLDcuMDEtMTUuOTMsNy4wNi01LjA2LjA3LTkuNDEtNi40NC0xNC45My03LjEtMTQuNTgtMS43NS00Ny45Mi0uNzktNjIuNzksMS0xNi4yNiwxLjk2LTIyLjgwLDI0LjQxLTEzLjkyLDM3LjA1LDYuODIsLjI5LTIuMDktOC4yMiwwLTExLjAyLDE1LjQ0LDE3LjM1LDQxLjg4LDI1LjEwLDY0LjIzLDE5LjA1LDIuMjgtMi43NywzLjMwLTQuMzEsNC4xNS04LjE3LDQuNTEtMTUuOTQsNC4zNy0yNS4xLDMuODgtMy4yNS0uMTctMTAuNzEtMi41My0xMi44Ny0yLjAzLTMuMzQuNzguMiwzLjA0LDIuMjMsMy43MSwxMS44OCwzLjk0LDMxLjIsMy4yMCw0MS4wOC01LjIsMTEuODItMTAuMDUsNy4yMy0yOC41NiwyNS41MS0yOS40NywxOC45Ny0uOTQsMTYuMSwxNy43MiwyNS42MSwyNy41OSwxNC45MywxNS40Nyw1MS44MSw5LjA4LDY0LjM2LTcuMTcsMTEuMDItMTQuMjgsNS4zOS0zNy4yMy0xMi44Ni00MS4wM1pNODguMjUsMTgxLjg4Yy0xOC42NiwxMi40NS00NC45OSwzLjYzLTYyLjAxLTguMjBsLjc5LTI0Ljc5YzYuOTMsNi43MCwxMC43MS40LDE2LjktMS41MiwxNC4yOC00LjQyLDIzLjk2LS40LDM2LjIsNS43OCwxLjI1LjYzLDIuODMtLjA0LDMuNjcuMzYsNi45NSwzLjI3LDYuNzIsMjEuOTQsNC40NSwyOC4zN1pNMTMyLjEzLDE4MC44NWMtNC4zOS02LjMzLTMuMzQtMTEuMjcsMy45NS0xMy45MywxLjkzLDIuNzcuNjgsNC40NCwzLjQzLDcuNTMsNy4zMCw4LjIyLDE4LjIzLjQ3LDE1Ljk5LTkuNTYsNC4xNi0xLjY4LDE4Ljk3LDcuOTIsMjAuOTEsNiwxLjU4LTUuNDctMTAuNTktOS40MC0xNC45My0xMC41MC0xMy4wMy0zLjMwLTI0LjQ3LTEuMTQtMzUuMzcsNi41Mi03LjMtNS40MC0xNS41LTcuNjgtMjQuMzYtNC40OS0yLjY5Ljk3LTQuMzMsMy4wOC02Ljk5LDMuNDcsMi4wNC02LjcxLTcuMjgtMTQuNzUtNy45OS0xOC40OC0uMzgtMi4wMi4yOC0xLjMzLDEuNDktMS41MSwxMC44Ny0xLjY1LDE1LjU5LDguMzMsMjEuODYsNy45OCwyLjk4LS4xNiw1LjgzLTMuNjUsNy4yMy0zLjg3LDEuNi0uMjUsMi40OSwyLjIxLDQsMi42OSw0LjQ2LDEuNDIsNy4wOC0yLjE5LDEwLjk5LTMuNTgsMTAuMDktMy41NywyMC4zMC01LjExLDMwLjY3LTEuMjgsMy43LDEuMzcsNi4wOSw0LjkxLDEwLjg5LDQuMDcsMy44Ni0uNjcsMi45MC01LjI5LDMuNjItNS45Miw0LTMuNDcsMjYuNTMsNi4zMCwyMi4wMywxOS42Mi02LjIyLDE4LjQyLTU2LjI4LDMxLjI0LTY3LjQxLDE1LjIyWk0xODYuNjYsMTkwLjdjLTkuNDEsNS4xOS0yOC44Nyw4LjE4LTM5LjExLDQuNjctMy4xOS0xLjA5LTUuNzctMy41MC04Ljk4LTQuNDgtLjIzLTEuNzgsMi4yNC0uOTcsMy4zNS0uODcsMTcuNzEsMS42NywzMC44NCwxLDQ2Ljc2LTguMjlsMTIuNjEt1MC44MmMtMS4wMiw5LjMwLTYuODEsMTUuNDktMTQuNjMsMTkuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTk5LjU0LDE2NS42M2M0LjUtMTMuMzItMTguMDMtMjMuMDktMjIuMDMtMTkuNjItLjczLjYzLjI0LDUuMjQtMy42Miw1LjkyLTQuOC44NC03LjE5LTIuNzEtMTAuODktNC4wNy0xMC4zOC0zLjgzLTIwLjU4LTIuMzAtMzAuNjcsMS4yOC0zLjkxLDEuMzktNi41Miw0Ljk5LTEwLjk5LDMuNTgtMS41MS0uNDgtMi40MC0yLjk0LTQtMi42OS0xLjQxLjIyLTQuMjUsMy43MC03LjIzLDMuODctNi4yNi4zNC0xMC45OS05LjYzLTIxLjg2LTcuOTgtMS4yMS4xOC0xLjg3LS41MS0xLjQ5LDEuNTEuNzEsMy43MywxMC4wMywxMS43Nyw3Ljk5LDE4LjQ4LDIuNjctLjM5LDQuMzEtMi41MCw2Ljk5LTMuNDcsOC44Ni0zLjE5LDE3LjA1LS45MSwyNC4zNiw0LjQ5LDEwLjktNy42NiwyMi4zNC05LjgxLDM1LjM3LTYuNTIsNC4zNCwxLjEwLDE2LjUxLDUuMDIsMTQuOTMsMTAuNTAtMS45MywxLjkzLTE2Ljc0LTcuNjctMjAuOTEtNiwyLjI1LDEwLjAzLTguNjgsMTcuNzgtMTUuOTksOS41Ni0yLjc1LTMuMDktMS41MC00Ljc3LTMuNDMtNy41My03LjI5LDIuNjYtOC4zNCw3LjYxLTMuOTUsMTMuOTMsMTEuMTMsMTYuMDIsNjEuMTksMy4yMCw2Ny40MS0xNS4yMloiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik04MS4yNywxNjUuOTJjLTEwLjI1LTkuMTQtMjcuMjAtOC4wOC0zOS4yOS0zLjUxLTMuNzcsMS40Mi0xMC4yOSwzLjc1LTguOTgsOC40NywxLjkzLDEuOTMsMTYuNy03LjY2LDIwLjkxLTYtMi4yLDE2LjIzLDE3LjcyLDE3LjYxLDE4Ljk0LDIsOS40Niw1Ljc2YzQuMzIsLTIuNjYsMS43OCwtNC4yMywtMS4wNCwtNi43NFoiLz48L2c+PC9nPjwvc3ZnPg=="
+                style="width:100px; margin-bottom:15px;">
+            <h1 style="margin-bottom:10px;">arai-eek?</h1>
+            <p id="t-setup-desc" style="opacity:0.8; margin-bottom:20px;">Register your adventure profile.</p>
+
+            <input type="text" id="setup-name" class="setup-input" placeholder="Name">
+            <input type="password" id="setup-pass" class="setup-input" placeholder="Password">
+
+            <p class="setup-label" id="t-pick-color">Choose Your Color</p>
+            <div style="display:flex; justify-content:center; gap:10px; margin-bottom:25px;" id="setup-colors">
+                <div class="color-dot active" style="background:#2733A0" data-color="#2733A0"></div>
+                <div class="color-dot" style="background:#EE1B26" data-color="#EE1B26"></div>
+                <div class="color-dot" style="background:#2ecc71" data-color="#2ecc71"></div>
+                <div class="color-dot" style="background:#9b59b6" data-color="#9b59b6"></div>
+            </div>
+
+            <button class="btn-setup" onclick="completeSetup()"
+                style="background:var(--red); color:white; border:none; padding:15px; border-radius:12px; width:100%; font-weight:800; cursor:pointer;"
+                id="t-btn-start">START JOURNEY</button>
+        </div>
+    </div>
+
+    <!-- GitHub Settings Sidebar -->
+    <div id="github-sidebar" class="github-sidebar">
+        <h2 id="t-gh-settings">GitHub Sync Settings</h2>
+        <p style="font-size:0.8rem; color:#666; margin-bottom:20px;">Connect to GitHub Pages repo to sync data.</p>
+
+        <label class="setup-label" style="color:#333;">Personal Access Token</label>
+        <input type="password" id="gh-token" class="setup-input" style="border:1px solid #ddd;" placeholder="ghp_xxxx">
+
+        <label class="setup-label" style="color:#333;">Repo Name (User/Repo)</label>
+        <input type="text" id="gh-repo" class="setup-input" style="border:1px solid #ddd;"
+            placeholder="username/my-walking-app">
+
+        <button onclick="saveGitHubSettings()" class="btn-setup"
+            style="background:var(--blue); color:white; border:none; padding:12px; border-radius:10px; width:100%; font-weight:700;">SAVE
+            SETTINGS</button>
+        <button onclick="toggleGitHub(false)"
+            style="margin-top:10px; background:none; border:none; color:#999; cursor:pointer; width:100%;">Close</button>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- UI Overlays -->
+    <header class="overlay">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div id="u-avatar"
+                style="width:32px; height:32px; border-radius:50%; background:var(--blue); color:white; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; border:2px solid white;">
+                A</div>
+            <div id="u-name" style="font-weight:600; font-size:0.85rem; color:#333;">Explorer</div>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('th')">TH</button>
+        </div>
+        <button onclick="toggleSidebar(true)" class="btn-fab btn-white"
+            style="width:38px; height:38px; box-shadow:none; background:#f5f5f5;">
+            <i data-lucide="image" style="width:18px;"></i>
+        </button>
+    </header>
+
+    <div class="stats overlay">
+        <div style="display:flex; flex-direction:column;">
+            <span class="setup-label" style="font-size:0.6rem; margin:0;" id="t-dist-label">Distance</span>
+            <span id="dist-txt" style="font-weight:800; font-size:0.9rem;">0.00 km</span>
+        </div>
+        <div style="display:flex; flex-direction:column;">
+            <span class="setup-label" style="font-size:0.6rem; margin:0;" id="t-memo-label">Memories</span>
+            <span id="memo-txt" style="font-weight:800; font-size:0.9rem;">0</span>
+        </div>
+    </div>
+
+    <div class="controls overlay">
+        <button id="btn-track" onclick="toggleTracking()" class="btn-fab btn-main">
+            <i data-lucide="play"></i>
+        </button>
+        <button id="btn-add" onclick="openModal()" class="btn-fab btn-white" disabled>
+            <i data-lucide="camera" style="color:var(--red)"></i>
+        </button>
+        <button onclick="toggleGitHub(true)" class="btn-fab btn-white">
+            <i data-lucide="settings"></i>
+        </button>
+        <button onclick="locate(true)" class="btn-fab btn-white">
+            <i data-lucide="crosshair"></i>
+        </button>
+    </div>
+
+    <!-- Gallery Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div
+            style="padding:25px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+            <h2 id="t-journal">Journal</h2>
+            <div style="display:flex; gap:10px;">
+                <button onclick="playback()" class="btn-fab btn-white" style="width:35px; height:35px; box-shadow:none; background:#f0f0f0;">
+                    <i data-lucide="play-circle" style="width:18px;"></i>
+                </button>
+                <button onclick="toggleSidebar(false)"
+                    style="background:none; border:none; font-size:1.5rem;">&times;</button>
+            </div>
+        </div>
+        <div id="gallery"
+            style="flex:1; overflow-y:auto; padding:15px; display:grid; grid-template-columns:1fr 1fr; gap:12px;"></div>
+    </div>
+
+    <!-- Memory Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-body">
+            <h3 id="t-capture-title" style="margin-bottom:15px; color:var(--blue)">Capture Moment</h3>
+            <div style="width:100%; aspect-ratio:4/3; background:#f5f5f5; border:2px dashed #ccc; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;"
+                onclick="document.getElementById('inp-file').click()">
+                <input type="file" id="inp-file" accept="image/*" capture="environment" hidden
+                    onchange="previewImage(this)">
+                <div id="cam-placeholder">
+                    <i data-lucide="camera" style="width:30px; color:#999;"></i>
+                    <p style="color:#999; font-size:0.7rem; margin-top:5px;" id="t-tap-photo">Tap to take photo</p>
+                </div>
+                <img id="preview-img" src="" class="hidden" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <textarea id="inp-note" placeholder="..."
+                style="width:100%; height:80px; margin-top:12px; padding:12px; border-radius:10px; border:1px solid #ddd; resize:none;"></textarea>
+            <div style="display:flex; gap:10px; margin-top:15px;">
+                <button onclick="closeModal()"
+                    style="flex:1; padding:12px; border:none; border-radius:10px; background:#eee;"
+                    id="t-btn-cancel">Cancel</button>
+                <button onclick="saveMemory()"
+                    style="flex:2; padding:12px; border:none; border-radius:10px; background:var(--blue); color:white; font-weight:700;"
+                    id="t-btn-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const TRANSLATIONS = {
+            en: {
+                setupDesc: "Register your adventure profile.", pickColor: "Choose Your Color", btnStart: "START JOURNEY",
+                distLabel: "Distance", memoLabel: "Memories", journal: "Journal", captureTitle: "Capture Moment",
+                tapPhoto: "Tap to take photo", btnCancel: "Cancel", btnSave: "Save", ghSettings: "GitHub Settings",
+                alertLogin: "Please enter name and password!", alertPhoto: "Please take a photo!"
+            },
+            th: {
+                setupDesc: "ลงทะเบียนโปรไฟล์การผจญภัยของคุณ", pickColor: "เลือกสีของคุณ", btnStart: "เริ่มการเดินทาง",
+                distLabel: "ระยะทาง", memoLabel: "ความทรงจำ", journal: "บันทึกการเดินทาง", captureTitle: "บันทึกช่วงเวลา",
+                tapPhoto: "แตะเพื่อถ่ายภาพ", btnCancel: "ยกเลิก", btnSave: "บันทึก", ghSettings: "ตั้งค่า GitHub",
+                alertLogin: "กรุณาใส่ชื่อและรหัสผ่าน!", alertPhoto: "กรุณาถ่ายรูป!"
+            }
+        };
+
+        let map, userMarker, pathLine, db, currentLang = 'en';
+        let isTracking = false, pathPoints = [], memories = [], watchId = null;
+        let currentUser = { name: '', color: '#2733A0', pass: '', ghToken: '', ghRepo: '' };
+
+        window.onload = async () => {
+            lucide.createIcons();
+            initMap();
+            await initDB();
+            checkUser();
+            setupColorPicker();
+        };
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.innerText.toLowerCase() === lang));
+            const t = TRANSLATIONS[lang];
+            document.getElementById('t-setup-desc').innerText = t.setupDesc;
+            document.getElementById('t-pick-color').innerText = t.pickColor;
+            document.getElementById('t-btn-start').innerText = t.btnStart;
+            document.getElementById('t-dist-label').innerText = t.distLabel;
+            document.getElementById('t-memo-label').innerText = t.memoLabel;
+            document.getElementById('t-journal').innerText = t.journal;
+            document.getElementById('t-capture-title').innerText = t.captureTitle;
+            document.getElementById('t-tap-photo').innerText = t.tapPhoto;
+            document.getElementById('t-btn-cancel').innerText = t.btnCancel;
+            document.getElementById('t-btn-save').innerText = t.btnSave;
+            document.getElementById('t-gh-settings').innerText = t.ghSettings;
+            document.getElementById('setup-name').placeholder = lang === 'en' ? 'Name' : 'ชื่อ';
+            document.getElementById('setup-pass').placeholder = lang === 'en' ? 'Password' : 'รหัสผ่าน';
+        }
+
+        function checkUser() {
+            const saved = localStorage.getItem('arai_user_secure');
+            if (saved) {
+                currentUser = JSON.parse(saved);
+                applyUserStyle();
+                loadFromDB();
+            } else {
+                document.getElementById('setup-screen').classList.remove('hidden');
+            }
+        }
+
+        function setupColorPicker() {
+            document.querySelectorAll('.color-dot').forEach(dot => {
+                dot.onclick = () => {
+                    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                    currentUser.color = dot.dataset.color;
+                };
+            });
+        }
+
+        function completeSetup() {
+            const name = document.getElementById('setup-name').value.trim();
+            const pass = document.getElementById('setup-pass').value.trim();
+            if (!name || !pass) return alert(TRANSLATIONS[currentLang].alertLogin);
+
+            currentUser.name = name;
+            currentUser.pass = pass;
+            localStorage.setItem('arai_user_secure', JSON.stringify(currentUser));
+            document.getElementById('setup-screen').classList.add('hidden');
+            applyUserStyle();
+        }
+
+        function applyUserStyle() {
+            document.documentElement.style.setProperty('--user-color', currentUser.color);
+            document.getElementById('u-name').innerText = currentUser.name;
+            document.getElementById('u-avatar').innerText = currentUser.name.charAt(0).toUpperCase();
+            document.getElementById('u-avatar').style.background = currentUser.color;
+            if (userMarker) userMarker.setIcon(L.divIcon({ className: 'u-m', html: `<div style="background:${currentUser.color}; width:20px; height:20px; border-radius:50%; border:3px solid white;"></div>`, iconSize: [20, 20] }));
+        }
+
+        function initMap() {
+            map = L.map('map', { zoomControl: false, attributionControl: false }).setView([0, 0], 2);
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(map);
+            userMarker = L.marker([0, 0], { icon: L.divIcon({ className: 'u-m', html: `<div style="background:${currentUser.color}; width:20px; height:20px; border-radius:50%; border:3px solid white;"></div>`, iconSize: [20, 20] }) }).addTo(map);
+            pathLine = L.polyline([], { color: currentUser.color, weight: 6, opacity: 0.8 }).addTo(map);
+            locate(true);
+        }
+
+        function locate(center = false) {
+            navigator.geolocation.getCurrentPosition(p => {
+                const pos = [p.coords.latitude, p.coords.longitude];
+                userMarker.setLatLng(pos);
+                if (center) map.flyTo(pos, 16);
+            }, null, { enableHighAccuracy: true });
+        }
+
+        function toggleTracking() {
+            isTracking = !isTracking;
+            const btn = document.getElementById('btn-track');
+            if (isTracking) {
+                btn.classList.add('tracking-active'); btn.innerHTML = '<i data-lucide="square"></i>';
+                document.getElementById('btn-add').disabled = false;
+                watchId = navigator.geolocation.watchPosition(updatePath, null, { enableHighAccuracy: true });
+            } else {
+                btn.classList.remove('tracking-active'); btn.innerHTML = '<i data-lucide="play"></i>';
+                document.getElementById('btn-add').disabled = true;
+                if (watchId) navigator.geolocation.clearWatch(watchId);
+            }
+            lucide.createIcons();
+        }
+
+        function updatePath(p) {
+            const pos = [p.coords.latitude, p.coords.longitude];
+            userMarker.setLatLng(pos); pathPoints.push(pos); pathLine.setLatLngs(pathPoints);
+            let dist = 0;
+            for (let i = 1; i < pathPoints.length; i++) dist += L.latLng(pathPoints[i - 1]).distanceTo(L.latLng(pathPoints[i]));
+            document.getElementById('dist-txt').innerText = (dist / 1000).toFixed(2) + ' km';
+        }
+
+        async function saveMemory() {
+            const note = document.getElementById('inp-note').value;
+            const img = document.getElementById('preview-img').src;
+            if (!img || img === '') return alert(TRANSLATIONS[currentLang].alertPhoto);
+
+            const pos = userMarker.getLatLng();
+            const memo = { id: Date.now(), user: currentUser.name, color: currentUser.color, lat: pos.lat, lng: pos.lng, note, img, time: new Date().toLocaleString() };
+
+            const tx = db.transaction('memos', 'readwrite');
+            tx.objectStore('memos').add(memo);
+
+            addPin(memo); memories.push(memo); updateGallery(); closeModal();
+            document.getElementById('memo-txt').innerText = memories.length;
+
+            // GitHub Sync
+            if (currentUser.ghToken && currentUser.ghRepo) syncToGitHub(memo);
+        }
+
+        async function syncToGitHub(memo) {
+            const filename = `memories/${memo.id}.jpg`;
+            const base64Data = memo.img.split(',')[1];
+            const url = `https://api.github.com/repos/${currentUser.ghRepo}/contents/${filename}`;
+
+            try {
+                const res = await fetch(url, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `token ${currentUser.ghToken}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: `Add memory from ${memo.user}`, content: base64Data })
+                });
+                if (res.ok) console.log('Synced to GitHub!');
+            } catch (e) { console.error('GitHub Sync Failed', e); }
+        }
+
+        function toggleGitHub(show) { document.getElementById('github-sidebar').classList.toggle('open', show); }
+        function saveGitHubSettings() {
+            currentUser.ghToken = document.getElementById('gh-token').value;
+            currentUser.ghRepo = document.getElementById('gh-repo').value;
+            localStorage.setItem('arai_user_secure', JSON.stringify(currentUser));
+            alert('Settings Saved!');
+            toggleGitHub(false);
+        }
+
+        // --- Standard Helpers ---
+        async function initDB() { return new Promise(res => { const req = indexedDB.open('AraiSecureDB', 1); req.onupgradeneeded = e => e.target.result.createObjectStore('memos', { keyPath: 'id' }); req.onsuccess = e => { db = e.target.result; res(); }; }); }
+        function loadFromDB() { if (!db) return; db.transaction('memos', 'readonly').objectStore('memos').getAll().onsuccess = e => { memories = e.target.result; memories.forEach(addPin); updateGallery(); document.getElementById('memo-txt').innerText = memories.length; }; }
+        function addPin(m) { const pin = L.marker([m.lat, m.lng], { icon: L.divIcon({ className: 'p-m', html: `<div style="background:${m.color}; width:14px; height:14px; border-radius:50%; border:2px solid white;"></div>`, iconSize: [14, 14] }) }).addTo(map); pin.bindPopup(`<div style="width:150px"><img src="${m.img}" style="width:100%; border-radius:10px"><p style="font-size:12px; margin-top:5px;"><b>${m.user}:</b> ${m.note}</p></div>`); }
+        function updateGallery() { const c = document.getElementById('gallery'); if (memories.length === 0) return; c.innerHTML = ''; memories.slice().reverse().forEach(m => { const el = document.createElement('div'); el.style.background = '#fff'; el.style.borderRadius = '12px'; el.style.overflow = 'hidden'; el.innerHTML = `<img src="${m.img}" style="width:100%; height:100px; object-fit:cover;"><div style="padding:8px;"><p style="font-size:0.7rem; font-weight:700; color:${m.color}">${m.user}</p><p style="font-size:0.7rem; color:#555;">${m.note}</p></div>`; el.onclick = () => { map.flyTo([m.lat, m.lng], 18); toggleSidebar(false); }; c.appendChild(el); }); }
+        function toggleSidebar(s) { document.getElementById('sidebar').classList.toggle('open', s); }
+        function openModal() { document.getElementById('modal').classList.add('open'); }
+        function closeModal() { document.getElementById('modal').classList.remove('open'); document.getElementById('preview-img').src = ''; document.getElementById('preview-img').classList.add('hidden'); document.getElementById('cam-placeholder').classList.remove('hidden'); document.getElementById('inp-note').value = ''; }
+        function previewImage(inp) { const file = inp.files[0]; if (file) { const r = new FileReader(); r.onload = e => { const i = document.getElementById('preview-img'); i.src = e.target.result; i.classList.remove('hidden'); document.getElementById('cam-placeholder').classList.add('hidden'); }; r.readAsDataURL(file); } }
+
+        async function playback() {
+            if (pathPoints.length < 2) return alert(currentLang === 'en' ? 'No journey recorded!' : 'ไม่มีบันทึกการเดินทาง!');
+            
+            toggleSidebar(false);
+            pathLine.setLatLngs([]);
+            map.closePopup();
+
+            // Collect all memory markers
+            const memoMarkers = [];
+            map.eachLayer(l => { if(l instanceof L.Marker && l !== userMarker) memoMarkers.push(l); });
+
+            for (let i = 0; i < pathPoints.length; i++) {
+                const p = pathPoints[i];
+                pathLine.addLatLng(p);
+                userMarker.setLatLng(p);
+                map.panTo(p);
+
+                // Auto-popup photos if near
+                memories.forEach(m => {
+                    const dist = L.latLng(p).distanceTo(L.latLng(m.lat, m.lng));
+                    if (dist < 15) { // 15 meters radius
+                        memoMarkers.forEach(marker => {
+                            if (marker.getLatLng().lat === m.lat && marker.getLatLng().lng === m.lng) {
+                                marker.openPopup();
+                            }
+                        });
+                    }
+                });
+
+                await new Promise(r => setTimeout(r, 100));
+            }
+        }
+    </script>
+</body>
+
+</html>
