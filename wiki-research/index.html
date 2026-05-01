@@ -15,14 +15,40 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        .header { 
-            font-size: 2.2em; 
-            text-align: center; 
-            border-bottom: 2px solid #555; 
-            padding-bottom: 20px; 
-            margin-bottom: 40px; 
+        .header {
+            font-size: 2.2em;
+            text-align: left;
+            border-bottom: 2px solid #ff00ff;
+            padding: 20px 0;
+            margin-bottom: 30px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        .header img {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 0 10px #ff00ff);
+        }
+        .header-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .header-sub {
+            font-size: 0.4em;
+            letter-spacing: 3px;
+            opacity: 0.9;
+            margin-top: 5px;
+            color: #ffccff;
+            text-shadow: none;
+            text-decoration: none;
+        }
+        .header-sub:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff;
         }
         .grid {
             display: grid;
@@ -69,6 +95,68 @@
             font-size: 1.1em;
             letter-spacing: 1px;
         }
+        .intro {
+            background-color: #111;
+            border-left: 3px solid #ff00ff;
+            padding: 20px;
+            margin-bottom: 40px;
+            font-size: 1em;
+            color: #ffccff;
+            line-height: 1.6;
+        }
+        .intro strong {
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff;
+        }
+        .intro a {
+            color: #ff00ff;
+            border-bottom: 1px dashed #ff00ff;
+        }
+        .intro a:hover {
+            background-color: #221122;
+            border-bottom: 1px solid #ff00ff;
+        }
+        .methodology {
+            background-color: #111;
+            border-left: 3px solid #555;
+            padding: 20px;
+            margin-bottom: 40px;
+            font-size: 1em;
+            color: #eee;
+            line-height: 1.6;
+        }
+        .methodology {
+            margin-top: 60px;
+            border-left: 3px solid #00ff41;
+        }
+        .methodology h3 {
+            color: #00ff41;
+            margin-top: 0;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+        .methodology ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .methodology li {
+            margin-bottom: 10px;
+        }
+        .methodology strong {
+            color: #fff;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .intro a, .methodology a {
+            color: #fff;
+            border-bottom: 1px dashed #777;
+        }
+        .intro a:hover, .methodology a:hover {
+            background-color: #222;
+            border-bottom: 1px solid #fff;
+        }
         .card .meta {
             margin-top: 15px;
             font-size: 0.8em;
@@ -100,7 +188,21 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">Digital Archeology: Wiki Research</div>
+        <div class="header">
+            <img src="images/arai-eek-logo-crt.svg" alt="Arai-Eek Logo">
+            <div class="header-text">
+                Digital Archeology: Wiki Research
+                <a href="https://www.hackteria.org/wiki/Technobiological_Futures_Co-Laboratories" target="_blank" class="header-sub">[ TECHNOBIOLOGICAL FUTURES CO-LABORATORIES ]</a>
+            </div>
+        </div>
+
+        <div class="intro">
+            [ RESEARCH CONTEXT: TECHNOBIOLOGICAL FUTURES ]<br>
+            This index is part of the <strong>"Technobiological Futures Co-Laboratories" (CoLabs)</strong>, a multi-phase research initiative spanning Thailand, Switzerland, Indonesia, and India. 
+            The project focuses on the consolidation and research of Hackteria’s collective «do-it-with-others» (DIWO) methodologies developed over 15 years. 
+            By performing digital archeology on these diverse wiki ecosystems, we map the transdisciplinary networks and grassroots knowledge production that bypass traditional structures, fostering direct exchange and resilient community-led innovation.<br>
+            [ LINK: <a href="https://www.hackteria.org/wiki/Technobiological_Futures_Co-Laboratories" target="_blank">hackteria.org/wiki/CoLabs</a> ]
+        </div>
         
         <div class="grid">
             <!-- HACKTERIA -->
@@ -166,6 +268,18 @@
 
         <div class="footer">
             [ STATUS: ALL SYSTEMS OPERATIONAL | SCANNING COMPLETED ]
+        </div>
+
+        <div class="methodology">
+            <h3>Methodology: Digital Archeology & Multi-Agent Synthesis</h3>
+            <p>This research was conducted by <strong>dusjagr</strong> in collaboration with <strong>Antigravity</strong> and an agentic multi-model ecosystem during the early residency phase of the <strong><a href="https://arai-eek.github.io/" target="_blank">Arai-eek Lab in Chiang Mai</a></strong>.</p>
+            <ul>
+                <li><strong>Multi-Model Ecosystem:</strong> <strong>Gemini 3 Flash</strong> served as the primary "Archeologist," handling large-scale data extraction, autonomous browser research, and the programmatic refactoring of the reports. <strong>DeepSeek-V3</strong> was utilized for specialized design consultation and "vibe analysis," defining the aesthetic palettes—such as the "Slime Matrix" and "CRT Phosphor" themes—that characterize each wiki's identity.</li>
+                <li><strong>Automated Auditing:</strong> For active sites like Hackteria and SGMK, we built a Python-based scanner to perform year-by-year audits of tens of thousands of MediaWiki actions, mapping contributor leaderboards and career sparklines.</li>
+                <li><strong>Archeological Reconstruction:</strong> For the TAMI wiki, which lost its database in 2023, we reconstructed history using the <strong>Wayback Machine</strong>, cross-referencing archives dating back to 2011 to bridge the gap between lost eras.</li>
+                <li><strong>Aesthetic Archival:</strong> Data is synthesized into terminal-themed reports using Unicode block elements (▂▃▄▅▆▇█) and custom HSL color systems to create a responsive, high-contrast interface honoring the hacker-culture roots of these networks.</li>
+            </ul>
+            <p>Part of the <em>Technobiological Futures</em> research, preserving the tacit knowledge of maker networks through modern agentic tools.</p>
         </div>
     </div>
 </body>
