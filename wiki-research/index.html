@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Archeology: Wiki Research Index</title>
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #ffffff; 
+            font-family: 'Courier New', Courier, monospace; 
+            padding: 40px; 
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header { 
+            font-size: 2.2em; 
+            text-align: center; 
+            border-bottom: 2px solid #555; 
+            padding-bottom: 20px; 
+            margin-bottom: 40px; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .card {
+            border: 2px solid #333;
+            padding: 25px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+            display: block;
+            background-color: #0a0a0a;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            border-color: currentColor;
+        }
+        .card h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+            text-transform: uppercase;
+        }
+        .card p {
+            margin: 0;
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+        .stats {
+            margin-top: 15px;
+            font-size: 0.85em;
+            border-left: 2px solid currentColor;
+            padding-left: 15px;
+            opacity: 0.9;
+        }
+        .timeline-axis {
+            font-size: 0.7em;
+            color: #666;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: -5px;
+        }
+        .sparkline {
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        .card .meta {
+            margin-top: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        /* Color Schemes */
+        .hackteria { color: #00ff41; border-color: #004411; text-shadow: 0 0 5px #00ff41; }
+        .hackteria:hover { background-color: #001a05; }
+        
+        .sgmk { color: #ff99cc; border-color: #442233; text-shadow: 0 0 5px #ff99cc; }
+        .sgmk:hover { background-color: #1a0f12; }
+        
+        .tami { color: #88ffcc; border-color: #113322; text-shadow: 0 0 5px #88ffcc; }
+        .tami:hover { background-color: #0a1512; }
+        
+        .idiot { color: #ffaa33; border-color: #443311; text-shadow: 0 0 5px #ffaa33; }
+        .idiot:hover { background-color: #1a120a; }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #666;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Digital Archeology: Wiki Research</div>
+        
+        <div class="grid">
+            <!-- HACKTERIA -->
+            <a href="hackteria-archeology.html" class="card hackteria">
+                <h2>Hackteria Wiki</h2>
+                <p>Deep historical activity archeology (2009-2026). A global biohacking network mapping 35,000+ lifetime actions and vibrant community project clusters.</p>
+                <div class="stats">
+                    <strong>TIMELINE:</strong> 2009 - 2026 (ACTIVE)<br>
+                    <strong>TOP NODES:</strong> Dusjagr, Gaudi, Mamind, Shihweichieh, Mikrobiomik<br>
+                    <strong>ACTIVITY:</strong><br>
+                    <span class="timeline-axis">&nbsp;'09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'24&nbsp;</span><br>
+                    <span class="sparkline">[▄▃▄▄▄██▄▄█▇▆▄▇▇▄▃▂]</span><br>
+                    <strong>RECENT SCAN:</strong> 2026 (CoLabs Chiang Mai, SoilAssembly)
+                </div>
+                <div class="meta">[ ACCESSING DEEP HISTORY CORE... ]</div>
+            </a>
+
+            <!-- SGMK -->
+            <a href="sgmk.html" class="card sgmk">
+                <h2>SGMK Wiki</h2>
+                <p>Historical activity matrix for the Swiss Mechatronic Art Society. Tracking community growth, circuit bending, and hardware hacking since 2010.</p>
+                <div class="stats">
+                    <strong>TIMELINE:</strong> 2010 - 2026 (ACTIVE)<br>
+                    <strong>TOP NODES:</strong> Dusjagr, Omega attraktor, Stahl, 0rel, Urbs<br>
+                    <strong>ACTIVITY:</strong><br>
+                    <span class="timeline-axis">&nbsp;'09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'24&nbsp;</span><br>
+                    <span class="sparkline">[·▂▆▅▄▃▄▆▂▃▅▆▄▄▅▆█▂]</span><br>
+                    <strong>RECENT SCAN:</strong> 2026 (Ongoing documentation)
+                </div>
+                <div class="meta">[ RETRIEVING MECHATRONIC LOGS... ]</div>
+            </a>
+
+            <!-- TAMI -->
+            <a href="tami.html" class="card tami">
+                <h2>TAMI Wiki</h2>
+                <p>Reconstructed activity matrix (2011-2026). Archeological recovery of the Tel Aviv Makerspace documentation across MediaWiki and DokuWiki eras.</p>
+                <div class="stats">
+                    <strong>TIMELINE:</strong> 2011 - 2026 (RECONSTRUCTED)<br>
+                    <strong>TOP NODES:</strong> Jeremy.rutman, Yuval Adam, AlonLevy, Yair, Timi<br>
+                    <strong>ACTIVITY:</strong><br>
+                    <span class="timeline-axis">&nbsp;'09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'24&nbsp;</span><br>
+                    <span class="sparkline">[··▃▄▇▆▇▆▅▆▇▄▃▂█▇▇▃]</span><br>
+                    <strong>RECENT SCAN:</strong> 2025 (DokuWiki Live Era)
+                </div>
+                <div class="meta">[ RECONSTRUCTING FRAGMENTED DATA... ]</div>
+            </a>
+
+            <!-- IDIOT -->
+            <a href="idiot.html" class="card idiot">
+                <h2>Idiot.io</h2>
+                <p>Historical activity matrix (2018-2026). Mapping the knowledge nodes and "absurd genius" project clusters of the idiot.io maker collective.</p>
+                <div class="stats">
+                    <strong>TIMELINE:</strong> 2018 - 2026 (ARCHIVAL)<br>
+                    <strong>TOP NODES:</strong> yair, zohar, denisa (REACHED LIMIT)<br>
+                    <strong>ACTIVITY:</strong><br>
+                    <span class="timeline-axis">&nbsp;'09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'24&nbsp;</span><br>
+                    <span class="sparkline">[·········▆▆█▄▆▄▂  ]</span><br>
+                    <strong>RECENT SCAN:</strong> 2024 (Biological Computing peak)
+                </div>
+                <div class="meta">[ SCANNING KNOWLEDGE NODES... ]</div>
+            </a>
+        </div>
+
+        <div class="footer">
+            [ STATUS: ALL SYSTEMS OPERATIONAL | SCANNING COMPLETED ]
+        </div>
+    </div>
+</body>
+</html>

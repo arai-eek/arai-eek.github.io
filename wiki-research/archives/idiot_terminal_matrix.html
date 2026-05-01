@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Idiot.io - Historical Activity Analysis</title>
+    <style>
+        body { background-color: #050505; color: #39ff14; font-family: 'Courier New', Courier, monospace; padding: 20px; text-shadow: 0 0 3px #39ff14; }
+        .header { font-size: 1.8em; text-align: center; border-bottom: 2px solid #39ff14; padding: 10px; margin-bottom: 10px; text-transform: uppercase; }
+        .legend { text-align: center; font-size: 0.9em; margin-bottom: 30px; color: #88ff88; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 50px; }
+        th { border-bottom: 2px solid #39ff14; padding: 10px; text-align: left; color: #ffffff; }
+        td { padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #113311; }
+        .bar-container { color: #39ff14; letter-spacing: -1px; white-space: nowrap; }
+        .year-label { font-weight: bold; color: #ffffff; width: 60px; }
+        .user-count { color: #88ff88; width: 100px; }
+        .top-users { font-size: 0.85em; color: #aaaaaa; }
+        .highlight { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
+        .hall-of-fame { border: 2px solid #39ff14; padding: 20px; background-color: #0a1a0a; margin-bottom: 40px; }
+        .sparkline { color: #00ffff; font-size: 0.7em; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <div class="header">Idiot.io: Historical Activity Matrix (2018-2026)</div>
+    <div class="legend">[ KEY: (####) = TOTAL EDITS | XX USERS = UNIQUE HUMANS ]</div>
+    
+    <table>
+        <tr><th>YEAR</th><th>ACTIVITY (EDITS)</th><th>USERS</th><th>LEADERBOARD</th></tr>
+        <tr>
+            <td class="year-label">2018</td>
+            <td class="bar-container">██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(26)</span></td>
+            <td class="user-count">1</td>
+            <td class="top-users">yair (26)</td>
+        </tr>
+        <tr>
+            <td class="year-label">2019</td>
+            <td class="bar-container">████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(28)</span></td>
+            <td class="user-count">1</td>
+            <td class="top-users">yair (28)</td>
+        </tr>
+        <tr>
+            <td class="year-label">2020</td>
+            <td class="bar-container">██████████████████░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(41)</span></td>
+            <td class="user-count">2</td>
+            <td class="top-users">yair (25), zohar (16)</td>
+        </tr>
+        <tr>
+            <td class="year-label">2021</td>
+            <td class="bar-container">██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(15)</span></td>
+            <td class="user-count">1</td>
+            <td class="top-users">yair (15)</td>
+        </tr>
+        <tr>
+            <td class="year-label">2022</td>
+            <td class="bar-container">████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(21)</span></td>
+            <td class="user-count">2</td>
+            <td class="top-users">yair (17), zohar (4)</td>
+        </tr>
+        <tr>
+            <td class="year-label">2023</td>
+            <td class="bar-container">██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(15)</span></td>
+            <td class="user-count">2</td>
+            <td class="top-users">yair (12), denisa (3)</td>
+        </tr>
+        <tr>
+            <td class="year-label">2024</td>
+            <td class="bar-container">██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(4)</span></td>
+            <td class="user-count">1</td>
+            <td class="top-users">yair (4)</td>
+        </tr>
+        <tr>
+            <td class="year-label">2025</td>
+            <td class="bar-container">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(0)</span></td>
+            <td class="user-count">0</td>
+            <td class="top-users">---</td>
+        </tr>
+        <tr>
+            <td class="year-label">2026</td>
+            <td class="bar-container">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ <span class="highlight">(0)</span></td>
+            <td class="user-count">0</td>
+            <td class="top-users">---</td>
+        </tr>
+    </table>
+    
+    <div class="hall-of-fame">
+        <div class="header" style="border:none;">[ KNOWLEDGE NODES & PROJECT CLUSTERS ]</div>
+        <table>
+            <tr><th>ERA</th><th>PRIMARY TOPIC</th><th>PROJECT NODES</th><th>RESEARCH VIBE</th></tr>
+            <tr>
+                <td>2018-2019</td>
+                <td>Miniature Electronics</td>
+                <td class="highlight">Picolito, Nailed</td>
+                <td>Early maker explorations and tiny hardware builds.</td>
+            </tr>
+            <tr>
+                <td>2020-2022</td>
+                <td>Bio-Monitoring</td>
+                <td class="highlight">Lick'O'Meter, Rodent-Tech</td>
+                <td>Serious DIY hardware for scientific observation. High activity peak.</td>
+            </tr>
+            <tr>
+                <td>2023-2024</td>
+                <td>Biological Computing</td>
+                <td class="highlight">SlimeGPT, Slime-Neural-Nets</td>
+                <td>Absurd genius era. Connecting slime molds to Large Language Models.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="hall-of-fame">
+        <div class="header" style="border:none;">[ HALL OF FAME: LIFETIME CONTRIBUTORS ]</div>
+        <table>
+            <tr><th>RANK</th><th>NAME</th><th>TOTAL EDITS</th><th>PEAK YEAR</th><th>CAREER SPARKLINE</th></tr>
+            <tr>
+                <td>#1</td>
+                <td class="highlight">yair</td>
+                <td>127</td>
+                <td>2019</td>
+                <td class="sparkline">[███ ███ ███ ooo ███ ███ ... ... ...]</td>
+            </tr>
+            <tr>
+                <td>#2</td>
+                <td class="highlight">zohar</td>
+                <td>20</td>
+                <td>2020</td>
+                <td class="sparkline">[... ... ███ ... OOO ... ... ... ...]</td>
+            </tr>
+            <tr>
+                <td>#3</td>
+                <td class="highlight">denisa</td>
+                <td>3</td>
+                <td>2023</td>
+                <td class="sparkline">[... ... ... ... ... ... ooo ... ...]</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
