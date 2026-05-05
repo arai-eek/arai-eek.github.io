@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arai-eek Zine Catalogue | Full List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --surface: rgba(18, 24, 40, 0.75);
+            --card-bg: rgba(15, 18, 30, 0.7);
+            --text: #e0e6f0;
+            --text-secondary: #9ca3af;
+            --accent: #ed1b24;
+            --green: #00ff88;
+            --navy: #2e3192;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --glass-bg: rgba(20, 28, 40, 0.7);
+        }
+        body.light-theme {
+            --bg: #f2f5f9;
+            --surface: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --text: #1e293b;
+            --text-secondary: #475569;
+            --accent: #ed1b24;
+            --green: #008f4c;
+            --navy: #2e3192;
+            --border: rgba(30, 58, 138, 0.15);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.5; min-height: 100vh; overflow-x: hidden; transition: background 0.3s; }
+        header { position: sticky; top: 0; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
+        .logo-title h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: linear-gradient(135deg, var(--accent) 0%, var(--navy) 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .filter-container { padding: 1.5rem 2rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border); }
+        .filter-chips-scroll { display: flex; gap: 0.7rem; overflow-x: auto; padding: 10px 0; scrollbar-width: none; }
+        .filter-chips-scroll::-webkit-scrollbar { display: none; }
+        .chip { position: relative; flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1.2rem; border-radius: 999px; cursor: pointer; border: 1px solid var(--border); background: var(--glass-bg); color: var(--text-secondary); transition: all 0.3s; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; }
+        .chip:hover { background: rgba(255,255,255,0.1); color: var(--text); transform: translateY(-2px); }
+        .chip--active { color: #fff !important; font-weight: 700; border-color: transparent !important; }
+        .chip--red.chip--active { background: rgba(237, 27, 36, 0.2); border: 1px solid var(--accent) !important; box-shadow: 0 0 15px var(--accent); }
+        .chip--green.chip--active { background: rgba(0, 255, 136, 0.2); border: 1px solid var(--green) !important; box-shadow: 0 0 15px var(--green); }
+        .chip--platinum.chip--active { background: rgba(255, 255, 255, 0.1); border: 1px solid #fff !important; box-shadow: 0 0 15px rgba(255,255,255,0.3); }
+        .chip__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+        .catalog-grid { padding: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; max-width: 1600px; margin: 0 auto; }
+        .zine-card { background: var(--card-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; transition: all 0.4s; position: relative; animation: cardAppear 0.5s ease backwards; }
+        .zine-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px var(--accent); border-color: var(--accent); }
+        .thumbnail { width: 100%; height: 220px; object-fit: contain; border-radius: 0.5rem; margin-bottom: 1.2rem; background: #fff; border: 1px solid var(--border); }
+        .no-thumb { width: 100%; height: 220px; border-radius: 0.5rem; margin-bottom: 1.2rem; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 3rem; opacity: 0.3; }
+        .zine-category { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .zine-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text); }
+        .zine-desc { font-size: 0.95rem; color: var(--text-secondary); font-style: italic; margin-bottom: 1.5rem; flex-grow: 1; }
+        .nextcloud-btn { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 2rem; padding: 0.6rem 1.2rem; text-decoration: none; transition: all 0.25s; text-align: center; }
+        .nextcloud-btn:hover { background: var(--accent); color: #fff; box-shadow: 0 0 15px var(--accent); }
+        @keyframes cardAppear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        footer { text-align: center; padding: 3rem; color: var(--text-secondary); font-size: 0.85rem; border-top: 1px solid var(--border); }
+        .header-controls a { text-decoration: none; color: var(--text-secondary); margin-right: 20px; font-family: 'JetBrains Mono'; }
+        .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; color: var(--text); font-size: 1.2rem; }
+    </style>
+</head>
+<body class="theme-tropical">
+    <header>
+        <div class="logo-title">
+            <h1>ARAI-EEK CATALOGUE</h1>
+            <p style="font-size: 0.75rem; opacity: 0.6; font-family: 'JetBrains Mono';">Collective Knowledge: 48 spores</p>
+        </div>
+        <div class="header-controls">
+            <a href="index.html">← Interactive Map</a>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+    <div class="filter-container">
+        <div class="filter-chips-scroll" id="chipsContainer">
+            <button class="chip chip--active chip--platinum" data-category="all"><span class="chip__dot"></span><span class="chip__label">All Mycelia</span></button><button class="chip" data-category="Art-Science" data-glow-class="chip--red"><span class="chip__dot"></span><span class="chip__label">Art-Science</span></button><button class="chip" data-category="Community Events" data-glow-class="chip--green"><span class="chip__dot"></span><span class="chip__label">Community Events</span></button><button class="chip" data-category="DIY Biology" data-glow-class="chip--red"><span class="chip__dot"></span><span class="chip__label">DIY Biology</span></button><button class="chip" data-category="Food and Fermentation" data-glow-class="chip--green"><span class="chip__dot"></span><span class="chip__label">Food and Fermentation</span></button><button class="chip" data-category="Oddities" data-glow-class="chip--red"><span class="chip__dot"></span><span class="chip__label">Oddities</span></button><button class="chip" data-category="Soil and Ecology" data-glow-class="chip--green"><span class="chip__dot"></span><span class="chip__label">Soil and Ecology</span></button><button class="chip" data-category="Sound and Electronics" data-glow-class="chip--red"><span class="chip__dot"></span><span class="chip__label">Sound and Electronics</span></button><button class="chip" data-category="Transfeminism & Body Politics" data-glow-class="chip--green"><span class="chip__dot"></span><span class="chip__label">Transfeminism & Body Politics</span></button>
+        </div>
+    </div>
+    <main class="catalog-grid" id="zineGrid">
+        
+        <article class="zine-card" data-category="DIY Biology">
+            <img class="thumbnail" src="thumbnails/DIY-microscopy_HomemadeBook_short.jpg" alt="Cover of DIY Microscopy Book" loading="lazy">
+            <div class="zine-category">DIY Biology</div>
+            <h2 class="zine-title">DIY Microscopy Book</h2>
+            <p class="zine-desc">Comprehensive DIY microscopy manual — mostly image-based in extracted form.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/1_DIY_Biology/DIY-microscopy_HomemadeBook_short" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="DIY Biology">
+            <img class="thumbnail" src="thumbnails/Synbio_for_Artists_Handbook_IGEM09-book.jpg" alt="Cover of Synthetic Biology for Artists & Designers" loading="lazy">
+            <div class="zine-category">DIY Biology</div>
+            <h2 class="zine-title">Synthetic Biology for Artists & Designers</h2>
+            <p class="zine-desc">A landmark historical document from the iGEM 2009 ArtScience team. Authored collectively by IIT Bombay, NCBS Bangalore, Srishti School, and early Hackteria members, this handbook radically democratizes lab biology. It translates complex academic protocols—like bacterial transformation, DNA elution, mini prep, and gel electrophoresis—into accessible, DIY "kitchen-lab" language, closing with the open-source ethos: "Feel free to share, remix, mutilate and add."</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/1_DIY_Biology/Synbio_for_Artists_Handbook_IGEM09-book" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Soil and Ecology">
+            <img class="thumbnail" src="thumbnails/Soil_Micro_Zine_Ind_2023_1_print.jpg" alt="Cover of Soil Microscopy Guide" loading="lazy">
+            <div class="zine-category">Soil and Ecology</div>
+            <h2 class="zine-title">Soil Microscopy Guide</h2>
+            <p class="zine-desc">"Panduan singkat mikroskopi tanah" — practical guide to soil microscopy. Covers: microbial ecosystem importance, soil identification methods, sample preparation, systematic scanning. Emphasizes relationship-building with soil organisms.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/2_Soil_and_Ecology/Soil_Microscopy" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Soil and Ecology">
+            <img class="thumbnail" src="thumbnails/Chroma-zine_Workshop-edition_EN_2025-digital.jpg" alt="Cover of Circular Soil Chromatography" loading="lazy">
+            <div class="zine-category">Soil and Ecology</div>
+            <h2 class="zine-title">Circular Soil Chromatography</h2>
+            <p class="zine-desc">Circular soil chromatography workshop edition. History of method (mid-20th century, biodynamic farming). Technique: filter paper + silver nitrate + soil extract = colour patterns revealing soil health. Emphasis on subjective/educational value.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/2_Soil_and_Ecology/Soil_Chromatography" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Soil and Ecology">
+            <img class="thumbnail" src="thumbnails/3x-A3_Soillife_Illustration.jpg" alt="Cover of Soil life illustration (PNG)" loading="lazy">
+            <div class="zine-category">Soil and Ecology</div>
+            <h2 class="zine-title">Soil life illustration (PNG)</h2>
+            <p class="zine-desc">A fragment of the Arai-eek knowledge network, archived for the pluriverse.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/2_Soil_and_Ecology/3x-A3_Soillife_Illustration" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Soil and Ecology">
+            <img class="thumbnail" src="thumbnails/DIRT_artscienceBLR_Handbook-2011.jpg" alt="Cover of DIRT Handbook" loading="lazy">
+            <div class="zine-category">Soil and Ecology</div>
+            <h2 class="zine-title">DIRT Handbook</h2>
+            <p class="zine-desc">Produced by artscienceBLR (2011). An artistic and scientific exploration of soil ("dirt"), featuring DIY biology methodologies and ecological reflections.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/2_Soil_and_Ecology/DIRT_artscienceBLR_Handbook-2011" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Soil and Ecology">
+            <img class="thumbnail" src="thumbnails/Fungal_Bioreactor_Guide_EN.jpg" alt="Cover of Fungal Bioreactor Guide" loading="lazy">
+            <div class="zine-category">Soil and Ecology</div>
+            <h2 class="zine-title">Fungal Bioreactor Guide</h2>
+            <p class="zine-desc">Low-tech method for producing soil inoculant with high fungal/bacterial density. Covers soil food-web theory, regenerative agriculture rationale, practical bioreactor construction.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/2_Soil_and_Ecology/Fungal_Bioreactor" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Transfeminism & Body Politics">
+            <img class="thumbnail" src="thumbnails/EZTROZINE_COVER_IV230_2MK_LONG_2X.jpg" alt="Cover of Open Source Estrogen" loading="lazy">
+            <div class="zine-category">Transfeminism & Body Politics</div>
+            <h2 class="zine-title">Open Source Estrogen</h2>
+            <p class="zine-desc">Transfeminist biohacking publication. Topics: body sovereignty, kitchen-lab estrogen synthesis, endocrine disruptors as environmental pollutants, binary gender critique through biochemistry. Concept of "Bio-Lenta" (slow bio-lence). Open Source Estrogen as tactical subversion — detecting/extracting estrogenic compounds from polluted ecosystems. Connection to Mary Tsang's work.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/Eztrozine" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Transfeminism & Body Politics">
+            <img class="thumbnail" src="thumbnails/fanzineAlcuirmiaLastversionLogos_new.jpg" alt="Cover of Alcuirmia — queer ecology" loading="lazy">
+            <div class="zine-category">Transfeminism & Body Politics</div>
+            <h2 class="zine-title">Alcuirmia — queer ecology</h2>
+            <p class="zine-desc">Queer ecology meets herbal medicine. Result of Bio.Autonomy Life workshops in Galicia/Portugal. Chapters: Alcuirmia concept, Mary Hebraica, witches & ancient knowledge, natural queer aberrations, herbal queer medicine, situated knowledge. Connected to BioTranslab, BioArt Lab, Bioxeno, Chaos Fungorum, Cultivamos Cultura.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/fanzineAlcuirmiaLastversionLogos_new" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Transfeminism & Body Politics">
+            <img class="thumbnail" src="thumbnails/Jornadas_THF_wetlab_hangar_2021_zine_baja.jpg" alt="Cover of TransHackFeministas" loading="lazy">
+            <div class="zine-category">Transfeminism & Body Politics</div>
+            <h2 class="zine-title">TransHackFeministas</h2>
+            <p class="zine-desc">Documentation of TransHackFeminist days at Wetlab Hangar, Barcelona (June 2021). Organized by Ce Quimera + Gaia Leandra. Questions explored: What is transhackfeminism? How do we care in these practices? How to establish interspecies bonds without colonial/anthropocentric logics? Part of Biofriction project.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/Jornadas%20THF%20wetlab%20hangar%202021%20zine%20baja" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Transfeminism & Body Politics">
+            <img class="thumbnail" src="thumbnails/Pin_BioTranslab_rearranged.jpg" alt="Cover of Paula Pin / BioTranslab" loading="lazy">
+            <div class="zine-category">Transfeminism & Body Politics</div>
+            <h2 class="zine-title">Paula Pin / BioTranslab</h2>
+            <p class="zine-desc">Paula Pin's BioTranslab documentation — image-heavy.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/Pin_BioTranslab_rearranged" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Transfeminism & Body Politics">
+            <img class="thumbnail" src="thumbnails/Transcriptions_Zine,_First_Edition,_Spring_2022.jpg" alt="Cover of Trans & non-conforming scientists" loading="lazy">
+            <div class="zine-category">Transfeminism & Body Politics</div>
+            <h2 class="zine-title">Trans & non-conforming scientists</h2>
+            <p class="zine-desc">"Vol 1 — The Stuff of Dreams" — zine by trans and gender non-conforming scientists. Contributors: C.M. Fields, Naamloos Kind van Riemsdijk, Riley DeHority, Crys Clitheroe, Isaac, Román Ramos Báez, Robin Aguilar, Emma Reich, Atom J Lesiak Lovecloud PhD. Poetry, essays on gender in science, comics, personal narratives.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/Transcriptions%20Zine%2C%20First%20Edition%2C%20Spring%202022" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Transfeminism & Body Politics">
+            <img class="thumbnail" src="thumbnails/Genital_Panic_Marry_Magic.jpg" alt="Cover of GP Zine — small format" loading="lazy">
+            <div class="zine-category">Transfeminism & Body Politics</div>
+            <h2 class="zine-title">GP Zine — small format</h2>
+            <p class="zine-desc">A fast-paced, punk-aesthetic Transfeminist zine. Printed by Marcjono in a DIY Indonesian zine workshop format, it explores radical gender politics through dense visual collages and "Marry Magic".</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/Genital_Panic_Marry_Magic" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/HLab14_FullBook_CoverFront.jpg" alt="Cover of HackteriaLab 2014 Book" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">HackteriaLab 2014 Book</h2>
+            <p class="zine-desc">Reflections on the 2-week HLab14 gathering. Editors: Adelina Luft, Grace Samboh. 30+ contributors including Timbil, Andreas Siagian, Marc Dusseiller, Mary Tsang, Robin Scheibler, Sachiko Hirosue. Topics: BioArt, DIY biology, DIWO methodology, citizen science, traditional knowledge revival, environmental monitoring. Hosted by LIFEPATCH. Preceded by HLab10 (Dock18), HLab11 (Romainmotier), HLab13 (Bangalore).</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/HLab14_Book" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/HackteriaTaxidermiaZine_A5_Screen.jpg" alt="Cover of Taxidermia zine" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">Taxidermia zine</h2>
+            <p class="zine-desc">Image-heavy taxidermia/bio-art documentation.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/HackteriaTaxidermiaZine_A5_Screen" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/SPECIAL-105x210_biohackers-zine-timeline.jpg" alt="Cover of Biohackers timeline" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">Biohackers timeline</h2>
+            <p class="zine-desc">History of an open-source poster by Cat Kramer (Center for Genomic Gastronomy). Documents 10-year journey of "WE HAVE ALWAYS BEEN BIOHACKERS" poster from 2011 Bangalore. Interviews with Marc Dusseiller, Maya Minder, Paula Pin, Timbil/Lifepatch.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/SPECIAL-105x210_biohackers-zine-timeline" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/BubblePunk_Zine_Printy_PDF.jpg" alt="Cover of Digital Naturalism Labs" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">Digital Naturalism Labs</h2>
+            <p class="zine-desc">Digital Naturalism Laboratories, Gamboa, Panama. By Dr. Andrew Quitmeyer & Kitty Quitmeyer. Topics: bubble science as environmental celebration replacement for plastic trash, punk philosophy of sharing/freedom, mixed-material globule research. CC0 Public Domain.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/BubblePunk%20Zine%20Printy%20PDF" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/BAJRA_DIWO_READ.jpg" alt="Cover of BAJRA DIWO" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">BAJRA DIWO</h2>
+            <p class="zine-desc">Image-heavy.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/BAJRA%20DIWO%20READ" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/thGAP_booklet_print_3x_148x178.jpg" alt="Cover of thGAP booklet" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">thGAP booklet</h2>
+            <p class="zine-desc">In the muggy terrarium of the Mind thGAP, a disobedient garden flourishes—germlines rewired not for health or enhancement, but for the sheer, unruly aesthetics of creative genetic redesign. The GOSPHA plasmid drips like a cyber-tropical nectar, ferrying bioart hacks between species, while the Creative Germline Construct Bank sprouts a riot of feral diversities, scripted in the wet, messy poetry of Adam Zaretsky, Mary Maggic, and Marc Dusseiller’s collaborative dream. Here, the Human Genome is but compost for post-normative orchids, blooming outside every sanctioned blueprint.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/thGAP_booklet_print_3x_148x178" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/microzineinglescomLAST.jpg" alt="Cover of Microzine" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">Microzine</h2>
+            <p class="zine-desc">Image-heavy community microzine.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/microzineinglescomLAST" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/CRISPR_19thCentury_1x_126x210.jpg" alt="Cover of AI CRISPR illustrations" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">AI CRISPR illustrations</h2>
+            <p class="zine-desc">A brilliant speculative biology zine by dusjagr (September 2022). Utilizing early Midjourney AI, it visualizes "CRISPR" and "Genetically Modified Humans" through the aesthetic lens of 19th-century Victorian anatomy books and botanical herbariums. The zine acts as a temporal paradox, presenting future biotechnology as antique archival discoveries.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/CRISPR_19thCentury_1x_126x210" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/ZhTrans_OpenLetterToLuluAndNana.jpg" alt="Cover of Open Letter Lulu & Nana" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">Open Letter Lulu & Nana</h2>
+            <p class="zine-desc">A critical BioArt/Bioethics document by Adam Zaretsky, fully translated into Mandarin. It addresses the 2018 CRISPR babies (Lulu and Nana) engineered by He Jiankui. The text boldly reframes human germline editing not just as a medical breakthrough, but as an irreversible, aesthetic, and cultural act of BioArt, proposing radical new regulatory frameworks for "in-vivo human variation" and genetic monoculture.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/ZhTrans_OpenLetterToLuluAndNana" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/A3_trippleNarrow.jpg" alt="Cover of Triple-narrow poster" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">Triple-narrow poster</h2>
+            <p class="zine-desc">Triple-narrow format poster, image-heavy.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/A3_trippleNarrow" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/biohaha-helmi_hardian-angela_sunaryo-zine-byol.jpg" alt="Cover of Biohaha Build Your Own Lab" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">Biohaha Build Your Own Lab</h2>
+            <p class="zine-desc">Created by Helmi Hardian & Angela Sunaryo (2025). A vibrant, deeply practical guide documenting the Biohaha and Sensewalking methodologies. It focuses on the rapid prototyping of DIY lab equipment from consumer junk, mapping local ecosystems through multisensory exploration, and embedding communal bio-hacking practices directly into local neighborhoods.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/biohaha-helmi_hardian-angela_sunaryo-zine-byol" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Art-Science">
+            <img class="thumbnail" src="thumbnails/IGEM-Comic-2010_artscienceBLR.jpg" alt="Cover of IGEM Comic" loading="lazy">
+            <div class="zine-category">Art-Science</div>
+            <h2 class="zine-title">IGEM Comic</h2>
+            <p class="zine-desc">A comic book produced by artscienceBLR for the 2010 iGEM competition. Explores synthetic biology concepts through a creative, visual narrative.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/IGEM-Comic-2010_artscienceBLR" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/Nata_de_Coco.jpg" alt="Cover of Bacterial nano-cellulose" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Bacterial nano-cellulose</h2>
+            <p class="zine-desc">How to grow bacterial nano-cellulose at home using coconut water. Covers coconut plant biology, fermentation process, Acetobacter xylinum cultivation. CC-BY-SA 4.0.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/Nata_de_Coco" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/Cheese_CRISPR_booklet_jap.jpg" alt="Cover of Cheese CRISPR — Japanese" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Cheese CRISPR — Japanese</h2>
+            <p class="zine-desc">An intensely compressed, single-page visual treatise examining the intersection of ancient cheese-making fermentation techniques and modern CRISPR-Cas9 genome editing. It juxtaposes the biological machinery of bacteria defending against phages in dairy cultures with contemporary biotechnological aesthetics.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/Cheese_CRISPR_booklet_jap" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/Fanzine_MiculMicul_ByArtMatters.jpg" alt="Cover of Micul Micul seaweed" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Micul Micul seaweed</h2>
+            <p class="zine-desc">"A slippery seaweed project" created by Maya Minder and printed in China (2025) by Art Matters. It delves deep into DIY crystallography and the material properties of agar. Featuring an interactive "Claim Your Own Candy Crush" section alongside practical Chinese-language recipes for cooking seaweed, the zine operates as both a culinary guide and a material-science manifesto.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/Fanzine_MiculMicul_ByArtMatters" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/fermentlab-pixelache_2017_strasbourg-zine_part-1_print-booklet-double-sided.jpg" alt="Cover of Ferment Lab Part I: Intro" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Ferment Lab Part I: Intro</h2>
+            <p class="zine-desc">Authored by Andrew Gryf Paterson & Pixelache (2017). This introductory volume lays the conceptual foundation for the Ferment Lab project at Le Shadok in Strasbourg. It treats bacterial fermentation not just as a metabolic process, but as a deeply social, artistic, and community-binding practice across the Alsace region.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/FermentLab_Pixelache" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/fermentlab-pixelache_2017_strasbourg-zine_part-2_print-booklet-double-sided.jpg" alt="Cover of Ferment Lab Part II: Workshops & Space" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Ferment Lab Part II: Workshops & Space</h2>
+            <p class="zine-desc">The operational core of the Ferment Lab. This zine documents the actual spatial design of the pop-up laboratory, detailing specific equipment lists, workshop protocols, and the crucial "meta-documentation" strategies used by facilitators Hakim & Dorothea to multiply the lab's impact across local networks.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/FermentLab_Pixelache" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/fermentlab-pixelache_2017_strasbourg-zine_part-3_print-booklet-double-sided.jpg" alt="Cover of Ferment Lab Part III: Cabbage Dance Party" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Ferment Lab Part III: Cabbage Dance Party</h2>
+            <p class="zine-desc">A beautiful ethnographic and practical documentation of the "Krütt Trepple Dance Party." It revives the historical, communal act of cabbage stomping for sauerkraut production, intertwining microbial culturing with local folk music, physical labor, and community celebration.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/FermentLab_Pixelache" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/fermentlab-pixelache_2018_strasbourg-zine_part-4_print-booklet-double-sided.jpg" alt="Cover of Ferment Lab Part IV: Art Science Experiments" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Ferment Lab Part IV: Art Science Experiments</h2>
+            <p class="zine-desc">Shifts the focus toward abstract, experimental microbiology. Andrew Gryf Paterson details his "Bacterial Love Letters" project, utilizing agar plates and microbial growth as an unpredictable, living medium for artistic expression, questioning the boundaries between scientific isolation and creative contamination.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/FermentLab_Pixelache" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/fermentlab-pixelache_2018_strasbourg-zine_part-5_print-booklet-double-sided.jpg" alt="Cover of Ferment Lab Part V: Exhibition & Reflections" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Ferment Lab Part V: Exhibition & Reflections</h2>
+            <p class="zine-desc">The project's post-mortem, centered around the final exhibition at Laboratoire de Demain. It catalogs the physical artifacts produced over the residency, analyzes which elements of the pop-up lab proved most resilient, and offers philosophical reflections on temporary, autonomous bio-spaces.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/FermentLab_Pixelache" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Sound and Electronics">
+            <img class="thumbnail" src="thumbnails/Cover_Print_Layout.jpg" alt="Cover of Noise Mini-Zine" loading="lazy">
+            <div class="zine-category">Sound and Electronics</div>
+            <h2 class="zine-title">Noise Mini-Zine</h2>
+            <p class="zine-desc">Image-heavy noise/sound art zine. Created with Adobe InDesign.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/Noise_MiniZine" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Sound and Electronics">
+            <img class="thumbnail" src="thumbnails/Instruction_Wurmophon_leaflet_shortside.jpg" alt="Cover of Wurmophon leaflet" loading="lazy">
+            <div class="zine-category">Sound and Electronics</div>
+            <h2 class="zine-title">Wurmophon leaflet</h2>
+            <p class="zine-desc">Instruction leaflet for the Wurmophon instrument.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/Instruction_Wurmophon_leaflet_shortside" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Sound and Electronics">
+            <img class="thumbnail" src="thumbnails/GBMN_redesigned_Print.jpg" alt="Cover of GBMN workshopology" loading="lazy">
+            <div class="zine-category">Sound and Electronics</div>
+            <h2 class="zine-title">GBMN workshopology</h2>
+            <p class="zine-desc">"A Workshopology Zine" by Arnont Nongyao & Marc Dusseiller (2023). This extensive document traces the lineage of a specific noise-generating circuit from its origins with Khvay Loeung (a funeral sound master in Phnom Penh) through its replication across Southeast Asia and Europe. It heavily emphasizes "workshopology" as an artistic practice, teaching how to build audio synthesizers from pencil graphite, LDR sensors, and trash.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/GBMN_redesigned_Print" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Sound and Electronics">
+            <img class="thumbnail" src="thumbnails/cap1_fanzina.jpg" alt="Cover of Fanzina Chapters 1–3" loading="lazy">
+            <div class="zine-category">Sound and Electronics</div>
+            <h2 class="zine-title">Fanzina Chapters 1–3</h2>
+            <p class="zine-desc">A wildly chaotic, heavily collaged three-part underground fanzina. It operates entirely as an image-based visual assault on traditional publishing norms, featuring densely packed DIY graphics, photocopied punk aesthetics, and cryptic diagrams that blur the line between technical manual and abstract art.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/cap1_fanzina" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Sound and Electronics">
+            <img class="thumbnail" src="thumbnails/biohaha-helmi_hardian-angela_sunaryo-zine-smi.jpg" alt="Cover of Sensewalking Flux" loading="lazy">
+            <div class="zine-category">Sound and Electronics</div>
+            <h2 class="zine-title">Sensewalking Flux</h2>
+            <p class="zine-desc">"Sensewalking Flux" documentation by Helmi Hardian & Angela Sunaryo (2025). Focuses on DIY electronics, sensory walks, and translating environmental data into sound.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/biohaha-helmi_hardian-angela_sunaryo-zine-smi" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Sound and Electronics">
+            <img class="thumbnail" src="thumbnails/KrautsourceEnergy.jpg" alt="Cover of Krautsource Energy" loading="lazy">
+            <div class="zine-category">Sound and Electronics</div>
+            <h2 class="zine-title">Krautsource Energy</h2>
+            <p class="zine-desc">Explores the intersection of food fermentation and energy harvesting. Documents DIY bio-batteries powered by sauerkraut and other fermented organic matter.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/KrautsourceEnergy" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Sound and Electronics">
+            <img class="thumbnail" src="thumbnails/Fanzine_Powerharvest_english.jpg" alt="Cover of Powerharvest Fanzine" loading="lazy">
+            <div class="zine-category">Sound and Electronics</div>
+            <h2 class="zine-title">Powerharvest Fanzine</h2>
+            <p class="zine-desc">Short, single-page poster/fanzine covering DIY power harvesting concepts and lo-fi energy generation techniques.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/Fanzine_Powerharvest_english" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Community Events">
+            <img class="thumbnail" src="thumbnails/A3_Poster_wormolution_LessText.jpg" alt="Cover of Wormolution poster" loading="lazy">
+            <div class="zine-category">Community Events</div>
+            <h2 class="zine-title">Wormolution poster</h2>
+            <p class="zine-desc">Event poster for Hackteria TAL "Wormolution" at Le Commun, Geneva (Sept 2019). International participants: Kat Austen (UK), Shih Wei Chieh (TW), Roland van Dierendonck (NL), Marc Dusseiller (CH), Eleonore Eisath (IT), Urs Gaudenz (CH), Paula Pin (ES), Masato Takemura (JP). Supported by Pro Helvetia, PlasticTwist EU Horizon 2020.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/A3_Poster_wormolution_LessText" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Community Events">
+            <img class="thumbnail" src="thumbnails/A3_Homemade2025_poster.jpg" alt="Cover of Homemade 2025 poster" loading="lazy">
+            <div class="zine-category">Community Events</div>
+            <h2 class="zine-title">Homemade 2025 poster</h2>
+            <p class="zine-desc">"Homemade 2025" event poster, image-heavy.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/A3_Homemade2025_poster" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Community Events">
+            <img class="thumbnail" src="thumbnails/GOSH2026_Leaflet-shortside.jpg" alt="Cover of GOSH 2026 Kathmandu" loading="lazy">
+            <div class="zine-category">Community Events</div>
+            <h2 class="zine-title">GOSH 2026 Kathmandu</h2>
+            <p class="zine-desc">A wildly chaotic, heavily collaged three-part underground fanzina. It operates entirely as an image-based visual assault on traditional publishing norms, featuring densely packed DIY graphics, photocopied punk aesthetics, and cryptic diagrams that blur the line between technical manual and abstract art.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/GOSH2026_Leaflet-shortside" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Community Events">
+            <img class="thumbnail" src="thumbnails/WaftLab-OpenLab_2024.jpg" alt="Cover of WaftLab OpenLab" loading="lazy">
+            <div class="zine-category">Community Events</div>
+            <h2 class="zine-title">WaftLab OpenLab</h2>
+            <p class="zine-desc">Mostly image-based documentation of WaftLab OpenLab 2024 event.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/WaftLab-OpenLab_2024" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Community Events">
+            <img class="thumbnail" src="thumbnails/Fanzine_Mingapa_Bigini_Mingapa_Bigitu.jpg" alt="Cover of Mingapa Bigini" loading="lazy">
+            <div class="zine-category">Community Events</div>
+            <h2 class="zine-title">Mingapa Bigini</h2>
+            <p class="zine-desc">Image-based, single-page fanzine (2016) created during community events. Mostly visual with minimal text.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/Fanzine%20Mingapa%20Bigini%20Mingapa%20Bigitu" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Oddities">
+            <img class="thumbnail" src="thumbnails/RAT_CATHCER_COVER_IV230_2MK_LONG_2X.jpg" alt="Cover of Rat Catcher Zine" loading="lazy">
+            <div class="zine-category">Oddities</div>
+            <h2 class="zine-title">Rat Catcher Zine</h2>
+            <p class="zine-desc">Reprint/remix of a Victorian-era Manchester rat-catching manual (1898). Includes period pest control techniques, historical advertisements, and DIY pest management knowledge. Published under "Ike Matthews" name. Printed by the Friendly Societies' Printing Company.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/8_Oddities/RatCatcher" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/Food_Phreaking.jpg" alt="Cover of Food Phreaking Issue 00" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Food Phreaking Issue 00</h2>
+            <p class="zine-desc">Issue 00 of Food Phreaking published by The Center for Genomic Gastronomy (2013). It explores Singapore as a food utopia—a perfect place with diverse imported foods but where eaters, not farmers, are the major agents of selection. It examines how Singapore's agri-eco-culinary system will adapt to 21st-century biotechnological challenges.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/Food_Phreaking" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+        <article class="zine-card" data-category="Food and Fermentation">
+            <img class="thumbnail" src="thumbnails/FoodPhreaking_03.jpg" alt="Cover of Food Phreaking Issue 03" loading="lazy">
+            <div class="zine-category">Food and Fermentation</div>
+            <h2 class="zine-title">Food Phreaking Issue 03</h2>
+            <p class="zine-desc">Issue 03 "Gut Gardening" published by The Center for Genomic Gastronomy (2016). Explores experiments, exploits, and explorations of the human food system focusing on the human microbiome. It includes short texts by experts about their favorite microorganisms and reflects on the relationship between brains, guts, and diets.</p>
+            <a href="https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/FoodPhreaking_03" class="nextcloud-btn" target="_blank" rel="noopener">Browse on Nextcloud ↗</a>
+        </article>
+    </main>
+    <footer>
+        Arai-eek Lab | Hackteria Zine Universe | 2026
+    </footer>
+    <script>
+        const chips = document.querySelectorAll('.chip');
+        const cards = document.querySelectorAll('.zine-card');
+        
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('chip--active', 'chip--red', 'chip--green', 'chip--platinum'));
+                chip.classList.add('chip--active');
+                const glow = chip.dataset.glowClass || 'chip--platinum';
+                chip.classList.add(glow);
+                
+                const filter = chip.dataset.category;
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'flex';
+                        card.style.animation = 'none';
+                        card.offsetHeight;
+                        card.style.animation = 'cardAppear 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        const body = document.body;
+        const toggleBtn = document.getElementById('themeToggle');
+        function setTheme(theme) {
+            if (theme === 'light') {
+                body.classList.add('light-theme');
+                body.classList.remove('theme-tropical');
+                toggleBtn.innerText = '☀️';
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('theme-tropical');
+                toggleBtn.innerText = '🌙';
+            }
+            localStorage.setItem('zine-theme', theme);
+        }
+        const saved = localStorage.getItem('zine-theme') || 'dark';
+        setTheme(saved);
+        toggleBtn.addEventListener('click', () => {
+            const current = body.classList.contains('light-theme') ? 'dark' : 'light';
+            setTheme(current);
+        });
+    </script>
+</body>
+</html>
