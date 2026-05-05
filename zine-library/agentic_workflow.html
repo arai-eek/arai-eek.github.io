@@ -16,11 +16,21 @@
             --navy: #2e3192;
             --border: rgba(57, 255, 20, 0.3);
             --glass: rgba(15, 20, 30, 0.85);
+            --text-main: var(--phosphor);
+        }
+        body.theme-light {
+            --bg: #f2f5f9;
+            --phosphor: #2e3192;
+            --phosphor-bright: #1e293b;
+            --accent: #ed1b24;
+            --border: rgba(30, 58, 138, 0.15);
+            --glass: rgba(255, 255, 255, 0.95);
+            --text-main: #1e293b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             background: var(--bg); 
-            color: var(--phosphor); 
+            color: var(--text-main); 
             font-family: 'JetBrains Mono', monospace; 
             line-height: 1.6;
             min-height: 100vh;
@@ -28,7 +38,11 @@
             flex-direction: column;
             padding: 40px;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
         }
+        .theme-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; background: var(--glass); padding: 5px; border-radius: 25px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.2); backdrop-filter: blur(5px); }
+        .theme-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 5px 10px; border-radius: 20px; transition: transform 0.2s; color: var(--text-main); }
+        .theme-btn:hover { transform: scale(1.1); }
         .crt-overlay {
             position: fixed;
             inset: 0;
@@ -139,6 +153,10 @@
 </head>
 <body>
     <div class="crt-overlay"></div>
+    <div class="theme-toggle">
+        <button class="theme-btn" onclick="setTheme('light')" title="Platinum Theme">☀️</button>
+        <button class="theme-btn" onclick="setTheme('dark')" title="Cyber-Tropical Theme">🌴</button>
+    </div>
     <div class="container">
         <a href="index.html" class="back-link">← BACK TO UNIVERSE</a>
         <header>
@@ -150,6 +168,10 @@
             <h2>Manifesto</h2>
             <p>The Arai-eek Zine Library is more than an archive; it is a mycelial network of knowledge spanning 20 years. To navigate this heterogeneous mass of 80+ PDF variants, we deployed an autonomous <strong>Agentic Curation Layer</strong>.</p>
             <p style="margin-top: 15px;">This is not simple digitization. This is the synthesis of human curatorial intent with machine-scale narrative processing.</p>
+            
+            <div style="background: rgba(230, 168, 64, 0.1); border: 1px solid #e6a840; padding: 15px; font-size: 11px; color: #e6a840; line-height: 1.4; margin-top: 25px; border-radius: 4px;">
+                ◈ <strong>SPECULATIVE SYNTHESIS WARNING:</strong> While the extraction pipelines use factual text from the zines, the "Deep Info" dossiers and poetic commentary are co-authored by an AI agent. These represent narrative extrapolations and creative interpretations intended to fit the Cyber-Tropical aesthetic of the portal.
+            </div>
         </section>
 
         <section>
@@ -204,5 +226,17 @@
             Arai-eek Lab | Agentic Archive System v1.0 | 2026
         </footer>
     </div>
+    <script>
+        function setTheme(theme) {
+            if (theme === 'light') {
+                document.body.classList.add('theme-light');
+            } else {
+                document.body.classList.remove('theme-light');
+            }
+            localStorage.setItem('zine-theme', theme);
+        }
+        const saved = localStorage.getItem('zine-theme') || 'dark';
+        setTheme(saved);
+    </script>
 </body>
 </html>
