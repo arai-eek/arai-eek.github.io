@@ -9,21 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0b0f1a;
-            --surface: rgba(18, 24, 40, 0.75);
-            --card-bg: rgba(15, 18, 30, 0.7);
-            --text: #e0e6f0;
-            --text-secondary: #9ca3af;
-            --accent: #ed1b24;
-            --green: #00ff88;
-            --navy: #2e3192;
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --glass-bg: rgba(20, 28, 40, 0.7);
-        }
-        body.light-theme {
             --bg: #f2f5f9;
-            --surface: rgba(255, 255, 255, 0.8);
+            --surface: rgba(255, 255, 255, 0.95);
             --card-bg: rgba(255, 255, 255, 0.7);
             --text: #1e293b;
             --text-secondary: #475569;
@@ -31,21 +18,42 @@
             --green: #008f4c;
             --navy: #2e3192;
             --border: rgba(30, 58, 138, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(46, 49, 146, 0.3);
+        }
+        body.theme-tropical {
+            --bg: #0b0f1a;
+            --surface: rgba(15, 20, 30, 0.85);
+            --card-bg: rgba(15, 18, 30, 0.7);
+            --text: #e0e6f0;
+            --text-secondary: #9ca3af;
+            --accent: #FF007F;
+            --green: #39FF14;
+            --navy: #2e3192;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(15, 20, 30, 0.85);
+            --glass-border: rgba(57, 255, 20, 0.3);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.5; min-height: 100vh; overflow-x: hidden; transition: background 0.3s; }
         header { position: sticky; top: 0; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
         .logo-title h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: linear-gradient(135deg, var(--accent) 0%, var(--navy) 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .filter-container { padding: 1.5rem 2rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border); }
+        
+        .theme-toggle { display: flex; gap: 10px; background: var(--glass-bg); padding: 5px; border-radius: 25px; border: 1px solid var(--glass-border); box-shadow: 0 4px 15px rgba(0,0,0,0.2); backdrop-filter: blur(5px); }
+        .theme-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 5px 10px; border-radius: 20px; transition: transform 0.2s, background 0.2s; color: var(--text); }
+        .theme-btn:hover { transform: scale(1.15); background: rgba(128,128,128,0.2); }
+        
+        .filter-container { padding: 1.5rem 2rem; background: rgba(0,0,0,0.05); border-bottom: 1px solid var(--border); }
         .filter-chips-scroll { display: flex; gap: 0.7rem; overflow-x: auto; padding: 10px 0; scrollbar-width: none; }
         .filter-chips-scroll::-webkit-scrollbar { display: none; }
         .chip { position: relative; flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1.2rem; border-radius: 999px; cursor: pointer; border: 1px solid var(--border); background: var(--glass-bg); color: var(--text-secondary); transition: all 0.3s; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; }
-        .chip:hover { background: rgba(255,255,255,0.1); color: var(--text); transform: translateY(-2px); }
+        .chip:hover { background: rgba(128,128,128,0.1); color: var(--text); transform: translateY(-2px); }
         .chip--active { color: #fff !important; font-weight: 700; border-color: transparent !important; }
         .chip--red.chip--active { background: rgba(237, 27, 36, 0.2); border: 1px solid var(--accent) !important; box-shadow: 0 0 15px var(--accent); }
         .chip--green.chip--active { background: rgba(0, 255, 136, 0.2); border: 1px solid var(--green) !important; box-shadow: 0 0 15px var(--green); }
         .chip--platinum.chip--active { background: rgba(255, 255, 255, 0.1); border: 1px solid #fff !important; box-shadow: 0 0 15px rgba(255,255,255,0.3); }
         .chip__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+        
         .catalog-grid { padding: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; max-width: 1600px; margin: 0 auto; }
         .zine-card { background: var(--card-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; transition: all 0.4s; position: relative; animation: cardAppear 0.5s ease backwards; }
         .zine-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px var(--accent); border-color: var(--accent); }
@@ -58,19 +66,21 @@
         .nextcloud-btn:hover { background: var(--accent); color: #fff; box-shadow: 0 0 15px var(--accent); }
         @keyframes cardAppear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         footer { text-align: center; padding: 3rem; color: var(--text-secondary); font-size: 0.85rem; border-top: 1px solid var(--border); }
-        .header-controls a { text-decoration: none; color: var(--text-secondary); margin-right: 20px; font-family: 'JetBrains Mono'; }
-        .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; color: var(--text); font-size: 1.2rem; }
+        .back-link { text-decoration: none; color: var(--text-secondary); margin-right: 20px; font-family: 'JetBrains Mono'; }
     </style>
 </head>
-<body class="theme-tropical">
+<body>
     <header>
         <div class="logo-title">
             <h1>ARAI-EEK CATALOGUE</h1>
             <p style="font-size: 0.75rem; opacity: 0.6; font-family: 'JetBrains Mono';">Collective Knowledge: 48 spores</p>
         </div>
-        <div class="header-controls">
-            <a href="index.html">← Interactive Map</a>
-            <button class="theme-toggle" id="themeToggle">🌙</button>
+        <div class="header-controls" style="display: flex; align-items: center;">
+            <a href="index.html" class="back-link">← Interactive Map</a>
+            <div class="theme-toggle">
+                <button class="theme-btn" onclick="setTheme('light')" title="Platinum Theme">☀️</button>
+                <button class="theme-btn" onclick="setTheme('dark')" title="Cyber-Tropical Theme">🌙</button>
+            </div>
         </div>
     </header>
     <div class="filter-container">
@@ -445,26 +455,17 @@
             });
         });
 
-        const body = document.body;
-        const toggleBtn = document.getElementById('themeToggle');
         function setTheme(theme) {
+            const body = document.body;
             if (theme === 'light') {
-                body.classList.add('light-theme');
                 body.classList.remove('theme-tropical');
-                toggleBtn.innerText = '☀️';
             } else {
-                body.classList.remove('light-theme');
                 body.classList.add('theme-tropical');
-                toggleBtn.innerText = '🌙';
             }
             localStorage.setItem('zine-theme', theme);
         }
         const saved = localStorage.getItem('zine-theme') || 'dark';
         setTheme(saved);
-        toggleBtn.addEventListener('click', () => {
-            const current = body.classList.contains('light-theme') ? 'dark' : 'light';
-            setTheme(current);
-        });
     </script>
 </body>
 </html>
