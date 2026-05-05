@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Workflow Logs | Arai-eek Zine Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --phosphor: #39FF14;
+            --phosphor-bright: #c8ff8c;
+            --accent: #FF007F;
+            --navy: #2e3192;
+            --border: rgba(57, 255, 20, 0.3);
+            --glass: rgba(15, 20, 30, 0.85);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background: var(--bg); 
+            color: var(--phosphor); 
+            font-family: 'JetBrains Mono', monospace; 
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            overflow-x: hidden;
+        }
+        .crt-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1000;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 3px);
+            opacity: 0.5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 10;
+        }
+        header {
+            border-bottom: 2px solid var(--phosphor);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--phosphor-bright);
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+        }
+        .status-badge {
+            display: inline-block;
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid var(--phosphor);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        section {
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            font-size: 1.5rem;
+        }
+        .workflow-step {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 25px;
+            margin-bottom: 20px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .workflow-step:hover {
+            transform: translateX(10px);
+            border-color: var(--phosphor-bright);
+        }
+        .step-num {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: var(--phosphor);
+            color: #000;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .tag {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border: 1px solid var(--phosphor);
+            background: rgba(57, 255, 20, 0.05);
+        }
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--phosphor);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            color: var(--accent);
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="container">
+        <a href="index.html" class="back-link">← BACK TO UNIVERSE</a>
+        <header>
+            <h1>Agentic Workflow Logs</h1>
+            <div class="status-badge">◈ SYSTEM STATUS: DECRYPTED</div>
+        </header>
+
+        <section>
+            <h2>Manifesto</h2>
+            <p>The Arai-eek Zine Library is more than an archive; it is a mycelial network of knowledge spanning 20 years. To navigate this heterogeneous mass of 80+ PDF variants, we deployed an autonomous <strong>Agentic Curation Layer</strong>.</p>
+            <p style="margin-top: 15px;">This is not simple digitization. This is the synthesis of human curatorial intent with machine-scale narrative processing.</p>
+        </section>
+
+        <section>
+            <h2>Process Architecture</h2>
+            
+            <div class="workflow-step">
+                <div class="step-num">01</div>
+                <h3>Semantic Extraction</h3>
+                <p>We bypassed traditional metadata by performing a "Deep Scan" of the PDF bodies. Using autonomous `pdftotext` extraction, we harvested fragments from the initial layers of each zine to identify core themes, languages, and authorship markers.</p>
+                <div class="tech-tags">
+                    <span class="tag">pdftotext</span>
+                    <span class="tag">python3</span>
+                    <span class="tag">batch-processing</span>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-num">02</div>
+                <h3>Narrative Synthesis</h3>
+                <p>Extracted data was passed to the DeepSeek-V4 model family. Through high-fidelity reasoning, the agent synthesized "Speculative Research Dossiers"—poetic interpretations that connect the technical protocols of the zines to the broader Cyber-Tropical aesthetic of the Hackteria network.</p>
+                <div class="tech-tags">
+                    <span class="tag">DeepSeek-V4</span>
+                    <span class="tag">Speculative Archiving</span>
+                    <span class="tag">NLP</span>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-num">03</div>
+                <h3>Spore Taxonomy & Reconciliation</h3>
+                <p>The archive suffered from 20 years of heterogeneous naming conventions. We implemented a self-correcting reconciliation pipeline that mapped AI-generated "slugs" back to physical filenames, ensuring a 100% synchronized database across the static catalogue and the interactive map.</p>
+                <div class="tech-tags">
+                    <span class="tag">JSON Mapping</span>
+                    <span class="tag">Regex Reconciliation</span>
+                    <span class="tag">Dynamic Injection</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Collaborative Stack</h2>
+            <p>This project was realized through a real-time pair-programming session between a human curator and the Antigravity agentic AI. Every script, visual effect, and data structure was co-authored in a 12-hour session of rapid prototyping.</p>
+            <div class="tech-tags" style="margin-top: 20px;">
+                <span class="tag">Antigravity IDE</span>
+                <span class="tag">Vis.js</span>
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">Cyber-Tropical CSS</span>
+            </div>
+        </section>
+
+        <footer>
+            Arai-eek Lab | Agentic Archive System v1.0 | 2026
+        </footer>
+    </div>
+</body>
+</html>
