@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <style type="text/css">
         :root {
-            --bg-color: #0B0E14;
-            --neon-pink: #FF007F;
-            --neon-green: #39FF14;
-            --neon-cyan: #00d2ff;
-            --text-main: #ffffff;
-            --text-muted: #8892B0;
-            --glass-bg: rgba(15, 20, 30, 0.85);
-            --glass-border: rgba(57, 255, 20, 0.3);
+            --bg-color: #ffffff;
+            --neon-pink: #ed1b24;
+            --neon-green: #2e3192;
+            --neon-cyan: #ed1b24;
+            --text-main: #2e3192;
+            --text-muted: #666666;
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(46, 49, 146, 0.3);
         }
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: var(--bg-color); font-family: 'Outfit', sans-serif; overflow: hidden; color: var(--text-main); }
         #mynetwork { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1; }
@@ -43,13 +43,13 @@
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(57, 255, 20, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1), inset 0 0 20px rgba(46, 49, 146, 0.05);
             z-index: 10;
             backdrop-filter: blur(10px);
             pointer-events: auto;
         }
         .summary-panel h3 { margin-top: 0; color: var(--neon-cyan); font-size: 1.2rem; margin-bottom: 15px; border-bottom: 1px solid rgba(0, 210, 255, 0.3); padding-bottom: 8px; }
-        .summary-panel p { font-size: 0.9rem; line-height: 1.5; color: #ccc; margin-bottom: 10px; }
+        .summary-panel p { font-size: 0.9rem; line-height: 1.5; color: #333; margin-bottom: 10px; }
         .summary-panel .stat { color: var(--neon-green); font-weight: bold; font-size: 1.1em; }
         
         .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.5rem; color: var(--neon-pink); z-index: 5; pointer-events: none; text-shadow: 0 0 10px var(--neon-pink); font-weight: bold; text-transform: uppercase; letter-spacing: 3px; animation: pulse 1.5s infinite; }
@@ -66,13 +66,13 @@
             border: 1px solid var(--neon-pink);
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 20px rgba(255, 0, 127, 0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2), 0 0 20px rgba(237, 27, 36, 0.2);
             z-index: 100;
             backdrop-filter: blur(8px);
         }
         #zine-modal h2 { margin-top: 0; color: var(--neon-green); font-size: 1.5rem; margin-bottom: 15px; text-shadow: 0 0 5px rgba(57, 255, 20, 0.3); }
-        #zine-thumb { width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; background: #000; border: 1px solid #333; }
-        #zine-desc { color: #ddd; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        #zine-thumb { width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; background: #fff; border: 1px solid #333; }
+        #zine-desc { color: #333; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         
         #zine-btn {
             display: inline-block;
@@ -98,7 +98,7 @@
 </head>
 <body>
     <div class="header">
-        <img class="logo" src="arai-eek-logo.svg" alt="Arai-eek Logo">
+        <img class="logo" src="arai-icon.svg" alt="Arai-eek Logo">
         <div class="header-text">
             <h1>Arai-eek Zine Universe</h1>
             <p class="subtitle">Interactive Cultural Map</p>
@@ -139,7 +139,7 @@
             nodes: { 
                 shape: 'dot', 
                 borderWidth: 2, 
-                shadow: { enabled: true, color: 'rgba(57,255,20,0.5)', size: 15, x: 0, y: 0 } 
+                shadow: { enabled: true, color: 'rgba(46, 49, 146, 0.3)', size: 10, x: 0, y: 0 } 
             },
             edges: { 
                 smooth: { type: 'continuous', forceDirection: 'none' } 
