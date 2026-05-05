@@ -101,16 +101,25 @@
     
     <div class="summary-panel" id="summary-portal">
         <span class="close-btn" onclick="togglePortal()">✕</span>
-        <h2 class="portal-title">⟡ Library Portal ⟡</h2>
+        <h2 class="portal-title">⟡ Arai-eek Zine Library Portal ⟡</h2>
         <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px;">
-            A living mycelial map of the <em>Arai-eek & Hackteria Library</em>—an archive of 64 spores spanning 20 years of DIY biology, sound art, and transfeminist hacktivism.
+            A living mycelial map of the <em>Arai-eek & Hackteria Zine Library</em>—64 hand‑stitched zines, 8 entangled thematic biomes, and a chorus of six tongues, all grown from the soil of grassroots bioart, open hardware, and disobedient cultural practice.
         </p>
-        <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px;">
-            This portal is an augmented research interface synthesized through a <strong>Human-Agentic Workflow</strong>. We used autonomous pipelines to extract semantic fragments and generate poetic dossiers from heterogeneous PDF archives.
+        <div style="font-size: 0.8rem; margin-bottom: 12px; opacity: 0.8; text-align: center; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 5px 0;">
+            64 zines • 8 thematic clusters • 6 languages
+        </div>
+        <p style="font-size: 0.8rem; line-height: 1.4; margin-bottom: 12px; font-style: italic; opacity: 0.9;">
+            Cultivated by Hackteria, Arai‑eek Lab, Biohaha, TransHackFeministas, Pixelache and a diaspora of global co‑conspirators — English, Spanish, Indonesian, German, Japanese, French — humming in the polyphony of the pluriverse.
         </p>
-        <div style="display: flex; gap: 15px; font-family: monospace; font-size: 0.75rem;">
-            <a href="agentic_workflow.html" style="color: var(--neon-green); font-weight: 800; text-decoration: none;">▸ AGENTIC SPECS</a>
-            <a href="catalog.html" style="color: var(--neon-cyan); font-weight: 800; text-decoration: none;">▸ FULL CATALOGUE</a>
+        <p style="font-size: 0.75rem; line-height: 1.4; margin-bottom: 15px; color: var(--text-muted);">
+            <strong>Thematic mycelia:</strong> Transfeminism, DIY Biology, Soil Ecology, Fermentation, More-than-Human Networks, Bioart, Open Hardware, and Radical Pedagogy.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-family: monospace; font-size: 0.75rem; border-top: 1px solid var(--glass-border); padding-top: 10px;">
+            <div style="display: flex; justify-content: space-between;">
+                <a href="catalog.html" style="color: var(--neon-cyan); font-weight: 800; text-decoration: none;">▸ FULL CATALOGUE</a>
+                <a href="agentic_workflow.html" style="color: var(--neon-green); font-weight: 800; text-decoration: none;">▸ AGENTIC SPECS</a>
+            </div>
+            <p style="font-size: 0.7rem; opacity: 0.6; text-align: center; margin-top: 5px;">Click any node to explore. Use Nextcloud for PDFs.</p>
         </div>
     </div>
     <div id="portal-trigger" onclick="togglePortal()">⟡</div>
@@ -228,7 +237,10 @@
             data.fragments.forEach(f => { frags += `<div class="fragment-block">"${f.text}"<br><small style="color:#5a7a2a;">— ${f.source}</small></div>`; });
             let tags = '';
             data.concepts.forEach(c => { tags += `<span class="concept-tag">${c}</span>`; });
-            document.getElementById('dossierContent').innerHTML = `<span class="section-label">Analysis</span><p style="font-size:13px; margin-bottom:20px;">${data.analysis}</p><span class="section-label">Fragments</span>${frags}<span class="section-label">Concepts</span><div style="margin-top:10px;">${tags}</div>`;
+            const warning = `<div style="background: rgba(230, 168, 64, 0.1); border: 1px solid #e6a840; padding: 10px; font-size: 10px; color: #e6a840; margin-bottom: 20px; line-height: 1.3;">
+                ◈ <strong>SPECULATIVE SYNTHESIS WARNING:</strong> The following analysis is a narrative extrapolation co-authored by an AI agent. While informed by extracted fragments, it represents a poetic interpretation rather than a literal transcript.
+            </div>`;
+            document.getElementById('dossierContent').innerHTML = `${warning}<span class="section-label">Analysis</span><p style="font-size:13px; margin-bottom:20px;">${data.analysis}</p><span class="section-label">Fragments</span>${frags}<span class="section-label">Concepts</span><div style="margin-top:10px;">${tags}</div>`;
             document.getElementById('dossierPanel').classList.add('open');
             document.getElementById('dossierOverlay').classList.add('active');
         }
