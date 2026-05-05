@@ -49,7 +49,7 @@
             pointer-events: auto;
         }
         .summary-panel h3 { margin-top: 0; color: var(--neon-cyan); font-size: 1.2rem; margin-bottom: 15px; border-bottom: 1px solid rgba(0, 210, 255, 0.3); padding-bottom: 8px; }
-        .summary-panel p { font-size: 0.9rem; line-height: 1.5; color: #333; margin-bottom: 10px; }
+        .summary-panel p { font-size: 0.9rem; line-height: 1.5; color: inherit; margin-bottom: 10px; }
         .summary-panel .stat { color: var(--neon-green); font-weight: bold; font-size: 1.1em; }
         
         .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.5rem; color: var(--neon-pink); z-index: 5; pointer-events: none; text-shadow: 0 0 10px var(--neon-pink); font-weight: bold; text-transform: uppercase; letter-spacing: 3px; animation: pulse 1.5s infinite; }
@@ -72,7 +72,7 @@
         }
         #zine-modal h2 { margin-top: 0; color: var(--neon-green); font-size: 1.5rem; margin-bottom: 15px; text-shadow: 0 0 5px rgba(57, 255, 20, 0.3); }
         #zine-thumb { width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; background: #fff; border: 1px solid #333; }
-        #zine-desc { color: #333; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        #zine-desc { color: inherit; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         
         #zine-btn {
             display: inline-block;
@@ -97,6 +97,10 @@
     </style>
 </head>
 <body>
+    <div class="theme-toggle">
+        <button class="theme-btn" onclick="setTheme('light')" title="Platinum Theme">☀️</button>
+        <button class="theme-btn" onclick="setTheme('tropical')" title="Tropical Theme">🌴</button>
+    </div>
     <div class="header">
         <img class="logo" src="arai-icon.svg" alt="Arai-eek Logo">
         <div class="header-text">
@@ -214,6 +218,24 @@
             }
         });
         
+        
+        function setTheme(mode) {
+            if (mode === 'tropical') {
+                document.body.classList.add('theme-tropical');
+                document.querySelector('.logo').src = 'arai-eek-logo.svg';
+                network.setOptions({ nodes: { shadow: { color: 'rgba(57,255,20,0.5)', size: 15 } } });
+                document.getElementById('zine-modal').style.background = 'rgba(15, 20, 30, 0.85)';
+                document.getElementById('zine-modal').style.color = '#ddd';
+                document.querySelector('.summary-panel').style.color = '#ccc';
+            } else {
+                document.body.classList.remove('theme-tropical');
+                document.querySelector('.logo').src = 'arai-icon.svg';
+                network.setOptions({ nodes: { shadow: { color: 'rgba(46, 49, 146, 0.3)', size: 10 } } });
+                document.getElementById('zine-modal').style.background = '#fff';
+                document.getElementById('zine-modal').style.color = '#333';
+                document.querySelector('.summary-panel').style.color = '#333';
+            }
+        }
         function closeModal() {
             document.getElementById('zine-modal').style.display = "none";
         }
