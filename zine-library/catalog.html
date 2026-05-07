@@ -23,7 +23,9 @@
             
             --crt-bg: #0a0a05;
             --phosphor-bright: #c8ff8c;
-            --phosphor-mid: #7fb84a;
+            --phosphor: #7fb84a;
+            --pink: #ff00ff;
+            --pink-bright: #ff66ff;
         }
         body.theme-tropical {
             --bg: #0b0f1a;
@@ -37,6 +39,10 @@
             --border: rgba(255, 255, 255, 0.08);
             --glass-bg: rgba(15, 20, 30, 0.85);
             --glass-border: rgba(57, 255, 20, 0.3);
+            --phosphor-bright: #c8ff8c;
+            --phosphor: #7fb84a;
+            --pink: #ff00ff;
+            --pink-bright: #ff66ff;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.5; min-height: 100vh; overflow-x: hidden; transition: background 0.3s; }
@@ -69,15 +75,15 @@
         /* DOSSIER PANEL STYLES */
         .dossier-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(5px); }
         .dossier-overlay.active { opacity: 1; pointer-events: auto; }
-        .dossier-panel { position: fixed; top: 0; right: 0; width: 600px; max-width: 95vw; height: 100vh; z-index: 300; background: var(--crt-bg); border-left: 2px solid #2a3a18; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1); display: flex; flex-direction: column; color: var(--phosphor-mid); font-family: 'JetBrains Mono', monospace; overflow: hidden; }
+        .dossier-panel { position: fixed; top: 0; right: 0; width: 600px; max-width: 95vw; height: 100vh; z-index: 300; background: var(--crt-bg); border-left: 2px solid #2a3a18; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1); display: flex; flex-direction: column; color: var(--phosphor); font-family: 'JetBrains Mono', monospace; overflow: hidden; }
         .dossier-panel.open { transform: translateX(0); }
         .crt-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 310; background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 3px); }
         .dossier-header { padding: 20px; border-bottom: 1px solid #2a3a18; display: flex; justify-content: space-between; align-items: center; background: #0c0e07; z-index: 320; }
         .dossier-content { flex: 1; overflow-y: auto; padding: 25px; z-index: 320; }
-        .fragment-block { border-left: 3px solid var(--phosphor-mid); padding: 15px; margin: 20px 0; background: rgba(120, 255, 140, 0.05); font-style: italic; color: var(--phosphor-bright); }
+        .fragment-block { border-left: 3px solid var(--phosphor); padding: 15px; margin: 20px 0; background: rgba(120, 255, 140, 0.05); font-style: italic; color: var(--phosphor-bright); }
         .section-label { color: #e6a840; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
         .concept-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-        .concept-tag { font-size: 0.7rem; padding: 5px 10px; border: 1px solid #3a5a1e; color: var(--phosphor-mid); background: rgba(80,140,30,0.1); }
+        .concept-tag { font-size: 0.7rem; padding: 5px 10px; border: 1px solid #3a5a1e; color: var(--phosphor); background: rgba(80,140,30,0.1); }
         .btn-close { background: none; border: 1px solid #3a2a1a; color: #8a6a4a; font-size: 20px; cursor: pointer; width: 40px; height: 40px; }
         
         @keyframes cardAppear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -92,7 +98,7 @@
         
         .agentic-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(10px); }
         .agentic-modal.active { display: flex; }
-        .agentic-modal-content { background: #0a0a05; border: 1px solid var(--green); max-width: 600px; width: 100%; padding: 40px; position: relative; color: var(--phosphor-mid); font-family: 'JetBrains Mono', monospace; box-shadow: 0 0 50px rgba(0, 255, 136, 0.1); }
+        .agentic-modal-content { background: #0a0a05; border: 1px solid var(--green); max-width: 600px; width: 100%; padding: 40px; position: relative; color: var(--phosphor); font-family: 'JetBrains Mono', monospace; box-shadow: 0 0 50px rgba(0, 255, 136, 0.1); }
         .agentic-modal-content h3 { color: var(--phosphor-bright); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid rgba(0, 255, 136, 0.3); padding-bottom: 10px; }
         .agentic-modal-content p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; }
         .agentic-modal-content ul { list-style: none; margin-bottom: 20px; font-size: 0.8rem; }
@@ -962,7 +968,7 @@
                 <br><br>
                 <a href="agentic_workflow.html" style="color: var(--phosphor-bright); text-decoration: underline; font-weight: bold;">▸ VIEW FULL AGENTIC WORKFLOW & ECONOMICS</a>
             </div>
-            <button class="btn-close" style="position: absolute; top: 10px; right: 10px; background:none; border:none; color:var(--phosphor-mid); font-size:20px; cursor:pointer;" onclick="toggleAgenticModal()">✕</button>
+            <button class="btn-close" style="position: absolute; top: 10px; right: 10px; background:none; border:none; color:var(--phosphor); font-size:20px; cursor:pointer;" onclick="toggleAgenticModal()">✕</button>
         </div>
     </div>
 
@@ -1001,15 +1007,15 @@
                 specView.style.display = 'none';
                 factBtn.style.borderColor = 'var(--phosphor-bright)';
                 factBtn.style.color = 'var(--phosphor-bright)';
-                specBtn.style.borderColor = 'var(--phosphor)';
-                specBtn.style.color = 'var(--phosphor)';
+                specBtn.style.borderColor = 'var(--pink)';
+                specBtn.style.color = 'var(--pink)';
             } else {
                 factView.style.display = 'none';
                 specView.style.display = 'block';
                 factBtn.style.borderColor = 'var(--phosphor)';
                 factBtn.style.color = 'var(--phosphor)';
-                specBtn.style.borderColor = 'var(--phosphor-bright)';
-                specBtn.style.color = 'var(--phosphor-bright)';
+                specBtn.style.borderColor = 'var(--pink-bright)';
+                specBtn.style.color = 'var(--pink-bright)';
             }
         }
 
@@ -1059,7 +1065,7 @@
             const toggleButtons = `
             <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                 <button id="btn-fact" onclick="switchTab('fact')" style="flex:1; padding:8px; background:var(--bg-card); color:var(--phosphor-bright); border:1px solid var(--phosphor-bright); cursor:pointer; font-family:'Courier New', monospace; font-size:11px; text-transform:uppercase;">◈ Factual Read (Machine Extraction)</button>
-                <button id="btn-spec" onclick="switchTab('spec')" style="flex:1; padding:8px; background:var(--bg-card); color:var(--phosphor); border:1px solid var(--phosphor); cursor:pointer; font-family:'Courier New', monospace; font-size:11px; text-transform:uppercase;">◈ Poetic Deep (Speculative Analysis)</button>
+                <button id="btn-spec" onclick="switchTab('spec')" style="flex:1; padding:8px; background:var(--bg-card); color:var(--pink); border:1px solid var(--pink); cursor:pointer; font-family:'Courier New', monospace; font-size:11px; text-transform:uppercase;">◈ Poetic Deep (Speculative Analysis)</button>
             </div>`;
             
             let factualMeta = `<div style="margin-bottom: 15px; font-size: 12px; color: #a0a0a0;">
@@ -1075,24 +1081,23 @@
                 <div id="fact-view">
                     <span class="section-label" style="color:var(--phosphor-bright); border-color:var(--phosphor-bright);">Factual Analysis</span>
                     ${factualMeta}
-                    <div style="margin-bottom: 30px; font-size: 13px; color:#e0e0e0; line-height: 1.6;">${factualData}</div>
+                    <div style="margin-bottom: 30px; font-size: 13px; line-height: 1.6;">${factualData}</div>
                     
                     <span class="section-label">Key Concepts</span>
                     <div class="concept-tags">${conceptsHTML || "N/A"}</div>
                 </div>
-                <div id="spec-view" style="display:none;">
+                <div id="spec-view" style="display:none; color:var(--pink);">
                     ${warning}
-                    <span class="section-label" style="color:var(--phosphor);">Poetic Analysis</span>
+                    <span class="section-label" style="color:var(--pink);">Poetic Analysis</span>
                     <div style="margin-bottom: 30px; font-size: 13px; line-height: 1.6;">${data.analysis || "Poetic deep dive pending..."}</div>
                     
-                    <span class="section-label">Fragments</span>
+                    <span class="section-label" style="color:var(--pink);">Fragments</span>
                     ${fragmentsHTML || '<div class="fragment-block">No fragments extracted yet.</div>'}
                     
-                    <span class="section-label">Key Concepts</span>
+                    <span class="section-label" style="color:var(--pink);">Key Concepts</span>
                     <div class="concept-tags">${conceptsHTML || "N/A"}</div>
                 </div>
             `;
-            
             document.getElementById('dossierPanel').classList.add('open');
             document.getElementById('dossierOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
