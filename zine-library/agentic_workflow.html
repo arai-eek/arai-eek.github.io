@@ -205,6 +205,121 @@
         </section>
 
         <section>
+            <h2>System Evolution (Metasession: 2026-05-08)</h2>
+            <p>Following the initial stabilization, we optimized the pipeline into the <strong>Standard Archival Protocol (SAP) v2</strong>. This revision focuses on two critical bottlenecks: ID collision and high-fidelity visual ingestion for "analog-only" zines.</p>
+            
+            <div class="workflow-step" style="border-color: var(--phosphor-bright);">
+                <div class="step-num">!</div>
+                <h3>Revision: The Narrative Pivot</h3>
+                <p>During the 2026-05-08 session, we explicitly moved away from concise bullet points back to <strong>Narrative Depth</strong> for Machine Extractions. We found that the longer, descriptive summaries provide better "Speculative Archiving" quality, capturing the materiality and nuance that bullets erase.</p>
+            </div>
+
+            <!-- VISUAL WORKFLOW CHART -->
+            <div style="background: var(--glass); border: 1px solid var(--border); padding: 40px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: var(--phosphor-bright); margin-bottom: 30px; text-align: center; text-transform: uppercase; letter-spacing: 2px;">SAP v2: Archival Flowchart</h4>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                    
+                    <div style="border: 2px solid var(--phosphor); padding: 15px; width: 300px; text-align: center; background: rgba(57, 255, 20, 0.05);">
+                        <strong>NEW PDF ARRIVAL</strong><br><span style="font-size: 0.7rem; opacity: 0.8;">New_additions/ folder</span>
+                    </div>
+                    
+                    <div style="color: var(--phosphor); font-size: 1.5rem;">↓</div>
+                    
+                    <div style="display: flex; gap: 40px; align-items: flex-start;">
+                        <div style="border: 2px solid var(--phosphor); padding: 15px; width: 300px; text-align: center; background: rgba(57, 255, 20, 0.05); border-color: var(--accent);">
+                            <strong>STEP 1: RAPID INGESTION</strong><br>
+                            <span style="font-size: 0.7rem; opacity: 0.8;">ingest_zine.py + ZID Audit</span><br>
+                            <div style="text-align: left; font-size: 0.65rem; margin-top: 10px;">
+                                1. Audit next ZID (grep/awk)<br>
+                                2. Move file (shutil.move)<br>
+                                3. Extract text (pdftotext -layout)
+                            </div>
+                        </div>
+                        
+                        <div style="color: var(--phosphor); align-self: center; font-size: 1.5rem;">→</div>
+                        
+                        <div style="border: 2px solid var(--warning); padding: 15px; width: 300px; text-align: center; background: rgba(230, 168, 64, 0.05);">
+                            <strong>QUALITY CHECK</strong><br>
+                            <span style="font-size: 0.7rem;">Text > 200 chars?</span><br>
+                            <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.65rem;">
+                                <span style="color: var(--phosphor);">YES: ✅ Machine-readable</span>
+                                <span style="color: var(--accent);">NO: ⚠️ Image-heavy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="color: var(--phosphor); font-size: 1.5rem;">↓</div>
+
+                    <div style="border: 2px solid var(--phosphor-bright); padding: 15px; width: 640px; text-align: center; background: rgba(200, 255, 140, 0.05);">
+                        <strong>STEP 2: VIP VISION (Visual Ingestion Protocol)</strong><br>
+                        <span style="font-size: 0.7rem; opacity: 0.8;">On-Demand for Image-Heavy Targets</span><br>
+                        <div style="display: flex; justify-content: space-around; margin-top: 10px; text-align: left; font-size: 0.65rem;">
+                            <div>
+                                <strong>Capture:</strong><br>
+                                - 6+6 Rule (Pages + Spreads)<br>
+                                - pdftoppm (Grayscale JPEGs)
+                            </div>
+                            <div>
+                                <strong>Synthesis:</strong><br>
+                                - Multi-page visual analysis<br>
+                                - DeepSeek Narrative Generation
+                            </div>
+                            <div>
+                                <strong>Persistence:</strong><br>
+                                - zine_database.md Update<br>
+                                - build_catalog.py Sync
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-num">05</div>
+                <h3>Technical Hardening (Antigravity IDE)</h3>
+                <p>To ensure ID consistency across a messy 20-year history, we integrated a <strong>Foolproof ZID Audit</strong> command directly into the agent protocol. This prevents ZID collisions by performing a real-time regex audit of the database before any new entry is drafted.</p>
+                <div class="tech-tags">
+                    <span class="tag">ZID Audit Shell Pipe</span>
+                    <span class="tag">Database Integrity</span>
+                    <span class="tag">Archivist Consensus</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Per-Zine Archival Economics</h2>
+            <p>Our two-step pipeline allows for scalable archival by differentiating between machine-readable text and visual-heavy curation.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Archival Path</th>
+                        <th>Workflow Components</th>
+                        <th>Est. Metabolic Cost</th>
+                        <th>Efficiency Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rapid Ingestion</strong><br><span style="font-size:0.7rem; opacity:0.7;">(✅ Machine-readable)</span></td>
+                        <td>pdftotext + DeepSeek Synthesis</td>
+                        <td><strong>~$0.05 / zine</strong></td>
+                        <td>🚀 HIGH (Mass Ingestion)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VIP Vision</strong><br><span style="font-size:0.7rem; opacity:0.7;">(⚠️ Image-heavy)</span></td>
+                        <td>Visual Sampling (6+6) + Multimodal Analysis</td>
+                        <td><strong>~$0.85 / zine</strong></td>
+                        <td>👁️ PRECISION (Curated)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="warning-box" style="margin-top: 15px;">
+                ◈ <strong>NOTE:</strong> VIP Vision costs are driven by the high input token overhead required for multi-page visual context (JPEGs) and human-in-the-loop verification steps.
+            </div>
+        </section>
+
+        <section>
             <h2>Process Architecture: The Multi-Model Relay Race</h2>
             
             <div class="workflow-step">
@@ -253,73 +368,55 @@
         </section>
 
         <section>
-            <h2>The .agent Cognitive Substrate</h2>
-            <p>We formalized our collaborative session into a persistent machine-readable infrastructure. This project is not a static site, but a <strong>Stateful Archival System</strong> stored in the <code>.agent</code> folder.</p>
-            <div style="background: var(--glass); border: 1px solid var(--border); padding: 25px; margin-top: 20px;">
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 15px;">◈ <strong>Archive Logic (workflows/):</strong> A persistent skill definition that allows future agents to immediately understand how to ingest new PDFs (Scan -> Extract -> Synthesize -> Reconcile).</li>
-                    <li style="margin-bottom: 15px;">◈ <strong>Build Engines (scripts/):</strong> Specialized Python engines (<code>build_static_catalog.py</code>, <code>build_interactive_map.py</code>) that map the <code>deep_info.json</code> source-of-truth into production assets.</li>
-                    <li>◈ <strong>Metabolic Persistence:</strong> The <code>deep_info.json</code> acts as the "Collective Memory" of the archive, ensuring that poetic Dossiers and thematic tags survive session truncations.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Token Economics: Metabolic Cost Analysis</h2>
-            <p>By utilizing a multi-model stack, we balanced cognitive power with economic efficiency. Opus handled the heavy conceptual lifting, Flash handled the massive iterative loops, DeepSeek handled the bulk synthesis, and Pro handled the final polish.</p>
+            <h2>Token Economics: Cumulative Metabolic Cost</h2>
+            <p>Archiving 20 years of biological chaos requires significant cognitive expenditure. We track the metabolic burn across the entire stack, balancing high-reasoning conceptual work with high-efficiency iterative loops.</p>
             <table>
                 <thead>
                     <tr>
-                        <th>Model Layer</th>
-                        <th>Estimated Token Usage</th>
-                        <th>Est. Metabolic Cost (USD)</th>
+                        <th>Archival Session</th>
+                        <th>Model Stack</th>
+                        <th>Estimated Tokens</th>
+                        <th>Est. Cost (USD)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Claude Opus 4.6</strong> <br><span style="font-size:0.7rem; opacity:0.7;">(Architecture)</span></td>
-                        <td>~1M Input / ~50k Output</td>
-                        <td>~$18.75</td>
+                        <td><strong>Session 1 (2026-05-06)</strong><br><span style="font-size:0.7rem; opacity:0.7;">Initial Setup & Consolidation</span></td>
+                        <td>Opus 4.6, Flash, Pro, DeepSeek</td>
+                        <td>~14.4M Input / ~400k Output</td>
+                        <td>~$25.07</td>
                     </tr>
                     <tr>
-                        <td><strong>Gemini 3 Flash</strong> <br><span style="font-size:0.7rem; opacity:0.7;">(Orchestration & Code)</span></td>
-                        <td>~9M Input / ~200k Output</td>
-                        <td>~$0.75</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Gemini 3.1 Pro</strong> <br><span style="font-size:0.7rem; opacity:0.7;">(UI Integration)</span></td>
-                        <td>~4M Input / ~100k Output</td>
-                        <td>~$5.50</td>
-                    </tr>
-                    <tr>
-                        <td><strong>DeepSeek-V4 MCP</strong> <br><span style="font-size:0.7rem; opacity:0.7;">(Poetic Synthesis)</span></td>
-                        <td>~400k Input / ~50k Output</td>
-                        <td>~$0.06</td>
+                        <td><strong>Session 2 (2026-05-08)</strong><br><span style="font-size:0.7rem; opacity:0.7;">SAP v2 & VIP Implementation</span></td>
+                        <td>Antigravity (Pro), DeepSeek-V4 Pro</td>
+                        <td>~3.5M Input / ~80k Output</td>
+                        <td>~$5.01</td>
                     </tr>
                     <tr style="background: rgba(57, 255, 20, 0.05); border-top: 2px solid var(--phosphor);">
-                        <td><strong>Total Agentic Session</strong></td>
-                        <td><strong>~14.4M Input / ~400k Output</strong></td>
-                        <td><strong>~$25.06</strong></td>
+                        <td><strong>Cumulative Project Burn</strong></td>
+                        <td><strong>Multi-Agent Stack</strong></td>
+                        <td><strong>~17.9M Tokens</strong></td>
+                        <td><strong>~$30.08</strong></td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
         <section>
-            <h2>The Collaborative Stack</h2>
+            <h2>The Collaborative Stack (Updated)</h2>
             <div class="tech-tags">
-                <span class="tag">Antigravity IDE</span>
-                <span class="tag">Claude Opus 4.6</span>
-                <span class="tag">Gemini 3 Flash/Pro</span>
-                <span class="tag">DeepSeek MCP</span>
-                <span class="tag">Vis.js Graph Engine</span>
-                <span class="tag">Ripgrep (Rust)</span>
+                <span class="tag">Antigravity IDE (Orchestrator)</span>
+                <span class="tag">Claude Opus 4.6 (Foundations)</span>
+                <span class="tag">Gemini 3 Flash/Pro (Code/UI)</span>
+                <span class="tag">DeepSeek-V4 Pro (Narrative Depth)</span>
+                <span class="tag">pdftoppm (VIP Vision)</span>
+                <span class="tag">Ripgrep (Audit)</span>
                 <span class="tag">Python 3.10 Build Pipes</span>
             </div>
         </section>
 
         <footer>
-            Arai-eek Lab | Agentic Archive System v1.0 | Metasession: 2026-05-06
+            Arai-eek Lab | Agentic Archive System v2.0 | Metasession: 2026-05-08
         </footer>
     </div>
 
