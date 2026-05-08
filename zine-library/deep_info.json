@@ -300,7 +300,7 @@
     "machine": "(VIP Visual Dossier)\n- Page 15: \"Medicinal plants, lichen and fungi and queerness.\" Detailed instructions for Red Raspberry leaf tea (*Rubus idaeus*) for reproductive health (menstrual regulation, uterine toning).\n- Page 50: \"BLOCK 03: FRUCTIFICATION (Phase 03)\". MLF - Mycelium Liberation Front protocol. Mention of \"SPELL TEXT\" and \"microscope, tattoos, drawings\".\n- Visual Style: Hand-drawn botanical diagrams mixed with high-contrast queer punk collage aesthetics.",
     "format": "A5, 61pp",
     "language": "Spanish/English/Portuguese",
-    "author": "Ed x Ar (2019) / Paula Pin (BioTransLab)",
+    "author": "Paula Pin (BioTransLab)",
     "category": "Transfeminism & Body Politics",
     "folder": "Arai-eek_zine-library/3_Transfeminism/fanzineAlcuirmiaLastversionLogos_new/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/fanzineAlcuirmiaLastversionLogos_new",
@@ -1809,5 +1809,42 @@
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/8_Oddities/RatCatcher",
     "size": "4.8 MB",
     "date": "2020"
+  },
+  "fanzine wetlab01 ce quimera y gaia leandra WEB.pdf": {
+    "title": "Wetlab #01: laboratorio húmedo",
+    "classification": "DECRYPTED ARCHIVE",
+    "poetic": "The Wetlab is a bag, a carrier, a container for stories that refuse to stay dry. It is a \"wetworlding\" station where the hacker ethic of *descajanegrizar* (un-black-boxing) is applied to the cell, the hormone, and the petri dish. Here, care is not a soft sentiment but an \"unsettling responsibility\"—a commitment to stay with the conflict of biological identity. From the \"health glitch\" of Gynepunk to the cyanobacterial sonification of the present, this zine is a signal from a laboratory that operates in the flows of fluids and the friction of biosafety.",
+    "fragments": [
+      {
+        "text": "Se reabre el espacio y, con éste, una suerte de mutación en la que pueden intervenir lxs inesperadxs.",
+        "source": "Decrypted Metadata"
+      },
+      {
+        "text": "The body is not a problem to be policed. It is a material to be hacked.",
+        "source": "Decrypted Metadata"
+      },
+      {
+        "text": "Thinking-with, dissenting-within, and thinking-for.",
+        "source": "Decrypted Metadata"
+      }
+    ],
+    "concepts": [
+      "Wetlab Worlding",
+      "Transhackfeminism",
+      "Biopolitics",
+      "Open Source Estrogen",
+      "DIY-DIT Biology",
+      "Unsettling Care"
+    ],
+    "archivist": "The inaugural fanzine from the Wetlab resident collective at Hangar.org (Barcelona), documenting the transition of the space into a hub for transhackfeminist experimentation. It maps a genealogy of \"living technologies\" and collective research, bridging the legacy of projects like Gynepunk and Open Source Estrogen with contemporary \"worlding\" practices. The document serves as both a manifesto for \"wet worlding\" and a technical introduction to biosafety and laboratory protocols within a hacker context.",
+    "machine": "- **Locations**: Hangar.org (Barcelona), Ursulab (Bourges, France).\n- **Projects/Collectives**: Gynepunk (Klau Kinki, Paula Pin), Open Source Estrogen (Mary Maggic), Open Source Gendercodes (Ryan Hammond), Trans*Plant (Quimera Rosa), PechblendaLAB, diyBIObcn, Kinlab, Prototyp_ome.\n- **Key Figures**: Ce Quimera, Gaia Leandra, Laura Benítez Valero, Helen Torres, Donna Haraway, Ursula K. Le Guin, Michelle Murphy.\n- **Tools/Protocols**: CD4093 NAND gates (oscillators), microfluidic chips (vaginal flow evaluation), PDT (Photodynamic Therapy) protocols for HPV, hormonal synthesis, biosecurity levels (BSL-1 to BSL-4), DIY/DIWO lab equipment.\n- **Biological Agents**: Cyanobacteria, fungi, bacteria, cells, fluids.",
+    "format": "A5, 29pp",
+    "language": "Spanish/English",
+    "author": "Ce Quimera, Gaia Leandra, (le)txe (Design)",
+    "category": "Transfeminism & Body Politics",
+    "folder": "Arai-eek_zine-library/3_Transfeminism/fanzine wetlab01 ce quimera y gaia leandra WEB/",
+    "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/fanzine%20wetlab01%20ce%20quimera%20y%20gaia%20leandra%20WEB",
+    "size": "1.9 MB",
+    "date": "2021"
   }
 }
