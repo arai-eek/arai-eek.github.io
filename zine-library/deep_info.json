@@ -277,30 +277,35 @@
   "fanzineAlcuirmiaLastversionLogos_new.pdf": {
     "title": "Alcuirmia — queer ecology",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "A grimoire of alchemical protocols for queer and trans bodies: recipes for hormone-balancing tinctures, herbal contraceptives brewed from Mugwort and Cotton Root Bark, DIY mycology for mental ecology, and incantations against regulatory capture. The ‘Alcuirmia’ name fuses alcurnia (lineage) with alquimia (alchemy), reclaiming ancestral herbal knowledge as a form of biotechnological resistance. This last version carries the collective’s new logos—sigils of autonomy.",
+    "poetic": "A brew of resistance steeps in the kettle of the underground. Alcuirmia is the recipe for a body that belongs only to itself. It is the mycelium breaking through the pavement, the lichen claiming the stone, and the tea that heals what the state ignores. The name fuses alcurnia (lineage) with alquimia (alchemy), reclaiming ancestral herbal knowledge as a form of biotechnological resistance.",
     "fragments": [
       {
-        "text": "An anti-colonial brew simmering in the shadow of the clinic; each recipe is an act of vegetative rebellion, a spore print of transfeminist survival.",
+        "text": "Medicinal plants, lichen and fungi and queerness.",
+        "source": "Decrypted Metadata"
+      },
+      {
+        "text": "MLF Mycelium Liberation Front / Spell Text / Fructification Phase 03",
         "source": "Decrypted Metadata"
       }
     ],
     "concepts": [
-      "Queer/Trans Bio-hacks",
-      "Herbalism",
-      "Body Politics",
-      "Alchemy",
-      "Mycology"
+      "Queer Ecology",
+      "Mycelium Liberation Front (MLF)",
+      "Reproductive Autonomy",
+      "Raspberry Leaf Protocol",
+      "Herbal Bio-Hacking",
+      "Fructification"
     ],
-    "archivist": "✅ Awaiting analysis.",
-    "machine": "Queer ecology meets herbal medicine. Result of Bio.Autonomy Life workshops in Galicia/Portugal. Chapters: Alcuirmia concept, Mary Hebraica, witches & ancient knowledge, natural queer aberrations, herbal queer medicine, situated knowledge. Connected to BioTranslab, BioArt Lab, Bioxeno, Chaos Fungorum, Cultivamos Cultura.",
-    "format": "A5, 56pp",
-    "language": "English/Spanish/Portuguese",
-    "author": "Paula Pin (BioTransLab)",
+    "archivist": "A multifaceted fanzine exploring the intersections of LGBTIQA+ identity, plant medicine, and radical autonomy. This edition acts as a transition point between archival botanical wisdom and contemporary queer resistance, documenting practices of self-care and mycelial organization. Originally dated 2019 by Ed x Ar, with updates by Paula Pin (BioTransLab).",
+    "machine": "(VIP Visual Dossier)\n- Page 15: \"Medicinal plants, lichen and fungi and queerness.\" Detailed instructions for Red Raspberry leaf tea (*Rubus idaeus*) for reproductive health (menstrual regulation, uterine toning).\n- Page 50: \"BLOCK 03: FRUCTIFICATION (Phase 03)\". MLF - Mycelium Liberation Front protocol. Mention of \"SPELL TEXT\" and \"microscope, tattoos, drawings\".\n- Visual Style: Hand-drawn botanical diagrams mixed with high-contrast queer punk collage aesthetics.",
+    "format": "A5, 61pp",
+    "language": "Spanish/English/Portuguese",
+    "author": "Ed x Ar (2019) / Paula Pin (BioTransLab)",
     "category": "Transfeminism & Body Politics",
     "folder": "Arai-eek_zine-library/3_Transfeminism/fanzineAlcuirmiaLastversionLogos_new/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/fanzineAlcuirmiaLastversionLogos_new",
     "size": "381.5 MB",
-    "date": "2022"
+    "date": "2019/2022"
   },
   "Genital_Panic_Marry_Magic.pdf": {
     "title": "GP Zine — small format",
