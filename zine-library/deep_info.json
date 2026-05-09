@@ -644,7 +644,7 @@
     "machine": "Based solely on the provided text, the zine's content is as follows:Title and Authorship: The zine is titled \"DIGITAL NATURALISM LABORATORIES Bubblepunk Zine.\" It was created by Dr. Andrew Quitmeyer and edited by Kitty Quitmeyer, based in Gamboa, Panama. The content is designated Public Domain CC0 for 2023.Core Theme: The zine promotes a hierarchy of \"punk\" actions related to sharing and freedom: getting things for free, sharing things freely, and liberating locked-up resources for others. It includes a warning against groups that use \"freedom\" to justify taking freedom from others, labeling them fascists.Location Context: The lab is located in Gamboa, Panama, described as a semi-abandoned former HQ of the Panama Canal. The area is characterized by the presence of ships, rainforest wildlife (howler monkeys, agoutis), scientists, and animal rescue operations. It is also an Instagram hotspot for celebrations involving plastic balloons and confetti, which generate trash. The author's stated goal is to promote bubbles as an alternative to trash-generating celebrations.Scientific Content (Abstract and Introduction): The zine includes a mock academic abstract titled \"Mixed Material Globules in Research, or She (Acoustically) Blinded Me (a Dolphin) with Science (Bubbles).\" It lists authors including A. Quitmeyer, V. Tapir, L. Agouti, and S. Hub (Sci-Hub). The abstract states bubbles provide novel soft-interfaces with nature. The introduction defines bubbles as globules of substances",
     "format": "Full-colour, 16pp",
     "language": "English",
-    "author": "Andrew Quitmeyer / Dr. Andrew Quitmeyer / Kitty Quitmeyer / Digital Naturalism Laboratories",
+    "author": "Andrew Quitmeyer / Kitty Quitmeyer / Digital Naturalism Laboratories",
     "category": "Art-Science",
     "folder": "Arai-eek_zine-library/4_Art-Science/BubblePunk Zine Printy PDF/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/BubblePunk%20Zine%20Printy%20PDF",
@@ -878,7 +878,7 @@
   "A3_trippleNarrow.pdf": {
     "title": "Triple-narrow poster",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "A folding manifesto where the grid is a spine and the text becomes a choreographic score. Triple Narrow columns on A3 sheets whisper the secret geometry of risograph dreams, urging the reader to inhabit the space between columns as a political act. This zine is a paper DNA origami, teaching the body how to read otherwise.",
+    "poetic": "Cut from the same grid, three narrow doors swing open onto a pixel wilderness where campfire warmth meets cold schematics scribbled across the sky. The hand-drawn title crackles with embedded components—resistors sprout from letters, traces ink themselves into meaning. A boombox and a keyboard float in the schematic heavens, broadcasting an open invitation: come as you are, bring your circuits, your curiosities, your half-built dreams. Slice the A3, and the flyer multiplies, each strip a narrow portal to a week of homemade alchemy, low-stress hacking, and the quiet magnetism of a campfire glowing in 8-bit.",
     "fragments": [
       {
         "text": "A typographic triptych that breathes with the humidity of the printing press; folds are the hinges of a new visual vernacular.",
@@ -886,16 +886,18 @@
       }
     ],
     "concepts": [
-      "Experimental Design",
-      "Zine as Object",
-      "Graphic Scores",
-      "Tropical Typography"
+      "Triple-strip layout",
+      "8-bit Pixel Art",
+      "Home Made Electronics",
+      "Open Research Week",
+      "Circuit Schematics",
+      "SGMK Less Stress"
     ],
-    "archivist": "⚠️ Triple-narrow format poster, image-heavy.",
-    "machine": "No extractable text / Image-heavy",
-    "format": "A3 full-colour, 3pp",
-    "language": "Not specified",
-    "author": "Marc Dusseiller / Hackteria",
+    "archivist": "A colourful A3 promotional print designed as a triple-strip layout, intended for slicing into three identical vertical flyers. It represents an “Open” variant of the SGMK Home Made promotional material, broadening the focus to the broader project through audio-centric and technical motifs.",
+    "machine": "This is a colourful A3 promotional print designed as a triple-strip layout—three identical vertical panels intended for slicing into individual narrow flyers. The composition centers on the hand-drawn title “Home Made,” whose lettering integrates resistors, capacitors, and traces directly into the linework. Beneath it, an 8-bit pixel landscape unfolds: serrated mountains, pine clusters, stylized mushrooms, and a glowing campfire. The sky area overlays circuit schematics that are denser and more elaborate than those seen in related variants; a portable boombox and a piano keyboard are added among the schematic lines. Branding elements include the “SGMK” and “LESS STRESS” logos. The print includes a URL pointing to the project wiki for further information.",
+    "format": "A3 triple-strip layout, 1pp",
+    "language": "English",
+    "author": "Miranda Moss / SGMK",
     "category": "Art-Science",
     "folder": "Arai-eek_zine-library/4_Art-Science/A3_trippleNarrow/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/4_Art-Science/A3_trippleNarrow",
@@ -958,30 +960,31 @@
   "Cheese_CRISPR_booklet_jap.pdf": {
     "title": "Cheese CRISPR — Japanese",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "A culinary zine that curdles gene editing into a recipe book: CRISPR protocols are re-written as fermentation rituals for post-natural cheese. Through the lens of casein mutations and bacterial cultures, the booklet speculates on the terroir of the genome and the taste of edited inheritance. The Japanese edition adds local dairy folklore and calls for a microbial sovereignty against industrial cheese’s monocultures.",
+    "poetic": "In the humid hum of BioClub Tokyo, a manifesto hangs in monochrome—a single sheet where calf genes drift into yeast and bacteria, where Cas9 scissors snip the fabric of milk’s divinity. Mary Maggic and the intercontinental swarm of Hackteria and Lifepatch fold a thousand years of curd-slicing tradition into the cold clarity of CRISPR. Test tubes glow like mozzarella moulds, guide RNA threads through the gaps, and the Grundrezept becomes a hacker’s rune: rennet is no longer a calf’s secret but a sequence you paste into Kluyveromyces. Every batch of cheese bubbles with the truth whispered at the bottom of the poster—we were splicing genomes when we first salted the whey, bio-hackers in aprons, fermenters of the real.",
     "fragments": [
       {
-        "text": "A kitchen-scale prophecy where the cow and the microbe meet the editing scaffold; soy sauce and methylotrophic yeast ferment in the margins of the genome.",
+        "text": "WE HAVE ALWAYS BEEN BIO-HACKERS",
         "source": "Decrypted Metadata"
       }
     ],
     "concepts": [
-      "CRISPR",
-      "Food hacking",
-      "Bioart",
-      "Fermentation",
-      "Speculative Gastronomy"
+      "Fermentation-produced chymosin (FPC)",
+      "CRISPR-Cas9 genome editing",
+      "Recombinant prochymosin in K. lactis",
+      "DIY biopunk cheesemaking",
+      "Single guide RNA (sgRNA) targeting",
+      "BioClub Tokyo Workshop"
     ],
-    "archivist": "An intensely compressed, single-page visual treatise examining the intersection of ancient cheese-making fermentation techniques and modern CRISPR-Cas9 genome editing. It juxtaposes the biological machinery of bacteria defending against phages in dairy cultures with contemporary biotechnological aesthetics.",
-    "machine": "No extractable text / Image-heavy",
+    "archivist": "A single-sheet instructional poster produced for the “Cheese CRISPR — Japanese” workshop held at BioClub Tokyo on 10 February 2017. A collaboration between Mary Maggic, Hackteria, and Lifepatch, it frames traditional cheesemaking as an ancestral form of biotechnological intervention.",
+    "machine": "This single-sheet instructional layout was produced for the “Cheese CRISPR — Japanese” workshop held at BioClub Tokyo on 10 February 2017, a collaboration between Mary Maggic, Hackteria, and Lifepatch. The document diagrams the transition from traditional rennet-based coagulation to industrial fermentation-produced chymosin (FPC), detailing the recombinant insertion of calf prochymosin genes into microbial expression systems—specifically yeast (*Kluyveromyces lactis*) and bacteria (*Escherichia coli*)—to scale enzyme yield. CRISPR-Cas9 genome editing is illustrated through schematics of the Cas9 endonuclease, single guide RNA (sgRNA), and targeted double-strand breaks enabling sequence deletion or donor-templated insertion. A central “GRUNDREZEPT FÜRS KÄSEN” (Basic Recipe for Cheese) breaks the process into enzymatic reaction steps, while high-contrast black-and-white drawings depict test tubes, cheese moulds, molecular structures, and the physical workshop space.",
     "format": "1 page, 5.7 MB",
     "language": "Japanese",
-    "author": "Mary Maggic / Hackteria",
+    "author": "Marc Dusseiller (dusjagr)/ Hackteria / Lifepatch",
     "category": "Food and Fermentation",
     "folder": "Arai-eek_zine-library/5_Food_and_Fermentation/Cheese_CRISPR_booklet_jap/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/Cheese_CRISPR_booklet_jap",
     "size": "5.7 MB",
-    "date": "—"
+    "date": "2017"
   },
   "fermentlab-pixelache_2017_strasbourg-zine_part-1_print-booklet-double-sided.pdf": {
     "title": "Ferment Lab Part I: Intro",
@@ -1340,17 +1343,20 @@
   "Klepon-Cooking_for_Eating_Club.pdf": {
     "title": "Klepon Workshop - Cooking for Eating Club",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "A sticky, emerald portal into Javanese sweetness. Hand-rolled rice balls filled with molten lava of palm sugar, emerging from the pot like small, mossy planets. The zine captures the tactile joy of the 'Cooking for Eating Club', where the kitchen becomes a site of collective sweetness and shared labor.",
+    "poetic": "In a sea of grated coconut, the green giant screams—not in rage, but in the sticky-sweet revelation of a communal kitchen. Teal lines and purple ink map the journey of the glutinous ball, from the hand-kneaded dough to the molten heart of brown sugar. This is the \"Cooking for Eating Club,\" where the sweet is a signal and the sugar is a spark. Every ball that floats to the surface is a node activated, a participant in the KLEPON protocol: Knowing, Learning, Engaging, Perspective to Open Network. Roll your dreams in coconut and swallow the infrastructure whole.",
     "fragments": [],
     "concepts": [
-      "Traditional Sweets",
-      "Collective Cooking",
-      "Food Heritage",
+      "#KLEPONacronym",
+      "#TealAndPurpleAesthetic",
+      "TraditionalIndonesianSweets",
+      "CommunityCookingProtocol",
+      "PandanNaturalColoring",
+      "CookingForEatingClub",
       "Javanese Cuisine",
       "Social Fermentation (Conceptual)"
     ],
-    "archivist": "Documentation of a Klepon making workshop by Paola 'Ramadhani' Kirchhof. Part of the \"Cooking for Eating Club\" series, exploring traditional Indonesian sweets (boiled rice cake balls stuffed with liquid palm sugar and rolled in grated coconut).",
-    "machine": "No extractable text / Image-heavy",
+    "archivist": "A vibrant 4-page workshop manual documenting a Klepon making session led by Paola 'Ramadhani' Kirchhof for Lifepatch. It blends traditional culinary knowledge with meme-culture aesthetics, framing the traditional boiled rice cake as a conceptual vehicle for community networking.",
+    "machine": "This 4-page bilingual manual provides a complete guide to making Klepon, traditional Indonesian boiled rice cake balls. The visual design, created by Antirender, utilizes a vibrant teal and purple palette with hand-drawn technical layouts and humorous photographic memes. The recipe details ingredients such as sticky rice flour, brown sugar, and pandan extract, with instructions covering dough kneading, stuffing, and boiling until the balls float. Crucially, the zine reveals a conceptual acronym for the project: KLEPON (Knowing, Learning, Engaging, Perspective to Open Network). Branding for Lifepatch, con-fus, and RUMBUX GEN-X is included.",
     "format": "Leaflet, 4pp",
     "language": "English / Indonesian",
     "author": "Paola 'Ramadhani' Kirchhof / Lifepatch",
@@ -1363,20 +1369,23 @@
   "Tempa-Tempe_-_Cooking_for_Eating.pdf": {
     "title": "Tempa Tempe Workshop - Cooking for Eating Club",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "Spongebob Squarepants meets Rhizopus oligosporus in a high-octane DIY fermentation manual. Tempeh is not just food here; it is 'tempered' wetware, a biological substrate forged through time and fungal heat. The zine transforms the humble soybean into a punk-rock protagonist of the tropical kitchen.",
+    "poetic": "You pick it up and the cover shrieks—mycelium macro, red spiked runes, SpongeBob’s face twisted in a memetic howl. Flip the page and the chaos flatlines: cold vector beans, steps stripped to bare geometry, sterilization gospel. Someone bound a black-metal bootleg to an IKEA instruction sheet and taught you to culture soybean flesh. The archive holds this glitch with reverence—a cooking zine that wears death-metal armor while whispering fermentation timetables, offering the sacred block of white mycelial silk only after you survive the visual blast. Welcome to Tempa Tempe: where the hypebeast meets the homestead, and forty-eight hours of quiet rot become the ultimate act of kitchen rebellion.",
     "fragments": [],
     "concepts": [
-      "Tempeh Making",
-      "DIY Fermentation",
-      "Fungal Technology",
+      "death-metal typography",
+      "meme-culture collage",
+      "minimal-instructional aesthetics",
+      "tempeh fermentation process",
+      "mycelial macro photography",
+      "cover-interior visual whiplash",
       "Tropical Kitchen",
       "Bio-hacking Food"
     ],
-    "archivist": "\"Tempa Tempe\" workshop documentation, exploring the craft of tempeh making (fermented soybeans). Uses a high-energy, DIY aesthetic to present the process as a form of biological 'forging' or 'tempering'.",
-    "machine": "No extractable text / Image-heavy",
+    "archivist": "A wild, 8-page workshop manual exploring the craft of tempeh making (fermented soybeans). The zine is notable for its extreme visual whiplash: an aggressive, meme-culture death-metal cover that abruptly transitions into a stark, minimalist, laboratory-grade instructional guide, concluding with an Indonesian tofu/tempeh pun.",
+    "machine": "The cover operates at maximum visual dissonance: a macro photograph of raw tempeh mycelium fills the frame as background, while the title “TEMPA TEMPE” is set in a luminous red, jagged death-metal typography. A distorted, wildly expressive SpongeBob SquarePants figure sits in the foreground, anchoring the composition firmly in chaotic internet meme culture. Upon opening, the aesthetic collapses into stark minimalism—pure white pages hold simple black clip-art diagrams and terse instructional text. The procedure is broken into five utilitarian steps: boiling, washing, steaming, mixing with starter, and fermenting for 48 hours. Page 7 introduces an Indonesian linguistic pun with a cross-section of tempeh and the text \"SEDARI AWAL / AKU MEMANG NGGAK TAHU\" (playing on \"tahu\" as both \"know\" and \"tofu\"). The back cover returns to the mycelial macro, declaring it a \"RUMBUX GEN-X Publish\" presented by \"LIFEPATCH citizen initiative in art science and technology.\" The zine weaponizes a brutal visual whiplash, dragging the reader from a screaming subcultural collage into a silent cooking manual and out again.",
     "format": "Leaflet, 8pp",
     "language": "English / Indonesian",
-    "author": "Helmi Hardian / Angela Sunaryo / WaftLab",
+    "author": "Lifepatch / Rumbux Gen-X",
     "category": "Food and Fermentation",
     "folder": "Arai-eek_zine-library/5_Food_and_Fermentation/Tempa-Tempe_-_Cooking_for_Eating/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/5_Food_and_Fermentation/Tempa-Tempe_-_Cooking_for_Eating",
@@ -1498,11 +1507,18 @@
   "Cover_Print Layout.pdf": {
     "title": "Indonesia Noise Experimental - MiniZine 2024",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "Schematic spells for no-input mixers, singing solar cells, and tin-can microphones. Annotations mix English with Bahasa Pasar and solder burns. Step-by-step rituals for coaxing noise from discarded jungle junk, celebrating the beauty of broken signals.",
+    "poetic": "A signal scraped from the archipelago’s hum—a paper-thin directory of sonic dissent, circuit-bent and photocopied into permanence. Here, barbed wire frames the schematics of homemade scream machines: VL MONSTER and MICRODRONE mk II breathing on Lintang Raditya’s bench. Between the calendar of bombings and harsh fests, the ghosts of Pekak! and INDONOISIA coil like archival feedback. Collectives from Batu to Sumatra stitch a lattice of noise, no border, no limit, just a shared oath to connect and share. The zine is a node in the eternal screening of NOISE IS SERIOUS SHIT, 31 cities flickering in unison. This is the quiet before the wall of sound—archivist as hacker, hacker as conduit.",
     "fragments": [],
-    "concepts": [],
-    "archivist": "⚠️ Image-heavy noise/sound art zine. Created with Adobe InDesign.",
-    "machine": "No extractable text / Image-heavy",
+    "concepts": [
+      "Indonesian Noise Scene",
+      "DIY Synthesizers (KRP)",
+      "Jogja Noise Bombing",
+      "Translocal Zine Networks",
+      "Circuit Bending Protocols",
+      "Noise-as-Archival-Resistance"
+    ],
+    "archivist": "A high-density procedural directory and event calendar for the Indonesian noise and experimental music scene as of May 2024. Produced using Adobe InDesign, the zine serves as a socio-technical map of DIY laboratory nodes, festivals, and archival releases across the archipelago.",
+    "machine": "This artifact, titled *INDONESIA NOISE-EXPERIMENTAL MINI ZINE (Connect & Share)*, functions as a procedural directory and event calendar for the Indonesian noise scene circa May 2024. The zine documents major festivals including the Cirebon Noise Festival, Jogja Noise Bombing, Malang Noise Festival, and Solo Harsh Fest. It highlights key archival releases such as *Pekak! Indonesian Noise 1995-2015* and *INDONOISIA* (released via the HNM label). The narrative profiles multiple regional collectives: ASKARA KOLEKTIF (Batu), 0341MHARSHZ (Malang), KOMBO.LAB (Yogyakarta), FLESH FLY NOISE (Sumatra), Unen Unen Ambyar (East Java), and Banyunoise (Purwokerto). A technical section is dedicated to the *Kenali Rangkai Pakai* (KRP) project by Lintang Raditya, documenting DIY synthesizer units such as the VL MONSTER and MICRODRONE mk II. The document also includes a global screening schedule for the *NOISE IS SERIOUS SHIT* documentary, covering 31 cities across Indonesia, Southeast Asia, and Europe. The visual language is defined by high-contrast greyscale collages, circuit diagrams, and stompbox illustrations, underpinned by the slogan: “NO LIMIT, NO BORDER, CONNECT AND SHARE, FREE ACCESS FOR EVERYONE.”",
     "format": "A3 full-colour, cover + 8pp",
     "language": "Not specified",
     "author": "Not specified",
@@ -1515,11 +1531,18 @@
   "Inside_Mini-Zine Print Layout.pdf": {
     "title": "Indonesia Noise Experimental - MiniZine 2024",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "Schematic spells for no-input mixers, singing solar cells, and tin-can microphones. Annotations mix English with Bahasa Pasar and solder burns. Step-by-step rituals for coaxing noise from discarded jungle junk, celebrating the beauty of broken signals.",
+    "poetic": "A signal scraped from the archipelago’s hum—a paper-thin directory of sonic dissent, circuit-bent and photocopied into permanence. Here, barbed wire frames the schematics of homemade scream machines: VL MONSTER and MICRODRONE mk II breathing on Lintang Raditya’s bench. Between the calendar of bombings and harsh fests, the ghosts of Pekak! and INDONOISIA coil like archival feedback. Collectives from Batu to Sumatra stitch a lattice of noise, no border, no limit, just a shared oath to connect and share. The zine is a node in the eternal screening of NOISE IS SERIOUS SHIT, 31 cities flickering in unison. This is the quiet before the wall of sound—archivist as hacker, hacker as conduit.",
     "fragments": [],
-    "concepts": [],
-    "archivist": "⚠️ Image-heavy noise/sound art zine. Created with Adobe InDesign.",
-    "machine": "No extractable text / Image-heavy",
+    "concepts": [
+      "Indonesian Noise Scene",
+      "DIY Synthesizers (KRP)",
+      "Jogja Noise Bombing",
+      "Translocal Zine Networks",
+      "Circuit Bending Protocols",
+      "Noise-as-Archival-Resistance"
+    ],
+    "archivist": "A high-density procedural directory and event calendar for the Indonesian noise and experimental music scene as of May 2024. Produced using Adobe InDesign, the zine serves as a socio-technical map of DIY laboratory nodes, festivals, and archival releases across the archipelago.",
+    "machine": "This artifact, titled *INDONESIA NOISE-EXPERIMENTAL MINI ZINE (Connect & Share)*, functions as a procedural directory and event calendar for the Indonesian noise scene circa May 2024. The zine documents major festivals including the Cirebon Noise Festival, Jogja Noise Bombing, Malang Noise Festival, and Solo Harsh Fest. It highlights key archival releases such as *Pekak! Indonesian Noise 1995-2015* and *INDONOISIA* (released via the HNM label). The narrative profiles multiple regional collectives: ASKARA KOLEKTIF (Batu), 0341MHARSHZ (Malang), KOMBO.LAB (Yogyakarta), FLESH FLY NOISE (Sumatra), Unen Unen Ambyar (East Java), and Banyunoise (Purwokerto). A technical section is dedicated to the *Kenali Rangkai Pakai* (KRP) project by Lintang Raditya, documenting DIY synthesizer units such as the VL MONSTER and MICRODRONE mk II. The document also includes a global screening schedule for the *NOISE IS SERIOUS SHIT* documentary, covering 31 cities across Indonesia, Southeast Asia, and Europe. The visual language is defined by high-contrast greyscale collages, circuit diagrams, and stompbox illustrations, underpinned by the slogan: “NO LIMIT, NO BORDER, CONNECT AND SHARE, FREE ACCESS FOR EVERYONE.”",
     "format": "A3 full-colour, cover + 8pp",
     "language": "Not specified",
     "author": "Not specified",
@@ -1566,14 +1589,21 @@
   "Instruction_Wurmophon_leaflet_shortside.pdf": {
     "title": "Wurmophon leaflet",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "Instructions for the Wurmophon, an earthworm sound synthesizer. Piezo pickups buried in vermicompost translate peristaltic wriggles into sub-bass rumbles and microtonal chirps. A mud-op-amp circuit and a call to listen to the soil’s hidden rhythm section.",
+    "poetic": "A paper talisman from the edge of the Baltic, folded with solder smoke and whispered voltages—the Wurmophon leaflet is a hacker’s liturgy for ears straining beyond the human. Dusseiller channels Lerman’s ghost and Schreiber’s circuit, bending op-amp legs into attention, coaxing the tiny roar of crystals and coils into a stereo field. This is not merely a build guide; it is an invitation to the secret life of vibration, where 0805 LEDs blink the pulse of a 3.5 mm jack and USB-C fuels an archaeology of unheard hums. In Björkboda’s summer light, the leaflet becomes a manifesto: solder dirt on your fingers, listen to what the electromagnetic weeds are singing, and remember that every small sound is a universe waiting to be amplified.",
     "fragments": [],
-    "concepts": [],
-    "archivist": "⚠️ Instruction leaflet for the Wurmophon instrument.",
-    "machine": "No extractable text / Image-heavy",
+    "concepts": [
+      "Wurmophon / KUBU PHONE",
+      "Stereo piezo pre-amplifier",
+      "Marc Dusseiller (dusjagr) / KUBU 2025",
+      "Richard Lerman piezo soldering (1985/1998)",
+      "SMD hand-soldering for beginners",
+      "Electromagnetic spectrum coils"
+    ],
+    "archivist": "A two-page technical assembly guide for the “Wurmophon” (also known as “KUBU PHONE”), a stereo piezo microphone pre-amplifier. Developed by Marc Dusseiller (dusjagr) in 2025 for the KUBU Summer Programme in Björkboda, Finland, it bridges historical piezo techniques with modern SMD construction.",
+    "machine": "This technical assembly guide for the “Wurmophon” (also known as “KUBU PHONE”) was produced for the KUBU Summer Programme 2025 in Björkboda, Finland. Authored by Marc Dusseiller (dusjagr) in 2025, the document details the assembly of the stereo piezo microphone pre-amplifier derived from the Piez-Amp originally developed by Ralf Schreiber and Uwe Schüler. The leaflet supplies a complete Bill of Materials listing an MCP6002 (CDC6002) op-amp, 0805 SMD LEDs, 4148 diodes, PJ3106A 3.5 mm stereo jacks, and a USB-C power input. It includes a schematic for the stereo pre-amplifier stage operating across a 1.8 V–5.5 V range, alongside specialized assembly procedures: introductory surface-mount soldering, integrated-circuit leg bending, and piezo disk attachment based on Richard Lerman’s 1985/1998 drawings. Additional notes reference experimentation with electromagnetic spectrum coils and 3D-printed enclosures.",
     "format": "A4 landscape, 2pp",
-    "language": "Not specified",
-    "author": "Marc Dusseiller",
+    "language": "English",
+    "author": "Marc Dusseiller (dusjagr)",
     "category": "Sound and Electronics",
     "folder": "Arai-eek_zine-library/6_Sound_and_Electronics/Instruction_Wurmophon_leaflet_shortside/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/6_Sound_and_Electronics/Instruction_Wurmophon_leaflet_shortside",
@@ -1599,14 +1629,15 @@
       }
     ],
     "concepts": [
-      "Trilingual Collective-logic",
-      "Intermedia Ethnography",
-      "Procedural Drawing as Social Protocol",
-      "Panel-as-Studio",
-      "Yogyakarta Network Friction"
+      "RT/RW neighborhood governance",
+      "Tonarigumi historical lineage",
+      "Trilingual residency documentation",
+      "Rumah Bausasran residency",
+      "Safe-space institutional challenges",
+      "Javanese \"spirit of sharing\""
     ],
     "archivist": "A trilingual (JP/EN/ID) procedural documentation of Yogyakarta's collective culture. Created during a residency at Rumah Bausasran and supported by Lifepatch. It uses the comic frame as a metabolic protocol to extract the latent energy of shared studios and collaborative making.",
-    "machine": "• Title: Collectives in Yogyakarta: Notes for turning into a comic \n• Author: Kona Eguchi (2025) \n• Languages: Trilingual — Japanese (JP), English (EN), Indonesian (ID) \n• Support: Lifepatch / Rumah Bausasran \n• Format: 31 pages, zine \n• Structure: Organized as field notes for a comic; covers collective cultural practices, intermedia residency frameworks, and collaborative making logistics.",
+    "machine": "Kona Eguchi, born in 1998 in Chiba, Japan, produced the trilingual (JP/EN/ID) zine ZID-051 during a residency at Rumah Bausasran in Yogyakarta, with support from Lifepatch, Kawan Pustaha, and Bauhouse Consorxium. The physical object was printed on-site using an EPSON L360 inkjet printer at Rumah Bausasran. The zine documents procedural observations comparing Japanese artistic systems to Indonesian collective structures, specifically analyzing the RT/RW neighbourhood governance model and tracing its administrative lineage back to Japan’s tonarigumi (neighbourhood group) system imposed during the occupation period. It records the coexistence of multiple collectives within the Bausasran house and references a project titled “White Package Cube.” The narrative further examines the operational challenges of constructing safe spaces, citing issues such as power harassment and surveillance, and contrasts these with a documented “spirit of sharing” encountered in Javanese communal practice.",
     "format": "A5 / 31 Pages",
     "language": "Japanese / English / Indonesian",
     "author": "Kona Eguchi (Writer/Illus.); Eds: Louisye Ellysabeth Lubis, Patrick Aditya Maruahal Panusunanbulung Manurung",
@@ -1647,13 +1678,20 @@
   "A3_Homemade2025_poster.pdf": {
     "title": "Homemade 2025 poster",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "A3 risograph poster summoning bio-hackers, fermenters, and soil alchemists to a hidden tropical convergence. Cyber-botanical vines twist around circuit traces and mycelial maps, while earth battery symbols glow like monsoon fireflies. A promise of wetware, wild yeasts, and low-power sound under the canopy.",
+    "poetic": "By the pixel-glow of a mountain campfire, where 8-bit pines brush against monochrome peaks, the Swiss Mechatronic Art Society etches its summer summons. A CRT relic breathes schematics beside a sewing machine stitching circuits into cloth; a resistor-powered logo marks the gathering of those who solder, stitch, and share under the Bodensee sky. No paper invites, just a wiki-link whispered in the ashes—knowledge hacked raw, exchanged like roasted mushrooms in the crisp Alpine night. Home Made 2025: where the solder smoke rises and the true research is the fellowship of makers.",
     "fragments": [],
-    "concepts": [],
-    "archivist": "⚠️ \"Homemade 2025\" event poster, image-heavy.",
-    "machine": "No extractable text / Image-heavy",
-    "format": "A3 full-colour poster",
-    "language": "Not specified",
+    "concepts": [
+      "SGMK Home Made 2025",
+      "Research Week (Wartburg)",
+      "Pixel Art Aesthetics",
+      "DIY Electronics Motifs",
+      "Retro-computing",
+      "Swiss Mechatronic Art Society"
+    ],
+    "archivist": "A single-page event poster promoting the Swiss Mechatronic Art Society’s “Home Made 2025” Research Week at Wartburg, Bodensee, Switzerland. It utilizes a retro-computing pixel aesthetic to frame the intersection of high-tech research and off-grid, campfire-based knowledge exchange.",
+    "machine": "A single-page event poster promotes the Swiss Mechatronic Art Society’s “Home Made 2025” Research Week, scheduled for 2–10 August 2025 at Wartburg, Bodensee, Switzerland. The composition merges 8-bit pixel art—depicting mountains, pine trees, mushrooms, and a campfire—with motifs of DIY electronics, including a vintage desktop computer, a resistor-integrated logo, and a sewing machine icon. The title appears in hand-drawn lettering above the subtitle “Research Week,” while pixel-font text provides technical details and a wiki link for further information.",
+    "format": "A3 poster, 1pp",
+    "language": "English",
     "author": "Miranda Moss / SGMK",
     "category": "Community Events",
     "folder": "Arai-eek_zine-library/7_Community_Events/A3_Homemade2025_poster/",
@@ -1662,9 +1700,9 @@
     "date": "2025"
   },
   "Fanzine Mingapa Bigini Mingapa Bigitu.pdf": {
-    "title": "Mingapa Bigini",
+    "title": "Mingapa Bigini Mingapa Bigitu",
     "classification": "DECRYPTED ARCHIVE",
-    "poetic": "A grassroots Indonesian fanzine whose title loosely translates to 'Why is it like this, why is it like that?' A publication of the Kepurun Bio-Community in Central Java, exploring ancestral food fermentation and its intersection with digital culture. The issue details an event where villagers recreated a 9th-century inscription's recipe for 'ciamsiu' (fermented rice wine) using a 3D-reconstructed clay pot and a temperature controller made from a recycled rice cooker. The zine is full of hand-drawn illustrations, SMS-style narratives, and a comic strip where a tempeh mold spore guides you through the internet of beans.",
+    "poetic": "Under a blackout sky, neon pink and cyan bleed across the grid—a fanzine-as-node crackles with the signal of a utopian underground. Lifepatch and their co-conspirators stitch workshop photographs into pixel artifacts, layering technical type like a protocol handshake. This is the four-step handshake: include, test, reaffirm, synthesize—a circuit for resource exchange whispered in two languages. The proverb mutates into a manifesto, “tak kenal maka tak utopia,” reminding every operator that to not know is to never find the signal. Mingapa Bigini Mingapa Bigitu: the collective name hums at the edge of the network, a glitched portal to a brighter common infrastructure.",
     "fragments": [
       {
         "text": "Pak Darto, 73, tasted the 3D-printed jar ciamsiu and said: 'Same spirit, new body. The microbes remember even if we forget.' The photocopier broke from the humidity, but we kept the jammer as a relic.",
@@ -1672,21 +1710,22 @@
       }
     ],
     "concepts": [
-      "Food & Fermentation",
-      "Community Events",
-      "Indigenous Knowledge",
-      "Digital Revival",
-      "Rural Hacking"
+      "#NeonPinkCyanOnBlack",
+      "Utopia Project",
+      "Four-Step Collaboration Framework",
+      "Indonesian Proverb Remix",
+      "Lifepatch Collective",
+      "Network Synthesis"
     ],
-    "archivist": "⚠️ Image-based, single-page fanzine (2016) created during community events. Mostly visual with minimal text.",
-    "machine": "No extractable text / Image-heavy",
-    "format": "1pp",
-    "language": "Indonesian",
-    "author": "Lifepatch",
+    "archivist": "A collaborative fanzine and poster produced by Lifepatch, Kunci, and Stateless Diplomats. It explores the concepts of Utopia and resource exchange through a vivid neon-on-black aesthetic, documenting a four-step framework for community-led research and collaboration in Indonesia.",
+    "machine": "The publication is a collaborative fanzine and poster produced by Lifepatch, developed in partnership with Kunci Cultural Studies Center, Stateless Diplomats, and Antirender for graphics. It documents research on utopia and the practice of network building and resource exchange within the Indonesian creative scene. The visual language relies on a stark black background overlaid with vivid neon pink, cyan, and yellow accents, mixing large-format photographic spreads of workshops with digital pixel-art artifacts and dense bilingual typography in English and Indonesian. A central element is a four-step collaboration framework: Inclusion, Testing resource exchange, Reaffirmation of the network, and Collaboration synthesis. The content plays on an Indonesian proverb, reformulating it as “tak kenal maka tak utopia” (to not know is to not find utopia).",
+    "format": "Foldable Poster / Spread, 1pp",
+    "language": "English/Indonesian",
+    "author": "Lifepatch / Kunci / Stateless Diplomats",
     "category": "Community Events",
     "folder": "Arai-eek_zine-library/7_Community_Events/Fanzine Mingapa Bigini Mingapa Bigitu/",
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/Fanzine%20Mingapa%20Bigini%20Mingapa%20Bigitu",
-    "size": "1 MB",
+    "size": "48.3 MB",
     "date": "2016"
   },
   "WaftLab-OpenLab_2024.pdf": {
