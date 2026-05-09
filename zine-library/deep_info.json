@@ -1794,7 +1794,7 @@
     "date": "2019"
   },
   "RAT CATHCER_COVER_IV230_2MK LONG_2X.pdf": {
-    "title": "RAT CATCHER (ISI_HVS100_2MK LONG_@2X.pdf)",
+    "title": "\"FULL REVELATIONS OF A RAT-CATCHER\" by Ike Matthews (1898)",
     "classification": "DECRYPTED ARCHIVE",
     "poetic": "A raw, full-resolution documentation of the feral urban stratum as seen through the rat-catchers of Jakarta. Not a pest control manual; an ecological ethnography of the symbiotic loop between food waste, municipal fermentation, and Rattus norvegicus. The zine details how traditional rat-catchers read garbage piles like an oracle, tasting the 'brew' of a drain to predict rat movements. Includes a field recipe for 'Drain Tempeh'—a fermented food made from discarded soy pulp rescued from rat habitat, its safety monitored by the feral knowledge of the catcher. The filename refers to a high-voltage security scan of a 2-meter-long trap route; the PDF itself is heavily encrypted 'so the rats don't read it.'",
     "fragments": [
@@ -1822,7 +1822,7 @@
     "date": "2020"
   },
   "RAT CATHCER_ISI_HVS100_2MK LONG_@2X.pdf": {
-    "title": "RAT CATCHER (ISI_HVS100_2MK LONG_@2X.pdf)",
+    "title": "\"FULL REVELATIONS OF A RAT-CATCHER\" by Ike Matthews (1898)",
     "classification": "DECRYPTED ARCHIVE",
     "poetic": "A raw, full-resolution documentation of the feral urban stratum as seen through the rat-catchers of Jakarta. Not a pest control manual; an ecological ethnography of the symbiotic loop between food waste, municipal fermentation, and Rattus norvegicus. The zine details how traditional rat-catchers read garbage piles like an oracle, tasting the 'brew' of a drain to predict rat movements. Includes a field recipe for 'Drain Tempeh'—a fermented food made from discarded soy pulp rescued from rat habitat, its safety monitored by the feral knowledge of the catcher. The filename refers to a high-voltage security scan of a 2-meter-long trap route; the PDF itself is heavily encrypted 'so the rats don't read it.'",
     "fragments": [
@@ -1885,5 +1885,40 @@
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/3_Transfeminism/fanzine%20wetlab01%20ce%20quimera%20y%20gaia%20leandra%20WEB",
     "size": "1.9 MB",
     "date": "2021"
+  },
+  "pekanbaru_zine_01.jpg": {
+    "title": "Lahirnya Pekanbaru / Senapelan",
+    "classification": "DECRYPTED ARCHIVE",
+    "poetic": "*Siak’s brown ribbon unwinds—  \nsalt in the veins of a waking market,  \na thin light from the first cinema shakes  \nthe palm leaves.  \nSenapelan folds itself into a paper boat,  \nElhamra’s pen its oar,  \neach crease a current  \nwhere the jail and the judge’s veranda  \nstill whisper.*",
+    "fragments": [
+      {
+        "text": "Di Tepian Sungai Siak",
+        "source": "Decrypted Metadata"
+      }
+    ],
+    "concepts": [
+      "#LocalHistory",
+      "#PekanbaruOrigins",
+      "#Senapelan",
+      "#RiversideMemory",
+      "#SaltTrade",
+      "#ColonialCinema",
+      "#IslamicHeritage",
+      "#CommunityZine",
+      "#HandDrawnCartography",
+      "#PortableArchive",
+      "#WorkshopOutput",
+      "#IndonesianMicrohistory"
+    ],
+    "archivist": "A community-produced historical zine in the form of a single-sheet poster that unfolds into a series of hand-drawn panels exploring the origins of Pekanbaru, Indonesia. Created as part of a local history workshop, the zine merges personal sketching with archival snippets to map the vital landmarks of the city’s pre- and early-colonial past—from the salt godowns and the first cinema to the rumah Tuan Kadi and the enigmatic Karsel Dawa. The author, Elhamra, anchors the narrative “Di Tepian Sungai Siak,” tracing the transformation of the riverside settlement Senapelan into the modern city. The zine functions as a portable, foldable memory device, inviting viewers to literally unfold the layers of Pekanbaru’s identity.",
+    "machine": "The image resolves into a single large sheet of heavyweight paper, creased four times to make a compact zine. Unfolded, it reveals an intricate, hand-drawn cartography of old Pekanbaru rendered in sepia-toned ink. The Siak River snakes across the lower half, its banks populated by tiny stilt houses and perahu. The title “LAHIRNYA PEKANBARU” is lettered in a bold, slightly wonky serif, while below it “Senapelan” whispers in a softer script—the name of the parent village. Panels emerge like fragments of a dream: a drawing of Gudang Garam, barrels and sacks stacked under a lean-to, with a caption explaining the salt trade that once flowed through the river; a boxy structure labeled Bioskop Pertama, a projector beam radiating from a single window; Rumah Tuan Kadi, a limas-roofed house with intricate fretwork, its yard swept clean; and a stark, long building called Karsel Dawa, bars on its tiny windows, suggesting a colonial jail. Text in Bahasa Indonesia curls around the illustrations—hand-lettered notes on when the first sultan declared the new market, how the cinema came with the Dutch, and the role of the Islamic judge in daily life. All roads, drawn as dotted lines, converge at the river’s edge where Elhamra’s name sits beside a tiny sketch of a hand gripping a pen, dated 2024. The reverse side is blank, the paper slightly rough to the touch, as if it were screen-printed or drawn directly on layout paper.",
+    "format": "Single-page poster-zine, hand-folded into panels",
+    "language": "Indonesian",
+    "author": "Elhamra",
+    "category": "Community Events",
+    "folder": "Arai-eek_zine-library/7_Community_Events/Pekanbaru_Senapelan_ZID-062/",
+    "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/Pekanbaru_Senapelan_ZID-062",
+    "size": "1.0 MB",
+    "date": "2024 (estimated)"
   }
 }
