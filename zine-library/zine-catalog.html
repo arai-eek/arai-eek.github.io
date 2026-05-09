@@ -108,6 +108,7 @@
             <div class="search-and-controls">
                 <div class="search-bar-container">
                     <input type="text" id="searchInput" class="search-input" placeholder="Search zines by title, keyword, or author..." oninput="applyFilters()">
+                    <div id="searchResults" style="font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; color: var(--green); margin-top: 8px; text-align: right; min-height: 1rem;"></div>
                 </div>
                 <div class="header-controls" style="display:flex;align-items:center;">
                     <div class="theme-toggle">
@@ -1119,6 +1120,7 @@
             const cat = window.activeCategory;
             const searchInput = document.getElementById('searchInput');
             const query = searchInput ? searchInput.value.toLowerCase() : '';
+            let visibleCount = 0;
             
             document.querySelectorAll('.zine-card').forEach(card => {
                 const cardCat = card.dataset.category;
@@ -1143,10 +1145,20 @@
                 
                 if (matchesCat && matchesSearch) {
                     card.style.display = '';
+                    visibleCount++;
                 } else {
                     card.style.display = 'none';
                 }
             });
+            
+            const resultsEl = document.getElementById('searchResults');
+            if (resultsEl) {
+                if (query.length > 0 || cat !== 'all') {
+                    resultsEl.textContent = '◈ ' + visibleCount + ' SPORES FOUND';
+                } else {
+                    resultsEl.textContent = '';
+                }
+            }
         }
 
         function switchTab(tab) {
