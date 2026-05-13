@@ -1943,5 +1943,37 @@
     "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/Pekanbaru_Senapelan_ZID-062",
     "size": "1.0 MB",
     "date": "2024 (estimated)"
+  },
+  "Zine Agrofloresta Amazonas_EN .pdf": {
+    "title": "Zine Agrofloresta Amazonas_EN ",
+    "classification": "DECRYPTED ARCHIVE",
+    "poetic": "*We are the forest dreaming in reverse,  \na body of soil learning to heal.  \nSpores, roots, and fallen leaves  \nwhisper the old pact:  \niron for blood, phosphor for bone,  \nsulfur for the bridge between.  \nNo more the wound of fire,  \nno more the monocrop silence.  \nInstead, a living ladder of green—  \nthe high canopy a cathedral of light,  \nthe understory a tangled prayer,  \nground cover a soft, breathing skin.  \nWe carve the land with mowing,  \nnot with ash,  \nand offer pruned branches  \nas compost-psalms  \nto the billion-mouthed dark.  \nIn the strata of the agroforest,  \nresilience is not a trait but a tempo,  \na polyphonic hum of nectar, fiber, fruit,  \na cycle from hand to earth,  \nfrom earth to vein.  \nHere, the body remembers  \nit is also a place  \nwhere forests rise.*",
+    "fragments": [
+      {
+        "text": "Do we want to depend on a system that enslaves people and produces food that makes us sick?",
+        "source": "Decrypted Metadata"
+      }
+    ],
+    "concepts": [
+      "#AgroforestrySystems",
+      "#NonConventionalVegetables",
+      "#PANC",
+      "#SoilBiodiversity",
+      "#NutrientCycling",
+      "#EcologicalSuccession",
+      "#GreenManure",
+      "#ForestStrata",
+      "#FoodSovereignty"
+    ],
+    "archivist": "This zine, titled *Agroforestry Systems (SAF) with Non-Conventional Vegetables (PANC): From the Earth to the Body, from the Body to the Earth*, is an educational publication edited by Nora Hauswirth under the imprints Tera Kuno e Arte & Escola na Floresta. It introduces the principles and practices of agroforestry as a regenerative alternative to industrial agriculture, emphasizing the integration of non-conventional vegetables for food sovereignty, soil health, and human nutrition. The text blends ecological theory with practical guidance, covering soil biology, nutrient cycles, species stratification, ecological succession, and hands-on planning, all framed as a return to forest-mimicking, permanent-use land systems that nourish both body and landscape.",
+    "machine": "The zine opens with a critical introduction challenging the dominance of a sick-making, enslaving food system and calls for a new agricultural paradigm rooted in agroforestry. It then unfolds in a series of short, didactic chapters that move from broad forest ecology to granular implementation. Early sections define the forest as a source of food, medicine, timber, and income, and position agroforestry as a consortiated, soil-regenerating method. A vital sequence traces nutrients—copper, sulfur, iron, phosphorus, magnesium, and others—from soil to human body, linking deficiencies to modern illness. The concept of organic matter and green manure is presented as a core secret: planting nutrient-accumulating species and pruning them to feed the soil. The soil is described as a living system of microbes and invertebrates, and a “Law of Balance without Burning” explicitly rejects fire-based clearing. The planning chapter covers climate, soil, water, and organic matter availability, leading into a structural breakdown of forest strata (canopy, understory, shrub, herbaceous, ground cover, root zones). Biomass, biodiversity, and ecological succession are treated as dynamic engines of system health. Implementation details follow: site preparation by mowing, the critical role of ground cover for moisture and soil life, and ongoing management through timely pruning to modulate light, boost organic matter, and stimulate vigorous regrowth. The publication also includes extensive tabular appendices listing tree and vegetable species with scientific names, families, propagation methods, categories, successional phases, spacing, and uses—offering a ready reference for practitioners designing multi-strata plantings.",
+    "format": "PDF",
+    "language": "English",
+    "author": "Nora Hauswirth (Tera Kuno e Arte & Escola na Floresta)",
+    "category": "Soil and Ecology",
+    "folder": "Arai-eek_zine-library/2_Soil_and_Ecology/Zine Agrofloresta Amazonas_EN/",
+    "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/2_Soil_and_Ecology/Zine%20Agrofloresta%20Amazonas_EN",
+    "size": "7.3 MB",
+    "date": "2024"
   }
 }
