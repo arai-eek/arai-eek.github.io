@@ -210,10 +210,10 @@
   "compost_journey.pdf": {
     "title": "compost journey",
     "concepts": [
-      "#Compost<br>- #Journey<br>- #Image-Heavy<br>- #AwaitingAnalysis<br>- #Soil"
+      "#CompostingJourney<br>- #Flowchart<br>- #LACompost<br>- #SystemSelection<br>- #BeginnerGuide"
     ],
-    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
-    "machine": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A visual flowchart infographic designed by LA Compost to help beginners choose the right composting system. It uses a decision-tree structure based on living situation, space, budget, and time availability.<br></span><span class=\"lang-de\"><strong>DE:</strong> Eine visuelle Flussdiagramm-Infografik von LA Compost, die Anfängern hilft, das richtige Kompostsystem auszuwählen. Sie verwendet eine Entscheidungsbaumstruktur basierend auf Wohnsituation, Platz, Budget und Zeitverfügbarkeit.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The flowchart maps out 7 specific composting methodologies: Community Compost, Bokashi, Worm Bin, Compost Tumbler, Plastic Bin, Bay System, and Wire Bin. Routing variables include indoor/outdoor location, DIY proficiency, and willingness to handle worms.<br></span><span class=\"lang-de\"><strong>DE:</strong> Das Flussdiagramm bildet 7 spezifische Kompostierungsmethoden ab: Gemeinschaftskompost, Bokashi, Wurmkiste, Komposttrommel, Plastikbehälter, Buchtsystem und Drahtbehälter. Zu den Routing-Variablen gehören Innen-/Außenstandort, DIY-Fähigkeiten und die Bereitschaft, mit Würmern umzugehen.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
     "author": "Unknown",
@@ -226,10 +226,10 @@
   "compost_guide.pdf": {
     "title": "compost guide",
     "concepts": [
-      "#CompostGuide<br>- #Guide<br>- #Image-Heavy<br>- #AwaitingAnalysis<br>- #Soil"
+      "#CompostGuide<br>- #CarbonAndNitrogen<br>- #Thermophilic<br>- #LACompost<br>- #DecompositionGraph"
     ],
-    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
-    "machine": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A comprehensive, two-page tri-fold brochure by LA Compost detailing the technical and practical fundamentals of composting. It visually organizes the \"Why\" and \"How\" of composting, making complex biological processes accessible to beginners and community members.<br></span><span class=\"lang-de\"><strong>DE:</strong> Eine umfassende, zweiseitige dreifach gefaltete Broschüre von LA Compost, die die technischen und praktischen Grundlagen der Kompostierung detailliert beschreibt. Sie organisiert visuell das \"Warum\" und \"Wie\" der Kompostierung und macht komplexe biologische Prozesse für Anfänger und Gemeindemitglieder zugänglich.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The document is divided into educational panels. It details the necessity of Browns (Carbon) and Greens (Nitrogen), providing specific material lists for each. It graphs the three stages of compost decomposition (Mesophilic, Thermophilic, Maturation) mapping temperature against time. It also catalogs 6 structural compost systems and includes an FAQ addressing odor, temperature troubleshooting, timeline, and pest management.<br></span><span class=\"lang-de\"><strong>DE:</strong> Das Dokument ist in Aufklärungspanels unterteilt. Es beschreibt die Notwendigkeit von Braun (Kohlenstoff) und Grün (Stickstoff) und liefert spezifische Materiallisten für beides. Es grafisch die drei Stadien der Kompostzersetzung (Mesophil, Thermophil, Reifung) und kartiert die Temperatur gegen die Zeit. Außerdem werden 6 strukturelle Kompostsysteme katalogisiert und ein FAQ zu Geruch, Temperaturproblemen, Zeitrahmen und Schädlingsbekämpfung beigefügt.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
     "author": "Unknown",
@@ -242,10 +242,10 @@
   "ZINE_-_Composting_A_Dying_World_Revolution_as_an_Ecosystem_of_Transformative_Change.pdf": {
     "title": "ZINE - Composting A Dying World_ Revolution as an Ecosystem of Transformative Change",
     "concepts": [
-      "#Compost<br>- #Revolution<br>- #Ecosystem<br>- #Change<br>- #AwaitingAnalysis"
+      "#SocialEcology<br>- #TransformativeJustice<br>- #RevolutionaryArchetypes<br>- #CompostMetaphor<br>- #CommunityCare"
     ],
-    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
-    "machine": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A profound and beautifully illustrated black-and-white zine by AJ Hawkins that uses the biology of composting as a metaphor for social revolution. It maps various decay organisms (fungi, bacteria, millipedes, termites) to specific archetypal roles necessary for transformative community change.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein tiefgründiges und wunderschön illustriertes Schwarz-Weiß-Zine von AJ Hawkins, das die Biologie der Kompostierung als Metapher für die soziale Revolution verwendet. Es ordnet verschiedene Fäulnisorganismen (Pilze, Bakterien, Tausendfüßler, Termiten) spezifischen archetypischen Rollen zu, die für transformative Veränderungen in der Gemeinschaft notwendig sind.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The text defines five distinct revolutionary archetypes based on soil ecology: The Offender (Bacteria), The Defender (Millipedes), The Mender (Fungi), The Connector (Termites), and The Upender (Butterflies). Each archetype lists specific social functions, example actions, and historical \"Ancestors + Elders\" (e.g., The Black Panther Party, John Brown, Miriame Kaba). The final pages provide a worksheet to help readers map their knowledge, skills, and resources to find their role in the \"ecosystem\".<br></span><span class=\"lang-de\"><strong>DE:</strong> Der Text definiert fünf verschiedene revolutionäre Archetypen, die auf der Bodenökologie basieren: Der Störer (Bakterien), Der Verteidiger (Tausendfüßler), Der Heiler (Pilze), Der Verbinder (Termiten) und Der Umwälzer (Schmetterlinge). Jeder Archetyp listet spezifische soziale Funktionen, Beispielaktionen und historische \"Vorfahren + Älteste\" auf (z. B. The Black Panther Party, John Brown, Miriame Kaba). Die letzten Seiten bieten ein Arbeitsblatt, das den Lesern hilft, ihr Wissen, ihre Fähigkeiten und ihre Ressourcen zuzuordnen, um ihre Rolle im \"Ökosystem\" zu finden.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
     "author": "Unknown",
