@@ -13,7 +13,8 @@
     "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Bokashianleitung_print/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FBokashianleitung_print",
     "size": "1.3 MB",
-    "date": "2023"
+    "date": "2023",
+    "extraction_quality": "✅ Machine-readable"
   },
   "BroschuerePflanzenkohle.pdf": {
     "title": "BroschuerePflanzenkohle",
@@ -29,7 +30,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/BroschuerePflanzenkohle/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FBroschuerePflanzenkohle",
     "size": "1.3 MB",
-    "date": "Unknown"
+    "date": "Unknown",
+    "extraction_quality": "✅ Machine-readable"
   },
   "Die_erweiterte_Spatendiagnose_nach_Beste_2003.pdf": {
     "title": "Die erweiterte Spatendiagnose nach Beste (2003)",
@@ -45,7 +47,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/Die_erweiterte_Spatendiagnose_nach_Beste_2003/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FDie_erweiterte_Spatendiagnose_nach_Beste_2003",
     "size": "0.3 MB",
-    "date": "2023"
+    "date": "2023",
+    "extraction_quality": "✅ Machine-readable"
   },
   "Visual_Soil_Assessment_by_Graham_Shepherd_et_alii.pdf": {
     "title": "Visual Soil Assessment (by Graham Shepherd et alii) ",
@@ -61,7 +64,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/Visual_Soil_Assessment_by_Graham_Shepherd_et_alii/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FVisual_Soil_Assessment_by_Graham_Shepherd_et_alii",
     "size": "9.5 MB",
-    "date": "Mon Mar 17"
+    "date": "Mon Mar 17",
+    "extraction_quality": "✅ Machine-readable"
   },
   "Kompost-aus-der-Miete_v9_2012.pdf": {
     "title": "Kompost-aus-der-Miete_v9_2012",
@@ -72,12 +76,13 @@
     "machine": "<span class=\"lang-en\"><strong>EN:</strong> Details static pile composting with forced aeration (Miete system). Specifies optimal C:N ratio (25-30:1), moisture (50-60%), and turning frequency (every 3-5 days). Includes temperature monitoring guidelines.<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt die statische Haufenkompostierung mit Zwangsbelüftung (Mietensystem). Gibt optimale C:N-Verhältnisse (25-30:1), Feuchte (50-60%) und Umsetzhäufigkeit (alle 3-5 Tage) an. Enthält Richtlinien zur Temperaturüberwachung.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
-    "author": "Unknown",
+    "author": "Berthold Büchs",
     "category": "Soil & Composting",
     "folder": "zine-lib_mikrobiomik/Soil_Composting/Kompost-aus-der-Miete_v9_2012/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FKompost-aus-der-Miete_v9_2012",
     "size": "0.7 MB",
-    "date": "Tue Oct  9"
+    "date": "Tue Oct  9",
+    "extraction_quality": "✅ Machine-readable"
   },
   "logbuch-erde_print.pdf": {
     "title": "logbuch-erde_print",
@@ -93,7 +98,8 @@
     "folder": "zine-lib_mikrobiomik/Workshops_Protocols/logbuch-erde_print/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2Flogbuch-erde_print",
     "size": "5.0 MB",
-    "date": "Unknown"
+    "date": "Unknown",
+    "extraction_quality": "✅ Machine-readable"
   },
   "ILSR-Home-Composting-Guide.pdf": {
     "title": "ILSR-Home-Composting-Guide",
@@ -104,12 +110,13 @@
     "machine": "<span class=\"lang-en\"><strong>EN:</strong> Outlines hot composting process requiring 3:1 browns:greens ratio, moisture 40-60%, and temperature 130-160°F (55-71°C). Provides turning schedule (every 2-3 days) and common problem solutions (e.g., odor, pests).<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt den Heißkompostierungsprozess mit einem Verhältnis von 3:1 (braun:grün), Feuchte 40-60% und Temperatur 55-71°C. Gibt einen Umsetzplan (alle 2-3 Tage) und Lösungen für häufige Probleme (z.B. Geruch, Schädlinge).</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
-    "author": "Unknown",
+    "author": "Institute for Local Self-Reliance (ILSR)",
     "category": "Soil & Composting",
     "folder": "zine-lib_mikrobiomik/Soil_Composting/ILSR-Home-Composting-Guide/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FILSR-Home-Composting-Guide",
     "size": "11.3 MB",
-    "date": "Tue Nov 18"
+    "date": "Tue Nov 18",
+    "extraction_quality": "✅ Machine-readable"
   },
   "Folletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI.pdf": {
     "title": "Folletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI",
@@ -125,7 +132,8 @@
     "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Folletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FFolletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI",
     "size": "0.4 MB",
-    "date": "Wed Feb 15"
+    "date": "Wed Feb 15",
+    "extraction_quality": "✅ Machine-readable"
   },
   "wissen_wuchern_lassen_neu_cc.pdf": {
     "title": "wissen_wuchern_lassen_neu_cc",
@@ -136,12 +144,13 @@
     "machine": "<span class=\"lang-en\"><strong>EN:</strong> Proposes a non-hierarchical workshop structure based on 'sensory education' and participatory action research. Outlines methods: mind maps, walking tours, and collective knowledge mapping. References Freirean pedagogy.<br></span><span class=\"lang-de\"><strong>DE:</strong> Schlägt eine nicht-hierarchische Workshop-Struktur vor, basierend auf 'Bildung mit allen Sinnen' und partizipativer Aktionsforschung. Beschreibt Methoden: Mindmaps, Erkundungsspaziergänge und kollektives Wissensmapping. Verweist auf Freire-Pädagogik.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
-    "author": "Unknown",
+    "author": "Severin Halder, Dörte Martens, Gerda Münnich, Andrea Lassalle, Thomas Aenis, Eckhard Schäfer",
     "category": "Workshops & Protocols",
     "folder": "zine-lib_mikrobiomik/Workshops_Protocols/wissen_wuchern_lassen_neu_cc/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2Fwissen_wuchern_lassen_neu_cc",
     "size": "10.1 MB",
-    "date": "Wed Sep  3"
+    "date": "Wed Sep  3",
+    "extraction_quality": "✅ Machine-readable"
   },
   "logbook-earth_print.pdf": {
     "title": "logbook-earth_print",
@@ -157,7 +166,8 @@
     "folder": "zine-lib_mikrobiomik/Workshops_Protocols/logbook-earth_print/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2Flogbook-earth_print",
     "size": "5.0 MB",
-    "date": "Wed Apr  9"
+    "date": "Wed Apr  9",
+    "extraction_quality": "✅ Machine-readable"
   },
   "ILSR-Vermicomposting-101-Guide.pdf": {
     "title": "ILSR-Vermicomposting-101-Guide",
@@ -168,12 +178,13 @@
     "machine": "<span class=\"lang-en\"><strong>EN:</strong> Details vermicomposting bin setup: bedding (coconut coir, shredded paper), moisture (70-80%), feeding (avoid citrus, onions), and harvesting (side-by-side method). Notes optimal temperature (55-80°F) and worm species (Eisenia fetida).<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt den Aufbau einer Wurmkompostierungsbox: Einstreu (Kokosfasern, geschreddertes Papier), Feuchte (70-80%), Fütterung (Zitrusfrüchte, Zwiebeln vermeiden) und Ernte (Seitenmethode). Gibt optimale Temperatur (13-27°C) und Wurmart (Eisenia fetida) an.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
-    "author": "Unknown",
+    "author": "Institute for Local Self-Reliance (ILSR)",
     "category": "Fermentation & Microbes",
     "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/ILSR-Vermicomposting-101-Guide/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FILSR-Vermicomposting-101-Guide",
     "size": "15.1 MB",
-    "date": "Wed Nov 19"
+    "date": "Wed Nov 19",
+    "extraction_quality": "✅ Machine-readable"
   },
   "Folletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA.pdf": {
     "title": "Folletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA",
@@ -189,7 +200,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/Folletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FFolletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA",
     "size": "0.4 MB",
-    "date": "Wed Feb 15"
+    "date": "Wed Feb 15",
+    "extraction_quality": "✅ Machine-readable"
   },
   "webinar_bokashi.pdf": {
     "title": "webinar_bokashi",
@@ -200,12 +212,13 @@
     "machine": "<span class=\"lang-en\"><strong>EN:</strong> The webinar introduces Bokashi fermentation, emphasizing anaerobic processing of kitchen scraps. Origin and methodology are discussed for converting waste into soil amendment. </span><span class=\"lang-de\"><strong>DE:</strong> Das Webinar führt in die Bokashi-Fermentation ein, betont die anaerobe Verarbeitung von Küchenabfällen. Ursprung und Methodik zur Umwandlung von Abfällen in Bodenverbesserer werden diskutiert.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
-    "author": "Unknown",
+    "author": "Ayumi Matsuzaka, Ariane Krause (KanTe*)",
     "category": "Fermentation & Microbes",
     "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/webinar_bokashi/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2Fwebinar_bokashi",
     "size": "5.1 MB",
-    "date": "Thu Dec  5"
+    "date": "Thu Dec  5",
+    "extraction_quality": "✅ Machine-readable"
   },
   "compost_journey.pdf": {
     "title": "compost journey",
@@ -221,7 +234,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/compost_journey/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2Fcompost_journey",
     "size": "0.3 MB",
-    "date": "Tue May 12"
+    "date": "Tue May 12",
+    "extraction_quality": "✅👁️ VIP Vision (Image-heavy)"
   },
   "compost_guide.pdf": {
     "title": "compost guide",
@@ -237,7 +251,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/compost_guide/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2Fcompost_guide",
     "size": "0.7 MB",
-    "date": "Tue May 12"
+    "date": "Tue May 12",
+    "extraction_quality": "✅👁️ VIP Vision (Image-heavy)"
   },
   "ZINE_-_Composting_A_Dying_World_Revolution_as_an_Ecosystem_of_Transformative_Change.pdf": {
     "title": "ZINE - Composting A Dying World_ Revolution as an Ecosystem of Transformative Change",
@@ -253,7 +268,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/ZINE_-_Composting_A_Dying_World_Revolution_as_an_Ecosystem_of_Transformative_Change/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FZINE_-_Composting_A_Dying_World_Revolution_as_an_Ecosystem_of_Transformative_Change",
     "size": "7.2 MB",
-    "date": "Unknown"
+    "date": "Unknown",
+    "extraction_quality": "✅👁️ VIP Vision (Image-heavy)"
   },
   "wurmkompostierung.pdf": {
     "title": "wurmkompostierung",
@@ -269,7 +285,8 @@
     "folder": "zine-lib_mikrobiomik/Soil_Composting/wurmkompostierung/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2Fwurmkompostierung",
     "size": "1.4 MB",
-    "date": "Wed Feb 22"
+    "date": "Wed Feb 22",
+    "extraction_quality": "✅ Machine-readable"
   },
   "Shared-ILSR-Composting-101-Training-Guide.pdf": {
     "title": "Shared-ILSR-Composting-101-Training-Guide",
@@ -280,12 +297,13 @@
     "machine": "<span class=\"lang-en\"><strong>EN:</strong> The guide describes composting as controlled aerobic decomposition, covering key parameters like oxygen, moisture, and carbon-to-nitrogen ratio. It serves as a protocol for training. </span><span class=\"lang-de\"><strong>DE:</strong> Der Leitfaden beschreibt Kompostierung als kontrollierte aerobe Zersetzung und behandelt Schlüsselparameter wie Sauerstoff, Feuchtigkeit und Kohlenstoff-Stickstoff-Verhältnis. Er dient als Protokoll für Schulungen.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
-    "author": "Unknown",
+    "author": "Institute for Local Self-Reliance (ILSR)",
     "category": "Workshops & Protocols",
     "folder": "zine-lib_mikrobiomik/Workshops_Protocols/Shared-ILSR-Composting-101-Training-Guide/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2FShared-ILSR-Composting-101-Training-Guide",
     "size": "13.6 MB",
-    "date": "Fri Oct  8"
+    "date": "Fri Oct  8",
+    "extraction_quality": "✅ Machine-readable"
   },
   "Soil-Health-Discovery-Guide.pdf": {
     "title": "Soil-Health-Discovery-Guide",
@@ -296,11 +314,12 @@
     "machine": "<span class=\"lang-en\"><strong>EN:</strong> The document is a soil health discovery guide focusing on microscopy techniques for analyzing compost and soil food web organisms. It includes detailed microbe profiles and visual identification keys for bacteria, actinobacteria, fungal strands, protozoa, nematodes, and microarthropods. </span><span class=\"lang-de\"><strong>DE:</strong> Das Dokument ist ein Leitfaden zur Bodengesundheit, der sich auf mikroskopische Techniken zur Analyse von Kompost und Boden-Nahrungsnetzorganismen konzentriert. Es enthält detaillierte Mikrobenprofile und visuelle Bestimmungsschlüssel für Bakterien, Actinobakterien, Pilzfäden, Protozoen, Nematoden und Mikroarthropoden.</span>",
     "format": "PDF",
     "language": "Bilingual/Mixed",
-    "author": "Unknown",
+    "author": "LA Compost",
     "category": "Soil & Composting",
     "folder": "zine-lib_mikrobiomik/Soil_Composting/Soil-Health-Discovery-Guide/",
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FSoil-Health-Discovery-Guide",
     "size": "21.8 MB",
-    "date": "Fri Jun 27"
+    "date": "Fri Jun 27",
+    "extraction_quality": "✅ Machine-readable"
   }
 }
