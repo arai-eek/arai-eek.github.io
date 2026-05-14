@@ -1,20 +1,4 @@
 {
-  "dummy_zine.pdf": {
-    "title": "Dummy Mikrobiomik Zine",
-    "concepts": [
-      "#Test<br>- #Prototype"
-    ],
-    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This is a test entry for the new Mikrobiomik Zine Library prototype.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dies ist ein Testeintrag für den neuen Prototyp der Mikrobiomik Zine-Bibliothek.</span>",
-    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Test extraction content.<br></span><span class=\"lang-de\"><strong>DE:</strong> Test-Extraktionsinhalt.</span>",
-    "format": "PDF",
-    "language": "English",
-    "author": "Tester",
-    "category": "Fermentation & Microbes",
-    "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Dummy_Zine/",
-    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FDummy_Zine",
-    "size": "1.0 MB",
-    "date": "2026"
-  },
   "Bokashianleitung_print.pdf": {
     "title": "Bokashianleitung_print",
     "concepts": [
@@ -62,5 +46,261 @@
     "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FDie_erweiterte_Spatendiagnose_nach_Beste_2003",
     "size": "0.3 MB",
     "date": "2023"
+  },
+  "Visual_Soil_Assessment_by_Graham_Shepherd_et_alii.pdf": {
+    "title": "Visual Soil Assessment (by Graham Shepherd et alii) ",
+    "concepts": [
+      "#Bodenbeurteilung<br>- #VisuelleIndikatoren<br>- #Bodengesundheit<br>- #LandwirtschaftlichePraktiken<br>- #Schwellenwerte"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A practical guide for assessing soil health through visual indicators such as color, structure, and root growth. Ideal for farmers and gardeners to quickly evaluate soil quality without lab tests.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein praktischer Leitfaden zur Beurteilung der Bodengesundheit anhand visueller Indikatoren wie Farbe, Struktur und Wurzelwachstum. Ideal für Landwirte und Gärtner, um die Bodenqualität ohne Labortests schnell zu bewerten.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Describes Visual Soil Assessment (VSA) technique using scoring sheets for 10 indicators (e.g., soil color, earthworm counts). Provides thresholds for healthy vs. degraded soil based on empirical data.<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt die visuelle Bodenbewertung (VSA) mit Bewertungsbögen für 10 Indikatoren (z.B. Bodenfarbe, Regenwurmzahlen). Liefert Schwellenwerte für gesunde vs. degradierte Böden basierend auf empirischen Daten.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/Visual_Soil_Assessment_by_Graham_Shepherd_et_alii/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FVisual_Soil_Assessment_by_Graham_Shepherd_et_alii",
+    "size": "9.5 MB",
+    "date": "Mon Mar 17"
+  },
+  "Kompost-aus-der-Miete_v9_2012.pdf": {
+    "title": "Kompost-aus-der-Miete_v9_2012",
+    "concepts": [
+      "#Mietenkompostierung<br>- #C:N-Verhältnis<br>- #Belüftung<br>- #Feuchtigkeitsmanagement<br>- #Temperaturüberwachung"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A German-language guide on composting in windrows (Miete), covering aeration, moisture management, and turning schedules. Suitable for community gardens and small-scale farms.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein deutschsprachiger Leitfaden zur Kompostierung in Mieten mit Schwerpunkt auf Belüftung, Feuchtigkeitsmanagement und Umsetzplänen. Geeignet für Gemeinschaftsgärten und kleinbäuerliche Betriebe.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Details static pile composting with forced aeration (Miete system). Specifies optimal C:N ratio (25-30:1), moisture (50-60%), and turning frequency (every 3-5 days). Includes temperature monitoring guidelines.<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt die statische Haufenkompostierung mit Zwangsbelüftung (Mietensystem). Gibt optimale C:N-Verhältnisse (25-30:1), Feuchte (50-60%) und Umsetzhäufigkeit (alle 3-5 Tage) an. Enthält Richtlinien zur Temperaturüberwachung.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/Kompost-aus-der-Miete_v9_2012/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FKompost-aus-der-Miete_v9_2012",
+    "size": "0.7 MB",
+    "date": "Tue Oct  9"
+  },
+  "logbuch-erde_print.pdf": {
+    "title": "logbuch-erde_print",
+    "concepts": [
+      "#Bodenbeobachtung<br>- #WorkshopProtokoll<br>- #Bodenprobenahme<br>- #Biodiversitätserfassung<br>- #Bildungsmaterial"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A workshop logbook for soil observation and experiments, designed for educational settings. Includes protocols for soil sampling, compaction tests, and biodiversity recording.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein Workshop-Logbuch für Bodenbeobachtungen und Experimente, konzipiert für Bildungseinrichtungen. Enthält Protokolle zur Bodenprobenahme, Verdichtungstests und Biodiversitätserfassung.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Structured template with sections for soil horizon description, bulk density measurement, and macrofauna identification. References standardized methods (e.g., DIN 19683).<br></span><span class=\"lang-de\"><strong>DE:</strong> Strukturierte Vorlage mit Abschnitten zur Bodenhorizontbeschreibung, Lagerungsdichtemessung und Makrofauna-Bestimmung. Verweist auf standardisierte Methoden (z.B. DIN 19683).</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Workshops & Protocols",
+    "folder": "zine-lib_mikrobiomik/Workshops_Protocols/logbuch-erde_print/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2Flogbuch-erde_print",
+    "size": "5.0 MB",
+    "date": "Unknown"
+  },
+  "ILSR-Home-Composting-Guide.pdf": {
+    "title": "ILSR-Home-Composting-Guide",
+    "concepts": [
+      "#Heißkompostierung<br>- #C:N-Verhältnis<br>- #Temperaturkontrolle<br>- #Kompostbehälter<br>- #Anfängerleitfaden"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A beginner-friendly guide to hot composting at home, covering bin selection, ingredient layering, and troubleshooting. Emphasizes rapid decomposition for nutrient-rich compost.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein anfängerfreundlicher Leitfaden zur Heißkompostierung zu Hause, mit Schwerpunkten auf Behälterauswahl, Schichtung der Zutaten und Problemlösung. Betont schnelle Zersetzung für nährstoffreichen Kompost.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Outlines hot composting process requiring 3:1 browns:greens ratio, moisture 40-60%, and temperature 130-160°F (55-71°C). Provides turning schedule (every 2-3 days) and common problem solutions (e.g., odor, pests).<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt den Heißkompostierungsprozess mit einem Verhältnis von 3:1 (braun:grün), Feuchte 40-60% und Temperatur 55-71°C. Gibt einen Umsetzplan (alle 2-3 Tage) und Lösungen für häufige Probleme (z.B. Geruch, Schädlinge).</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/ILSR-Home-Composting-Guide/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FILSR-Home-Composting-Guide",
+    "size": "11.3 MB",
+    "date": "Tue Nov 18"
+  },
+  "Folletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI.pdf": {
+    "title": "Folletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI",
+    "concepts": [
+      "#Bokashi<br>- #FermentierterDünger<br>- #EffektiveMikroorganismen<br>- #AnaerobicFermentation<br>- #Agrarökologie"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A Spanish-language booklet on bokashi, a fermented organic fertilizer made with bran, molasses, and microbes. Explains production, application as soil amendment or compost accelerator.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein spanischsprachiges Heft über Bokashi, einen fermentierten organischen Dünger aus Kleie, Melasse und Mikroben. Erklärt Herstellung, Anwendung als Bodenverbesserer oder Kompostbeschleuniger.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Describes anaerobic fermentation process: ingredients (rice bran, molasses, effective microorganisms), moisture (30-40%), fermentation duration (10-15 days), and pH monitoring. Details application rates for foliar spray (1:100) and soil mix (1:10).<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt den anaeroben Fermentationsprozess: Zutaten (Reiskleie, Melasse, effektive Mikroorganismen), Feuchte (30-40%), Fermentationsdauer (10-15 Tage) und pH-Überwachung. Gibt Anwendungsraten für Blattspray (1:100) und Bodenmischung (1:10).</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Fermentation & Microbes",
+    "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Folletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FFolletos_campesinos_de_saberes_agroecologicos_CAEL_BOKASHI",
+    "size": "0.4 MB",
+    "date": "Wed Feb 15"
+  },
+  "wissen_wuchern_lassen_neu_cc.pdf": {
+    "title": "wissen_wuchern_lassen_neu_cc",
+    "concepts": [
+      "#RadikalePädagogik<br>- #PartizipativeForschung<br>- #UrbaneGärten<br>- #Wissensaustausch<br>- #WorkshopMethoden"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A German zine on radical pedagogy and 'letting knowledge grow', using urban gardening as a metaphor. Includes workshop formats for collaborative learning and knowledge sharing.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein deutsches Zine über radikale Pädagogik und 'Wissen wuchern lassen', mit urbanem Gärtnern als Metapher. Enthält Workshop-Formate für kollaboratives Lernen und Wissensaustausch.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Proposes a non-hierarchical workshop structure based on 'sensory education' and participatory action research. Outlines methods: mind maps, walking tours, and collective knowledge mapping. References Freirean pedagogy.<br></span><span class=\"lang-de\"><strong>DE:</strong> Schlägt eine nicht-hierarchische Workshop-Struktur vor, basierend auf 'Bildung mit allen Sinnen' und partizipativer Aktionsforschung. Beschreibt Methoden: Mindmaps, Erkundungsspaziergänge und kollektives Wissensmapping. Verweist auf Freire-Pädagogik.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Workshops & Protocols",
+    "folder": "zine-lib_mikrobiomik/Workshops_Protocols/wissen_wuchern_lassen_neu_cc/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2Fwissen_wuchern_lassen_neu_cc",
+    "size": "10.1 MB",
+    "date": "Wed Sep  3"
+  },
+  "logbook-earth_print.pdf": {
+    "title": "logbook-earth_print",
+    "concepts": [
+      "#Feldlogbuch<br>- #Bodenprofil<br>- #MikrobielleAtmung<br>- #Sensorplatzierung<br>- #Zweisprachig"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A bilingual English-German field logbook for soil and earth observation, used in workshops. Structured for recording soil profiles, moisture, temperature, and microbial activity.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein zweisprachiges (englisch/deutsch) Feld-Logbuch für Boden- und Erdbeobachtungen, verwendet in Workshops. Strukturiert zur Aufzeichnung von Bodenprofilen, Feuchte, Temperatur und mikrobieller Aktivität.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Template with data fields: depth (cm), color (Munsell), texture, roots, pH, EC, and microbial respiration (CO2). Includes instructions for soil sampling and sensor placement.<br></span><span class=\"lang-de\"><strong>DE:</strong> Vorlage mit Datenfeldern: Tiefe (cm), Farbe (Munsell), Textur, Wurzeln, pH, EC und mikrobielle Atmung (CO2). Enthält Anleitungen zur Bodenprobenahme und Sensorplatzierung.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Workshops & Protocols",
+    "folder": "zine-lib_mikrobiomik/Workshops_Protocols/logbook-earth_print/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2Flogbook-earth_print",
+    "size": "5.0 MB",
+    "date": "Wed Apr  9"
+  },
+  "ILSR-Vermicomposting-101-Guide.pdf": {
+    "title": "ILSR-Vermicomposting-101-Guide",
+    "concepts": [
+      "#Wurmkompostierung<br>- #EiseniaFetida<br>- #Wurmhumus<br>- #MikrobielleZersetzung<br>- #Kompostierungsbox"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A guide to vermicomposting with worms, focusing on bedding, feeding, and harvesting worm castings. Emphasizes microbial decomposition facilitated by earthworms.<br></span><span class=\"lang-de\"><strong>DE:</strong> Ein Leitfaden zur Wurmkompostierung mit Schwerpunkt auf Einstreu, Fütterung und Ernte von Wurmhumus. Betont die mikrobielle Zersetzung, die durch Regenwürmer unterstützt wird.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Details vermicomposting bin setup: bedding (coconut coir, shredded paper), moisture (70-80%), feeding (avoid citrus, onions), and harvesting (side-by-side method). Notes optimal temperature (55-80°F) and worm species (Eisenia fetida).<br></span><span class=\"lang-de\"><strong>DE:</strong> Beschreibt den Aufbau einer Wurmkompostierungsbox: Einstreu (Kokosfasern, geschreddertes Papier), Feuchte (70-80%), Fütterung (Zitrusfrüchte, Zwiebeln vermeiden) und Ernte (Seitenmethode). Gibt optimale Temperatur (13-27°C) und Wurmart (Eisenia fetida) an.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Fermentation & Microbes",
+    "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/ILSR-Vermicomposting-101-Guide/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FILSR-Vermicomposting-101-Guide",
+    "size": "15.1 MB",
+    "date": "Wed Nov 19"
+  },
+  "Folletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA.pdf": {
+    "title": "Folletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA",
+    "concepts": [
+      "#Wurmkompostierung<br>- #Vermicompost<br>- #Percolado<br>- #Agroökologie<br>- #Campesino"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine is a farmer's guide to vermicomposting, detailing the process and timeline for producing vermicompost and liquid percolate. It provides practical instructions for small-scale agricultural use. </span><span class=\"lang-de\"><strong>DE:</strong> Dieses Zine ist ein Bauernleitfaden zur Wurmkompostierung, der den Prozess und die Zeitrahmen für die Herstellung von Wurmkompost und flüssigem Perkolat beschreibt. Es bietet praktische Anweisungen für die landwirtschaftliche Nutzung in kleinem Maßstab.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The zine describes vermicompost production timeline: 3-4 months for solid compost, with liquid percolate as a byproduct. It focuses on agroecological practices. </span><span class=\"lang-de\"><strong>DE:</strong> Das Zine beschreibt den Zeitrahmen der Wurmkompostproduktion: 3-4 Monate für festen Kompost, mit flüssigem Perkolat als Nebenprodukt. Der Schwerpunkt liegt auf agrarökologischen Praktiken.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/Folletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FFolletos_campesinos_de_saberes_agroecologicos_CAEL_LOMBRICULTURA",
+    "size": "0.4 MB",
+    "date": "Wed Feb 15"
+  },
+  "webinar_bokashi.pdf": {
+    "title": "webinar_bokashi",
+    "concepts": [
+      "#Bokashi<br>- #Fermentation<br>- #Küchenabfälle<br>- #Anaerob<br>- #Webinar"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine summarizes a webinar on Bokashi, a fermentation method for kitchen waste. It covers origins and practical application for home gardening. </span><span class=\"lang-de\"><strong>DE:</strong> Dieses Zine fasst ein Webinar über Bokashi zusammen, eine Fermentationsmethode für Küchenabfälle. Es behandelt Ursprünge und praktische Anwendung für den Hausgarten.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The webinar introduces Bokashi fermentation, emphasizing anaerobic processing of kitchen scraps. Origin and methodology are discussed for converting waste into soil amendment. </span><span class=\"lang-de\"><strong>DE:</strong> Das Webinar führt in die Bokashi-Fermentation ein, betont die anaerobe Verarbeitung von Küchenabfällen. Ursprung und Methodik zur Umwandlung von Abfällen in Bodenverbesserer werden diskutiert.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Fermentation & Microbes",
+    "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/webinar_bokashi/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2Fwebinar_bokashi",
+    "size": "5.1 MB",
+    "date": "Thu Dec  5"
+  },
+  "compost_journey.pdf": {
+    "title": "compost journey",
+    "concepts": [
+      "#Compost<br>- #Journey<br>- #Image-Heavy<br>- #AwaitingAnalysis<br>- #Soil"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/compost_journey/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2Fcompost_journey",
+    "size": "0.3 MB",
+    "date": "Tue May 12"
+  },
+  "compost_guide.pdf": {
+    "title": "compost guide",
+    "concepts": [
+      "#CompostGuide<br>- #Guide<br>- #Image-Heavy<br>- #AwaitingAnalysis<br>- #Soil"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/compost_guide/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2Fcompost_guide",
+    "size": "0.7 MB",
+    "date": "Tue May 12"
+  },
+  "ZINE_-_Composting_A_Dying_World_Revolution_as_an_Ecosystem_of_Transformative_Change.pdf": {
+    "title": "ZINE - Composting A Dying World_ Revolution as an Ecosystem of Transformative Change",
+    "concepts": [
+      "#Compost<br>- #Revolution<br>- #Ecosystem<br>- #Change<br>- #AwaitingAnalysis"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> ⚠️ Image-heavy or un-extractable PDF. Awaiting manual analysis. </span><span class=\"lang-de\"><strong>DE:</strong> ⚠️ Bildlastiges oder nicht extrahierbares PDF. Manuelle Analyse steht aus.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/ZINE_-_Composting_A_Dying_World_Revolution_as_an_Ecosystem_of_Transformative_Change/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FZINE_-_Composting_A_Dying_World_Revolution_as_an_Ecosystem_of_Transformative_Change",
+    "size": "7.2 MB",
+    "date": "Unknown"
+  },
+  "wurmkompostierung.pdf": {
+    "title": "wurmkompostierung",
+    "concepts": [
+      "#Wurmkompostierung<br>- #Bodenlebewesen<br>- #OrganischeAbfälle<br>- #Kompostierung<br>- #Bodengesundheit"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine explains worm composting, a method using soil organisms to decompose organic waste. It's a practical guide for home composting. </span><span class=\"lang-de\"><strong>DE:</strong> Dieses Zine erklärt die Wurmkompostierung, eine Methode, bei der Bodenorganismen organische Abfälle zersetzen. Es ist ein praktischer Leitfaden für die Heimkompostierung.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The document defines worm composting as a process where soil organisms break down organic waste. It describes the procedure and benefits for soil health. </span><span class=\"lang-de\"><strong>DE:</strong> Das Dokument definiert Wurmkompostierung als Prozess, bei dem Bodenorganismen organische Abfälle zersetzen. Es beschreibt das Verfahren und die Vorteile für die Bodengesundheit.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/wurmkompostierung/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2Fwurmkompostierung",
+    "size": "1.4 MB",
+    "date": "Wed Feb 22"
+  },
+  "Shared-ILSR-Composting-101-Training-Guide.pdf": {
+    "title": "Shared-ILSR-Composting-101-Training-Guide",
+    "concepts": [
+      "#Composting101<br>- #TrainingGuide<br>- #AerobicDecomposition<br>- #Workshop<br>- #Protocol"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine is a training guide for Composting 101, defining composting as controlled aerobic decomposition. It is used for educational workshops. </span><span class=\"lang-de\"><strong>DE:</strong> Dieses Zine ist ein Trainingsleitfaden für Kompostierung 101, der Kompostierung als kontrollierte aerobe Zersetzung definiert. Es wird in Bildungsworkshops verwendet.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The guide describes composting as controlled aerobic decomposition, covering key parameters like oxygen, moisture, and carbon-to-nitrogen ratio. It serves as a protocol for training. </span><span class=\"lang-de\"><strong>DE:</strong> Der Leitfaden beschreibt Kompostierung als kontrollierte aerobe Zersetzung und behandelt Schlüsselparameter wie Sauerstoff, Feuchtigkeit und Kohlenstoff-Stickstoff-Verhältnis. Er dient als Protokoll für Schulungen.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Workshops & Protocols",
+    "folder": "zine-lib_mikrobiomik/Workshops_Protocols/Shared-ILSR-Composting-101-Training-Guide/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FWorkshops_Protocols%2FShared-ILSR-Composting-101-Training-Guide",
+    "size": "13.6 MB",
+    "date": "Fri Oct  8"
+  },
+  "Soil-Health-Discovery-Guide.pdf": {
+    "title": "Soil-Health-Discovery-Guide",
+    "concepts": [
+      "#SoilMicroscopy<br>- #CompostFoodWeb<br>- #MicrobeProfiles<br>- #SoilHealth<br>- #CompostEducation"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> A guide to soil and compost microscopy, detailing the compost food web and microbe profiles including bacteria, fungi, protozoa, nematodes, and microarthropods. Created by LA Compost with support from the Institute for Local Self Reliance, it serves as an educational resource for observing soil health. </span><span class=\"lang-de\"><strong>DE:</strong> Ein Leitfaden zur Mikroskopie von Boden und Kompost, der das Kompost-Nahrungsnetz und Mikrobenprofile wie Bakterien, Pilze, Protozoen, Nematoden und Mikroarthropoden beschreibt. Erstellt von LA Compost mit Unterstützung des Institute for Local Self Reliance, dient es als Bildungsressource zur Beobachtung der Bodengesundheit.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The document is a soil health discovery guide focusing on microscopy techniques for analyzing compost and soil food web organisms. It includes detailed microbe profiles and visual identification keys for bacteria, actinobacteria, fungal strands, protozoa, nematodes, and microarthropods. </span><span class=\"lang-de\"><strong>DE:</strong> Das Dokument ist ein Leitfaden zur Bodengesundheit, der sich auf mikroskopische Techniken zur Analyse von Kompost und Boden-Nahrungsnetzorganismen konzentriert. Es enthält detaillierte Mikrobenprofile und visuelle Bestimmungsschlüssel für Bakterien, Actinobakterien, Pilzfäden, Protozoen, Nematoden und Mikroarthropoden.</span>",
+    "format": "PDF",
+    "language": "Bilingual/Mixed",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/Soil-Health-Discovery-Guide/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FSoil-Health-Discovery-Guide",
+    "size": "21.8 MB",
+    "date": "Fri Jun 27"
   }
 }
