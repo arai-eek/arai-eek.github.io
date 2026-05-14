@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikrobiomik Zine Catalogue | Full List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f2f5f9; --surface: rgba(255,255,255,0.95); --card-bg: rgba(255,255,255,0.7);
+            --text: #1e293b; --text-secondary: #475569; --accent: #ed1b24; --green: #008f4c;
+            --navy: #2e3192; --border: rgba(30,58,138,0.15); --glass-bg: rgba(255,255,255,0.95);
+            --glass-border: rgba(46,49,146,0.3);
+            --crt-bg: #0a0a05; --phosphor-bright: #c8ff8c; --phosphor: #7fb84a;
+        }
+        body.theme-tropical {
+            --bg: #0b0f1a; --surface: rgba(15,20,30,0.85); --card-bg: rgba(15,18,30,0.7);
+            --text: #e0e6f0; --text-secondary: #9ca3af; --accent: #FF007F; --green: #39FF14;
+            --navy: #2e3192; --border: rgba(255,255,255,0.08); --glass-bg: rgba(15,20,30,0.85);
+            --glass-border: rgba(57,255,20,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; line-height: 1.5; min-height: 100vh; overflow-x: hidden; transition: background 0.3s; }
+        header { position: sticky; top: 0; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; gap: 2rem; z-index: 100; align-items: flex-start; flex-wrap: wrap; }
+        .logo-title { flex: 1; min-width: 300px; max-width: 500px; }
+        .logo-title h1 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: linear-gradient(135deg, var(--accent) 0%, var(--navy) 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header-right { flex: 2; display: flex; flex-direction: column; gap: 1rem; min-width: 350px; }
+        .search-and-controls { display: flex; gap: 20px; align-items: flex-start; width: 100%; }
+        .header-controls { flex: 0; }
+        .theme-toggle { display: flex; gap: 10px; background: var(--glass-bg); padding: 5px; border-radius: 25px; border: 1px solid var(--glass-border); box-shadow: 0 4px 15px rgba(0,0,0,0.2); backdrop-filter: blur(5px); }
+        .theme-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 5px 10px; border-radius: 20px; transition: transform 0.2s, background 0.2s; color: var(--text); }
+        .filter-container { width: 100%; display: flex; justify-content: flex-end; }
+        .filter-chips-scroll { display: flex; gap: 0.7rem; flex-wrap: wrap; justify-content: flex-end; padding: 0; }
+        .search-bar-container { flex: 1; }
+        .search-input { width: 100%; padding: 0.8rem 1.5rem; border-radius: 999px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; outline: none; transition: box-shadow 0.2s, border-color 0.2s; }
+        .search-input:focus { border-color: var(--green); box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); }
+        .chip { position: relative; flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1.2rem; border-radius: 999px; cursor: pointer; border: 1px solid var(--border); background: var(--glass-bg); color: var(--text-secondary); transition: all 0.3s; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; }
+        .top-chip { padding: 0.4rem 0.8rem; font-size: 0.7rem; gap: 0.4rem; }
+        .chip--active { color: var(--text) !important; font-weight: 700; border-color: transparent !important; }
+        .chip--red.chip--active { background: rgba(237,27,36,0.2); border: 1px solid var(--accent) !important; box-shadow: 0 0 15px var(--accent); }
+        .chip--green.chip--active { background: rgba(0,255,136,0.2); border: 1px solid var(--green) !important; box-shadow: 0 0 15px var(--green); }
+        .chip--platinum.chip--active { background: var(--glass-bg); border: 1px solid var(--text) !important; box-shadow: 0 0 10px var(--border); }
+        .chip__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+        .catalog-grid { padding: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; max-width: 1600px; margin: 0 auto; }
+        .zine-card { background: var(--card-bg); backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; transition: all 0.4s; position: relative; animation: cardAppear 0.5s ease backwards; }
+        .zine-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+        .thumbnail { width: 100%; height: 220px; object-fit: contain; border-radius: 0.5rem; margin-bottom: 1.2rem; background: #fff; border: 1px solid var(--border); }
+        .zine-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text); }
+        .zine-desc { font-size: 0.95rem; color: var(--text-secondary); font-style: italic; margin-bottom: 1.5rem; flex-grow: 1; }
+        .nextcloud-btn, .btn-more-info { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 2rem; padding: 0.6rem 1rem; text-decoration: none; transition: all 0.25s; text-align: center; background: transparent; cursor: pointer; }
+        .nextcloud-btn:hover, .btn-more-info:hover { background: var(--accent); color: #fff; box-shadow: 0 0 15px var(--accent); }
+        .btn-more-info { color: var(--green); border-color: var(--green); }
+        .btn-more-info:hover { background: var(--green); color: #000; box-shadow: 0 0 15px var(--green); }
+        .dossier-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(5px); }
+        .dossier-overlay.active { opacity: 1; pointer-events: auto; }
+        .dossier-panel { position: fixed; top: 0; right: 0; width: 600px; max-width: 95vw; height: 100vh; z-index: 300; background: var(--crt-bg); border-left: 2px solid #2a3a18; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22,0.61,0.36,1); display: flex; flex-direction: column; color: var(--phosphor); font-family: 'JetBrains Mono', monospace; overflow: hidden; }
+        .dossier-panel.open { transform: translateX(0); }
+        .crt-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 310; background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 3px); }
+        .dossier-header { padding: 20px; border-bottom: 1px solid #2a3a18; display: flex; justify-content: space-between; align-items: center; background: #0c0e07; z-index: 320; }
+        .dossier-content { flex: 1; overflow-y: auto; padding: 25px; z-index: 320; }
+        .dossier-tabs { display: flex; gap: 15px; padding: 0 25px; margin-bottom: 25px; z-index: 320; }
+        .tab-btn { background: transparent; padding: 10px 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 1.5px solid transparent; text-transform: uppercase; }
+        .tab-btn--machine { color: var(--green); border-color: var(--green); }
+        .tab-btn--machine.active { background: rgba(0,255,0,0.15); box-shadow: 0 0 10px var(--green); }
+        .meta-block { color: #9ca3af; font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; }
+        .meta-label { color: #e0e6f0; font-weight: 700; }
+        .cyan-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--cyan); border: 1.5px solid var(--cyan); padding: 8px 12px; text-decoration: none; font-size: 0.75rem; font-weight: 700; margin-bottom: 25px; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+        .cyan-btn:hover { background: var(--cyan); color: #000; box-shadow: 0 0 15px var(--cyan); }
+        .section-label { color: #e6a840; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+        .concept-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .concept-tag { font-size: 0.7rem; padding: 5px 10px; border: 1px solid #3a5a1e; color: var(--phosphor); background: rgba(80,140,30,0.1); }
+        .btn-close { background: none; border: 1px solid #3a2a1a; color: #8a6a4a; font-size: 20px; cursor: pointer; width: 40px; height: 40px; }
+        @keyframes cardAppear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        footer { text-align: center; padding: 3rem; color: var(--text-secondary); font-size: 0.85rem; border-top: 1px solid var(--border); }
+        @media (max-width: 768px) {
+            header { position: relative; padding: 1.5rem 1rem; flex-direction: column; gap: 1rem; }
+            .logo-title { min-width: 100%; }
+            .header-right { min-width: 100%; gap: 1rem; }
+            .search-and-controls { flex-direction: column; gap: 10px; }
+            .filter-container { justify-content: flex-start; }
+            .filter-chips-scroll { justify-content: flex-start; }
+            .catalog-grid { padding: 1rem; gap: 1.5rem; }
+            .dossier-panel { width: 100%; border-left: none; }
+        }
+        .agentic-warning { background:rgba(0,143,76,0.1);border:1px solid var(--green);padding:8px;font-size:10px;color:var(--green);line-height:1.3;margin-top:15px;border-radius:4px;display:inline-block;max-width:500px; }
+        .lang-en { color: inherit; }
+        .lang-de { color: rgba(255, 255, 255, 0.6); font-style: italic; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-title">
+            <h1>MIKROBIOMIK CATALOGUE</h1>
+            <p style="font-size:0.75rem;opacity:0.6;font-family:'JetBrains Mono';margin-top:5px;">
+                Collective Knowledge: 4 spores
+            </p>
+            <div class="agentic-warning">
+                ◈ <strong>MACHINE EXTRACTION:</strong> The content summaries are automatically parsed from the raw PDFs.
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-and-controls">
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search zines by title, keyword, or author..." oninput="applyFilters()">
+                    <div id="searchResults" style="font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; color: var(--green); margin-top: 8px; text-align: right; min-height: 1rem;"></div>
+                </div>
+                <div class="header-controls" style="display:flex;align-items:center;">
+                    <div class="theme-toggle">
+                        <button class="theme-btn" onclick="setTheme('light')" title="Light">☀️</button>
+                        <button class="theme-btn" onclick="setTheme('dark')" title="Dark">🌴</button>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-container" id="filterContainer">
+                <div class="filter-chips-scroll" id="chipsContainer"><button class="chip chip--active chip--platinum top-chip" onclick="filterCategory('all')" data-category="all"><span class="chip__dot"></span><span class="chip__label">All Mycelia (4)</span></button><button class="chip top-chip" onclick="filterCategory('Fermentation &amp; Microbes')" data-category="Fermentation &amp; Microbes" data-glow-class="chip--red"><span class="chip__dot"></span><span class="chip__label">Fermentation &amp; Microbes (2)</span></button><button class="chip top-chip" onclick="filterCategory('Soil &amp; Composting')" data-category="Soil &amp; Composting" data-glow-class="chip--red"><span class="chip__dot"></span><span class="chip__label">Soil &amp; Composting (2)</span></button></div>
+            </div>
+        </div>
+    </header>
+    <main class="catalog-grid" id="zineGrid">
+        <article class="zine-card" data-category="Fermentation &amp; Microbes" data-deep-key="dummy_zine.pdf">
+            <img class="thumbnail" src="thumbnails/dummy_zine.jpg" alt="Cover of Dummy Mikrobiomik Zine" loading="lazy">
+            <button class="chip chip--red chip--active" onclick="filterCategory('Fermentation &amp; Microbes')" style="cursor:pointer;display:inline-flex;width:fit-content;margin-bottom:15px;border:1px solid var(--border);"><span class="chip__dot"></span><span class="chip__label">Fermentation &amp; Microbes</span></button>
+            <h2 class="zine-title">Dummy Mikrobiomik Zine</h2>
+            <div class="zine-meta" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:1rem;font-family:'JetBrains Mono',monospace;border-top:1px solid var(--border);padding-top:10px;">
+            <div style="margin-bottom:3px;"><strong>Author:</strong> Tester</div>
+            <div style="margin-bottom:3px;"><strong>Format:</strong> PDF</div>
+            <div><strong>Language:</strong> English</div>
+        </div>
+            <p class="zine-desc" style="display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;"><span class="lang-en"><strong>EN:</strong> This is a test entry for the new Mikrobiomik Zine Library prototype.<br></span><span class="lang-de"><strong>DE:</strong> Dies ist ein Testeintrag für den neuen Prototyp der Mikrobiomik Zine-Bibliothek.</span></p>
+            <div style="display:flex;gap:10px;margin-top:auto;">
+                <a href="https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FDummy_Zine" class="nextcloud-btn" target="_blank" rel="noopener">Nextcloud ↗</a>
+                <button class="btn-more-info" onclick="openDossier('dummy_zine.pdf')">▸ DEEP INFO</button>
+            </div>
+        </article>
+        <article class="zine-card" data-category="Fermentation &amp; Microbes" data-deep-key="Bokashianleitung_print.pdf">
+            <img class="thumbnail" src="thumbnails/Bokashianleitung_print.jpg" alt="Cover of Bokashianleitung_print" loading="lazy">
+            <button class="chip chip--red chip--active" onclick="filterCategory('Fermentation &amp; Microbes')" style="cursor:pointer;display:inline-flex;width:fit-content;margin-bottom:15px;border:1px solid var(--border);"><span class="chip__dot"></span><span class="chip__label">Fermentation &amp; Microbes</span></button>
+            <h2 class="zine-title">Bokashianleitung_print</h2>
+            <div class="zine-meta" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:1rem;font-family:'JetBrains Mono',monospace;border-top:1px solid var(--border);padding-top:10px;">
+            <div style="margin-bottom:3px;"><strong>Author:</strong> bodenschätzen.org</div>
+            <div style="margin-bottom:3px;"><strong>Format:</strong> PDF</div>
+            <div><strong>Language:</strong> German</div>
+        </div>
+            <p class="zine-desc" style="display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;"><span class="lang-en"><strong>EN:</strong> This German-language zine provides a practical, step-by-step guide to the Bokashi method of fermenting household food waste. It positions Bokashi as an accessible, space-efficient alternative to traditional composting, suitable for both garden and balcony use, and emphasizes its ability to process all types of food scraps. The zine serves as a hands-on manual for urban gardeners and waste-reduction enthusiasts.<br></span><span class="lang-de"><strong>DE:</strong> Dieses deutschsprachige Zine bietet eine praktische Schritt-für-Schritt-Anleitung für die Bokashi-Methode zur Fermentierung von Haushaltsabfällen. Es positioniert Bokashi als zugängliche, platzsparende Alternative zum traditionellen Kompostieren, geeignet für Garten und Balkon, und betont die Möglichkeit, alle Arten von Lebensmittelresten zu verarbeiten. Das Zine dient als praktisches Handbuch für städtische Gärtner und Enthusiasten der Abfallvermeidung.</span></p>
+            <div style="display:flex;gap:10px;margin-top:auto;">
+                <a href="https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FBokashianleitung_print" class="nextcloud-btn" target="_blank" rel="noopener">Nextcloud ↗</a>
+                <button class="btn-more-info" onclick="openDossier('Bokashianleitung_print.pdf')">▸ DEEP INFO</button>
+            </div>
+        </article>
+        <article class="zine-card" data-category="Soil &amp; Composting" data-deep-key="BroschuerePflanzenkohle.pdf">
+            <img class="thumbnail" src="thumbnails/BroschuerePflanzenkohle.jpg" alt="Cover of BroschuerePflanzenkohle" loading="lazy">
+            <button class="chip chip--red chip--active" onclick="filterCategory('Soil &amp; Composting')" style="cursor:pointer;display:inline-flex;width:fit-content;margin-bottom:15px;border:1px solid var(--border);"><span class="chip__dot"></span><span class="chip__label">Soil &amp; Composting</span></button>
+            <h2 class="zine-title">BroschuerePflanzenkohle</h2>
+            <div class="zine-meta" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:1rem;font-family:'JetBrains Mono',monospace;border-top:1px solid var(--border);padding-top:10px;">
+            <div style="margin-bottom:3px;"><strong>Author:</strong> Unknown</div>
+            <div style="margin-bottom:3px;"><strong>Format:</strong> PDF</div>
+            <div><strong>Language:</strong> German</div>
+        </div>
+            <p class="zine-desc" style="display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;"><span class="lang-en"><strong>EN:</strong> This zine, “Boden Besser Machen Basics,” serves as an introductory guide for German-speaking gardeners on the use of biochar (Pflanzenkohle) to improve soil health and sequester carbon. It contextualizes the practice within climate-positive gardening, explaining how biochar transforms gardens into CO2 sinks while mimicking the nutrient-rich properties of Terra Preta. The text’s practical use is to educate growers on producing and applying biochar to enhance soil structure, water retention, and nutrient binding.<br></span><span class="lang-de"><strong>DE:</strong> Dieses Zine, „Boden Besser Machen Basics“, dient als Einführung für deutschsprachige Gärtner in die Nutzung von Pflanzenkohle zur Verbesserung der Bodengesundheit und zur Kohlenstoffspeicherung. Es kontextualisiert die Praxis innerhalb des klimapositiven Gärtnerns und erklärt, wie Pflanzenkohle Gärten in CO2-Senken verwandelt und gleichzeitig die nährstoffreichen Eigenschaften von Terra Preta nachahmt. Der praktische Nutzen des Textes besteht darin, Anbauer über die Herstellung und Anwendung von Pflanzenkohle zur Verbesserung von Bodenstruktur, Wasserrückhalt und Nährstoffbindung aufzuklären.</span></p>
+            <div style="display:flex;gap:10px;margin-top:auto;">
+                <a href="https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FBroschuerePflanzenkohle" class="nextcloud-btn" target="_blank" rel="noopener">Nextcloud ↗</a>
+                <button class="btn-more-info" onclick="openDossier('BroschuerePflanzenkohle.pdf')">▸ DEEP INFO</button>
+            </div>
+        </article>
+        <article class="zine-card" data-category="Soil &amp; Composting" data-deep-key="Die_erweiterte_Spatendiagnose_nach_Beste_2003.pdf">
+            <img class="thumbnail" src="thumbnails/Die_erweiterte_Spatendiagnose_nach_Beste_2003.jpg" alt="Cover of Die erweiterte Spatendiagnose nach Beste (2003)" loading="lazy">
+            <button class="chip chip--red chip--active" onclick="filterCategory('Soil &amp; Composting')" style="cursor:pointer;display:inline-flex;width:fit-content;margin-bottom:15px;border:1px solid var(--border);"><span class="chip__dot"></span><span class="chip__label">Soil &amp; Composting</span></button>
+            <h2 class="zine-title">Die erweiterte Spatendiagnose nach Beste (2003)</h2>
+            <div class="zine-meta" style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:1rem;font-family:'JetBrains Mono',monospace;border-top:1px solid var(--border);padding-top:10px;">
+            <div style="margin-bottom:3px;"><strong>Author:</strong> Mase</div>
+            <div style="margin-bottom:3px;"><strong>Format:</strong> PDF</div>
+            <div><strong>Language:</strong> German</div>
+        </div>
+            <p class="zine-desc" style="display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;"><span class="lang-en"><strong>EN:</strong> This zine excerpt details a method for testing soil aggregate stability using an ice cube tray, adapted from Beste (2003)'s extended spade diagnosis. It provides a practical, low-cost field procedure for assessing soil health by quantifying the resilience of soil crumbs to water submersion. This would be useful for farmers, gardeners, and soil researchers conducting on-site ecological assessments.<br></span><span class="lang-de"><strong>DE:</strong> Dieser Zine-Auszug beschreibt eine Methode zur Prüfung der Aggregatstabilität des Bodens unter Verwendung einer Eiswürfelschale, adaptiert aus der erweiterten Spatendiagnose nach Beste (2003). Es bietet ein praktisches, kostengünstiges Feldverfahren zur Beurteilung der Bodengesundheit durch die Quantifizierung der Widerstandsfähigkeit von Bodenkrümeln beim Eintauchen in Wasser. Dies ist nützlich für Landwirte, Gärtner und Bodenforscher, die ökologische Vor-Ort-Bewertungen durchführen.</span></p>
+            <div style="display:flex;gap:10px;margin-top:auto;">
+                <a href="https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FDie_erweiterte_Spatendiagnose_nach_Beste_2003" class="nextcloud-btn" target="_blank" rel="noopener">Nextcloud ↗</a>
+                <button class="btn-more-info" onclick="openDossier('Die_erweiterte_Spatendiagnose_nach_Beste_2003.pdf')">▸ DEEP INFO</button>
+            </div>
+        </article>
+    </main>
+
+    <div class="dossier-overlay" id="dossierOverlay" onclick="closeDossier()"></div>
+    <div class="dossier-panel" id="dossierPanel">
+        <div class="crt-overlay"></div>
+        <div class="dossier-header">
+            <div>
+                <span style="color:#e6a840;font-size:10px;letter-spacing:2px;">◈ DECRYPTED</span>
+                <h2 id="dossierTitle" style="font-size:14px;color:var(--phosphor-bright);text-transform:uppercase;">DOSSIER</h2>
+            </div>
+            <button class="btn-close" onclick="closeDossier()">✕</button>
+        </div>
+        <div class="dossier-tabs">
+            <button class="tab-btn tab-btn--machine" onclick="switchTab('machine')">◈ MACHINE EXTRACTION</button>
+        </div>
+        <div class="dossier-content" id="dossierContent"></div>
+    </div>
+
+    <script>
+        const deepInfo = {"dummy_zine.pdf": {"title": "Dummy Mikrobiomik Zine", "concepts": ["#Test<br>- #Prototype"], "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This is a test entry for the new Mikrobiomik Zine Library prototype.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dies ist ein Testeintrag für den neuen Prototyp der Mikrobiomik Zine-Bibliothek.</span>", "machine": "<span class=\"lang-en\"><strong>EN:</strong> Test extraction content.<br></span><span class=\"lang-de\"><strong>DE:</strong> Test-Extraktionsinhalt.</span>", "format": "PDF", "language": "English", "author": "Tester", "category": "Fermentation & Microbes", "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Dummy_Zine/", "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FDummy_Zine", "size": "1.0 MB", "date": "2026"}, "Bokashianleitung_print.pdf": {"title": "Bokashianleitung_print", "concepts": ["#Bokashi<br>- #Fermentation<br>- #KitchenWaste<br>- #MicrobialSolution<br>- #UrbanComposting"], "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This German-language zine provides a practical, step-by-step guide to the Bokashi method of fermenting household food waste. It positions Bokashi as an accessible, space-efficient alternative to traditional composting, suitable for both garden and balcony use, and emphasizes its ability to process all types of food scraps. The zine serves as a hands-on manual for urban gardeners and waste-reduction enthusiasts.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dieses deutschsprachige Zine bietet eine praktische Schritt-für-Schritt-Anleitung für die Bokashi-Methode zur Fermentierung von Haushaltsabfällen. Es positioniert Bokashi als zugängliche, platzsparende Alternative zum traditionellen Kompostieren, geeignet für Garten und Balkon, und betont die Möglichkeit, alle Arten von Lebensmittelresten zu verarbeiten. Das Zine dient als praktisches Handbuch für städtische Gärtner und Enthusiasten der Abfallvermeidung.</span>", "machine": "<span class=\"lang-en\"><strong>EN:</strong> The text describes a two-stage anaerobic fermentation process using a specialized bucket and a microbial solution (active microorganisms) to break down kitchen scraps over approximately 4 weeks. Key procedural steps include chopping waste, layering with microbes, compressing to exclude oxygen, draining leachate for dilution (1:50) as liquid fertilizer, and final soil incorporation (1:5 ratio) for a 3-month vermicomposting phase.<br></span><span class=\"lang-de\"><strong>DE:</strong> Der Text beschreibt einen zweistufigen anaeroben Fermentationsprozess unter Verwendung eines speziellen Eimers und einer Mikrobenlösung, um Küchenabfälle über etwa 4 Wochen zu zersetzen. Wichtige Verfahrensschritte umfassen das Zerkleinern der Abfälle, das Schichten mit Mikroben, das Zusammenpressen zum Ausschluss von Sauerstoff, das Ablassen von Sickerwasser zur Verdünnung (1:50) als Flüssigdünger und die abschließende Einarbeitung in die Erde (Verhältnis 1:5) für eine 3-monatige Vererdungsphase.</span>", "format": "PDF", "language": "German", "author": "bodenschätzen.org", "category": "Fermentation & Microbes", "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Bokashianleitung_print/", "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FBokashianleitung_print", "size": "1.3 MB", "date": "2023"}, "BroschuerePflanzenkohle.pdf": {"title": "BroschuerePflanzenkohle", "concepts": ["#Biochar<br>- #Pyrolysis<br>- #TerraPreta<br>- #SoilCarbonSequestration<br>- #HumusBuilding"], "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine, “Boden Besser Machen Basics,” serves as an introductory guide for German-speaking gardeners on the use of biochar (Pflanzenkohle) to improve soil health and sequester carbon. It contextualizes the practice within climate-positive gardening, explaining how biochar transforms gardens into CO2 sinks while mimicking the nutrient-rich properties of Terra Preta. The text’s practical use is to educate growers on producing and applying biochar to enhance soil structure, water retention, and nutrient binding.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dieses Zine, „Boden Besser Machen Basics“, dient als Einführung für deutschsprachige Gärtner in die Nutzung von Pflanzenkohle zur Verbesserung der Bodengesundheit und zur Kohlenstoffspeicherung. Es kontextualisiert die Praxis innerhalb des klimapositiven Gärtnerns und erklärt, wie Pflanzenkohle Gärten in CO2-Senken verwandelt und gleichzeitig die nährstoffreichen Eigenschaften von Terra Preta nachahmt. Der praktische Nutzen des Textes besteht darin, Anbauer über die Herstellung und Anwendung von Pflanzenkohle zur Verbesserung von Bodenstruktur, Wasserrückhalt und Nährstoffbindung aufzuklären.</span>", "machine": "<span class=\"lang-en\"><strong>EN:</strong> The document describes the production of biochar via pyrolysis, where organic biomass (e.g., tree prunings, roots) is heated in an oxygen-limited environment to high temperatures, resulting in a carbon-rich material (up to 90% carbon). It emphasizes biochar’s extremely high specific surface area (up to 300 m²/g), which enables the sorption of nutrients, water, and pollutants, thereby improving soil as a substrate. The text does not present experimental data but provides a foundational explanation of biochar’s physical and chemical properties for horticultural application.<br></span><span class=\"lang-de\"><strong>DE:</strong> Das Dokument beschreibt die Herstellung von Pflanzenkohle durch Pyrolyse, bei der organische Biomasse (z.B. Baumschnitt, Wurzeln) in einer sauerstoffarmen Umgebung auf hohe Temperaturen erhitzt wird, was zu einem kohlenstoffreichen Material führt (bis zu 90 % Kohlenstoff). Es betont die extrem hohe spezifische Oberfläche der Pflanzenkohle (bis zu 300 m²/g), die die Sorption von Nährstoffen, Wasser und Schadstoffen ermöglicht und so den Boden als Substrat verbessert. Der Text präsentiert keine experimentellen Daten, liefert aber eine grundlegende Erklärung der physikalischen und chemischen Eigenschaften von Pflanzenkohle für die gärtnerische Anwendung.</span>", "format": "PDF", "language": "German", "author": "Unknown", "category": "Soil & Composting", "folder": "zine-lib_mikrobiomik/Soil_Composting/BroschuerePflanzenkohle/", "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FBroschuerePflanzenkohle", "size": "1.3 MB", "date": "Unknown"}, "Die_erweiterte_Spatendiagnose_nach_Beste_2003.pdf": {"title": "Die erweiterte Spatendiagnose nach Beste (2003)", "concepts": ["#AggregateStability<br>- #FieldMethods<br>- #SoilDiagnosis<br>- #IceCubeTrayTest<br>- #AssessingSoilHealth"], "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine excerpt details a method for testing soil aggregate stability using an ice cube tray, adapted from Beste (2003)'s extended spade diagnosis. It provides a practical, low-cost field procedure for assessing soil health by quantifying the resilience of soil crumbs to water submersion. This would be useful for farmers, gardeners, and soil researchers conducting on-site ecological assessments.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dieser Zine-Auszug beschreibt eine Methode zur Prüfung der Aggregatstabilität des Bodens unter Verwendung einer Eiswürfelschale, adaptiert aus der erweiterten Spatendiagnose nach Beste (2003). Es bietet ein praktisches, kostengünstiges Feldverfahren zur Beurteilung der Bodengesundheit durch die Quantifizierung der Widerstandsfähigkeit von Bodenkrümeln beim Eintauchen in Wasser. Dies ist nützlich für Landwirte, Gärtner und Bodenforscher, die ökologische Vor-Ort-Bewertungen durchführen.</span>", "machine": "<span class=\"lang-en\"><strong>EN:</strong> The procedure involves collecting a spade sample from a minimum 30cm depth, separating the top 15cm and bottom 15cm, and dropping each half to create natural fractures. Forty-five crumbs of 3-5mm are placed into an ice cube tray's compartments, submerged in water for one minute, agitated by shaking, and then counted for intact versus collapsed aggregates to calculate a stability percentage. Three repetitions per measurement site are required, with results logged into a project’s pCloud Excel file.<br></span><span class=\"lang-de\"><strong>DE:</strong> Das Verfahren umfasst die Entnahme einer Spatenprobe aus mindestens 30 cm Tiefe, die Trennung der oberen 15 cm von den unteren 15 cm und das Fallenlassen jeder Hälfte, um natürliche Brüche zu erzeugen. 45 Krümel von 3-5 mm werden in die Fächer einer Eiswürfelschale gelegt, für eine Minute in Wasser getaucht, durch Schwenken bewegt und anschließend auf intakte gegenüber zerfallenen Aggregaten gezählt, um einen Stabilitätsprozentsatz zu berechnen. Es sind drei Wiederholungen pro Messort erforderlich, wobei die Ergebnisse in einer pCloud-Excel-Datei des Projekts protokolliert werden.</span>", "format": "PDF", "language": "German", "author": "Mase", "category": "Soil & Composting", "folder": "zine-lib_mikrobiomik/Soil_Composting/Die_erweiterte_Spatendiagnose_nach_Beste_2003/", "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FDie_erweiterte_Spatendiagnose_nach_Beste_2003", "size": "0.3 MB", "date": "2023"}};
+        let currentZine = null;
+
+        function setTheme(t) {
+            document.body.className = t === 'dark' ? 'theme-tropical' : '';
+            localStorage.setItem('theme', t);
+        }
+        (function() { setTheme(localStorage.getItem('theme') || 'dark'); })();
+
+        window.activeCategory = 'all';
+
+        function filterCategory(cat) {
+            window.activeCategory = cat;
+            document.querySelectorAll('.top-chip').forEach(c => {
+                if(c.dataset.category === cat) {
+                    c.classList.add('chip--active');
+                } else {
+                    c.classList.remove('chip--active');
+                }
+            });
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const cat = window.activeCategory;
+            const searchInput = document.getElementById('searchInput');
+            const query = searchInput ? searchInput.value.toLowerCase() : '';
+            let visibleCount = 0;
+            
+            document.querySelectorAll('.zine-card').forEach(card => {
+                const cardCat = card.dataset.category;
+                const matchesCat = (cat === 'all' || cardCat === cat);
+                
+                let matchesSearch = true;
+                if (query) {
+                    const title = card.querySelector('.zine-title').textContent.toLowerCase();
+                    const desc = card.querySelector('.zine-desc').textContent.toLowerCase();
+                    const meta = card.querySelector('.zine-meta').textContent.toLowerCase();
+                    
+                    let deepText = '';
+                    const deepKey = card.dataset.deepKey;
+                    if (deepKey && deepInfo[deepKey]) {
+                        const d = deepInfo[deepKey];
+                        const conceptsStr = d.concepts ? d.concepts.join(' ') : '';
+                        deepText = [d.machine, d.archivist, conceptsStr].join(' ').toLowerCase();
+                    }
+                    
+                    matchesSearch = title.includes(query) || desc.includes(query) || meta.includes(query) || deepText.includes(query);
+                }
+                
+                if (matchesCat && matchesSearch) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            const resultsEl = document.getElementById('searchResults');
+            if (resultsEl) {
+                if (query.length > 0 || cat !== 'all') {
+                    resultsEl.textContent = '◈ ' + visibleCount + ' SPORES FOUND';
+                } else {
+                    resultsEl.textContent = '';
+                }
+            }
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.tab-btn--' + tab).classList.add('active');
+            renderContent(tab);
+        }
+
+        function renderContent(tab) {
+            const d = deepInfo[currentZine];
+            if (!d) return;
+            const container = document.getElementById('dossierContent');
+            let html = '';
+
+            function renderConcepts() {
+                if (d.concepts && d.concepts.length) {
+                    let cHtml = '<span class="section-label">◈ Key Concepts</span><div class="concept-tags">';
+                    d.concepts.forEach(c => { cHtml += '<span class="concept-tag">' + c + '</span>'; });
+                    cHtml += '</div>';
+                    return cHtml;
+                }
+                return '';
+            }
+
+            html += '<span class="section-label">FACTUAL ANALYSIS</span>';
+            html += '<div class="meta-block">';
+            html += '<div><span class="meta-label">Author/Org:</span> ' + d.author + '</div>';
+            html += '<div><span class="meta-label">Category:</span> ' + d.category + '</div>';
+            html += '<div><span class="meta-label">Format:</span> ' + d.format + '</div>';
+            html += '<div><span class="meta-label">Language:</span> ' + d.language + '</div>';
+            if (d.size && d.size !== '??') html += '<div><span class="meta-label">Size:</span> ' + d.size + '</div>';
+            if (d.date && d.date !== '??') html += '<div><span class="meta-label">Date:</span> ' + d.date + '</div>';
+            html += '</div>';
+            html += '<a href="' + d.nc_url + '" class="cyan-btn" target="_blank">◈ VIEW ON CLOUD / DOWNLOAD</a>';
+            html += '<div style="margin-bottom:25px;"><span class="section-label">◈ ARCHIVIST SUMMARY:</span><div style="margin-top:10px;">' + d.archivist + '</div></div>';
+            html += renderConcepts();
+            html += '<div style="margin-top:25px;margin-bottom:25px;"><span class="section-label">◈ MACHINE EXTRACTION:</span><div style="margin-top:10px;">' + d.machine + '</div></div>';
+            container.innerHTML = html;
+        }
+
+        function openDossier(key) {
+            currentZine = key;
+            const d = deepInfo[key];
+            document.getElementById('dossierTitle').textContent = d.title;
+            switchTab('machine');
+            document.getElementById('dossierOverlay').classList.add('active');
+            document.getElementById('dossierPanel').classList.add('open');
+        }
+        function closeDossier() {
+            document.getElementById('dossierOverlay').classList.remove('active');
+            document.getElementById('dossierPanel').classList.remove('open');
+        }
+        function toggleAgenticModal(show) {
+            const modal = document.getElementById('agenticModalOverlay');
+            if (show) modal.classList.add('active');
+            else modal.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

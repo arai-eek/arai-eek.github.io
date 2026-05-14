@@ -1,0 +1,66 @@
+{
+  "dummy_zine.pdf": {
+    "title": "Dummy Mikrobiomik Zine",
+    "concepts": [
+      "#Test<br>- #Prototype"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This is a test entry for the new Mikrobiomik Zine Library prototype.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dies ist ein Testeintrag für den neuen Prototyp der Mikrobiomik Zine-Bibliothek.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> Test extraction content.<br></span><span class=\"lang-de\"><strong>DE:</strong> Test-Extraktionsinhalt.</span>",
+    "format": "PDF",
+    "language": "English",
+    "author": "Tester",
+    "category": "Fermentation & Microbes",
+    "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Dummy_Zine/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FDummy_Zine",
+    "size": "1.0 MB",
+    "date": "2026"
+  },
+  "Bokashianleitung_print.pdf": {
+    "title": "Bokashianleitung_print",
+    "concepts": [
+      "#Bokashi<br>- #Fermentation<br>- #KitchenWaste<br>- #MicrobialSolution<br>- #UrbanComposting"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This German-language zine provides a practical, step-by-step guide to the Bokashi method of fermenting household food waste. It positions Bokashi as an accessible, space-efficient alternative to traditional composting, suitable for both garden and balcony use, and emphasizes its ability to process all types of food scraps. The zine serves as a hands-on manual for urban gardeners and waste-reduction enthusiasts.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dieses deutschsprachige Zine bietet eine praktische Schritt-für-Schritt-Anleitung für die Bokashi-Methode zur Fermentierung von Haushaltsabfällen. Es positioniert Bokashi als zugängliche, platzsparende Alternative zum traditionellen Kompostieren, geeignet für Garten und Balkon, und betont die Möglichkeit, alle Arten von Lebensmittelresten zu verarbeiten. Das Zine dient als praktisches Handbuch für städtische Gärtner und Enthusiasten der Abfallvermeidung.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The text describes a two-stage anaerobic fermentation process using a specialized bucket and a microbial solution (active microorganisms) to break down kitchen scraps over approximately 4 weeks. Key procedural steps include chopping waste, layering with microbes, compressing to exclude oxygen, draining leachate for dilution (1:50) as liquid fertilizer, and final soil incorporation (1:5 ratio) for a 3-month vermicomposting phase.<br></span><span class=\"lang-de\"><strong>DE:</strong> Der Text beschreibt einen zweistufigen anaeroben Fermentationsprozess unter Verwendung eines speziellen Eimers und einer Mikrobenlösung, um Küchenabfälle über etwa 4 Wochen zu zersetzen. Wichtige Verfahrensschritte umfassen das Zerkleinern der Abfälle, das Schichten mit Mikroben, das Zusammenpressen zum Ausschluss von Sauerstoff, das Ablassen von Sickerwasser zur Verdünnung (1:50) als Flüssigdünger und die abschließende Einarbeitung in die Erde (Verhältnis 1:5) für eine 3-monatige Vererdungsphase.</span>",
+    "format": "PDF",
+    "language": "German",
+    "author": "bodenschätzen.org",
+    "category": "Fermentation & Microbes",
+    "folder": "zine-lib_mikrobiomik/Fermentation_Microbes/Bokashianleitung_print/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FFermentation_Microbes%2FBokashianleitung_print",
+    "size": "1.3 MB",
+    "date": "2023"
+  },
+  "BroschuerePflanzenkohle.pdf": {
+    "title": "BroschuerePflanzenkohle",
+    "concepts": [
+      "#Biochar<br>- #Pyrolysis<br>- #TerraPreta<br>- #SoilCarbonSequestration<br>- #HumusBuilding"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine, “Boden Besser Machen Basics,” serves as an introductory guide for German-speaking gardeners on the use of biochar (Pflanzenkohle) to improve soil health and sequester carbon. It contextualizes the practice within climate-positive gardening, explaining how biochar transforms gardens into CO2 sinks while mimicking the nutrient-rich properties of Terra Preta. The text’s practical use is to educate growers on producing and applying biochar to enhance soil structure, water retention, and nutrient binding.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dieses Zine, „Boden Besser Machen Basics“, dient als Einführung für deutschsprachige Gärtner in die Nutzung von Pflanzenkohle zur Verbesserung der Bodengesundheit und zur Kohlenstoffspeicherung. Es kontextualisiert die Praxis innerhalb des klimapositiven Gärtnerns und erklärt, wie Pflanzenkohle Gärten in CO2-Senken verwandelt und gleichzeitig die nährstoffreichen Eigenschaften von Terra Preta nachahmt. Der praktische Nutzen des Textes besteht darin, Anbauer über die Herstellung und Anwendung von Pflanzenkohle zur Verbesserung von Bodenstruktur, Wasserrückhalt und Nährstoffbindung aufzuklären.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The document describes the production of biochar via pyrolysis, where organic biomass (e.g., tree prunings, roots) is heated in an oxygen-limited environment to high temperatures, resulting in a carbon-rich material (up to 90% carbon). It emphasizes biochar’s extremely high specific surface area (up to 300 m²/g), which enables the sorption of nutrients, water, and pollutants, thereby improving soil as a substrate. The text does not present experimental data but provides a foundational explanation of biochar’s physical and chemical properties for horticultural application.<br></span><span class=\"lang-de\"><strong>DE:</strong> Das Dokument beschreibt die Herstellung von Pflanzenkohle durch Pyrolyse, bei der organische Biomasse (z.B. Baumschnitt, Wurzeln) in einer sauerstoffarmen Umgebung auf hohe Temperaturen erhitzt wird, was zu einem kohlenstoffreichen Material führt (bis zu 90 % Kohlenstoff). Es betont die extrem hohe spezifische Oberfläche der Pflanzenkohle (bis zu 300 m²/g), die die Sorption von Nährstoffen, Wasser und Schadstoffen ermöglicht und so den Boden als Substrat verbessert. Der Text präsentiert keine experimentellen Daten, liefert aber eine grundlegende Erklärung der physikalischen und chemischen Eigenschaften von Pflanzenkohle für die gärtnerische Anwendung.</span>",
+    "format": "PDF",
+    "language": "German",
+    "author": "Unknown",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/BroschuerePflanzenkohle/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FBroschuerePflanzenkohle",
+    "size": "1.3 MB",
+    "date": "Unknown"
+  },
+  "Die_erweiterte_Spatendiagnose_nach_Beste_2003.pdf": {
+    "title": "Die erweiterte Spatendiagnose nach Beste (2003)",
+    "concepts": [
+      "#AggregateStability<br>- #FieldMethods<br>- #SoilDiagnosis<br>- #IceCubeTrayTest<br>- #AssessingSoilHealth"
+    ],
+    "archivist": "<span class=\"lang-en\"><strong>EN:</strong> This zine excerpt details a method for testing soil aggregate stability using an ice cube tray, adapted from Beste (2003)'s extended spade diagnosis. It provides a practical, low-cost field procedure for assessing soil health by quantifying the resilience of soil crumbs to water submersion. This would be useful for farmers, gardeners, and soil researchers conducting on-site ecological assessments.<br></span><span class=\"lang-de\"><strong>DE:</strong> Dieser Zine-Auszug beschreibt eine Methode zur Prüfung der Aggregatstabilität des Bodens unter Verwendung einer Eiswürfelschale, adaptiert aus der erweiterten Spatendiagnose nach Beste (2003). Es bietet ein praktisches, kostengünstiges Feldverfahren zur Beurteilung der Bodengesundheit durch die Quantifizierung der Widerstandsfähigkeit von Bodenkrümeln beim Eintauchen in Wasser. Dies ist nützlich für Landwirte, Gärtner und Bodenforscher, die ökologische Vor-Ort-Bewertungen durchführen.</span>",
+    "machine": "<span class=\"lang-en\"><strong>EN:</strong> The procedure involves collecting a spade sample from a minimum 30cm depth, separating the top 15cm and bottom 15cm, and dropping each half to create natural fractures. Forty-five crumbs of 3-5mm are placed into an ice cube tray's compartments, submerged in water for one minute, agitated by shaking, and then counted for intact versus collapsed aggregates to calculate a stability percentage. Three repetitions per measurement site are required, with results logged into a project’s pCloud Excel file.<br></span><span class=\"lang-de\"><strong>DE:</strong> Das Verfahren umfasst die Entnahme einer Spatenprobe aus mindestens 30 cm Tiefe, die Trennung der oberen 15 cm von den unteren 15 cm und das Fallenlassen jeder Hälfte, um natürliche Brüche zu erzeugen. 45 Krümel von 3-5 mm werden in die Fächer einer Eiswürfelschale gelegt, für eine Minute in Wasser getaucht, durch Schwenken bewegt und anschließend auf intakte gegenüber zerfallenen Aggregaten gezählt, um einen Stabilitätsprozentsatz zu berechnen. Es sind drei Wiederholungen pro Messort erforderlich, wobei die Ergebnisse in einer pCloud-Excel-Datei des Projekts protokolliert werden.</span>",
+    "format": "PDF",
+    "language": "German",
+    "author": "Mase",
+    "category": "Soil & Composting",
+    "folder": "zine-lib_mikrobiomik/Soil_Composting/Die_erweiterte_Spatendiagnose_nach_Beste_2003/",
+    "nc_url": "https://cloud.mikrobiomik.org/index.php/s/DsZojEwcxYg8y5G?path=%2FSoil_Composting%2FDie_erweiterte_Spatendiagnose_nach_Beste_2003",
+    "size": "0.3 MB",
+    "date": "2023"
+  }
+}
