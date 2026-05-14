@@ -87,6 +87,7 @@
         .agentic-warning { background:rgba(0,143,76,0.1);border:1px solid var(--green);padding:8px;font-size:10px;color:var(--green);line-height:1.3;margin-top:15px;border-radius:4px;display:inline-block;max-width:500px; }
         .lang-en { color: inherit; }
         .lang-de { color: rgba(255, 255, 255, 0.6); font-style: italic; }
+        body:not(.theme-tropical) .mikro-logo { filter: invert(1); opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -99,8 +100,13 @@
             <div class="agentic-warning">
                 ◈ <strong>MACHINE EXTRACTION:</strong> The content summaries are automatically parsed from the raw PDFs.
             </div>
-            <div style="margin-top:15px;font-size:0.85rem;color:var(--text-secondary);max-width:500px;line-height:1.4;">
-                <a href="https://mikrobiomik.org/en" target="_blank" style="color:var(--green);text-decoration:none;font-weight:700;">mikroBIOMIK.org ↗</a> is a society dedicated to the promotion of intrinsic curiosity and participation in science—with a focus on the invisible microbial world. They offer interactive learning, workshops, and open projects.
+            <div style="margin-top:20px;font-size:0.85rem;color:var(--text-secondary);max-width:550px;line-height:1.4;display:flex;align-items:flex-start;gap:15px;">
+                <a href="https://mikrobiomik.org/en" target="_blank" style="flex-shrink:0;">
+                    <img src="https://mikrobiomik.org/inc/logo_white.png" alt="mikroBIOMIK logo" class="mikro-logo" style="width:130px;object-fit:contain;margin-top:3px;">
+                </a>
+                <div>
+                    <a href="https://mikrobiomik.org/en" target="_blank" style="color:var(--green);text-decoration:none;font-weight:700;">mikroBIOMIK.org ↗</a> is a society dedicated to the promotion of intrinsic curiosity and participation in science—with a focus on the invisible microbial world. They offer interactive learning, workshops, and open projects.
+                </div>
             </div>
         </div>
         <div class="header-right">
