@@ -1816,6 +1816,44 @@
     "size": "6.5 MB",
     "date": "2019"
   },
+  "ZINE_klöntal_complete.pdf": {
+    "title": "Zine - Klöntal Biohack Retreat 2017",
+    "classification": "DECRYPTED ARCHIVE",
+    "poetic": "A temporal laboratory nestled in the Swiss mountains, where hackers and artists chewed starchy roots to ferment chicha and listened to the echoes of the lake. The zine operates as a visual collision of the hyper-digital and the deeply analog: pixelated cursors hover over lit candles, and 8-bit aesthetic overlays mountain peaks. It is a document of a temporary utopian bubble—a generous encounter where time was unlearned, and biological protocols became recipes for collective living. The zine captures the bubbling, neon-tinged energy of the 2017 European biohacking scene, preserved like a fine, wild-fermented brew.",
+    "fragments": [
+      {
+        "text": "The morer the meerer. We are made of Trillions, but still it is of outmost necessity to group up in temporary collectives.",
+        "source": "Decrypted Metadata"
+      },
+      {
+        "text": "Toxicity is not a matter of substance but measure.",
+        "source": "Decrypted Metadata"
+      },
+      {
+        "text": "WE HAVE ALWAYS BEEN BIO-HACKERS",
+        "source": "Decrypted Metadata"
+      }
+    ],
+    "concepts": [
+      "Biohacking",
+      "Open Science",
+      "DIY Biology",
+      "Fermentation",
+      "Transdisciplinary Collaboration",
+      "Acoustic Ecology",
+      "Cyber-Pastoral Aesthetic"
+    ],
+    "archivist": "This document is a program and documentation for the \"Klöntal Biohack Retreat,\" a transdisciplinary gathering held in Klöntal, Switzerland, in September 2017. Organized by artist Maya Minder in cooperation with Hackteria, the retreat brought together artists, hackers, and natural scientists to explore the open science and DIY biology movement. The event's core philosophy centered around \"generous encounters,\" playful experimentation, and making science accessible through public workshops in a temporary laboratory. Key activities included speculating on alternative food technologies (with a focus on fermentation and the \"Klöntal Chicheria\" project) and investigating the local ecosystem through sound.",
+    "machine": "- **Title:** Klöntal Biohack Retreat\n- **Location:** Ferienheim Plätz, Klöntal, Switzerland\n- **Organizer:** Maya Minder / Salome Kuratli / Hackteria\n- **Event Type:** International Biohackers Retreat / Residency\n- **Core Practice:** Biohacking / Open Science / DIY Biology\n- **Activities:** Fermentation, \"Klöntal Chicheria\" project, \"Echo of the Lake\" sound walk/workshop (PTzN)\n- **Partner Entities:** Dock18, Electronnes Festival, GaudiLabs, Gemeinde Glarus Nord\n- **Visual Analysis (VIP):** Highly chaotic, vibrant, cyber-pastoral aesthetic. Blends digital artifacts (pixelated cursors, neon text overlays) with organic subjects (fish, beetles, landscapes). High-contrast palette of electric blue, neon green, and hot pink against natural alpine backgrounds. Features e-textile documentation (\"WE HAVE ALWAYS BEEN BIO-HACKERS\"). \n⚠️ Image-heavy; analyzed via Agentic Vision Protocol.",
+    "format": "Not specified",
+    "language": "English",
+    "author": "Salome Kuratli / Maya Minder / Hackteria.org",
+    "category": "Community Events",
+    "folder": "Arai-eek_zine-library/7_Community_Events/ZINE_klöntal_complete/",
+    "nc_url": "https://mega.hackteria.org/index.php/s/y5fs5tszRoTo6eG?dir=/7_Community_Events/ZINE_klöntal_complete",
+    "size": "43.4 MB",
+    "date": "2017"
+  },
   "RAT CATHCER_COVER_IV230_2MK LONG_2X.pdf": {
     "title": "\"FULL REVELATIONS OF A RAT-CATCHER\" by Ike Matthews (1898)",
     "classification": "DECRYPTED ARCHIVE",
