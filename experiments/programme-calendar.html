@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Arai-eek Programme Calendar — 17–30 May 2026</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", "Helvetica Neue", sans-serif; max-width: 1400px; margin: 20px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .subtitle { color: #666; font-size: 13px; margin-bottom: 12px; }
+  .legend { margin: 12px 0; }
+  .legend-chip { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; margin-right: 4px; border: 1px solid rgba(0,0,0,0.1); }
+  h2.week-title { font-size: 16px; margin: 24px 0 8px; padding-bottom: 4px; border-bottom: 2px solid #ddd; }
+
+  table.week-table { border-collapse: collapse; width: 100%; font-size: 11px; table-layout: fixed; }
+  table.week-table th, table.week-table td { border: 1px solid #ccc; vertical-align: top; padding: 0; }
+  table.week-table th { background: #f5f5f5; font-weight: 600; padding: 6px 4px; text-align: center; }
+  table.week-table .day-col { width: calc((100% - 60px) / 7); }
+  table.week-table .day-col.weekend { background: #e8f4ff; }
+  table.week-table .day-name { font-size: 12px; }
+  table.week-table .day-date { font-size: 10px; color: #666; font-weight: normal; }
+  table.week-table .time-col { width: 60px; background: #fafafa; font-size: 10px; color: #555; font-weight: normal; padding: 4px; }
+  table.week-table tbody td { height: 40px; }
+  table.week-table tbody td.weekend { background: #f5fbff; }
+  table.week-table tbody td.empty { background: transparent; }
+  table.week-table .all-day-row td { background: #fffaef; min-height: 24px; }
+  table.week-table .all-day-row td.weekend { background: #f0f7f3; }
+
+  /* timed event — color fills the whole table cell (full rowspan height) */
+  table.week-table td.ev-cell { padding: 5px 7px; line-height: 1.3; }
+  /* all-day event card — own background, stacks when multiple per cell */
+  .event { padding: 4px 6px; margin: 2px; border-radius: 3px; line-height: 1.3; border: 1px solid rgba(0,0,0,0.08); }
+  .week-table .name { font-weight: 600; font-size: 11px; }
+  .week-table .fac { font-size: 10px; color: #444; }
+  .week-table .loc { font-size: 9px; color: #b5651d; font-weight: 600; margin-top: 2px; }
+  .week-table .time-range { font-size: 9px; color: #555; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .week-table .internal-tag { font-size: 9px; color: #555; font-style: italic; margin-bottom: 2px; }
+
+  footer { margin-top: 24px; font-size: 11px; color: #777; border-top: 1px solid #eee; padding-top: 8px; }
+
+  @media print {
+    @page { size: A4 landscape; margin: 10mm; }
+    body { max-width: none; margin: 0; padding: 0; font-size: 9px; }
+    h1 { font-size: 16px; }
+    .subtitle { font-size: 10px; }
+    h2.week-title { font-size: 13px; margin: 14px 0 6px; page-break-before: auto; }
+    h2.week-title.second { page-break-before: always; }
+    table.week-table { font-size: 9px; }
+    .week-table .name { font-size: 9px; }
+    .week-table .fac { font-size: 8px; }
+    .week-table .loc { font-size: 7px; }
+    .week-table .time-range { font-size: 7px; }
+    .legend-chip { font-size: 9px; }
+  }
+</style>
+</head>
+<body>
+  <h1>Arai-eek Programme Calendar</h1>
+  <div class="subtitle">Phase 2 of the Arai-eek Co-Laboratory at CoLabs Chiang Mai · 17–30 May 2026 · 29 events (2 internal)</div>
+
+  <div class="legend"><span class="legend-chip" style="background:#bbdefb;">Workshop</span> <span class="legend-chip" style="background:#e1bee7;">Talk</span> <span class="legend-chip" style="background:#ffe0b2;">Performance</span> <span class="legend-chip" style="background:#c8e6c9;">Tour</span> <span class="legend-chip" style="background:#fff59d;">Festival</span> <span class="legend-chip" style="background:#f8bbd0;">Social</span> <span class="legend-chip" style="background:#cfd8dc;">(internal) 🔒</span></div>
+
+  <h2 class="week-title">Week 1 · May 17 (Sun) – May 23 (Sat)</h2>
+  <table class="week-table">
+  <thead>
+    <tr><th class="time-col"></th><th class="day-col weekend"><div class="day-name">Sun</div><div class="day-date">5/17</div></th><th class="day-col "><div class="day-name">Mon</div><div class="day-date">5/18</div></th><th class="day-col "><div class="day-name">Tue</div><div class="day-date">5/19</div></th><th class="day-col "><div class="day-name">Wed</div><div class="day-date">5/20</div></th><th class="day-col "><div class="day-name">Thu</div><div class="day-date">5/21</div></th><th class="day-col "><div class="day-name">Fri</div><div class="day-date">5/22</div></th><th class="day-col weekend"><div class="day-name">Sat</div><div class="day-date">5/23</div></th></tr>
+  </thead>
+  <tbody>
+    <tr class="all-day-row"><th class="time-col">All-day</th><td class="weekend"></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class="weekend"><div class="event" style="background:#bbdefb;"><div class="name">Bora Hong — workshop (TBD)</div><div class="fac">— Bora Hong</div></div></td></tr>
+    <tr><th class="time-col">11:00</th><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td rowspan="2" class="ev-cell" style="background:#cfd8dc;"><div class="internal-tag"><em>(internal)</em> 🔒</div><div class="name">Chimera Cut-ups (Internal prep)</div><div class="fac">— Arbor (Derrek Chow)</div><div class="time-range">11:00–13:00</div></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">12:00</th><td class="empty weekend"></td><td rowspan="4" class="ev-cell" style="background:#bbdefb;"><div class="name">Glowing Creations with LEDs</div><div class="fac">— Darcy</div><div class="time-range">12:00–16:00</div></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td rowspan="2" class="ev-cell" style="background:#bbdefb;"><div class="name">Mundane Moosh Moosh</div><div class="fac">— Wave</div><div class="time-range">12:00–14:00</div></td></tr>
+    <tr><th class="time-col">13:00</th><td class="empty weekend"></td><td rowspan="5" class="ev-cell" style="background:#bbdefb;"><div class="name">Website &amp; Portfolio (session 1)</div><div class="fac">— Wave</div><div class="time-range">13:00–18:00</div></td><td class="empty "></td><td rowspan="3" class="ev-cell" style="background:#bbdefb;"><div class="name">Website &amp; Portfolio (session 3)</div><div class="fac">— Wave</div><div class="time-range">13:00–16:00</div></td><td class="empty "></td></tr>
+    <tr><th class="time-col">14:00</th><td class="empty weekend"></td><td rowspan="2" class="ev-cell" style="background:#bbdefb;"><div class="name">Website &amp; Portfolio (session 2)</div><div class="fac">— Wave</div><div class="time-range">14:00–16:00</div></td><td class="empty "></td><td rowspan="2" class="ev-cell" style="background:#bbdefb;"><div class="name">Terracotta Workshop (Saturday session)</div><div class="fac">— Natjai</div><div class="time-range">14:00–16:00</div></td></tr>
+    <tr><th class="time-col">15:00</th><td class="empty weekend"></td><td class="empty "></td></tr>
+    <tr><th class="time-col">16:00</th><td rowspan="6" class="ev-cell" style="background:#ffe0b2;"><div class="name">XTENDED FREQUENCY — Jamming Session</div><div class="loc">📍 Rong Sa Dang</div><div class="time-range">16:30–22:00</div></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">17:00</th><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">18:00</th><td class="empty "></td><td class="empty "></td><td rowspan="2" class="ev-cell" style="background:#e1bee7;"><div class="name">Political Animals — Animals, Animacies, and Crisis/War</div><div class="fac">— Adeline &amp; Luca</div><div class="time-range">18:00–20:00</div></td><td class="empty "></td><td rowspan="2" class="ev-cell" style="background:#e1bee7;"><div class="name">Knowledge Sharing Moderated Session</div><div class="fac">— Marc &amp; Wave</div><div class="loc">📍 Zuzalu Library, 4Sea</div><div class="time-range">18:00–20:00</div></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">19:00</th><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">20:00</th><td class="empty "></td><td rowspan="2" class="ev-cell" style="background:#cfd8dc;"><div class="internal-tag"><em>(internal)</em> 🔒</div><div class="name">Fon Jerng Workshop</div><div class="fac">— VIVI</div><div class="loc">📍 Rong Sa Dang</div><div class="time-range">20:00–22:00</div></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">21:00</th><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+  </tbody>
+</table>
+
+
+  <h2 class="week-title second">Week 2 · May 24 (Sun) – May 30 (Sat)</h2>
+  <table class="week-table">
+  <thead>
+    <tr><th class="time-col"></th><th colspan="2" class="day-col weekend"><div class="day-name">Sun</div><div class="day-date">5/24</div></th><th class="day-col "><div class="day-name">Mon</div><div class="day-date">5/25</div></th><th class="day-col "><div class="day-name">Tue</div><div class="day-date">5/26</div></th><th class="day-col "><div class="day-name">Wed</div><div class="day-date">5/27</div></th><th class="day-col "><div class="day-name">Thu</div><div class="day-date">5/28</div></th><th class="day-col "><div class="day-name">Fri</div><div class="day-date">5/29</div></th><th class="day-col weekend"><div class="day-name">Sat</div><div class="day-date">5/30</div></th></tr>
+  </thead>
+  <tbody>
+    <tr class="all-day-row"><th class="time-col">All-day</th><td colspan="2" class="weekend"><div class="event" style="background:#bbdefb;"><div class="name">Anang Novianto — workshop (TBD)</div><div class="fac">— Anang Novianto</div></div><div class="event" style="background:#bbdefb;"><div class="name">Bos Jirapat — workshop (TBD)</div><div class="fac">— Bos Jirapat</div></div></td><td class=""></td><td class=""></td><td class=""></td><td class=""><div class="event" style="background:#fff59d;"><div class="name">Showcase Festival — Opening Day</div></div></td><td class=""><div class="event" style="background:#fff59d;"><div class="name">Showcase Festival — Day 2</div></div><div class="event" style="background:#ffe0b2;"><div class="name">Rong Sa Dang Concert</div><div class="loc">📍 Rong Sa Dang</div></div></td><td class="weekend"><div class="event" style="background:#fff59d;"><div class="name">Showcase Festival — Day 3 (final)</div></div><div class="event" style="background:#f8bbd0;"><div class="name">Pa Rang Garden Evening — Closing Gathering</div></div></td></tr>
+    <tr><th class="time-col">08:00</th><td class="empty weekend"></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td rowspan="4" class="ev-cell" style="background:#c8e6c9;"><div class="name">Mountain Tour — Doi Suthep</div><div class="loc">📍 Doi Suthep</div><div class="time-range">08:00–12:00</div></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">09:00</th><td class="empty weekend"></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">10:00</th><td class="empty weekend"></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">11:00</th><td class="empty weekend"></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">12:00</th><td class="empty weekend"></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">13:00</th><td rowspan="3" class="ev-cell" style="background:#bbdefb;"><div class="name">DIY City Data Collector</div><div class="fac">— Wave &amp; Phuwa</div><div class="time-range">13:00–16:00</div></td><td class="empty weekend"></td><td rowspan="2" class="ev-cell" style="background:#c8e6c9;"><div class="name">Chang Moi Walk Tour</div><div class="fac">— Wave &amp; Phuwa</div><div class="time-range">13:00–15:00</div></td><td class="empty "></td><td rowspan="3" class="ev-cell" style="background:#bbdefb;"><div class="name">EMF Explorer Workshop — Listen to the electromagnetic frequencies around you</div><div class="fac">— Darcy Neal</div><div class="time-range">13:00–16:00</div></td><td rowspan="3" class="ev-cell" style="background:#bbdefb;"><div class="name">Zine Making Workshop</div><div class="fac">— Marc &amp; Darcy</div><div class="time-range">13:00–16:00</div></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">14:00</th><td rowspan="2" class="ev-cell" style="background:#bbdefb;"><div class="name">Terracotta Workshop (Sunday session)</div><div class="fac">— Natjai</div><div class="time-range">14:00–16:00</div></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">15:00</th><td class="empty "></td><td rowspan="5" class="ev-cell" style="background:#bbdefb;"><div class="name">SLOMPRET: 4093-Based Blowing Synthesizer</div><div class="fac">— Muzeian</div><div class="time-range">15:00–20:00</div></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">16:00</th><td rowspan="4" class="ev-cell" style="background:#ffe0b2;"><div class="name">Pa Rang Garden Concert — Local Musicians</div><div class="time-range">16:00–20:00</div></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">17:00</th><td class="empty weekend"></td><td rowspan="2" class="ev-cell" style="background:#bbdefb;"><div class="name">Chimera Cut-ups with TouchDesigner</div><div class="fac">— Arbor (Derrek Chow)</div><div class="loc">📍 4Seas Nimman Coworking Coliving Space</div><div class="time-range">17:00–19:00</div></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">18:00</th><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">19:00</th><td class="empty weekend"></td><td class="empty "></td><td rowspan="3" class="ev-cell" style="background:#e1bee7;"><div class="name">Coding Tools and Practices for Experimental Media</div><div class="fac">— Arbor, Luis, WASAMAT, Muzeian</div><div class="loc">📍 Infra Practice</div><div class="time-range">19:00–22:00</div></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">20:00</th><td class="empty weekend"></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+    <tr><th class="time-col">21:00</th><td class="empty weekend"></td><td class="empty weekend"></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty "></td><td class="empty weekend"></td></tr>
+  </tbody>
+</table>
+
+
+  <footer>
+    Pulled from Google Sheet · Generated 22/05/2026, 13:42:27 ICT · Bri-yarni Oracle (Claude Opus 4.7)<br>
+    Most workshops at Pa Rang Cafe &amp; Art Stay (37/1 Sinharat Rd Lane 2, Chiang Mai Old Town). Opening &amp; concerts at Rong Sa Dang.
+  </footer>
+</body>
+</html>
