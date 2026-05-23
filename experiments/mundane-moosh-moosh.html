@@ -378,6 +378,14 @@
     <p>The grid is empty. The knob panel is set up: 5 knobs, a seed-word cell, a time cell. Conditional formatting is already in place — paste any formula that returns 0–11 and the colors light up automatically.</p>
     <p>Your job: <strong>tell your AI what pattern you want.</strong> Their job: write the formula. You paste it into <code>A1</code>, hit <code>Cmd/Ctrl+A</code> then paste-fill the whole grid.</p>
 
+    <div class="callout warn" style="border-left-width:5px; padding:16px 22px; font-size:15px;">
+      <strong>⚠️ #1 thing that goes wrong — read this first:</strong><br>
+      If you paste an AI formula and <em>no colors appear</em> (you see numbers or a blank grid), the formula is returning decimals or numbers outside 0–11. The 12 conditional-formatting rules match integers exactly.<br><br>
+      <strong>Fix:</strong> wrap your AI's formula in this clamp:
+<pre style="margin:8px 0 0; font-size:14px; padding:10px 14px;"><code>=MOD(INT( YOUR_AI_FORMULA ), 12)</code></pre>
+      That forces the output to an integer in 0..11. Works every time. Make this your default paste pattern.
+    </div>
+
     <h3>Bring your own AI</h3>
     <p>Any of these work — they all know Google Sheets formula syntax:</p>
     <ul>
@@ -467,12 +475,14 @@ Paste-ready, no preamble.
   <section id="troubleshoot">
     <h2 class="s4"><span class="num">🛠</span> Stuck?</h2>
 
-    <h3>The grid shows numbers, not colors</h3>
-    <p>Your formula output isn't between 0 and 11. Either:</p>
+    <h3>The grid shows numbers (or nothing), not colors</h3>
+    <p>This is the #1 thing that goes wrong — covered up in Block 3, repeated here. Wrap your formula:</p>
+<pre><code>=MOD(INT( YOUR_FORMULA ), 12)</code></pre>
+    <p>Why: 12 CF rules use <code>NUMBER_EQ "0"..."11"</code> — exact integer match. Decimals (<code>5.0001</code>) or out-of-range (<code>15</code>) won't match. <code>INT(...)</code> forces integer; <code>MOD(..., 12)</code> clamps to 0..11. Other things to check:</p>
     <ul>
-      <li>The formula is producing decimals → wrap it in <code>ROUND(... )</code> or <code>INT(... )</code></li>
-      <li>The formula is producing numbers >11 → wrap it in <code>MOD(... , 12)</code></li>
-      <li>Conditional formatting is off — check Format → Conditional formatting; expect 12 rules</li>
+      <li>Conditional formatting is missing — Format → Conditional formatting; expect 12 rules</li>
+      <li>You pasted into the wrong tab (no CF set up there)</li>
+      <li>The formula returns text — wrap in <code>VALUE(...)</code> to force numeric</li>
     </ul>
 
     <h3>Numbers are visible inside the cells</h3>
