@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mundane Moosh Moosh — Workshop Walkthrough</title>
+<style>
+  :root {
+    --ink: #1c0a3e;
+    --paper: #fdfaf3;
+    --moosh-1: #621e6a;
+    --moosh-2: #c92785;
+    --moosh-3: #dd8b3c;
+    --moosh-4: #5fb965;
+    --soft: #ece2d0;
+    --rule: #d4c8b4;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* HERO */
+  header.hero {
+    border-bottom: 2px solid var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  header.hero .eyebrow {
+    font-family: "Georgia", serif;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--moosh-2);
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-family: "Georgia", serif;
+    font-size: clamp(34px, 6vw, 56px);
+    line-height: 1.05;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  h1 .moosh {
+    background: linear-gradient(120deg, var(--moosh-1), var(--moosh-2) 40%, var(--moosh-3) 70%, var(--moosh-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  header.hero .sub {
+    font-size: 16px;
+    color: #5a4f6a;
+    margin: 10px 0 22px;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.1s ease;
+  }
+  .cta:hover { transform: translateY(-2px); }
+  .cta-hint {
+    margin-left: 12px;
+    font-size: 13px;
+    color: #7a6f88;
+    font-style: italic;
+  }
+
+  /* TOC */
+  nav.toc {
+    background: var(--soft);
+    border-left: 4px solid var(--moosh-2);
+    padding: 18px 22px;
+    margin: 28px 0 40px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 6px; }
+  nav.toc a {
+    color: var(--ink);
+    margin-right: 14px;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--moosh-2);
+  }
+  nav.toc a:hover { color: var(--moosh-2); }
+
+  /* SECTIONS */
+  section { margin: 56px 0; }
+  h2 {
+    font-family: "Georgia", serif;
+    font-size: 28px;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  h2 .num {
+    display: inline-block;
+    background: var(--moosh-1);
+    color: var(--paper);
+    padding: 2px 12px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-right: 12px;
+    line-height: 1.4;
+  }
+  h2.s2 .num { background: var(--moosh-2); }
+  h2.s3 .num { background: var(--moosh-3); }
+  h2.s4 .num { background: var(--moosh-4); }
+  .section-sub {
+    font-size: 14px;
+    color: #7a6f88;
+    margin: 0 0 22px;
+    font-style: italic;
+  }
+
+  h3 {
+    font-size: 17px;
+    margin: 28px 0 10px;
+    color: var(--moosh-1);
+  }
+  p { margin: 0 0 12px; }
+
+  /* CODE BLOCKS */
+  pre {
+    background: #1c0a3e;
+    color: #ffd8a0;
+    padding: 16px 18px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: "Consolas", "Menlo", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  code {
+    background: var(--soft);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "Consolas", "Menlo", monospace;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  pre code { background: transparent; padding: 0; color: inherit; }
+
+  /* THINGS-TO-TRY TABLE */
+  table.try {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+  }
+  table.try th, table.try td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  table.try th {
+    background: var(--soft);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  table.try td.num {
+    text-align: center;
+    color: var(--moosh-2);
+    font-weight: 700;
+    width: 36px;
+  }
+
+  /* CALLOUTS */
+  .callout {
+    border-left: 3px solid var(--moosh-3);
+    background: #fff7e8;
+    padding: 12px 18px;
+    margin: 18px 0;
+    font-size: 14px;
+    border-radius: 0 3px 3px 0;
+  }
+  .callout strong { color: var(--moosh-3); }
+  .callout.warn { border-left-color: var(--moosh-2); background: #fde6ee; }
+  .callout.warn strong { color: var(--moosh-2); }
+  .callout.tip { border-left-color: var(--moosh-4); background: #effae8; }
+  .callout.tip strong { color: var(--moosh-4); }
+
+  /* PROMPT CARD */
+  .prompt-card {
+    background: white;
+    border: 2px dashed var(--moosh-2);
+    padding: 20px 22px;
+    border-radius: 4px;
+    margin: 18px 0;
+    font-family: "Consolas", monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #2a1545;
+  }
+  .prompt-card .label {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--moosh-2);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  /* PALETTE SWATCH */
+  .palettes { display: grid; gap: 10px; margin: 18px 0; }
+  .palette-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .palette-row .name {
+    width: 80px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .palette-row .swatches {
+    display: flex;
+    flex: 1;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .palette-row .sw {
+    flex: 1;
+    height: 28px;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: #7a6f88;
+  }
+  footer a { color: var(--moosh-1); text-decoration: none; border-bottom: 1px dotted; }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: black; }
+    .cta { background: black; color: white; }
+    pre { background: #eee; color: black; border: 1px solid #ccc; }
+    .palette-row .sw { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Workshop · Pa Rang · Sat 23 May 2026 · 12:00–14:00</div>
+    <h1>Mundane <span class="moosh">Moosh Moosh</span></h1>
+    <p class="sub">
+      A 2-hour workshop. Turn the most boring software in the world — a spreadsheet — into a generative visualizer.
+      Use your own AI to invent formulas you'd never write by hand. No design or coding background needed. Just curiosity.
+    </p>
+    <a class="cta" href="https://docs.google.com/spreadsheets/d/1w2pw1XMlBnSXDcJIKOrILTY4q9bnlw8B78J5k23p8Ag/copy" target="_blank">
+      📋 Make your copy of the starter sheet
+    </a>
+    <span class="cta-hint">Opens Google Sheets · click "Make a copy"</span>
+  </header>
+
+  <nav class="toc">
+    <strong>Three moves, in order:</strong>
+    <a href="#layer-1">1. Manual</a>
+    <a href="#layer-2">2. Formula</a>
+    <a href="#layer-3">3. AI Lab</a>
+    <a href="#palettes">🎨 Palettes</a>
+    <a href="#troubleshoot">🛠 Stuck?</a>
+  </nav>
+
+  <!-- ─────────────────────────────────────────── -->
+  <section id="layer-1">
+    <h2><span class="num">1</span> Manual — drive the grid with one word</h2>
+    <p class="section-sub">Tab: <code>1. visual (manual)</code> · ~10 min · zero formulas to write</p>
+
+    <p>The first tab is alive already. There's a 30×30 grid of colored squares, and one yellow cell on the right with the word <strong>สวัสดี</strong> in it. That's the only thing you control.</p>
+
+    <h3>The mechanic</h3>
+    <p>Every cell in the grid runs the exact same formula:</p>
+<pre><code>=RANDBETWEEN(0, LEN($AF$2))</code></pre>
+    <p>Translation: <em>"give me a random integer between 0 and the length of cell AF2's text"</em>. Twelve conditional-formatting rules map each integer (0..11) to a color. <code>LEN("สวัสดี") = 6</code>, so cells take values 0–6, lighting up the first 7 colors.</p>
+    <p>Spreadsheets recalculate every time anything changes. So <strong>every edit = a new random draw = a new visual</strong>. That's your frame rate.</p>
+
+    <h3>Five things to try (10 minutes)</h3>
+    <table class="try">
+      <thead><tr><th>#</th><th>Do this</th><th>What happens</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Replace <code>สวัสดี</code> with <code>hi</code></td><td>Grid goes mostly dark — only 2 colors</td><td><code>LEN("hi") = 2</code></td></tr>
+        <tr><td class="num">2</td><td>Replace it with <code>กระบือ</code> or another long Thai word</td><td>Brightens — all colors light up</td><td>Thai uses separate codepoints for vowels &amp; tones → higher LEN</td></tr>
+        <tr><td class="num">3</td><td>Hold Cmd/Ctrl + R (force reload of formulas)</td><td>Whole grid re-rolls</td><td>Recalc cycle = frame rate</td></tr>
+        <tr><td class="num">4</td><td>Open <strong>Format → Conditional formatting</strong>, change one color in the palette</td><td>That number in the grid changes color everywhere</td><td>CF rules = palette dictionary</td></tr>
+        <tr><td class="num">5</td><td>Change the formula to <code>=RANDBETWEEN(5, LEN($AF$2))</code></td><td>Dark colors disappear</td><td>You raised the floor</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>Tip:</strong> To change all cells at once, click any cell, press <code>Cmd/Ctrl+A</code> to select the whole grid, then paste a new formula into the formula bar with <code>Cmd/Ctrl+Enter</code>. The formula goes into every cell at the same time.
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <section id="layer-2">
+    <h2 class="s2"><span class="num">2</span> Formula — same trick, fancier math</h2>
+    <p class="section-sub">Tab: <code>2. mandala (formula)</code> · ~20 min · turn random into structure</p>
+
+    <p>Same idea — one formula, every cell, 12 colors. But the formula now uses each cell's position to compute the color, not random. Result: a structured pattern instead of noise.</p>
+
+    <h3>The mechanic</h3>
+<pre><code>=MOD(
+  ABS(ROUND(
+    SQRT((ROW()-25.5)^2 + (COLUMN()-40.5)^2) * $CE$2   ← distance from center × ring spacing
+    - $CE$9                                              ← - time (animation)
+    + $CE$3 * COS(ATAN2(COLUMN()-40.5, ROW()-25.5)
+                  * $CE$4 + $CE$5)                       ← petal warp × twist
+  )),
+  $CE$6                                                  ← mod base = palette size
+)</code></pre>
+
+    <p>Six knob cells in the panel on the right control the shape:</p>
+    <table class="try">
+      <thead><tr><th>Knob</th><th>What it controls</th><th>Try</th></tr></thead>
+      <tbody>
+        <tr><td><code>$CE$2</code> ring spacing</td><td>How tight the rings are</td><td>0.2, 1, 3</td></tr>
+        <tr><td><code>$CE$3</code> petal amp</td><td>How much petals warp the rings</td><td>0, 6, 20</td></tr>
+        <tr><td><code>$CE$4</code> petals</td><td>Number of petals</td><td>3, 8, 25</td></tr>
+        <tr><td><code>$CE$5</code> twist (rad)</td><td>Rotation offset</td><td>0, 1.5, 3.14</td></tr>
+        <tr><td><code>$CE$6</code> mod base</td><td>How many colors used (max = 12)</td><td>3, 12, 24</td></tr>
+        <tr><td><code>$CE$9</code> time</td><td>Animation channel (manually nudge for now)</td><td>type a new number — pattern shifts</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Wave will demo:</strong> the <code>mandala-zoom.ts</code> script pumps <code>$CE$9</code> from outside every 500ms → continuous animation. Same script also pumps the seed word for the LEN trick on this tab.
+    </div>
+
+    <h3>Things to try</h3>
+    <table class="try">
+      <thead><tr><th>#</th><th>Try</th><th>You'll see</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Set petals = 1, twist = 0</td><td>Pure concentric rings</td></tr>
+        <tr><td class="num">2</td><td>Set petals = 25, petal amp = 20</td><td>Flower / mandala</td></tr>
+        <tr><td class="num">3</td><td>Set petals = 100</td><td>Optical-illusion stripes</td></tr>
+        <tr><td class="num">4</td><td>Swap palette on the <code>🎨 palettes</code> tab — copy hex codes into the CF rules</td><td>Same shape, different mood</td></tr>
+        <tr><td class="num">5</td><td>Change <code>SQRT</code> to <code>SUMSQ</code> or remove it</td><td>Pattern explodes into squares — break things on purpose</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <section id="layer-3">
+    <h2 class="s3"><span class="num">3</span> AI Lab — ask your AI for a formula you couldn't write</h2>
+    <p class="section-sub">Tab: <code>3. AI lab</code> · ~30 min · bring your own AI</p>
+
+    <p>The grid is empty. The knob panel is set up: 5 knobs, a seed-word cell, a time cell. Conditional formatting is already in place — paste any formula that returns 0–11 and the colors light up automatically.</p>
+    <p>Your job: <strong>tell your AI what pattern you want.</strong> Their job: write the formula. You paste it into <code>A1</code>, hit <code>Cmd/Ctrl+A</code> then paste-fill the whole grid.</p>
+
+    <h3>Bring your own AI</h3>
+    <p>Any of these work — they all know Google Sheets formula syntax:</p>
+    <ul>
+      <li><a href="https://gemini.google.com" target="_blank">Gemini</a> — free, web</li>
+      <li><a href="https://chatgpt.com" target="_blank">ChatGPT</a> — free tier works</li>
+      <li><a href="https://claude.ai" target="_blank">Claude</a> — free tier works</li>
+      <li><a href="https://www.perplexity.ai" target="_blank">Perplexity</a> — free</li>
+    </ul>
+    <p>Don't have one? Wave's Gemini is on the projector — call out your wish, we'll co-prompt.</p>
+
+    <h3>The prompt formula</h3>
+    <p>Paste this template into your AI, fill in the brackets:</p>
+
+    <div class="prompt-card">
+      <span class="label">📋 Copy-paste prompt</span>
+Give me a Google Sheets formula for a 40×50 grid where each cell shows<br>
+a value 0–11 based on a <strong>[RIPPLE / SPIRAL / PLASMA / RAIN / your wish]</strong> pattern.<br><br>
+Reference cells <code>$BA$2..$BA$6</code> as knobs and <code>$BA$7</code> as text seed.<br>
+Subtract <code>$BA$9</code> for time animation.<br>
+Center the pattern at row 20, column 25.<br><br>
+Output: just the formula, paste-ready, no explanation.
+    </div>
+
+    <h3>Five wish-starters</h3>
+    <p>If you don't know what to wish for, steal one of these:</p>
+    <table class="try">
+      <thead><tr><th>Wish</th><th>What you'd see</th></tr></thead>
+      <tbody>
+        <tr><td>Make it <strong>ripple</strong> like dropping a stone in water</td><td>Concentric waves moving outward</td></tr>
+        <tr><td>Make it <strong>spiral</strong> like a galaxy</td><td>Curved arms rotating from center</td></tr>
+        <tr><td>Make it <strong>spell my name</strong> across the grid</td><td>Letters from the seed word raining across cells</td></tr>
+        <tr><td>Make it <strong>react to one number</strong> — small = quiet, big = chaos</td><td>One knob controls overall intensity</td></tr>
+        <tr><td>Make it look like <strong>rain</strong> / <strong>fire</strong> / <strong>static</strong> / <strong>my mood today</strong></td><td>Whatever vibe you ask for</td></tr>
+      </tbody>
+    </table>
+
+    <h3>What to do when your AI lies</h3>
+    <p>It will. Spreadsheet formulas are precise and AIs sometimes hallucinate function names or argument orders. The workshop loop:</p>
+    <ol>
+      <li>Paste formula into <code>A1</code>. If it works → fill the grid.</li>
+      <li>If it shows <code>#NAME?</code> or <code>#ERROR!</code> → click the cell, click the little orange error indicator, copy the error text.</li>
+      <li>Paste the error back into your AI: <em>"this gave me [error]. Fix it."</em></li>
+      <li>Try again. Usually works on attempt 2 or 3.</li>
+    </ol>
+
+    <div class="callout warn">
+      <strong>If your AI keeps failing:</strong> ask it explicitly for "<em>Google Sheets formula syntax, not Excel</em>." Most AIs default to Excel which uses some different function names.
+    </div>
+
+    <h3>Going bigger — let AI design the whole sheet</h3>
+    <p>Once you've paste-fixed-paste a few times, try this mega-prompt:</p>
+
+    <div class="prompt-card">
+      <span class="label">📋 The whole-sheet prompt</span>
+I want a Google Sheet visualizer that feels like <strong>[the sea / a forest fire / rain at night / silence / your feeling]</strong>.<br><br>
+Give me ALL of this:<br>
+1. A single formula to paste into a 40×50 grid. Output must be 0–11.<br>
+2. Twelve conditional-formatting hex colors that fit the mood, dark → light or low → high intensity.<br>
+3. A list of which cells should be the knobs ($BA$2..$BA$9), what each one does, and a default value.<br>
+4. One sentence on what to animate (which knob, how often) to bring it to life.<br><br>
+Paste-ready, no preamble.
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <section id="palettes">
+    <h2 class="s4"><span class="num">🎨</span> Palettes</h2>
+    <p class="section-sub">Tab: <code>🎨 palettes</code> — copy hex codes into your Conditional Formatting rules to mood-swap any tab</p>
+
+    <p>Each palette is 12 colors. Replace the colors in <strong>Format → Conditional formatting → Edit rule</strong> on any tab to swap the entire mood without touching the formula.</p>
+
+    <div class="palettes">
+      <div class="palette-row"><span class="name">yantra</span><div class="swatches"><div class="sw" style="background:#1a0a46"></div><div class="sw" style="background:#3a1a55"></div><div class="sw" style="background:#5b2c5a"></div><div class="sw" style="background:#8a3d4a"></div><div class="sw" style="background:#b65c1d"></div><div class="sw" style="background:#d49642"></div><div class="sw" style="background:#e8c878"></div><div class="sw" style="background:#f4e3b0"></div><div class="sw" style="background:#fff5e0"></div><div class="sw" style="background:#fff0c2"></div><div class="sw" style="background:#ffe488"></div><div class="sw" style="background:#ffd24b"></div></div></div>
+      <div class="palette-row"><span class="name">fire</span><div class="swatches"><div class="sw" style="background:#0a0000"></div><div class="sw" style="background:#220000"></div><div class="sw" style="background:#440000"></div><div class="sw" style="background:#770000"></div><div class="sw" style="background:#aa1100"></div><div class="sw" style="background:#cc3300"></div><div class="sw" style="background:#ee5500"></div><div class="sw" style="background:#ff7722"></div><div class="sw" style="background:#ffaa44"></div><div class="sw" style="background:#ffcc66"></div><div class="sw" style="background:#ffdd88"></div><div class="sw" style="background:#ffeeaa"></div></div></div>
+      <div class="palette-row"><span class="name">ocean</span><div class="swatches"><div class="sw" style="background:#000022"></div><div class="sw" style="background:#001033"></div><div class="sw" style="background:#001f4d"></div><div class="sw" style="background:#002f66"></div><div class="sw" style="background:#004080"></div><div class="sw" style="background:#0066aa"></div><div class="sw" style="background:#0099cc"></div><div class="sw" style="background:#33bbdd"></div><div class="sw" style="background:#66ccee"></div><div class="sw" style="background:#99ddee"></div><div class="sw" style="background:#bbeeff"></div><div class="sw" style="background:#ddf5ff"></div></div></div>
+      <div class="palette-row"><span class="name">forest</span><div class="swatches"><div class="sw" style="background:#0a1a0a"></div><div class="sw" style="background:#1a2a18"></div><div class="sw" style="background:#1f3322"></div><div class="sw" style="background:#2a4a30"></div><div class="sw" style="background:#3d6740"></div><div class="sw" style="background:#508050"></div><div class="sw" style="background:#6ea060"></div><div class="sw" style="background:#88c070"></div><div class="sw" style="background:#a8d488"></div><div class="sw" style="background:#c2e0a0"></div><div class="sw" style="background:#d8ecbb"></div><div class="sw" style="background:#eef6d8"></div></div></div>
+      <div class="palette-row"><span class="name">neon</span><div class="swatches"><div class="sw" style="background:#000010"></div><div class="sw" style="background:#10002a"></div><div class="sw" style="background:#1a0044"></div><div class="sw" style="background:#33006a"></div><div class="sw" style="background:#560099"></div><div class="sw" style="background:#7700bb"></div><div class="sw" style="background:#9900dd"></div><div class="sw" style="background:#bb22ee"></div><div class="sw" style="background:#dd55ff"></div><div class="sw" style="background:#ee88ff"></div><div class="sw" style="background:#ffaaff"></div><div class="sw" style="background:#ffccff"></div></div></div>
+      <div class="palette-row"><span class="name">jewel</span><div class="swatches"><div class="sw" style="background:#1c0a3e"></div><div class="sw" style="background:#3d1955"></div><div class="sw" style="background:#621e6a"></div><div class="sw" style="background:#892277"></div><div class="sw" style="background:#aa2480"></div><div class="sw" style="background:#c92785"></div><div class="sw" style="background:#dd3370"></div><div class="sw" style="background:#dd5555"></div><div class="sw" style="background:#dc8b3c"></div><div class="sw" style="background:#cdb02e"></div><div class="sw" style="background:#a0b942"></div><div class="sw" style="background:#5fb965"></div></div></div>
+      <div class="palette-row"><span class="name">mono</span><div class="swatches"><div class="sw" style="background:#000000"></div><div class="sw" style="background:#1a1a1a"></div><div class="sw" style="background:#333333"></div><div class="sw" style="background:#4d4d4d"></div><div class="sw" style="background:#666666"></div><div class="sw" style="background:#808080"></div><div class="sw" style="background:#999999"></div><div class="sw" style="background:#b3b3b3"></div><div class="sw" style="background:#cccccc"></div><div class="sw" style="background:#e0e0e0"></div><div class="sw" style="background:#eeeeee"></div><div class="sw" style="background:#ffffff"></div></div></div>
+      <div class="palette-row"><span class="name">thai</span><div class="swatches"><div class="sw" style="background:#1a0a05"></div><div class="sw" style="background:#2c160a"></div><div class="sw" style="background:#4a1f0e"></div><div class="sw" style="background:#6b1e15"></div><div class="sw" style="background:#9e2f1d"></div><div class="sw" style="background:#c45c2a"></div><div class="sw" style="background:#d8861c"></div><div class="sw" style="background:#dab83a"></div><div class="sw" style="background:#a9b545"></div><div class="sw" style="background:#5fa454"></div><div class="sw" style="background:#3a4a85"></div><div class="sw" style="background:#5e3e85"></div></div></div>
+      <div class="palette-row"><span class="name">holo</span><div class="swatches"><div class="sw" style="background:#0a0024"></div><div class="sw" style="background:#1a0044"></div><div class="sw" style="background:#2d1a6a"></div><div class="sw" style="background:#1f4a8a"></div><div class="sw" style="background:#1a7aa0"></div><div class="sw" style="background:#2caab0"></div><div class="sw" style="background:#4cd4a8"></div><div class="sw" style="background:#a0e89c"></div><div class="sw" style="background:#e8dc7c"></div><div class="sw" style="background:#f0a868"></div><div class="sw" style="background:#e07090"></div><div class="sw" style="background:#a060c8"></div></div></div>
+      <div class="palette-row"><span class="name">andaman</span><div class="swatches"><div class="sw" style="background:#1a0a2a"></div><div class="sw" style="background:#2a1040"></div><div class="sw" style="background:#5a1840"></div><div class="sw" style="background:#a02850"></div><div class="sw" style="background:#d44a48"></div><div class="sw" style="background:#e87a3a"></div><div class="sw" style="background:#f5b048"></div><div class="sw" style="background:#fcd06a"></div><div class="sw" style="background:#aac888"></div><div class="sw" style="background:#6aa8b0"></div><div class="sw" style="background:#406890"></div><div class="sw" style="background:#283860"></div></div></div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <section id="troubleshoot">
+    <h2 class="s4"><span class="num">🛠</span> Stuck?</h2>
+
+    <h3>The grid shows numbers, not colors</h3>
+    <p>Your formula output isn't between 0 and 11. Either:</p>
+    <ul>
+      <li>The formula is producing decimals → wrap it in <code>ROUND(... )</code> or <code>INT(... )</code></li>
+      <li>The formula is producing numbers >11 → wrap it in <code>MOD(... , 12)</code></li>
+      <li>Conditional formatting is off — check Format → Conditional formatting; expect 12 rules</li>
+    </ul>
+
+    <h3>Numbers are visible inside the cells</h3>
+    <p>The "hide numbers" trick is missing. In every CF rule, set <strong>text color = background color</strong>. Numbers stay there for the formula but become invisible.</p>
+
+    <h3>The whole grid is one color</h3>
+    <p>Your formula returns a constant. Check if it actually uses <code>ROW()</code> and <code>COLUMN()</code>, or your random source (LEN, RANDBETWEEN, time cell).</p>
+
+    <h3>My sheet feels slow</h3>
+    <p>You probably pasted the formula into way more cells than the visible grid. Trim the grid to ~40×50 — that's 2,000 cells, still fast.</p>
+
+    <h3>I broke something — how do I get back?</h3>
+    <p><code>Cmd/Ctrl+Z</code> as many times as you need. Or revisit <a href="https://docs.google.com/spreadsheets/d/1w2pw1XMlBnSXDcJIKOrILTY4q9bnlw8B78J5k23p8Ag/copy" target="_blank">the starter copy URL</a> and make a fresh one.</p>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <footer>
+    <p><strong>Mundane Moosh Moosh</strong> — Sat 23 May 2026, Pa Rang · 12:00–14:00 · Wave guides</p>
+    <p>Part of the <a href="https://arai-eek.github.io/experiments/programme-calendar.html" target="_blank">Arai-eek Programme</a>, Phase 2 of the Technobiological Futures Co-Laboratory.</p>
+    <p>Built from Wave's "Spreadsheet VJ" experiment (Sun 17 May 2026). The underlying tools are open-source and forthcoming; contact Wave to play with them now.</p>
+    <p style="margin-top:14px; font-size:11px; color:#aaa; font-style:italic;">Generated with assistance from Bri-yarni (บริ-ญาณิ์) Oracle — Claude Opus 4.7</p>
+  </footer>
+
+</div>
+</body>
+</html>
