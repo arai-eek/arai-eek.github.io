@@ -11,7 +11,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Bungee&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
   /* =========================================================
@@ -550,6 +549,7 @@
       </select>
       <button id="settings-btn" class="head-tools" style="padding:8px 10px;font-size:10px;font-weight:700;letter-spacing:0.5px;background:var(--white);border:var(--line);color:var(--navy);text-transform:uppercase;font-family:'Archivo Black',sans-serif" title="Printer Settings">⚙ PRINTER</button>
       <button id="usb-btn" class="usb-btn" title="Connect USB Printer">USB</button>
+      <button id="esp32-hdr-btn" class="usb-btn" title="ESP32 Print" onclick="checkEsp32().then(ok=>toast(ok?'ESP32 ONLINE ✓':'ESP32 OFFLINE — cek URL di Settings',ok?'success':'error'))" style="background:var(--navy)!important">ESP32</button>
     </div>
   </div>
 </header>
@@ -1053,18 +1053,22 @@
       </div>
 
       <div class="modal-section">
-        <span class="modal-section-title">Pi Printer (Internet)</span>
+        <span class="modal-section-title">ESP32-S3 Printer (Local WiFi)</span>
         <div class="row" style="margin-top:10px">
           <div style="flex:2">
-            <label class="lbl">Pi Printer ID (Topic)</label>
-            <input type="text" id="opt-pi-id" placeholder="e.g. stikka-pi-123">
+            <label class="lbl">ESP32 URL</label>
+            <input type="text" id="opt-esp32-url" placeholder="e.g. http://192.168.1.100">
           </div>
           <div style="flex:1">
             <label class="lbl">Status</label>
-            <div id="pi-status" style="font-size:10px;font-weight:700;color:var(--red);margin-top:10px">OFFLINE</div>
+            <div id="esp32-status" style="font-size:10px;font-weight:700;color:var(--red);margin-top:10px">OFFLINE</div>
           </div>
         </div>
-        <p style="font-size:9px;color:var(--navy);opacity:0.7;margin-top:5px">Set the same ID on your Raspberry Pi.</p>
+        <p style="font-size:9px;color:var(--navy);opacity:0.7;margin-top:5px">
+          ESP32-S3 harus terhubung WiFi yang sama. Upload sketch Arduino ESP32 HTTP server ke board.<br>
+          Endpoint: <code style="background:var(--navy);color:#fff;padding:1px 4px">POST /print</code> (binary raster bytes)
+        </p>
+        <button id="esp32-test-conn" class="btn" style="margin-top:8px;padding:7px 14px;font-size:10px">🔌 Test Connection</button>
       </div>
         <button id="settings-apply" class="btn btn-red" style="flex:1">Apply Settings</button>
         <button id="settings-test" class="btn btn-navy" style="flex:1">Test Print</button>
@@ -1196,7 +1200,6 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
     try{ return JSON.parse(localStorage.getItem('stikka-printer')) || {} }catch{return {}}
   })();
   if(!printerCfg.profileId) printerCfg.profileId='ql550';
-  if(!printerCfg.piId) printerCfg.piId='stikka-pi-bo6le';
   let activeProfile = PRINTER_PROFILES[printerCfg.profileId] || PRINTER_PROFILES['ql550'];
 
   function savePrinterCfg(){
@@ -1549,45 +1552,75 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   $('#usb-btn').oncontextmenu=e=>{e.preventDefault();usbTestPrint();return false};
   $('#usb-test')?.addEventListener('click',usbTestPrint);
 
-  /* ---- MQTT PI PRINT ---- */
-  let mqttClient = null;
-  const MQTT_BROKER = 'wss://broker.emqx.io:8084/mqtt';
-  
-  function connectMQTT() {
-    if (mqttClient) return;
-    console.log('[MQTT] Connecting to', MQTT_BROKER);
-    mqttClient = mqtt.connect(MQTT_BROKER);
-    
-    mqttClient.on('connect', () => {
-      console.log('[MQTT] Connected');
-      $('#pi-status').textContent = 'ONLINE';
-      $('#pi-status').style.color = '#2e3192';
-    });
-    
-    mqttClient.on('error', (err) => {
-      console.error('[MQTT] Error:', err);
-      $('#pi-status').textContent = 'ERROR';
-      $('#pi-status').style.color = 'var(--red)';
-    });
+  /* ---- ESP32-S3 HTTP PRINT ---- */
+  const ESP32_DEFAULT_URL = 'http://192.168.1.100';
+  let esp32Cfg = {
+    url: localStorage.getItem('stikka-esp32-url') || ESP32_DEFAULT_URL
+  };
+
+  // Restore saved URL into input field on load
+  if($('#opt-esp32-url')) $('#opt-esp32-url').value = esp32Cfg.url;
+
+  async function checkEsp32() {
+    const url = esp32Cfg.url.replace(/\/$/, '');
+    const el = $('#esp32-status');
+    try {
+      const r = await fetch(url + '/status', { method:'GET', signal: AbortSignal.timeout(2500) });
+      if(r.ok) {
+        if(el){ el.textContent='ONLINE'; el.style.color='#2e3192'; }
+        return true;
+      }
+    } catch(e) { /* offline */ }
+    if(el){ el.textContent='OFFLINE'; el.style.color='var(--red)'; }
+    return false;
   }
 
-  async function printPi(canvas, jobName='Job') {
-    if (!mqttClient || !mqttClient.connected) {
-      connectMQTT();
-      toast('Connecting...','info');
-      await new Promise(res=>setTimeout(res,1500));
-    }
+  async function printEsp32(canvas, jobName='Job') {
+    if(!canvas || !canvas.width){ toast('Nothing to print','error'); return; }
+    const url = esp32Cfg.url.replace(/\/$/, '');
+    const proto = (printerCfg.profileId==='custom')
+      ? ($('#custom-proto').value || 'escpos')
+      : activeProfile.proto;
+    toast('Sending '+jobName+' → ESP32...','info');
+    const bytes = (proto==='brother-ql') ? canvasToBrotherQL(canvas) : canvasToEscPos(canvas);
+    console.log('[ESP32] sending', bytes.length, 'bytes via', proto, 'to', url+'/print');
+
     try {
-      const dataUrl = canvas.toDataURL('image/png');
-      const payload = JSON.stringify({
-        jobName, image: dataUrl, timestamp: Date.now(),
-        profile: printerCfg.profileId, cut: printerCfg.cut
+      const r = await fetch(url + '/print', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/octet-stream' },
+        body: bytes,
+        signal: AbortSignal.timeout(15000)
       });
-      mqttClient.publish('stikka/print/'+printerCfg.piId, payload, {qos:1}, (err)=>{
-        if(!err) { addJob(jobName, canvas); }
-      });
-    } catch (e) { toast('Error: '+e.message,'error'); }
+      if(!r.ok) throw new Error('HTTP ' + r.status + ' ' + r.statusText);
+      toast(jobName + ' · sent (' + bytes.length + ' bytes)','success');
+      addJob(jobName + ' [ESP32]', canvas);
+    } catch(err) {
+      console.warn('[ESP32 print]', err.name, err.message);
+
+      // CORS/network error: browser memblokir response tapi bytes sudah terkirim ke ESP32.
+      const isCors = err.name === 'TypeError' ||
+                     (err.message && (err.message.includes('Failed to fetch') ||
+                      err.message.includes('NetworkError') ||
+                      err.message.includes('Load failed')));
+
+      if(err.name === 'TimeoutError' || err.name === 'AbortError') {
+        toast('ESP32 timeout — pastikan board menyala dan terhubung WiFi','error');
+      } else if(isCors) {
+        // Bytes sudah dikirim, CORS hanya halangi kita baca respons
+        toast(jobName + ' · terkirim (tambah CORS header di ESP32 untuk menghilangkan warning ini)','info');
+        addJob(jobName + ' [ESP32]', canvas);
+      } else {
+        toast('ESP32 error: ' + err.message, 'error');
+      }
+    }
   }
+
+  $('#esp32-test-conn')?.addEventListener('click', async () => {
+    toast('Menghubungkan ke ESP32...','info');
+    const ok = await checkEsp32();
+    toast(ok ? 'ESP32 ONLINE ✓' : 'ESP32 tidak ditemukan — cek URL & WiFi', ok ? 'success' : 'error');
+  });
 
   /* ---- PRINTER SETTINGS MODAL ---- */
   function refreshPrinterUI(){
@@ -1634,13 +1667,17 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
     printerCfg.dither=$('#opt-dither').value;
     printerCfg.chunk=$('#opt-chunk').value;
     printerCfg.tapeWidth=$('#opt-tape-width').value;
-    printerCfg.piId=$('#opt-pi-id').value || printerCfg.piId;
+    // Save ESP32 URL
+    const newUrl = ($('#opt-esp32-url').value || '').trim() || ESP32_DEFAULT_URL;
+    esp32Cfg.url = newUrl;
+    localStorage.setItem('stikka-esp32-url', newUrl);
     activeProfile=PRINTER_PROFILES[printerCfg.profileId] || PRINTER_PROFILES['ql550'];
     savePrinterCfg();
-    // GitHub config diatur via GH_CONFIG di atas, tidak perlu disimpan dari form
     refreshPrinterUI();
     $('#settings-overlay').classList.remove('open');
     toast('Printer settings saved · '+activeProfile.label,'success');
+    // Background check ESP32 status
+    checkEsp32();
   };
   $('#settings-test').onclick=()=>{
     $('#settings-overlay').classList.remove('open');
@@ -1652,15 +1689,16 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
     el.addEventListener('input',refreshPrinterUI);
   });
 
-  // Restore persisted options
+  // Restore saved options
   if(printerCfg.cut) $('#opt-cut').value=printerCfg.cut;
   if(printerCfg.feed) $('#opt-feed').value=printerCfg.feed;
   if(printerCfg.dither) $('#opt-dither').value=printerCfg.dither;
   if(printerCfg.chunk) $('#opt-chunk').value=printerCfg.chunk;
   if(printerCfg.tapeWidth) $('#opt-tape-width').value=printerCfg.tapeWidth;
-  if(printerCfg.piId) $('#opt-pi-id').value=printerCfg.piId;
   refreshPrinterUI();
-  connectMQTT();
+  // Check ESP32 status on startup
+  if($('#opt-esp32-url')) $('#opt-esp32-url').value = esp32Cfg.url;
+  checkEsp32();
 
   /* ---- BROWSER PRINT FALLBACK ---- */
   function browserPrint(canvas, title='PaRang Stikka'){
@@ -1791,7 +1829,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
     drawId($('#sticker-original'),r.original);
     drawId($('#sticker-dithered'),r.dithered);
   }
-  $('#sticker-print').onclick=()=>{if(!stickerImg)return; printPi($('#sticker-dithered'),'Sticker')};
+  $('#sticker-print').onclick=()=>{if(!stickerImg)return; printEsp32($('#sticker-dithered'),'Sticker')};
   $('#sticker-usb').onclick=()=>stickerImg&&printUsb($('#sticker-dithered'),'Sticker');
   $('#sticker-dl').onclick=()=>downloadCanvas($('#sticker-dithered'),'stikka-sticker-'+Date.now()+'.png');
   async function doSticker(f){stickerImg=await loadFile(f);updateSticker();$('#sticker-preview').classList.remove('hidden');$('#sticker-up').classList.add('hidden');autoAdjustAfterLoad('sticker');}
@@ -1803,7 +1841,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   bindSlider($('#label-zoom'));
   bindSlider($('#label-offset'));
   ['label-text','label-font','label-size','label-qr','label-zoom','label-offset'].forEach(id=>$('#'+id).addEventListener('input',renderLabel));
-  $('#label-print').onclick=()=>{renderLabel(); setTimeout(()=>printPi($('#label-canvas'),'Label'),120)};
+  $('#label-print').onclick=()=>{renderLabel(); setTimeout(()=>printEsp32($('#label-canvas'),'Label'),120)};
   $('#label-usb').onclick=()=>{renderLabel(); setTimeout(()=>printUsb($('#label-canvas'),'Label'),120)};
   $('#label-dl').onclick=()=>{renderLabel(); setTimeout(()=>downloadCanvas($('#label-canvas'),'stikka-label-'+Date.now()+'.png'),120)};
   function renderLabel(){
@@ -1856,7 +1894,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   bindSlider($('#meme-bright'));
   bindSlider($('#meme-contrast'));
   ['meme-top','meme-bottom','meme-size','meme-bright','meme-contrast'].forEach(id=>$('#'+id).addEventListener('input',()=>memeImg&&updateMeme()));
-  $('#meme-print').onclick=()=>{if(!memeImg)return; printPi($('#meme-dithered'),'Meme')};
+  $('#meme-print').onclick=()=>{if(!memeImg)return; printEsp32($('#meme-dithered'),'Meme')};
   $('#meme-usb').onclick=()=>memeImg&&printUsb($('#meme-dithered'),'Meme');
   $('#meme-dl').onclick=()=>downloadCanvas($('#meme-dithered'),'stikka-meme-'+Date.now()+'.png');
   async function doMeme(f){memeImg=await loadFile(f);updateMeme();$('#meme-preview').classList.remove('hidden');$('#meme-up').classList.add('hidden');autoAdjustAfterLoad('meme');}
@@ -1920,7 +1958,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
       if(drawHistory.length<2)return;drawHistory.pop();
       const i=new Image();i.onload=()=>{drawCtx.clearRect(0,0,cv.width,cv.height);drawCtx.drawImage(i,0,0);refreshDrawOutput()};i.src=drawHistory[drawHistory.length-1];
     };
-    $('#d-print').onclick=()=>{const tmp=getDrawDithered(); printPi(tmp,'Drawing');};
+    $('#d-print').onclick=()=>{const tmp=getDrawDithered(); printEsp32(tmp,'Drawing');};
     $('#d-usb').onclick=()=>printUsb(getDrawDithered(),'Drawing');
     $('#d-dl').onclick=()=>downloadCanvas(cv,'stikka-drawing-'+Date.now()+'.png');
     
@@ -1976,11 +2014,18 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   $('#poster-print').onclick=async()=>{
     if(!posterImg) return;
     const panels=getPosterPanels();
-    toast('Sending '+panels.length+' panels to Pi...','info');
+    toast('Mengirim '+panels.length+' panel ke ESP32...','info');
+    let ok=0;
     for(let i=0;i<panels.length;i++){
-      await printPi(panels[i],'Poster #'+(i+1));
-      await new Promise(r=>setTimeout(r,1200)); 
+      try{
+        await printEsp32(panels[i],'Poster #'+(i+1));
+        ok++;
+      }catch(e){
+        console.warn('Panel '+(i+1)+' error:',e);
+      }
+      await new Promise(r=>setTimeout(r,1500));
     }
+    toast('Poster selesai: '+ok+'/'+panels.length+' panel terkirim','success');
   };
   $('#poster-usb').onclick=async()=>{
     if(!posterImg) return;
@@ -1997,18 +2042,18 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
     panels.forEach((cv,i)=>setTimeout(()=>downloadCanvas(cv,`stikka-poster-${gridCols}x${gridRows}-${i+1}.png`),i*200));
   };
   function getPosterPanels(){
-    const b=+$('#poster-bright').value, c=+$('#poster-contrast').value;
+    const bright=+$('#poster-bright').value, contrast=+$('#poster-contrast').value;
     const fullW=LW*gridCols, fullH=Math.round(LW*gridCols*(posterImg.height/posterImg.width));
     const panelH=fullH/gridRows;
     const panels=[];
-    for(let r=0;r<gridRows;r++)for(let c=0;c<gridCols;c++){
+    for(let row=0;row<gridRows;row++)for(let col=0;col<gridCols;col++){
       const cv=document.createElement('canvas');
       cv.width=LW; cv.height=Math.round(panelH);
       const ctx=cv.getContext('2d');
       ctx.fillStyle='#fff';ctx.fillRect(0,0,cv.width,cv.height);
-      ctx.drawImage(posterImg, -c*LW, -r*panelH, fullW, fullH);
+      ctx.drawImage(posterImg, -col*LW, -row*panelH, fullW, fullH);
       const id=ctx.getImageData(0,0,cv.width,cv.height);
-      const dithered=floydSteinberg(id,b,c);
+      const dithered=floydSteinberg(id,bright,contrast);
       drawId(cv,dithered);
       panels.push(cv);
     }
@@ -2090,7 +2135,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
       const proc=processImage(camImg,LW,b,c);
       drawId($('#cam-dithered'),proc.dithered);
     }
-    $('#cam-print').onclick=()=>{const c=$('#cam-dithered'); printPi(c,'Webcam')};
+    $('#cam-print').onclick=()=>{const c=$('#cam-dithered'); printEsp32(c,'Webcam')};
     $('#cam-usb').onclick=()=>printUsb($('#cam-dithered'),'Webcam');
     $('#cam-dl').onclick=()=>downloadCanvas($('#cam-dithered'),'stikka-webcam-'+Date.now()+'.png');
   })();
@@ -2101,7 +2146,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   $('#cat-bright').addEventListener('input',()=>catImg&&updateCat());
   $('#cat-contrast').addEventListener('input',()=>catImg&&updateCat());
   let catImg=null;
-  $('#cat-print').onclick=()=>{ const c=$('#cat-dithered'); printPi(c,'Cat') };
+  $('#cat-print').onclick=()=>{ const c=$('#cat-dithered'); printEsp32(c,'Cat') };
   $('#cat-usb').onclick=()=>printUsb($('#cat-dithered'),'Cat');
   $('#cat-dl').onclick=()=>downloadCanvas($('#cat-dithered'),'stikka-cat-'+Date.now()+'.png');
   $('#cat-btn').onclick=async()=>{
@@ -2127,7 +2172,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   $('#dog-bright').addEventListener('input',()=>dogImg&&updateDog());
   $('#dog-contrast').addEventListener('input',()=>dogImg&&updateDog());
   let dogImg=null;
-  $('#dog-print').onclick=()=>{ const c=$('#dog-dithered'); printPi(c,'Dog') };
+  $('#dog-print').onclick=()=>{ const c=$('#dog-dithered'); printEsp32(c,'Dog') };
   $('#dog-usb').onclick=()=>printUsb($('#dog-dithered'),'Dog');
   $('#dog-dl').onclick=()=>downloadCanvas($('#dog-dithered'),'stikka-dog-'+Date.now()+'.png');
   $('#dog-btn').onclick=async()=>{
@@ -2157,7 +2202,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   $('#person-bright').addEventListener('input',()=>personImg&&updatePerson());
   $('#person-contrast').addEventListener('input',()=>personImg&&updatePerson());
   let personImg=null;
-  $('#person-print').onclick=()=>{ const c=$('#person-dithered'); printPi(c,'Person') };
+  $('#person-print').onclick=()=>{ const c=$('#person-dithered'); printEsp32(c,'Person') };
   $('#person-usb').onclick=()=>printUsb($('#person-dithered'),'Person');
   $('#person-dl').onclick=()=>downloadCanvas($('#person-dithered'),'stikka-person-'+Date.now()+'.png');
   $('#person-btn').onclick=async()=>{
@@ -2617,7 +2662,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
       ctx.rotate(rad);
       ctx.drawImage(tmpImg,-sw/2,-sh/2);
       // Send to browser print with current printer settings
-      printPi(cv, jobName+' [History]');
+      printEsp32(cv, jobName+' [History]');
       toast('Printing from history...','info');
     };
     tmpImg.onerror=()=>{
