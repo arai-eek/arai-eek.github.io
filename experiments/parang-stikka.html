@@ -1608,7 +1608,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
         toast('ESP32 timeout — pastikan board menyala dan terhubung WiFi','error');
       } else if(isCors) {
         // Bytes sudah dikirim, CORS hanya halangi kita baca respons
-        toast(jobName + ' · terkirim (tambah CORS header di ESP32 untuk menghilangkan warning ini)','info');
+        toast(jobName + ' · terkirim','info');
         addJob(jobName + ' [ESP32]', canvas);
       } else {
         toast('ESP32 error: ' + err.message, 'error');
