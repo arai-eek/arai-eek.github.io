@@ -1553,7 +1553,7 @@ function drawId(canvas,id){canvas.width=id.width;canvas.height=id.height;canvas.
   $('#usb-test')?.addEventListener('click',usbTestPrint);
 
   /* ---- ESP32-S3 HTTP PRINT ---- */
-  const ESP32_DEFAULT_URL = 'http://192.168.1.100';
+  const ESP32_DEFAULT_URL = 'https://print.kiransk.xyz';
   let esp32Cfg = {
     url: localStorage.getItem('stikka-esp32-url') || ESP32_DEFAULT_URL
   };
