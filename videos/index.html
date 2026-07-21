@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arai-eek Video Gallery</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            letter-spacing: -0.02em;
+        }
+        .gallery {
+            column-count: 4;
+            column-gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        @media (max-width: 1200px) { .gallery { column-count: 3; } }
+        @media (max-width: 900px) { .gallery { column-count: 2; } }
+        @media (max-width: 600px) { .gallery { column-count: 1; } }
+        
+        .card {
+            background: #2a2a2a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            break-inside: avoid;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            background: #333333;
+        }
+        .thumbnail {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #444;
+            cursor: pointer;
+        }
+        .title {
+            padding: 1rem 1rem 0.5rem 1rem;
+            font-size: 1rem;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            word-wrap: break-word;
+            font-weight: bold;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0.5rem 1rem 1rem 1rem;
+        }
+        .btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            flex: 1;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn-secondary {
+            background-color: #007BFF;
+        }
+        .btn-secondary:hover {
+            background-color: #0069d9;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 90%;
+            max-width: 1000px;
+        }
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #ccc;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Arai-eek Video Gallery</h1>
+    <div class="gallery">
+
+        <div class="card">
+            <img src="thumb/Arai-eek_poster_AI-animated.webp" class="thumbnail" alt="Arai-eek_poster_AI-animated" loading="lazy" onclick="openModal('Arai-eek_poster_AI-animated.webm')">
+            <p class="title">Arai-eek_poster_AI-animated</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('Arai-eek_poster_AI-animated.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_poster_AI-animated" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/arai-eek_muaithai_edit_rot.webp" class="thumbnail" alt="arai-eek_muaithai_edit_rot" loading="lazy" onclick="openModal('arai-eek_muaithai_edit_rot.webm')">
+            <p class="title">arai-eek_muaithai_edit_rot</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('arai-eek_muaithai_edit_rot.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/arai-eek_muaithai_edit_rot" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/DiscussionRound-dusjagr_Diwo_web.webp" class="thumbnail" alt="DiscussionRound-dusjagr_Diwo_web" loading="lazy" onclick="openModal('DiscussionRound-dusjagr_Diwo_web.webm')">
+            <p class="title">DiscussionRound-dusjagr_Diwo_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('DiscussionRound-dusjagr_Diwo_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/DiscussionRound-dusjagr_Diwo_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/DiscussionRound-LucaAdeline_PoliticalAnimals_web.webp" class="thumbnail" alt="DiscussionRound-LucaAdeline_PoliticalAnimals_web" loading="lazy" onclick="openModal('DiscussionRound-LucaAdeline_PoliticalAnimals_web.webm')">
+            <p class="title">DiscussionRound-LucaAdeline_PoliticalAnimals_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('DiscussionRound-LucaAdeline_PoliticalAnimals_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/DiscussionRound-LucaAdeline_PoliticalAnimals_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/party_parang_arai-eek-DJs.webp" class="thumbnail" alt="party_parang_arai-eek-DJs" loading="lazy" onclick="openModal('party_parang_arai-eek-DJs.webm')">
+            <p class="title">party_parang_arai-eek-DJs</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('party_parang_arai-eek-DJs.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/party_parang_arai-eek-DJs" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/social-dinnerTime_web.webp" class="thumbnail" alt="social-dinnerTime_web" loading="lazy" onclick="openModal('social-dinnerTime_web.webm')">
+            <p class="title">social-dinnerTime_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('social-dinnerTime_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/social-dinnerTime_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-Anang_Jama-Tasting-Herbal_web.webp" class="thumbnail" alt="workshop-Anang_Jama-Tasting-Herbal_web" loading="lazy" onclick="openModal('workshop-Anang_Jama-Tasting-Herbal_web.webm')">
+            <p class="title">workshop-Anang_Jama-Tasting-Herbal_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-Anang_Jama-Tasting-Herbal_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-Anang_Jama-Tasting-Herbal_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-Arbor_ChimeraCut-ups_web.webp" class="thumbnail" alt="workshop-Arbor_ChimeraCut-ups_web" loading="lazy" onclick="openModal('workshop-Arbor_ChimeraCut-ups_web.webm')">
+            <p class="title">workshop-Arbor_ChimeraCut-ups_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-Arbor_ChimeraCut-ups_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-Arbor_ChimeraCut-ups_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-Bora_Kimchi_web.webp" class="thumbnail" alt="workshop-Bora_Kimchi_web" loading="lazy" onclick="openModal('workshop-Bora_Kimchi_web.webm')">
+            <p class="title">workshop-Bora_Kimchi_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-Bora_Kimchi_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-Bora_Kimchi_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-Darcy_EMF2_web.webp" class="thumbnail" alt="workshop-Darcy_EMF2_web" loading="lazy" onclick="openModal('workshop-Darcy_EMF2_web.webm')">
+            <p class="title">workshop-Darcy_EMF2_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-Darcy_EMF2_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-Darcy_EMF2_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-Darcy_glowingws1_web.webp" class="thumbnail" alt="workshop-Darcy_glowingws1_web" loading="lazy" onclick="openModal('workshop-Darcy_glowingws1_web.webm')">
+            <p class="title">workshop-Darcy_glowingws1_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-Darcy_glowingws1_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-Darcy_glowingws1_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-Ian_Slompret_web.webp" class="thumbnail" alt="workshop-Ian_Slompret_web" loading="lazy" onclick="openModal('workshop-Ian_Slompret_web.webm')">
+            <p class="title">workshop-Ian_Slompret_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-Ian_Slompret_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-Ian_Slompret_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-various_Codingtools_old.webp" class="thumbnail" alt="workshop-various_Codingtools_old" loading="lazy" onclick="openModal('workshop-various_Codingtools_old.webm')">
+            <p class="title">workshop-various_Codingtools_old</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-various_Codingtools_old.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-various_Codingtools_old" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-various_Codingtools_web.webp" class="thumbnail" alt="workshop-various_Codingtools_web" loading="lazy" onclick="openModal('workshop-various_Codingtools_web.webm')">
+            <p class="title">workshop-various_Codingtools_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-various_Codingtools_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-various_Codingtools_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/workshop-Zinemaking_web.webp" class="thumbnail" alt="workshop-Zinemaking_web" loading="lazy" onclick="openModal('workshop-Zinemaking_web.webm')">
+            <p class="title">workshop-Zinemaking_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('workshop-Zinemaking_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/workshop-Zinemaking_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/anang_arai-eek_miniInterview_web.webp" class="thumbnail" alt="anang_arai-eek_miniInterview_web" loading="lazy" onclick="openModal('anang_arai-eek_miniInterview_web.webm')">
+            <p class="title">anang_arai-eek_miniInterview_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('anang_arai-eek_miniInterview_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Mini-interviews_compressed_25pfs/anang_arai-eek_miniInterview_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/arbor_arai-eek_miniInterview_web.webp" class="thumbnail" alt="arbor_arai-eek_miniInterview_web" loading="lazy" onclick="openModal('arbor_arai-eek_miniInterview_web.webm')">
+            <p class="title">arbor_arai-eek_miniInterview_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('arbor_arai-eek_miniInterview_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Mini-interviews_compressed_25pfs/arbor_arai-eek_miniInterview_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/darcy_arai-eek_miniInterview_web.webp" class="thumbnail" alt="darcy_arai-eek_miniInterview_web" loading="lazy" onclick="openModal('darcy_arai-eek_miniInterview_web.webm')">
+            <p class="title">darcy_arai-eek_miniInterview_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('darcy_arai-eek_miniInterview_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Mini-interviews_compressed_25pfs/darcy_arai-eek_miniInterview_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/ian_arai-eek_miniInterview_web.webp" class="thumbnail" alt="ian_arai-eek_miniInterview_web" loading="lazy" onclick="openModal('ian_arai-eek_miniInterview_web.webm')">
+            <p class="title">ian_arai-eek_miniInterview_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('ian_arai-eek_miniInterview_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Mini-interviews_compressed_25pfs/ian_arai-eek_miniInterview_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/luca_arai-eek_miniInterview_web.webp" class="thumbnail" alt="luca_arai-eek_miniInterview_web" loading="lazy" onclick="openModal('luca_arai-eek_miniInterview_web.webm')">
+            <p class="title">luca_arai-eek_miniInterview_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('luca_arai-eek_miniInterview_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Mini-interviews_compressed_25pfs/luca_arai-eek_miniInterview_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="thumb/luis_arai-eek_miniInterview_web.webp" class="thumbnail" alt="luis_arai-eek_miniInterview_web" loading="lazy" onclick="openModal('luis_arai-eek_miniInterview_web.webm')">
+            <p class="title">luis_arai-eek_miniInterview_web</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('luis_arai-eek_miniInterview_web.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Mini-interviews_compressed_25pfs/luis_arai-eek_miniInterview_web" target="_blank" class="btn btn-secondary">Nextcloud</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="videoModal" class="modal" onclick="if(event.target == this) closeModal()">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <video id="modalVideo" controls autoplay>
+                <source id="videoSource" src="" type="video/webm">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("videoModal");
+        const video = document.getElementById("modalVideo");
+        const source = document.getElementById("videoSource");
+
+        function openModal(videoFile) {
+            source.src = videoFile;
+            video.load();
+            modal.style.display = "block";
+            video.play().catch(e => console.log("Autoplay blocked:", e));
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            video.pause();
+            source.src = "";
+            video.load();
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
