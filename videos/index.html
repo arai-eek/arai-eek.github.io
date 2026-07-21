@@ -572,12 +572,13 @@
         }
         
         .gallery {
-            column-count: 6;
-            column-gap: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
         }
-        @media (max-width: 1200px) { .gallery { column-count: 4; } }
-        @media (max-width: 900px) { .gallery { column-count: 3; } }
-        @media (max-width: 600px) { .gallery { column-count: 2; } }
+        @media (max-width: 1200px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
         
         .vid-card {
             background: rgba(0, 0, 0, 0.2);
@@ -585,10 +586,9 @@
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
-            display: inline-block;
             width: 100%;
-            margin-bottom: 2rem;
-            break-inside: avoid;
+            display: flex;
+            flex-direction: column;
         }
         .vid-card:hover {
             transform: translateY(-5px);
@@ -617,6 +617,7 @@
             flex-direction: column;
             gap: 6px;
             padding: 0 0.8rem 1rem 0.8rem;
+            margin-top: auto; /* Pushes buttons to the bottom of the card */
         }
         .actions .btn {
             margin-top: 0;
