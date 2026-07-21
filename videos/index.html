@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arai-eek Video Gallery</title>
     <link rel="shortcut icon" type="image/x-icon" href="../arai-icon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Glitch&family=Outfit:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
+    @font-face {
+        font-family: 'Arai Eek Bold';
+        src: url('araieek-bold.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Sedgwick Ave Display';
+        src: url('sedgwick.ttf') format('truetype');
+    }
 
     :root {
       --bg-dark: #0a0f12;
@@ -562,13 +570,17 @@
             width: 100%;
         }
         h2 {
-            font-family: 'Space Mono', monospace;
+            font-family: 'Permanent Marker', cursive;
             color: var(--tertiary);
             margin-top: 3rem;
             margin-bottom: 1.5rem;
-            font-size: 2rem;
+            font-size: 2.5rem;
             border-bottom: 1px solid var(--glass-border);
             padding-bottom: 0.5rem;
+        }
+        h2 .glitch {
+            position: relative;
+            display: inline-block;
         }
         
         .gallery {
@@ -653,16 +665,30 @@
         }
         .close {
             position: absolute;
-            top: -40px;
-            right: 0;
+            top: 15px;
+            right: 15px;
             color: white;
-            font-size: 35px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
             z-index: 10001;
-            transition: color 0.2s;
+            transition: all 0.2s;
+            background: rgba(0,0,0,0.6);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .close:hover { color: var(--primary); }
+        .close:hover { 
+            color: var(--primary); 
+            background: rgba(0,0,0,0.9);
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
         
         video {
             width: 100%;
@@ -692,7 +718,26 @@
             <p class="subtitle">Arai-eek Co-Laboratory Documentation</p>
         </header>
 
-<section><h2>Interviews</h2>
+<section><h2><span class="glitch" data-text="Full edited videos">Full edited videos</span></h2>
+<div class="gallery">
+        <div class="vid-card">
+            <img src="thumb/Arai-Eek_sessions_compressedAudio.webp" class="thumbnail" alt="Arai-Eek_sessions_compressedAudio" loading="lazy" onclick="openModal('Arai-Eek_sessions_compressedAudio.webm')">
+            <p class="vid-title">Arai-Eek_sessions_compressedAudio</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('Arai-Eek_sessions_compressedAudio.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Full_edited_video/Arai-Eek_sessions_compressedAudio" target="_blank" class="btn" style="border-color: var(--secondary); color: var(--secondary);">Nextcloud</a>
+            </div>
+        </div>
+        <div class="vid-card">
+            <img src="thumb/Bumper-Arai-Eek.webp" class="thumbnail" alt="Bumper-Arai-Eek" loading="lazy" onclick="openModal('Bumper-Arai-Eek.webm')">
+            <p class="vid-title">Bumper-Arai-Eek</p>
+            <div class="actions">
+                <button class="btn" onclick="openModal('Bumper-Arai-Eek.webm')">▶ Play</button>
+                <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Full_edited_video/Bumper-Arai-Eek" target="_blank" class="btn" style="border-color: var(--secondary); color: var(--secondary);">Nextcloud</a>
+            </div>
+        </div></div></section>
+
+<section><h2><span class="glitch" data-text="Interviews">Interviews</span></h2>
 <div class="gallery">
 
         <div class="vid-card">
@@ -744,7 +789,7 @@
             </div>
         </div></div></section>
 
-<section><h2>Sessions & Workshops</h2>
+<section><h2><span class="glitch" data-text="Sessions & Workshops">Sessions & Workshops</span></h2>
 <div class="gallery">
 
         <div class="vid-card">
@@ -836,7 +881,7 @@
             </div>
         </div></div></section>
 
-<section><h2>Others</h2>
+<section><h2><span class="glitch" data-text="Others">Others</span></h2>
 <div class="gallery">
 
         <div class="vid-card">
@@ -871,7 +916,6 @@
                 <a href="https://mega.hackteria.org/index.php/s/zHiSMk4ptJwK856?dir=/compressed_25fps/Arai-eek_videos_compressed_25pfs/social-dinnerTime_web" target="_blank" class="btn" style="border-color: var(--secondary); color: var(--secondary);">Nextcloud</a>
             </div>
         </div></div></section>
-
     </main>
 
     <!-- The Modal -->
