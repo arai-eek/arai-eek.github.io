@@ -309,7 +309,7 @@
         let votes = JSON.parse(localStorage.getItem('galleryVotes')) || {};
         
         document.addEventListener("DOMContentLoaded", () => {
-            if ("transist0r" === "") {
+            if ("" === "") {
                 checkPassword("");
             }
         });
@@ -319,7 +319,7 @@
         });
         
         function checkPassword(pwd) {
-            if (pwd.toLowerCase() === "transist0r".toLowerCase()) {
+            if (pwd.toLowerCase() === "".toLowerCase()) {
                 document.getElementById('main-content').innerHTML = decodeURIComponent(atob(PAYLOAD_HTML));
                 images = JSON.parse(decodeURIComponent(atob(PAYLOAD_IMG)));
                 
