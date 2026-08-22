@@ -92,6 +92,9 @@
         .chapter-marker { position: absolute; top: 50%; width: 12px; height: 12px; background: white; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 10; transition: transform 0.2s ease; }
         .chapter-marker:hover { transform: translate(-50%, -50%) scale(1.5); background: var(--accent); }
 
+        .chapter-marker-music { background: #ffd700; box-shadow: 0 0 8px rgba(255, 215, 0, 0.8); }
+        .chapter-marker-music:hover { background: #ffaa00 !important; }
+
         .hover-tooltip { position: absolute; top: -35px; background: rgba(0,0,0,0.8); color: white; padding: 5px 10px; border-radius: 6px; font-size: 12px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; transform: translateX(-50%); font-weight: 600; z-index: 20; }
         
         .time-display { font-size: 14px; font-variant-numeric: tabular-nums; color: var(--text-dim); flex-shrink: 0; width: 100px; text-align: right; }
@@ -195,14 +198,25 @@
 
             // --- CHAPTER DATA ---
             const chapters = [
-                { time: 0, label: "Kaspar König: Intro" },
+                { time: 0, label: "Kaspar König: Show Intro" },
                 { time: 309, label: "Marc Dusseiller: Workshopology" },
-                { time: 598, label: "🎶 Musical Intermezzo 1" },
-                { time: 979, label: "Adam Zaretsky: Bioart" },
-                { time: 1339, label: "Kaspar König: Acoustic Beats" },
+                { time: 598, label: "🎶 Music (Intermezzo)" },
+                { time: 828, label: "Marc Dusseiller: Technobiological Futures" },
+                { time: 979, label: "Adam Zaretsky: Wet and Juicy Bioart" },
+                { time: 1230, label: "🎶 Music (Intermezzo)" },
+                { time: 1307, label: "Kaspar König: Acoustic Discoveries" },
+                { time: 1416, label: "🎶 Music (Kaspar's Morning Beats)" },
                 { time: 1756, label: "Wave: Tomorrow Lab" },
-                { time: 2143, label: "🎶 Musical Intermezzo 2" },
-                { time: 2728, label: "Marc Dusseiller: The Future" }
+                { time: 2076, label: "Adam Zaretsky: Aesthetics vs Eugenics" },
+                { time: 2143, label: "🎶 Music (Intermezzo)" },
+                { time: 2255, label: "Adam Zaretsky: Non-perfection" },
+                { time: 2351, label: "🎶 Music (Extended Intermezzo)" },
+                { time: 2683, label: "Kaspar König: Transition" },
+                { time: 2728, label: "Marc Dusseiller: Personal Future" },
+                { time: 2835, label: "🎶 Music (Intermezzo)" },
+                { time: 3037, label: "Adam Zaretsky: Final Word" },
+                { time: 3367, label: "Kaspar König: Grown Tubes Outro" },
+                { time: 3446, label: "Kaspar König: Wrap-up & Credits" }
             ];
 
             let duration = 0;
@@ -227,6 +241,12 @@
                     const pct = (ch.time / duration) * 100;
                     const marker = document.createElement('div');
                     marker.className = 'chapter-marker';
+                    
+                    // Give musical intermezzos a special gold color
+                    if (ch.label.includes("Music")) {
+                        marker.classList.add("chapter-marker-music");
+                    }
+
                     marker.style.left = `${pct}%`;
                     
                     // Hover Tooltip logic
