@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clap to COLAB - Master Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(25, 25, 35, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --accent: #ff007f;
+            --accent-hover: #ff3399;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #e94560);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hub-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hub-title {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .hub-subtitle {
+            font-size: 18px;
+            color: var(--text-dim);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .episode-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-main);
+            min-height: 220px;
+        }
+
+        .episode-card.active {
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .episode-card.active:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(255,0,127,0.3);
+        }
+
+        .episode-card.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: rgba(10, 10, 15, 0.4);
+        }
+
+        .ep-number {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .ep-title {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .ep-desc {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .badge-active { background: rgba(255, 0, 127, 0.2); color: var(--accent); }
+        .badge-pending { background: rgba(255, 215, 0, 0.2); color: #ffd700; }
+        .badge-locked { background: rgba(255, 255, 255, 0.1); color: var(--text-dim); }
+
+    </style>
+</head>
+<body>
+
+    <div class="hub-header">
+        <h1 class="hub-title">Clap to COLAB</h1>
+        <p class="hub-subtitle">Explore the complete collection of collaborative, technobiological, and mechatronic radio shows hosted by Kaspar König.</p>
+    </div>
+
+    <div class="grid-container">
+        
+        <!-- Episode 1 -->
+        <a href="clap-to-colab-player.html" class="episode-card active">
+            <div>
+                <div class="ep-number">Part 1</div>
+                <div class="ep-title">Technobiological Futures</div>
+                <div class="ep-desc">A deep dive into bioart, ugly punk babies, and long-duration workshopology with Marc Dusseiller, Adam Zaretsky, and Wave.</div>
+            </div>
+            <div>
+                <span class="badge badge-active">▶ Listen Now</span>
+            </div>
+        </a>
+
+        <!-- Episode 2 -->
+        <div class="episode-card disabled">
+            <div>
+                <div class="ep-number">Part 2</div>
+                <div class="ep-title">To Be Announced</div>
+                <div class="ep-desc">More fascinating interviews and field recordings from the Hackteria global network.</div>
+            </div>
+            <div>
+                <span class="badge badge-pending">⏳ Transcribing...</span>
+            </div>
+        </div>
+
+        <!-- Episode 3 -->
+        <a href="clap-to-colab3-player.html" class="episode-card active">
+            <div>
+                <div class="ep-number">Part 3</div>
+                <div class="ep-title">Homemade Festival</div>
+                <div class="ep-desc">Journey to the Swiss Alps for a hacker's utopia. Featuring the "Klebtop", Shit AI, Bricolage, and automotive pixel art.</div>
+            </div>
+            <div>
+                <span class="badge badge-active">▶ Listen Now</span>
+            </div>
+        </a>
+
+        <!-- Episode 4 -->
+        <div class="episode-card disabled">
+            <div>
+                <div class="ep-number">Part 4</div>
+                <div class="ep-title">Coming Soon</div>
+                <div class="ep-desc">Scheduled for release in the coming months.</div>
+            </div>
+            <div>
+                <span class="badge badge-locked">🔒 Locked</span>
+            </div>
+        </div>
+
+        <!-- Episode 5 -->
+        <div class="episode-card disabled">
+            <div>
+                <div class="ep-number">Part 5</div>
+                <div class="ep-title">Coming Soon</div>
+                <div class="ep-desc">Scheduled for release in the coming months.</div>
+            </div>
+            <div>
+                <span class="badge badge-locked">🔒 Locked</span>
+            </div>
+        </div>
+
+        <!-- Episode 6 -->
+        <div class="episode-card disabled">
+            <div>
+                <div class="ep-number">Part 6</div>
+                <div class="ep-title">Coming Soon</div>
+                <div class="ep-desc">Scheduled for release in the coming months.</div>
+            </div>
+            <div>
+                <span class="badge badge-locked">🔒 Locked</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
