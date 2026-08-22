@@ -344,7 +344,7 @@
             width: 100%;
             max-width: 900px;
             margin-top: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             padding: 30px;
             background: rgba(0, 0, 0, 0.2);
             border: 1px dashed rgba(255, 255, 255, 0.2);
@@ -361,6 +361,39 @@
         .production-info li { margin-bottom: 8px; padding-left: 15px; position: relative; }
         .production-info li::before { content: '•'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
         .production-info strong { color: #fff; }
+
+        /* Funding Info Section */
+        .funding-info {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .logos-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 25px;
+        }
+
+        .partner-logo {
+            height: 45px;
+            max-width: 150px;
+            object-fit: contain;
+            filter: brightness(0) invert(1) opacity(0.5);
+            transition: filter 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: brightness(0) invert(1) opacity(1);
+        }
     </style>
 </head>
 <body>
@@ -459,6 +492,19 @@
             <li><strong>Estimated Compute Cost:</strong> ~$4.00 USD (equivalent API cost for the LLM).</li>
             <li><strong>Energy Consumption:</strong> ~0.3 kWh (Local GPU transcription + Cloud AI inference) — <em>Roughly equivalent to boiling a kettle of water 3 times.</em></li>
         </ul>
+    </div>
+
+    <!-- Funding & Credits Section -->
+    <div class="funding-info">
+        <div class="logos-row">
+            <img src="../logos/proh_logo.svg" alt="Pro Helvetia" class="partner-logo">
+            <img src="../logos/hackteria_logo.svg" alt="Global Hackteria Network" class="partner-logo">
+            <img src="../logos/sgmk_logo.svg" alt="SGMK" class="partner-logo">
+            <img src="../logos/tomorrow_logo.svg" alt="Tomorrow Lab" class="partner-logo">
+            <img src="../logos/CACR_logo.svg" alt="CACR" class="partner-logo">
+            <img src="../logos/EAR_logo.svg" alt="EAR" class="partner-logo">
+        </div>
+        <p>This project is partially supported through the “Technobiological Futures” programme (February 2026 — August 2027), a multi-phase initiative spanning Thailand, Switzerland, Indonesia, and India. Co-funded by “Synergies”, by the Swiss Arts Council Pro Helvetia, the Co-Laboratories catalyse South-South collaborations that bypass traditional North-mediated routes, building sustainable networks for art-science-technology exchange across the Global South. Connecting the Global Hackteria Network, SGMK (Swiss Mechatronic Art Society), Tomorrow.lab. Embracing a Do-It-With-Others (DIWO) approach to collective experimentation across multiple perspectives.</p>
     </div>
 
     <script>
