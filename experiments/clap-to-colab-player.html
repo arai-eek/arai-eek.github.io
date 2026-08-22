@@ -12,6 +12,7 @@
             --text-main: #ffffff;
             --text-dim: rgba(255, 255, 255, 0.6);
             --accent: #ff007f;
+            --accent-hover: #ff3399;
         }
 
         * {
@@ -23,13 +24,14 @@
         body {
             font-family: 'Outfit', sans-serif;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #e94560);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: var(--text-main);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         @keyframes gradientBG {
@@ -51,34 +53,12 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            margin: 20px;
         }
 
-        .header {
-            text-align: center;
-        }
-
-        .show-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent);
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .episode-title {
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-
-        .host {
-            font-size: 16px;
-            color: var(--text-dim);
-            font-weight: 300;
-        }
+        .header { text-align: center; }
+        .show-title { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 800; margin-bottom: 10px; }
+        .episode-title { font-size: 32px; font-weight: 600; line-height: 1.2; margin-bottom: 10px; }
+        .host { font-size: 16px; color: var(--text-dim); font-weight: 300; }
 
         .transcript-box {
             background: rgba(0, 0, 0, 0.3);
@@ -94,49 +74,50 @@
             overflow: hidden;
         }
 
-        .transcript-text {
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 1.5;
-            transition: all 0.3s ease;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
+        .transcript-text { font-size: 24px; font-weight: 400; line-height: 1.5; transition: all 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .speaker-badge { position: absolute; top: 15px; left: 15px; background: var(--accent); color: white; font-size: 12px; font-weight: 800; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; opacity: 0; transition: opacity 0.3s ease; }
 
-        .speaker-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--accent);
-            color: white;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 5px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+        .music-notes { display: inline-block; font-size: 36px; animation: floatNotes 3s infinite ease-in-out; opacity: 0.6; }
+        @keyframes floatNotes { 0%, 100% { transform: translateY(0px) rotate(-2deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
 
-        /* Hide native video element entirely, we only use it to parse the VTT track behind the scenes */
-        video {
-            display: none;
-        }
+        /* Custom Audio Controls */
+        .controls-wrapper { display: flex; align-items: center; gap: 20px; }
+        .play-btn { background: var(--accent); border: none; border-radius: 50%; width: 50px; height: 50px; color: white; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(255,0,127,0.4); flex-shrink: 0; }
+        .play-btn:hover { background: var(--accent-hover); transform: scale(1.05); }
 
-        audio {
+        .timeline-container { flex-grow: 1; height: 30px; position: relative; cursor: pointer; display: flex; align-items: center; }
+        .timeline-bg { width: 100%; height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; position: relative; overflow: hidden; }
+        .timeline-progress { height: 100%; background: var(--accent); width: 0%; pointer-events: none; transition: width 0.1s linear; }
+        
+        .chapter-marker { position: absolute; top: 50%; width: 12px; height: 12px; background: white; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 10; transition: transform 0.2s ease; }
+        .chapter-marker:hover { transform: translate(-50%, -50%) scale(1.5); background: var(--accent); }
+
+        .hover-tooltip { position: absolute; top: -35px; background: rgba(0,0,0,0.8); color: white; padding: 5px 10px; border-radius: 6px; font-size: 12px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; transform: translateX(-50%); font-weight: 600; z-index: 20; }
+        
+        .time-display { font-size: 14px; font-variant-numeric: tabular-nums; color: var(--text-dim); flex-shrink: 0; width: 100px; text-align: right; }
+
+        audio { display: none; }
+
+        /* Summary Section */
+        .summary-container {
             width: 100%;
-            border-radius: 50px;
-            outline: none;
+            max-width: 800px;
+            margin-top: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            line-height: 1.6;
         }
 
-        audio::-webkit-media-controls-panel {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        audio::-webkit-media-controls-current-time-display,
-        audio::-webkit-media-controls-time-remaining-display {
-            color: white;
-        }
+        .summary-container h1 { font-size: 28px; margin-bottom: 20px; color: var(--accent); }
+        .summary-container h2 { font-size: 22px; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .summary-container h3 { font-size: 18px; margin-top: 25px; margin-bottom: 10px; color: #a8b2d1; }
+        .summary-container p { margin-bottom: 15px; color: rgba(255,255,255,0.8); }
+        .summary-container blockquote { border-left: 4px solid var(--accent); padding-left: 15px; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 0 10px 10px 0;}
+        .summary-container hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0; }
     </style>
 </head>
 <body>
@@ -156,13 +137,48 @@
                 </span>
             </div>
         </div>
+        
+        <!-- Custom Controls -->
+        <div class="controls-wrapper">
+            <button id="playBtn" class="play-btn">▶</button>
+            <div class="timeline-container" id="timeline">
+                <div class="timeline-bg">
+                    <div class="timeline-progress" id="progress"></div>
+                </div>
+                <div class="hover-tooltip" id="tooltip"></div>
+                <!-- Markers injected via JS -->
+            </div>
+            <div class="time-display" id="time">0:00 / 0:00</div>
+        </div>
 
-        <!-- Custom Audio controls -->
-        <audio id="audioControls" controls>
+        <audio id="audioControls" crossorigin="anonymous">
             <source src="Clap_to_Colab1_Kaspar_Koenig_260616_14_colaboradio_broadcast.mp3" type="audio/mpeg">
             <track id="captionsTrack" src="Clap_to_Colab1_Kaspar_Koenig_260616_14_colaboradio_improved.vtt" kind="captions" srclang="en" label="English" default>
         </audio>
+    </div>
 
+    <!-- Summary Section -->
+    <div class="summary-container">
+        <h1>Show Summary: "Clap to COLAB - Part 1"</h1>
+        <blockquote>
+            In this episode of Clap to COLAB, host Kaspar König dives into the world of "Technobiological Futures," a project initiated by Marc Dusseiller (dusjagr) and the Hackteria network. From the Swiss Alps to Chiang Mai, the guests discuss the intersection of art, technology, and biology. Expect deep philosophical dives into anti-eugenics bioart with "ugly punk babies," the importance of durational workshops over "fast-food" art, and animating children's paintings in Thailand—all wrapped up in Kaspar’s pandemic-survival beats and experimental acoustic recordings from an empty gas sphere.
+        </blockquote>
+        <p><strong>Host:</strong> Kaspar König<br>
+        <strong>Station:</strong> Collaboradio.org (Freie Radios Berlin Brandenburg)</p>
+        <hr>
+        <h2>🎙️ Key Interviews & Segments</h2>
+        
+        <h3>1. Marc Dusseiller (dusjagr): "Make Friends, Not Art"</h3>
+        <p>Marc Dusseiller (also known as dusjagr or Pakde Marcjono) reflects on his 20-year journey as a "workshopologist" bringing people together from different cultural and scientific backgrounds. Rather than "fast-food" one-day events, he advocates for long-duration "CoLabs" (co-laboratories) that foster lasting human connections. His core philosophy for these gatherings is: "Make friends, not art." He emphasizes the increasing merger of technology with the human body and the living environment.</p>
+        
+        <h3>2. Adam Zaretsky: Bioart and the Aesthetics of Otherness</h3>
+        <p>Adam runs a "wet and juicy" bioart lab where he conducts hands-on workshops on genetic modification (often using embryos, germ cells, and "DNA cupcakes"). He uses his work to question the trajectory of biotechnology, specifically targeting the "neo-fascist breeding" and eugenics pursued by transhumanist oligarchs aiming for perfection. Instead, Adam advocates for the aesthetics of non-perfection, otherness, and what he playfully calls "ugly punk babies."</p>
+
+        <h3>3. Kaspar König: Pandemic Beats and Acoustic Discoveries</h3>
+        <p>Between interviews, Kaspar shares his own sonic explorations. He details how he survived the isolation of the Corona pandemic by reversing his daily to-do list: he started every morning at 8:00 AM by making electronic beats on his machines to cheer himself up. He also shares unique acoustic recordings, including a vocal session with Julia Hodl inside a massive, empty gas storage sphere in Schaffhausen, and the sounds of a "grown tube" made from 3D-printed valves and reeds on a long stick.</p>
+
+        <h3>4. Wave (Tomorrow Lab, Chiang Mai)</h3>
+        <p>Wave, an engineering graduate who returned to Chiang Mai, Thailand, shares how he built a local collective called "Tomorrow Lab." He focuses on bringing technology and media art into the local community. Notable projects include animating discarded paintings from young schoolchildren (inspired by digital Van Gogh exhibitions) and "Midnight Ride," a media art integration into the traditional midnight Lantern Festival at the local temple.</p>
     </div>
 
     <script>
@@ -170,13 +186,93 @@
             const audio = document.getElementById('audioControls');
             const transcriptText = document.getElementById('transcriptText');
             const speakerBadge = document.getElementById('speakerBadge');
-            const trackElement = document.getElementById('captionsTrack');
+            
+            const playBtn = document.getElementById('playBtn');
+            const timeline = document.getElementById('timeline');
+            const progress = document.getElementById('progress');
+            const tooltip = document.getElementById('tooltip');
+            const timeDisplay = document.getElementById('time');
 
-            // Force the track to load in the background
-            const track = audio.textTracks[0];
-            if (track) {
-                track.mode = 'hidden';
+            // --- CHAPTER DATA ---
+            const chapters = [
+                { time: 0, label: "Kaspar König: Intro" },
+                { time: 309, label: "Marc Dusseiller: Workshopology" },
+                { time: 979, label: "Adam Zaretsky: Bioart" },
+                { time: 1339, label: "Kaspar König: Acoustic Beats" },
+                { time: 1756, label: "Wave: Tomorrow Lab" }
+            ];
+
+            let duration = 0;
+
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return "0:00";
+                const m = Math.floor(seconds / 60);
+                const s = Math.floor(seconds % 60);
+                return `${m}:${s < 10 ? '0' : ''}${s}`;
             }
+
+            // Setup Custom Timeline & Chapters once metadata is loaded
+            audio.addEventListener('loadedmetadata', () => {
+                duration = audio.duration;
+                timeDisplay.textContent = `0:00 / ${formatTime(duration)}`;
+
+                // Clear old markers if any
+                document.querySelectorAll('.chapter-marker').forEach(el => el.remove());
+
+                // Inject chapter markers
+                chapters.forEach(ch => {
+                    const pct = (ch.time / duration) * 100;
+                    const marker = document.createElement('div');
+                    marker.className = 'chapter-marker';
+                    marker.style.left = `${pct}%`;
+                    
+                    // Hover Tooltip logic
+                    marker.addEventListener('mouseenter', (e) => {
+                        tooltip.textContent = `${formatTime(ch.time)} - ${ch.label}`;
+                        tooltip.style.left = `${pct}%`;
+                        tooltip.style.opacity = '1';
+                    });
+                    
+                    marker.addEventListener('mouseleave', () => {
+                        tooltip.style.opacity = '0';
+                    });
+
+                    timeline.appendChild(marker);
+                });
+            });
+
+            // Play / Pause logic
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '⏸';
+                } else {
+                    audio.pause();
+                    playBtn.textContent = '▶';
+                }
+            });
+
+            // Update Progress Bar
+            audio.addEventListener('timeupdate', () => {
+                if (duration) {
+                    const pct = (audio.currentTime / duration) * 100;
+                    progress.style.width = `${pct}%`;
+                    timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(duration)}`;
+                }
+            });
+
+            // Click to Seek
+            timeline.addEventListener('click', (e) => {
+                if (!duration) return;
+                const rect = timeline.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const pct = clickX / rect.width;
+                audio.currentTime = pct * duration;
+            });
+
+            // --- VTT TRANSCRIPT PARSING ---
+            const track = audio.textTracks[0];
+            if (track) track.mode = 'hidden';
 
             function setupCues() {
                 if (!audio.textTracks[0]) return;
@@ -190,27 +286,31 @@
                         const speakerMatch = text.match(/^\[(.*?)\]:\s*(.*)/);
                         
                         if (speakerMatch) {
-                            speakerBadge.textContent = speakerMatch[1];
-                            speakerBadge.style.opacity = '1';
-                            transcriptText.innerHTML = speakerMatch[2];
+                            let speakerName = speakerMatch[1];
+                            let spokenText = speakerMatch[2];
+
+                            if (speakerName.toLowerCase().includes("music")) {
+                                speakerBadge.textContent = "🎧 Vibes 🎧";
+                                speakerBadge.style.opacity = '1';
+                                transcriptText.innerHTML = '<span class="music-notes">🎶 🎵 📻 🎵 🎶</span>';
+                            } else {
+                                speakerBadge.textContent = speakerName;
+                                speakerBadge.style.opacity = '1';
+                                transcriptText.innerHTML = spokenText;
+                            }
                         } else {
                             speakerBadge.style.opacity = '0';
                             transcriptText.innerHTML = text;
                         }
                     } else {
-                        transcriptText.innerHTML = '...';
+                        transcriptText.innerHTML = '<span class="music-notes">🎵 🎶 🎵</span>';
                         speakerBadge.style.opacity = '0';
                     }
                 });
             }
 
-            // Bind the cues when the metadata loads
             audio.addEventListener('loadedmetadata', setupCues);
-            
-            // If already loaded, run immediately
-            if (audio.readyState >= 1) {
-                setupCues();
-            }
+            if (audio.readyState >= 1) setupCues();
         });
     </script>
 </body>
