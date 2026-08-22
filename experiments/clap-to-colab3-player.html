@@ -119,6 +119,9 @@
         .summary-container h2 { font-size: 22px; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .summary-container h3 { font-size: 18px; margin-top: 25px; margin-bottom: 10px; color: #a8b2d1; }
         .summary-container p { margin-bottom: 15px; color: rgba(255,255,255,0.8); }
+        .summary-container ul { list-style: none; padding: 0; }
+        .summary-container li { margin-bottom: 8px; color: rgba(255,255,255,0.8); }
+        .summary-container li strong { color: var(--accent); }
         .summary-container blockquote { border-left: 4px solid var(--accent); padding-left: 15px; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 0 10px 10px 0;}
         .summary-container hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0; }
     </style>
@@ -194,6 +197,29 @@
 
         <h3>8. Micro-Sound & Resonance (Taras)</h3>
         <p>Taras discusses his journey from acoustic guitar to drone music, abstract photography, and "micro-sound." He describes his highly precise, custom-built instruments (using rubber bands and touch micing) to explore the multi-dimensional nature of tiny resonances.</p>
+
+        <hr>
+        <h2>⏱️ Timeline</h2>
+        <ul>
+            <li><strong>00:00:07</strong> - Kaspar König: Show Intro</li>
+            <li><strong>00:02:21</strong> - Workshop Participants: The "SCHAISS" Workshop (Shit AI)</li>
+            <li><strong>00:05:30</strong> - 🎶 Music (Intermezzo)</li>
+            <li><strong>00:07:25</strong> - Pije: The Klebtop (Anti-Capitalist Hardware)</li>
+            <li><strong>00:08:43</strong> - Gandalf: Sticker Central & Bruschographie</li>
+            <li><strong>00:09:41</strong> - Valentina: Data Art & Democracy</li>
+            <li><strong>00:12:30</strong> - Kaspar König: Introducing Flo</li>
+            <li><strong>00:13:03</strong> - Flo Kaufmann: Bricolage Universal</li>
+            <li><strong>00:19:27</strong> - 🎶 Music (Intermezzo)</li>
+            <li><strong>00:22:17</strong> - Alwin Weber: Simulation of Utopia</li>
+            <li><strong>00:32:13</strong> - 🎶 Music (Intermezzo)</li>
+            <li><strong>00:36:19</strong> - Alwin Weber: Circuit Control Dresden</li>
+            <li><strong>00:44:37</strong> - Kaspar König: Introducing Olsen</li>
+            <li><strong>00:45:03</strong> - Olsen: Automotive Pixel Art & Ghost Sounds</li>
+            <li><strong>00:48:00</strong> - Oli Jäggi: Homemade Origins & Performance Groups</li>
+            <li><strong>00:50:37</strong> - Taras: Micro-Sound & Resonance</li>
+            <li><strong>00:56:35</strong> - Kaspar König: Describing Taras's Instrument</li>
+            <li><strong>00:59:16</strong> - Kaspar König: Show Outro & Credits</li>
+        </ul>
     </div>
 
     <script>
@@ -210,13 +236,24 @@
 
             // --- CHAPTER DATA ---
             const chapters = [
-                { time: 0, label: "Kaspar König: Intro" },
-                { time: 430, label: "Pije: The Klebtop" },
-                { time: 523, label: "Gandalf & Valentina: Robotics" },
+                { time: 7, label: "Kaspar König: Intro" },
+                { time: 141, label: "Participants: SCHAISS Workshop" },
+                { time: 330, label: "🎶 Music (Intermezzo)" },
+                { time: 445, label: "Pije: The Klebtop" },
+                { time: 523, label: "Gandalf: Sticker Central" },
+                { time: 581, label: "Valentina: Data Art" },
+                { time: 750, label: "Kaspar König: Introducing Flo" },
                 { time: 783, label: "Flo Kaufmann: Bricolage" },
-                { time: 2804, label: "Olsen: Automotive Pixel Art" },
+                { time: 1167, label: "🎶 Music (Intermezzo)" },
+                { time: 1337, label: "Alwin Weber: Simulation of Utopia" },
+                { time: 1933, label: "🎶 Music (Intermezzo)" },
+                { time: 2179, label: "Alwin Weber: Circuit Control Dresden" },
+                { time: 2677, label: "Kaspar König: Introducing Olsen" },
+                { time: 2703, label: "Olsen: Automotive Pixel Art" },
                 { time: 2880, label: "Oli Jäggi: Homemade Origins" },
-                { time: 3037, label: "Taras: Micro-Sound" }
+                { time: 3037, label: "Taras: Micro-Sound & Resonance" },
+                { time: 3395, label: "Kaspar König: Taras's Instrument" },
+                { time: 3556, label: "Kaspar König: Outro & Credits" }
             ];
 
             let duration = 0;
