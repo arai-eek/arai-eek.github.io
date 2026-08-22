@@ -27,7 +27,8 @@
             background: linear-gradient(135deg, #0a0a10 0%, #1a1a2e 100%);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             padding: 40px 20px;
         }
@@ -312,6 +313,31 @@
             margin-right: 10px;
             font-variant-numeric: tabular-nums;
         }
+
+        /* Summary Section */
+        .summary-container {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            line-height: 1.6;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .summary-container h1 { font-size: 28px; margin-bottom: 20px; color: var(--accent); }
+        .summary-container h2 { font-size: 22px; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .summary-container h3 { font-size: 18px; margin-top: 25px; margin-bottom: 10px; color: #a8b2d1; }
+        .summary-container p { margin-bottom: 15px; color: rgba(255,255,255,0.8); }
+        .summary-container ul { list-style: none; padding: 0; }
+        .summary-container li { margin-bottom: 8px; color: rgba(255,255,255,0.8); }
+        .summary-container li strong { color: var(--accent); }
+        .summary-container blockquote { border-left: 4px solid var(--accent); padding-left: 15px; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 0 10px 10px 0;}
+        .summary-container hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0; }
     </style>
 </head>
 <body>
@@ -374,6 +400,33 @@
         </div>
     </div>
 
+    <!-- Full Detailed Summary Section -->
+    <div class="summary-container">
+        <h1>Show Summary: "Clap to COLAB - Part 2"</h1>
+        <blockquote>
+            In this second installment of Clap to COLAB, Kaspar König explores the shifting dynamics of transdisciplinary arts and the evolution of 'labs' beyond institutional walls. From running interdisciplinary cafes in Chiang Mai to hauling a complete maker lab in a single suitcase, this episode challenges traditional boundaries of science, art, and education. Featuring wild dives into 'wet and juicy bioart', dye-sensitized solar cells, and experimental Tamagotchi-style AI companions.
+        </blockquote>
+        <p><strong>Host:</strong> Kaspar König<br>
+        <strong>Station:</strong> Collaboradio.org (Freie Radios Berlin Brandenburg)</p>
+        <hr>
+        <h2>🎙️ Key Interviews & Segments</h2>
+        
+        <h3>1. Parang Cafe & Interdisciplinary Arts (Bora Hong)</h3>
+        <p>Bora discusses the concept of running a space—the Parang Cafe in Chiang Mai, Thailand—that acts as a nexus for various disciplines. She highlights the challenge and beauty of acting as an organizer who brings together live music, visual arts, and performance into a single environment. She views her work not just as curation, but as creating entirely new forms of localized education and creative exchange.</p>
+        
+        <h3>2. The Suitcase Lab & Nomadic Maker Culture (Shi Wei Chieh)</h3>
+        <p>Shi Wei Chieh (Abao) describes his journey from interactive design to becoming a nomadic maker traveling the globe. He discusses packing an entire operational laboratory into his suitcase—including tools for e-textiles, DIY laser projection, and producing "dye-sensitized solar cells" using cheap kitchen equipment. His approach redefines the "lab" as a mobile, adaptable, and international community rather than a static physical room.</p>
+        
+        <h3>3. Wet and Juicy Bioart (Adam Zaretsky)</h3>
+        <p>Adam Zaretsky jumps in with a radically different approach to biological arts, playfully asserting that his lab is best at growing "human embryos, DNA, cupcakes, streams... and mutant babies." He critiques the human-centric Enlightenment perspective of perfection, advocating for an artistic style that embraces the "wet and juicy" messiness of new life, bio-matter, and intentional non-perfection.</p>
+        
+        <h3>4. The LLM Wiki & AI Philosophy (Shi Wei Chieh)</h3>
+        <p>The conversation returns to Shi Wei Chieh, who discusses his work on the "LLM Wiki"—an attempt to build a new interface for navigating knowledge. He compares his approach to a Tamagotchi, treating the AI as an interactive companion rather than a sterile search engine. The segment concludes with a philosophical reflection on human cognition and what it means to simulate or build minds outside the human body.</p>
+        
+        <h3>5. Personal Futures & Global Connections (Marc Dusseiller)</h3>
+        <p>In a brief but poignant closing thought, Marc Dusseiller (dusjagr) reflects on his personal future, expressing a deep desire to continue fostering these kinds of global, intercultural connections as the network matures and grows older together.</p>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('audio-player');
@@ -415,7 +468,8 @@
                 return `${m}:${s < 10 ? '0' : ''}${s}`;
             }
 
-            audio.addEventListener('loadedmetadata', () => {
+            function initAudio() {
+                if (duration > 0) return; // Prevent double init
                 duration = audio.duration;
                 timeDisplay.textContent = `0:00 / ${formatTime(duration)}`;
                 
@@ -444,7 +498,13 @@
                     });
                     timelineList.appendChild(li);
                 });
-            });
+            }
+
+            if (audio.readyState >= 1) {
+                initAudio();
+            } else {
+                audio.addEventListener('loadedmetadata', initAudio);
+            }
 
             playBtn.addEventListener('click', () => {
                 if (audio.paused) {
