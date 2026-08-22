@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clap to COLAB - Interactive Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(25, 25, 35, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --accent: #ff007f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #e94560);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .player-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 20px;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .show-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .episode-title {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .host {
+            font-size: 16px;
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        .transcript-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transcript-text {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .speaker-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Hide native video element entirely, we only use it to parse the VTT track behind the scenes */
+        video {
+            display: none;
+        }
+
+        audio {
+            width: 100%;
+            border-radius: 50px;
+            outline: none;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <div class="header">
+            <div class="show-title">Clap to COLAB</div>
+            <div class="episode-title">Part 1: Technobiological Futures</div>
+            <div class="host">Hosted by Kaspar König</div>
+        </div>
+
+        <div class="transcript-box">
+            <div class="speaker-badge" id="speakerBadge">Kaspar König</div>
+            <div class="transcript-text" id="transcriptText">
+                <span style="color: rgba(255,255,255,0.3); font-size: 18px;">
+                    Hit play to start the interactive transcript...
+                </span>
+            </div>
+        </div>
+
+        <!-- Custom Audio controls -->
+        <audio id="audioControls" controls>
+            <source src="Clap_to_Colab1_Kaspar_Koenig_260616_14_colaboradio.mp3" type="audio/mpeg">
+            <track id="captionsTrack" src="Clap_to_Colab1_Kaspar_Koenig_260616_14_colaboradio_improved.vtt" kind="captions" srclang="en" label="English" default>
+        </audio>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('audioControls');
+            const transcriptText = document.getElementById('transcriptText');
+            const speakerBadge = document.getElementById('speakerBadge');
+            const trackElement = document.getElementById('captionsTrack');
+
+            // Force the track to load in the background
+            const track = audio.textTracks[0];
+            if (track) {
+                track.mode = 'hidden';
+            }
+
+            function setupCues() {
+                if (!audio.textTracks[0]) return;
+                const activeTrack = audio.textTracks[0];
+                activeTrack.mode = 'hidden';
+                
+                activeTrack.addEventListener('cuechange', () => {
+                    const activeCues = activeTrack.activeCues;
+                    if (activeCues && activeCues.length > 0) {
+                        let text = activeCues[0].text;
+                        const speakerMatch = text.match(/^\[(.*?)\]:\s*(.*)/);
+                        
+                        if (speakerMatch) {
+                            speakerBadge.textContent = speakerMatch[1];
+                            speakerBadge.style.opacity = '1';
+                            transcriptText.innerHTML = speakerMatch[2];
+                        } else {
+                            speakerBadge.style.opacity = '0';
+                            transcriptText.innerHTML = text;
+                        }
+                    } else {
+                        transcriptText.innerHTML = '...';
+                        speakerBadge.style.opacity = '0';
+                    }
+                });
+            }
+
+            // Bind the cues when the metadata loads
+            audio.addEventListener('loadedmetadata', setupCues);
+            
+            // If already loaded, run immediately
+            if (audio.readyState >= 1) {
+                setupCues();
+            }
+        });
+    </script>
+</body>
+</html>

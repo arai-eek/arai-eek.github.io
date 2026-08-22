@@ -1,0 +1,655 @@
+WEBVTT
+
+00:05.522 --> 00:28.130
+[Kaspar König]: You are listening to Clap to COLAB on Collaboradio.org as a part of Freie Radios Berlin Brandenburg streaming on fr-bb.org and Collaboradio.org transmitting on DHB plus channel 7D in Berlin and channel 12D in Brandenburg.
+
+00:29.651 --> 00:46.699
+[Kaspar König]: In this radio show, sound artist Kaspar König presents interviews and sound recordings from Colab, Technobiological Futures, a project by the artist-run Bio and Hacking Labs, hosted on Hackteria.org and sponsored by Pro Helvetia.
+
+00:47.900 --> 00:59.648
+[Kaspar König]: Listeners are invited into a global network of makers, exploring the collective motivations behind the work and the unique context of this collaborative lab culture.
+
+00:59.648 --> 01:09.195
+[Kaspar König]: The show is edited and produced between Zurich and the Emmental, so expect a few holes here and there, both in the sound and the narrative.
+
+01:10.556 --> 01:19.103
+[Kaspar König]: Alongside uncovering these collaborations, the episode dips into music and sound art, made in the DIWO spirit.
+
+01:19.103 --> 01:20.964
+[Kaspar König]: Do it with others.
+
+01:20.964 --> 01:29.511
+[Kaspar König]: Kaspar König himself, a sound artist, also shares his fascination with unexpected sounds and surprising discoveries from the workshop.
+
+01:29.511 --> 01:29.932
+[Kaspar König]: Enjoy!
+
+02:22.515 --> 02:22.639
+Bye.
+
+03:05.533 --> 03:05.697
+Yeah.
+
+04:50.966 --> 04:55.330
+[Kaspar König]: Dear listeners, I'm going to introduce you to Marc Dusseiller.
+
+04:55.330 --> 05:02.856
+[Kaspar König]: Marc is, I would say the initiator of CoLabs and I would love to ask him some questions.
+
+05:02.856 --> 05:04.317
+[Kaspar König]: Mark, are you ready for this?
+
+05:04.317 --> 05:06.439
+[Kaspar König]: Yes, I am.
+
+05:06.439 --> 05:07.640
+[Kaspar König]: Always been.
+
+05:07.640 --> 05:09.382
+[Kaspar König]: Yeah, tell me a little bit about you.
+
+05:09.382 --> 05:11.884
+[Kaspar König]: Can you tell your own name maybe and introduce yourself?
+
+05:12.343 --> 05:39.420
+[Marc Dusseiller aka dusjagr]: yeah um yeah my name is Marc you introduce me with my full name Marc Dusseiller but i have many names they also call me dusjagr on the internet um other people call me Pakde Marcjono or now since i was in thailand they also call me Lung Ma which means uncle mark i just turned 50 recently my hair turned gray so the way i'm perceived now on my international travels is more like the uncle and not kind of as a
+
+05:40.255 --> 05:42.896
+[Marc Dusseiller aka dusjagr]: other young boy and crazy traveler anymore.
+
+05:42.896 --> 05:47.038
+[Marc Dusseiller aka dusjagr]: But yeah, I'm also enjoying this role.
+
+05:47.038 --> 06:06.185
+[Marc Dusseiller aka dusjagr]: I have a background in science, but I've been kind of really following this interface of art, technology, science and society on a very global scale the last, I would say almost 20 years already, that I've been interacting with people in various parts of the world, bringing people together from different backgrounds.
+
+06:08.565 --> 06:14.768
+[Marc Dusseiller aka dusjagr]: for example, art and science, but also different backgrounds from different cultural environments.
+
+06:14.768 --> 06:17.670
+[Marc Dusseiller aka dusjagr]: I called myself a workshopologist.
+
+06:17.670 --> 06:22.853
+[Marc Dusseiller aka dusjagr]: We came up with this word long time ago, also in the context of Hackteria.
+
+06:22.853 --> 06:34.019
+[Marc Dusseiller aka dusjagr]: We turned everything into a workshop, and we then also termed this word workshopology, like reflecting on how we share knowledge through kind of workshops.
+
+06:34.019 --> 06:37.000
+[Marc Dusseiller aka dusjagr]: And then I started to call myself a workshopologist.
+
+06:39.537 --> 06:58.682
+[Marc Dusseiller aka dusjagr]: Besides organizing events and organizing spaces here in Zurich, I think my main means of cultural output is workshops, either as organizing workshops for others with others or also doing the workshops myself.
+
+06:58.682 --> 06:59.562
+[Marc Dusseiller aka dusjagr]: Yeah, that's who I am.
+
+07:00.503 --> 07:02.144
+[Kaspar König]: Well, thank you so much.
+
+07:02.144 --> 07:17.054
+[Kaspar König]: Because I believe you have an incredible interest in bringing these people together on a purpose-based idea, but basically it's deeper.
+
+07:17.054 --> 07:22.357
+[Kaspar König]: It's about you want to find that deeper connection over time, or am I wrong?
+
+07:23.505 --> 07:27.009
+[Marc Dusseiller aka dusjagr]: Good point.
+
+07:27.009 --> 07:39.043
+[Marc Dusseiller aka dusjagr]: On one hand I'm kind of a bit part of the internet, the early internet generation kind of using digital tools to share knowledge, like call it kind of stuff like Wikipedia has influenced me in my young years.
+
+07:40.112 --> 07:50.314
+[Marc Dusseiller aka dusjagr]: that we can share digital knowledge, but then the last years I'm really into a kind of a human in-person interaction much more and also more durational.
+
+07:50.314 --> 07:57.036
+[Marc Dusseiller aka dusjagr]: A lot of my collaborations and partnerships also turned into friendships long-term.
+
+07:57.036 --> 08:06.938
+[Marc Dusseiller aka dusjagr]: So I've been working with the same groups and the same individuals, many of them for long-term and also these workshop situations or gathering situations
+
+08:08.172 --> 08:18.377
+[Marc Dusseiller aka dusjagr]: I really like it when they're like durational long, like so you can really make human connections over several weeks maybe and pick them up again years later.
+
+08:18.377 --> 08:26.501
+[Marc Dusseiller aka dusjagr]: You are an example of the first workshop we ever did with Hackteria was in Berlin and you were my collaborator.
+
+08:26.501 --> 08:29.743
+[Marc Dusseiller aka dusjagr]: I think it was just when we first got to know each other here in Zurich.
+
+08:30.442 --> 08:33.284
+[Marc Dusseiller aka dusjagr]: And it's nice that we still collaborate.
+
+08:33.284 --> 08:36.587
+[Marc Dusseiller aka dusjagr]: And that was a workshop on kind of building microscopes.
+
+08:36.587 --> 08:43.873
+[Marc Dusseiller aka dusjagr]: And you joined to also sonify those microscopic environments with microphones.
+
+08:43.873 --> 08:46.515
+[Marc Dusseiller aka dusjagr]: And it was also a one week workshop.
+
+08:46.515 --> 08:48.616
+[Marc Dusseiller aka dusjagr]: It was not like a one day kind of fast food.
+
+08:48.616 --> 08:54.081
+[Marc Dusseiller aka dusjagr]: It was also experimenting together, having an interaction with other people from
+
+08:55.123 --> 08:57.630
+[Marc Dusseiller aka dusjagr]: from the city yeah and a bit of a joke also
+
+09:04.945 --> 09:08.686
+[Marc Dusseiller aka dusjagr]: that we picked up a few years ago is like make friends, not art.
+
+09:08.686 --> 09:13.587
+[Marc Dusseiller aka dusjagr]: So organizing, we call it co-lapse, but the full name is co-laboratories.
+
+09:13.587 --> 09:31.392
+[Marc Dusseiller aka dusjagr]: You can also call it group residences, bringing people together for several weeks to also, as I said, beyond just like developing a new project or finishing an art piece, it's really also making friends that hopefully then collaborate years later again.
+
+09:58.507 --> 09:58.527
+[Music Playing]: ... ...
+
+10:46.085 --> 10:46.146
+[Music Playing]: you
+
+11:26.031 --> 11:26.191
+[Music Playing]: of the
+
+11:55.205 --> 11:55.486
+Let's go.
+
+12:41.672 --> 12:42.095
+Oh
+
+13:19.212 --> 13:41.045
+[Kaspar König]: That might explain also the title of the project, Technobiological Futures.
+
+13:42.028 --> 13:44.251
+[Kaspar König]: the collaboration in that sense.
+
+13:44.251 --> 13:48.617
+[Kaspar König]: Will you relate that to this?
+
+13:48.617 --> 13:55.187
+[Marc Dusseiller aka dusjagr]: Hackteria and also personally I've been always interested in this interface of technology and the living.
+
+13:57.129 --> 14:11.617
+[Marc Dusseiller aka dusjagr]: bridging brains to computers with some implanted microchips or my science fiction kind of visions and also building microscopes to look at worms or connecting human beings to technologies.
+
+14:11.617 --> 14:20.142
+[Marc Dusseiller aka dusjagr]: So it's also something I think the last whatever 10 years it's merging more and more
+
+14:20.718 --> 14:47.891
+[Marc Dusseiller aka dusjagr]: I think technology becomes really part of the body about human life, we're merging, you know, the whole planet is like kind of technologically influenced by human innovations and we want to talk about this interface of technology and living and we also want to speculate together in these interdisciplinary groups what kind of future we want in this merging of technology and the living
+
+14:49.482 --> 14:51.963
+[Marc Dusseiller aka dusjagr]: So that was kind of the title.
+
+14:51.963 --> 14:55.304
+[Marc Dusseiller aka dusjagr]: So we're not interested in purely screen-based digital art.
+
+14:55.304 --> 15:01.227
+[Marc Dusseiller aka dusjagr]: We're also not like just farmers that kind of make some nice gardens in the neighborhood.
+
+15:01.227 --> 15:14.392
+[Marc Dusseiller aka dusjagr]: So we want to kind of critically and creatively look at this interface of technology and biology from the laboratory, but also from the farm and also play with technologies and computers at the same time.
+
+15:52.935 --> 15:54.836
+[Kaspar König]: Clap to COLAB.
+
+15:54.836 --> 16:06.919
+[Kaspar König]: It's a radio show that documents the beautiful network Collab, Technobiological Futures project initiated by Mark Dusey, that we just heard in the earlier part of the show.
+
+16:06.919 --> 16:13.902
+[Kaspar König]: And actually we're going to continue to listen to an interview with Adam Zuretsky, part of their network as well.
+
+16:13.902 --> 16:19.403
+[Kaspar König]: And he is telling you about the Beak Lab.
+
+16:19.403 --> 16:20.624
+[Adam Zaretsky]: I am Adam Zuretsky.
+
+16:21.856 --> 16:25.097
+[Adam Zaretsky]: The core of my lab is wet and juicy.
+
+16:25.097 --> 16:51.128
+[Adam Zaretsky]: I prefer to try to bring the bioart into the biotechnological futures by doing workshops, hands-on workshops, where people feel and experience the danger and beauty of new biotechnologies, especially leading into genetic modification of the human and the animal and the non-human.
+
+16:52.698 --> 16:58.282
+[Adam Zaretsky]: But also not just genetically modifying, but thinking, why are we doing this?
+
+16:58.282 --> 17:08.831
+[Adam Zaretsky]: What is the goal and how close to extinction velocity are we getting through engineering of life?
+
+17:08.831 --> 17:17.038
+[Adam Zaretsky]: According to some perceived need or stranger yet, just stylistic intention.
+
+18:59.068 --> 19:02.730
+[Adam Zaretsky]: Oh, good question.
+
+19:02.730 --> 19:15.398
+[Adam Zaretsky]: Best growing things in my lab are embryos, human embryos, DNA cupcakes, strange new human bodies.
+
+19:15.398 --> 19:27.965
+[Adam Zaretsky]: We're working best at tissue culture or organ culture or incubation and alteration of embryonic
+
+19:29.070 --> 19:40.920
+[Adam Zaretsky]: Goo, germ cells, sperm, eggs, all of these grow really well, even full term babies sometimes mutant babies grow really well in my lab.
+
+20:30.662 --> 20:30.723
+[Music Playing]: you
+
+21:02.044 --> 21:02.104
+... ... ... ...
+
+21:47.725 --> 21:56.451
+[Kaspar König]: Right now we listened to a recording very recently recorded in a gas sphere.
+
+21:56.451 --> 21:58.512
+[Kaspar König]: Gaswerk Areal Schaffhausen.
+
+21:58.512 --> 22:03.115
+[Kaspar König]: There is a beautiful building which is like a round sphere.
+
+22:03.115 --> 22:09.520
+[Kaspar König]: It's a gas storage that became empty and is now open for artistic research basically.
+
+22:10.300 --> 22:17.667
+[Kaspar König]: So that's what we listened to just earlier, when Julia Hodl was singing with me in this beautiful building.
+
+22:19.916 --> 22:49.503
+[Kaspar König]: other songs that you will listen to in this broadcast do works made in the pandemic times and actually I was working every morning on some beats to cheer me up it helped a lot I have turned around my to-do list from making music in the end of the day chilling it I started it in the morning so at eight o'clock first thing I did was putting on all these beautiful machines that
+
+22:50.143 --> 22:52.044
+[Kaspar König]: are standing also around me here.
+
+23:36.087 --> 23:37.448
+[Music Playing]: Music playing
+
+25:14.323 --> 25:26.055
+[Kaspar König]: So if you are wondering what music and sound pieces in between played in the show, it's basically part of the archive that I'm running on my own work.
+
+25:26.055 --> 25:30.840
+[Kaspar König]: Partly of course concerts from the collab and all kind of concerts.
+
+26:54.997 --> 26:55.119
+Yeah.
+
+28:26.723 --> 28:33.246
+[Kaspar König]: So you hear me good because I had some troubles with Luis in understanding more or less from my side.
+
+28:33.246 --> 28:37.227
+[Kaspar König]: I thought I'm not able to be understood but you are listening great.
+
+28:37.227 --> 28:40.089
+[Kaspar König]: Good.
+
+28:40.089 --> 28:40.429
+[Kaspar König]: Perfect.
+
+28:41.463 --> 28:51.152
+[Kaspar König]: So I'm going to start with some little small talk, just to explain what is going to happen with the material that we are making right now.
+
+28:51.152 --> 29:01.201
+[Kaspar König]: And maybe you want to ask some other stuff beforehand, otherwise I would ask you the three questions I sent out several times already.
+
+29:01.741 --> 29:02.602
+[Kaspar König]: Very easy.
+
+29:02.602 --> 29:04.803
+[Kaspar König]: The question of who you are.
+
+29:04.803 --> 29:06.844
+[Kaspar König]: What is the core of your lab?
+
+29:06.844 --> 29:08.365
+[Kaspar König]: That is one question.
+
+29:08.365 --> 29:12.148
+[Kaspar König]: And then the second question would be what grows best in your lab.
+
+29:12.148 --> 29:16.811
+[Kaspar König]: And the third question would be what do you think is your technological future?
+
+29:16.811 --> 29:20.193
+[Wave]: So my name is Wave, graduate from engineering school.
+
+29:20.193 --> 29:25.096
+[Wave]: So I'm growing up in the city of Hosheng Mai, which is in the north of Thailand, where we are now.
+
+29:27.866 --> 29:32.529
+[Wave]: Last five years, I came back to Chiang Mai.
+
+29:32.529 --> 29:35.451
+[Wave]: In Thailand, you might have heard of Bangkok.
+
+29:35.451 --> 29:37.812
+[Wave]: Bangkok is the capital city and it has everything.
+
+29:37.812 --> 29:41.154
+[Wave]: It has the big city.
+
+29:41.154 --> 29:45.576
+[Wave]: I also graduated from school in Bangkok.
+
+29:45.576 --> 29:53.081
+[Wave]: But the last five years, I decided to come back to Chiang Mai and try to do something here.
+
+29:53.843 --> 30:00.085
+[Wave]: As for backup engineer, like it's nothing to do to do with art, but I like like describe like a creative thing.
+
+30:00.085 --> 30:04.767
+[Wave]: So so I try to get involved on on this community.
+
+30:04.767 --> 30:11.310
+[Wave]: And that time I think like it's starting up like kind of like interactive, interactive stuff or like technology and art stuff.
+
+30:11.310 --> 30:16.892
+[Wave]: So that's that's that's like, that's how it happened to the communities.
+
+30:16.892 --> 30:22.734
+[Wave]: And then some of my friends that I just met like during during those time we
+
+30:24.009 --> 30:28.394
+[Wave]: We tried to do the exhibition in one of the Chiang Mai Design Weeks.
+
+30:28.394 --> 30:33.420
+[Wave]: We want to be part of it, but don't know what to do.
+
+30:33.420 --> 30:35.502
+[Wave]: So I'm a little group of friends.
+
+30:35.502 --> 30:39.006
+[Wave]: I think that time it was only three Chiang Mai local artists.
+
+30:39.006 --> 30:40.087
+[Wave]: We did the exhibition
+
+30:41.028 --> 31:03.978
+[Wave]: like we use the the painting from the kids like from like the very young kids like they they do the painting for like the painting competition something like that and they're like after the competition the school like kind of like they keep it but they don't like exhibit it but they have like just throw it away you know like the school painting competition so I discovered this kind of like a
+
+31:04.738 --> 31:08.782
+[Wave]: student club and then like I try to get their painting to become alive.
+
+31:08.782 --> 31:16.709
+[Wave]: So at that time it's a lot of some exhibitions like this, like Van Gogh exhibition, Da Vinci exhibition that they use like their painting from Van Gogh.
+
+31:17.428 --> 31:22.431
+[Wave]: Da Vinci or like Monet and to create kind of like this animated stuff, right?
+
+31:22.431 --> 31:25.733
+[Wave]: It's kind of like a five years ago thing.
+
+31:25.733 --> 31:41.241
+[Wave]: I try to do the same things but with like local artists, local kids to kind of like make the point that if we can do with like the big artists who passed away like 100 years ago, we can also do with the kids, something like that.
+
+31:41.241 --> 31:42.601
+[Wave]: And that time we need a name so
+
+31:43.883 --> 31:45.888
+[Wave]: I'm not really good at the name of the group.
+
+31:45.888 --> 31:49.336
+[Wave]: So if I'm up with the name tomorrow.
+
+31:50.372 --> 31:53.313
+[Wave]: Tomorrow is Chiang Mai that time, I think.
+
+31:53.313 --> 32:00.337
+[Wave]: And then when the time passes, we get more projects and then we're turning into just Tomorrow Lab.
+
+32:00.337 --> 32:06.360
+[Wave]: So this is like our collective for Tomorrow Lab.
+
+32:06.360 --> 32:15.064
+[Wave]: Starting from technology and art and we try to explore the futures of things in the locals in this area.
+
+32:15.064 --> 32:16.965
+[Wave]: That makes me like working with the communities.
+
+32:17.658 --> 32:24.101
+[Wave]: the annual event, like the legula event to do like a media art in the temple every year on November.
+
+32:24.101 --> 32:25.481
+[Wave]: It's called Midnight Ride.
+
+32:25.481 --> 32:40.748
+[Wave]: So we build on top of the local tradition that they have the belief that at the midnight of the Lantern Festival, the community can get together and cook a festival for the young generation can be involved.
+
+32:51.608 --> 32:51.668
+[Wave]: you
+
+33:27.401 --> 33:27.601
+[Wave]: Hmm.
+
+34:12.398 --> 34:35.962
+[Kaspar König]: if you are wondering what you're listening to this is Clap to COLAB on Collab Radio and we are actually transmitting from Zurich where we are part of the Freie Radius Berlin Brandenburg and we are streaming on fr-bb.org and of course on Collab Radio.org
+
+34:36.542 --> 34:47.589
+[Adam Zaretsky]: Oh, the most important thing is that we talk about the aesthetics and the ethics of redesigning organisms, in particular, human gene editing.
+
+34:47.589 --> 34:49.911
+[Adam Zaretsky]: And when we talk about the ethics,
+
+34:50.907 --> 35:01.151
+[Adam Zaretsky]: In the terms of aesthetics, we run automatically into the horrors of eugenics, which is trying to decide who is best and who should die.
+
+35:01.151 --> 35:11.135
+[Adam Zaretsky]: And right now we have all these transhumanist oligarchs that want to make the perfect babies and make these perfect babies outlive all the other babies and replace them with the
+
+35:12.305 --> 35:14.526
+[Adam Zaretsky]: usually the sperm of the oligarchs.
+
+35:14.526 --> 35:16.426
+[Adam Zaretsky]: But this is a founder effect.
+
+35:16.426 --> 35:19.387
+[Adam Zaretsky]: This is kind of like a heritage act.
+
+35:19.387 --> 35:24.928
+[Adam Zaretsky]: But I'm not into this sort of neo-fascist breeding.
+
+35:24.928 --> 35:41.553
+[Adam Zaretsky]: And so I'm interested in the aesthetics of otherness, the aesthetics of non-perfection, and in particular, the aesthetics of your even ugly punk babies.
+
+35:43.755 --> 35:45.036
+[Music playing]: Music playing
+
+36:26.981 --> 36:28.562
+[Music Playing]: Music playing
+
+36:51.157 --> 36:51.437
+Music playing
+
+37:35.766 --> 37:43.571
+[Adam Zaretsky]: So what is the style possibility if we are engineering for something other than perfection?
+
+37:43.571 --> 37:47.694
+[Adam Zaretsky]: If we include the rest of the art world since or before
+
+37:50.701 --> 38:14.759
+[Adam Zaretsky]: realism of the Enlightenment, like a humanism of Michelangelo, and actually look backwards and forwards in time from contemporary art and from all of the human myths that are ignored in the name of the human being, the measure of all things, which is bullshit.
+
+38:14.759 --> 38:16.881
+[Adam Zaretsky]: So we try our best to make
+
+38:19.140 --> 38:23.082
+[Adam Zaretsky]: New life that has a style that is not been all.
+
+39:11.837 --> 39:11.918
+[Music Playing]: you
+
+39:59.245 --> 40:01.228
+[Music Playing]: Music playing
+
+40:28.220 --> 40:30.101
+[Music Playing]: Music playing
+
+41:00.395 --> 41:02.436
+[Music Playing]: Music playing
+
+41:31.845 --> 41:37.287
+[Music Playing]: Music playing
+
+42:07.505 --> 42:07.725
+[Music Playing]: you
+
+42:40.236 --> 42:41.117
+[Music Playing]: Music playing
+
+43:24.148 --> 43:24.528
+[Music Playing]: I'm ready.
+
+44:08.374 --> 44:08.574
+[Music Playing]: you
+
+44:43.953 --> 44:50.921
+[Kaspar König]: You're transmitting on the DAB plus channel 7D for Berlin and the channel 12D for Brandenburg.
+
+44:50.921 --> 45:02.755
+[Kaspar König]: In this radio show I'm going to let you listen to some of my own recordings and recordings totally connected with the project that I'm documenting in this podcast.
+
+45:03.297 --> 45:21.262
+[Kaspar König]: We are part of Colab Technobiological Futures, a project that was initiated by Marc Dusseiller and the group around Hackteria and all the friends in the bigger society of mechatronic art, which is based in Zurich as well.
+
+45:21.262 --> 45:25.683
+[Kaspar König]: What is important when you think about shaping the future?
+
+45:28.002 --> 45:29.844
+[Marc Dusseiller aka dusjagr]: That's a difficult question.
+
+45:29.844 --> 45:31.626
+[Marc Dusseiller aka dusjagr]: My own personal future.
+
+45:31.626 --> 45:35.450
+[Marc Dusseiller aka dusjagr]: I'm in a phase in my life that somehow I'm not so young anymore.
+
+45:35.450 --> 45:44.259
+[Marc Dusseiller aka dusjagr]: So in fact, I do hope to continue this kind of global and intercultural connections and kind of
+
+45:47.385 --> 45:56.648
+[Marc Dusseiller aka dusjagr]: hopefully continue also that these connections can sustainably be kept alive.
+
+45:56.648 --> 46:06.212
+[Marc Dusseiller aka dusjagr]: What I had always had opportunities to spend months in Indonesia to teach in an art school in India for also several months like a long time ago.
+
+46:06.212 --> 46:14.195
+[Marc Dusseiller aka dusjagr]: I really hope now with the networks and the experiences I built up over the years that I can give similar opportunities to other people.
+
+46:15.396 --> 46:17.257
+[Marc Dusseiller aka dusjagr]: It has shaped me as a human being a lot.
+
+46:17.257 --> 46:22.098
+[Marc Dusseiller aka dusjagr]: It has shaped me as someone from originally from Switzerland, how I look at the world.
+
+46:22.098 --> 46:42.985
+[Marc Dusseiller aka dusjagr]: So I kind of hope that now I can also offer similar experiences to other younger people and hopefully hosting people also here in Switzerland to give them opportunities to check a bit what we do here and like this also kind of
+
+46:44.008 --> 46:49.069
+[Marc Dusseiller aka dusjagr]: continue these collaborations we have been setting up over the last couple of years with the Hackteria Network.
+
+47:15.688 --> 47:22.413
+[Music playing]: These guys love being here.
+
+48:02.217 --> 48:02.278
+you
+
+48:33.928 --> 48:45.318
+[Music Playing]: I don't know what to say.
+
+49:03.270 --> 49:03.391
+[Music Playing]: you
+
+49:54.715 --> 49:54.836
+Oh
+
+50:37.345 --> 50:39.607
+[Adam Zaretsky]: All right.
+
+50:39.607 --> 50:41.748
+[Adam Zaretsky]: Keep me on the list for when everyone's coming.
+
+50:41.748 --> 50:43.069
+[Adam Zaretsky]: I want to be there to see them too.
+
+56:07.528 --> 56:13.490
+[Kaspar König]: I'm going to take you to this last experiment, grown tubes.
+
+56:13.490 --> 56:14.790
+[Kaspar König]: Maybe you know them.
+
+56:14.790 --> 56:17.811
+[Kaspar König]: As soon as you hear them, you recognize them probably.
+
+56:17.811 --> 56:29.654
+[Kaspar König]: I made a long stick with several different 3D printed valves and reeds that are actually working quite well.
+
+56:29.654 --> 56:32.054
+[Music Playing]: You know these.
+
+56:32.054 --> 56:34.355
+[Kaspar König]: And they are so beautiful.
+
+56:34.355 --> 56:35.335
+[Kaspar König]: So I thought I can
+
+56:41.423 --> 56:43.004
+[Kaspar König]: how to make one.
+
+56:43.004 --> 56:43.485
+[Kaspar König]: Let's listen.
+
+57:13.102 --> 57:25.843
+[Kaspar König]: that's it i hope you enjoyed it you can find the peace you've been listening to
+
+57:26.635 --> 57:44.967
+[Kaspar König]: Clap to COLAB, a broadcast brought to you by Kasper König for Freie Radius Berlin, Brandenburg and of course Collab Radio that invited me to make a new show on actually the collab project that I've been introducing at this last hour.
+
+57:45.896 --> 58:03.202
+[Kaspar König]: I hope you enjoyed the interviews of all the members and there's gonna be many many more in the next episodes and actually there's gonna be some live gig in Zurich for this as well.
+
+58:03.202 --> 58:09.724
+[Kaspar König]: I'm gonna announce that later on in the next show but for now I would love to thank you for listening.
+
+58:09.724 --> 58:12.145
+[Kaspar König]: You've been also listening to my archive
+
+58:12.745 --> 58:31.278
+[Kaspar König]: there has been some samples of newer work like gravitational waves that have been sonifying with some simple sonification methods and there is listen to colors samples that are generated by the webcam basically imagery into sound
+
+58:32.238 --> 58:46.265
+[Kaspar König]: and what I also would love to stress out is that there is a lot of beats coming in since the corona pandemic that I've suffered from just like all the others.
+
+58:46.265 --> 58:55.990
+[Kaspar König]: My little solution to keep me cheered up was actually making some beats in the morning and that's what we've been listening to in this program.
+
+58:56.810 --> 58:57.871
+[Kaspar König]: I hope you enjoyed it.
+
+58:57.871 --> 59:04.117
+[Kaspar König]: I hope you do it with others because that's a part of the topic in our collab network.
+
+59:04.117 --> 59:12.384
+[Kaspar König]: How can we engage and how can we really relate to other people even if they are on the other side of the world.
+
+59:12.384 --> 59:22.734
+[Kaspar König]: But if curiosity meets, why not let's deep dive and check it out in a next workshop and in next transmission on collab radio.
+
+59:23.514 --> 59:24.795
+[Kaspar König]: Thank you for listening.
+
+59:24.795 --> 59:29.639
+[Kaspar König]: Next month, two o'clock, we are back on the Tuesday.
+
+59:29.639 --> 59:36.285
+[Kaspar König]: DAB Plus, Kanal 7D Berlin and Kanal 12D Brandenburg.
+
+59:36.285 --> 59:38.286
+[Kaspar König]: Ich danke euch fürs zuhören.
+
+59:38.286 --> 59:39.387
+[Kaspar König]: Thank you for listening.
+
+59:39.387 --> 59:39.708
+[Kaspar König]: Bye bye.
