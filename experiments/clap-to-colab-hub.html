@@ -64,10 +64,10 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
         }
 
         .episode-card {
@@ -118,13 +118,22 @@
             font-size: 24px;
             font-weight: 600;
             line-height: 1.3;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
+        }
+
+        .ep-featuring {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
         .ep-desc {
             font-size: 14px;
             color: var(--text-dim);
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
         .badge {
@@ -142,6 +151,28 @@
         .badge-pending { background: rgba(255, 215, 0, 0.2); color: #ffd700; }
         .badge-locked { background: rgba(255, 255, 255, 0.1); color: var(--text-dim); }
 
+        /* Production Info Section */
+        .production-info {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 60px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .production-info h3 { color: #fff; font-size: 18px; margin-bottom: 15px; }
+        .production-info p { margin-bottom: 12px; }
+        .production-info h4 { color: var(--accent); font-size: 15px; margin-top: 20px; margin-bottom: 10px; }
+        .production-info ul { list-style: none; padding-left: 0; }
+        .production-info li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+        .production-info li::before { content: '•'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+        .production-info strong { color: #fff; }
+
     </style>
 </head>
 <body>
@@ -158,7 +189,9 @@
             <div>
                 <div class="ep-number">Part 1</div>
                 <div class="ep-title">Technobiological Futures</div>
-                <div class="ep-desc">A deep dive into bioart, ugly punk babies, and long-duration workshopology with Marc Dusseiller, Adam Zaretsky, and Wave.</div>
+                <div class="ep-featuring">Featuring Marc Dusseiller, Adam Zaretsky & Wave</div>
+                <div class="ep-desc">In this episode of Clap to COLAB, host Kaspar König dives into the world of "Technobiological Futures," a project initiated by Marc Dusseiller (dusjagr) and the Hackteria network. From the Swiss Alps to Chiang Mai, the guests discuss the intersection of art, technology, and biology.</div>
+                <div class="ep-desc">Expect deep philosophical dives into anti-eugenics bioart with "ugly punk babies," the importance of durational workshops over "fast-food" art, and animating children's paintings in Thailand—all wrapped up in Kaspar’s pandemic-survival beats and experimental acoustic recordings from an empty gas sphere.</div>
             </div>
             <div>
                 <span class="badge badge-active">▶ Listen Now</span>
@@ -170,7 +203,9 @@
             <div>
                 <div class="ep-number">Part 2</div>
                 <div class="ep-title">Transdisciplinary Arts & Future Labs</div>
-                <div class="ep-desc">Bora Hong on Parang Cafe, Shi Wei Jie's nomadic labs, and Adam Zaretsky's wet bioart.</div>
+                <div class="ep-featuring">Featuring Bora Hong, Shi Wei Chieh, Adam Zaretsky & Marc Dusseiller</div>
+                <div class="ep-desc">In this second installment of Clap to COLAB, Kaspar König explores the shifting dynamics of transdisciplinary arts and the evolution of 'labs' beyond institutional walls.</div>
+                <div class="ep-desc">From running interdisciplinary cafes in Chiang Mai to hauling a complete maker lab in a single suitcase, this episode challenges traditional boundaries of science, art, and education. Featuring wild dives into 'wet and juicy bioart', dye-sensitized solar cells, and experimental Tamagotchi-style AI companions.</div>
             </div>
             <div>
                 <span class="badge badge-active">▶ Listen Now</span>
@@ -182,7 +217,9 @@
             <div>
                 <div class="ep-number">Part 3</div>
                 <div class="ep-title">Homemade Festival</div>
-                <div class="ep-desc">Journey to the Swiss Alps for a hacker's utopia. Featuring the "Klebtop", Shit AI, Bricolage, and automotive pixel art.</div>
+                <div class="ep-featuring">Featuring Pije, Gandalf, Valentina, Flo Kaufmann, Alwin Weber, Olsen, Oli Jäggi & Taras</div>
+                <div class="ep-desc">In this installment of Clap to COLAB, Kaspar König takes us deep into the Swiss Alps for the 21st annual Homemade Festival—a temporary hacker's utopia hosted by the Swiss Mechatronic Art Society (SGMK).</div>
+                <div class="ep-desc">From anxious debates on AI surveillance in corporate culture to anti-capitalist 'Klebtops' and cross-stitched automotive pixel art, this episode captures the raw, unfiltered 'Do It With Others' (DIWO) spirit of a community dedicated to turning discarded technology into chaotic, beautiful art.</div>
             </div>
             <div>
                 <span class="badge badge-active">▶ Listen Now</span>
@@ -225,6 +262,20 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Production Process Info -->
+    <div class="production-info">
+        <h3>🤖 About the Production Process</h3>
+        <p>This project is an exploration of human-AI collaboration. The original radio broadcasts (approx. 3 hours of audio) were automatically transcribed using a locally-run <strong>WhisperX</strong> model to preserve data privacy.</p>
+        <p>Those raw transcripts were then processed by <strong>Google's Gemini AI</strong> to extract the chapter timelines, resolve speaker identities, and generate the episode summaries. Finally, the entire web experience—from the custom audio players to the 'glassmorphism' UI design—was collaboratively coded using the <strong>Antigravity AI coding assistant</strong> pair-programming with the creator.</p>
+        
+        <h4>Approximate Compute & Ecological Footprint:</h4>
+        <ul>
+            <li><strong>Token Usage:</strong> ~1,000,000 input tokens (due to the AI repeatedly reading 45,000+ words of transcripts in context) and ~30,000 output tokens (writing the code, HTML, and summaries).</li>
+            <li><strong>Estimated Compute Cost:</strong> ~$4.00 USD (equivalent API cost for the LLM).</li>
+            <li><strong>Energy Consumption:</strong> ~0.3 kWh (Local GPU transcription + Cloud AI inference) — <em>Roughly equivalent to boiling a kettle of water 3 times.</em></li>
+        </ul>
     </div>
 
 </body>

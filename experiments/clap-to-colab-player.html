@@ -338,6 +338,29 @@
         .summary-container li strong { color: var(--accent); }
         .summary-container blockquote { border-left: 4px solid var(--accent); padding-left: 15px; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 0 10px 10px 0;}
         .summary-container hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0; }
+
+        /* Production Info Section */
+        .production-info {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+            margin-bottom: 60px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .production-info h3 { color: #fff; font-size: 18px; margin-bottom: 15px; }
+        .production-info p { margin-bottom: 12px; }
+        .production-info h4 { color: var(--accent); font-size: 15px; margin-top: 20px; margin-bottom: 10px; }
+        .production-info ul { list-style: none; padding-left: 0; }
+        .production-info li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+        .production-info li::before { content: '•'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+        .production-info strong { color: #fff; }
     </style>
 </head>
 <body>
@@ -422,6 +445,20 @@
 
         <h3>4. Wave (Tomorrow Lab, Chiang Mai)</h3>
         <p>Wave, an engineering graduate who returned to Chiang Mai, Thailand, shares how he built a local collective called "Tomorrow Lab." He focuses on bringing technology and media art into the local community. Notable projects include animating discarded paintings from young schoolchildren (inspired by digital Van Gogh exhibitions) and "Midnight Ride," a media art integration into the traditional midnight Lantern Festival at the local temple.</p>
+    </div>
+
+    <!-- Production Process Info -->
+    <div class="production-info">
+        <h3>🤖 About the Production Process</h3>
+        <p>This project is an exploration of human-AI collaboration. The original radio broadcasts (approx. 3 hours of audio) were automatically transcribed using a locally-run <strong>WhisperX</strong> model to preserve data privacy.</p>
+        <p>Those raw transcripts were then processed by <strong>Google's Gemini AI</strong> to extract the chapter timelines, resolve speaker identities, and generate the episode summaries. Finally, the entire web experience—from the custom audio players to the 'glassmorphism' UI design—was collaboratively coded using the <strong>Antigravity AI coding assistant</strong> pair-programming with the creator.</p>
+        
+        <h4>Approximate Compute & Ecological Footprint:</h4>
+        <ul>
+            <li><strong>Token Usage:</strong> ~1,000,000 input tokens (due to the AI repeatedly reading 45,000+ words of transcripts in context) and ~30,000 output tokens (writing the code, HTML, and summaries).</li>
+            <li><strong>Estimated Compute Cost:</strong> ~$4.00 USD (equivalent API cost for the LLM).</li>
+            <li><strong>Energy Consumption:</strong> ~0.3 kWh (Local GPU transcription + Cloud AI inference) — <em>Roughly equivalent to boiling a kettle of water 3 times.</em></li>
+        </ul>
     </div>
 
     <script>
