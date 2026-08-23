@@ -3,251 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clap to COLAB - Mini Player</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --glass-bg: rgba(25, 25, 35, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.15);
-            --text-main: #ffffff;
-            --text-dim: rgba(255, 255, 255, 0.6);
-            --accent: #ff007f;
-            --accent-hover: #ff3399;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            color: var(--text-main);
-            /* Transparent so the embedding site background bleeds through slightly */
-            background-color: transparent; 
-            padding: 10px;
-            overflow: hidden; /* No scrollbars for iframe */
-        }
-
-        .mini-player {
-            background: var(--glass-bg);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            height: 100%;
-        }
-
-        .header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .show-title {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .episode-title {
-            font-size: 14px;
-            color: var(--text-dim);
-            font-weight: 300;
-        }
-
-        .full-link {
-            background: rgba(255, 0, 127, 0.2);
-            color: var(--accent);
-            text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 0, 127, 0.4);
-        }
-
-        .full-link:hover {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 0 15px rgba(255,0,127,0.5);
-        }
-
-        .controls-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .play-btn {
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(255,0,127,0.4);
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .play-btn:hover {
-            transform: scale(1.05);
-            background: var(--accent-hover);
-            box-shadow: 0 6px 20px rgba(255,0,127,0.6);
-        }
-
-        .scrubber-container {
-            flex-grow: 1;
-            position: relative;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .scrubber-bg {
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-            position: absolute;
-        }
-
-        .scrubber-fill {
-            height: 6px;
-            background: var(--accent);
-            border-radius: 3px;
-            width: 0%;
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .chapter-marker {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #fff;
-            border-radius: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
-            transition: transform 0.2s ease;
-            z-index: 2;
-        }
-        
-        .chapter-marker-music {
-            background: #ffd700; /* Gold for music */
-            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-        }
-
-        .chapter-marker:hover {
-            transform: translate(-50%, -50%) scale(1.5);
-        }
-
-        /* Tooltip */
-        .chapter-marker::after {
-            content: attr(data-label);
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
-            z-index: 10;
-        }
-
-        .chapter-marker:hover::after {
-            opacity: 1;
-        }
-
-        .time-display {
-            font-size: 13px;
-            font-variant-numeric: tabular-nums;
-            color: var(--text-dim);
-            min-width: 85px;
-            text-align: right;
-        }
-
-        .ticker-container {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 15px;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .subtitle-ticker {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--accent);
-            line-height: 1.4;
-            transition: opacity 0.3s ease;
-        }
-
-        .speaker-name {
-            font-weight: 600;
-            color: #fff;
-            margin-right: 5px;
-        }
-    </style>
+    <title>Clap to COLAB - Mini Player 2</title>
+    <link rel="stylesheet" href="theme.css">
+    <script src="theme.js"></script>
 </head>
-<body>
+<body class="mini-mode">
 
     <div class="mini-player">
         
-        <div class="header-row">
-            <div>
-                <div class="show-title">Clap to COLAB</div>
-                <div class="episode-title">Part 2: Transdisciplinary Arts</div>
+        <div class="mini-info">
+            <div class="mini-title">Clap to COLAB - Part 2: Transdisciplinary Arts & Future Labs</div>
+            <div class="mini-host">Hosted by Kaspar König • <a href="clap-to-colab2-player.html" target="_blank">View Full Player ↗</a></div>
+            
+            <div class="transcript-line active" id="subtitle-ticker" style="margin-top: 10px; font-size: 13px; padding: 5px;">
+                <span class="speaker-name">Tip:</span> Press play to begin the episode
             </div>
-            <a href="clap-to-colab2-player.html" target="_blank" class="full-link">View Full Player ↗</a>
         </div>
 
         <audio id="audio-player" src="Clap_to_Colab2_kaspar_koenig_260721_14_colaboradio_broadcast.mp3" preload="metadata">
             <track id="subtitles" kind="subtitles" src="Clap_to_Colab2_kaspar_koenig_260721_14_colaboradio_improved.vtt" srclang="en" label="English" default>
         </audio>
 
-        <div class="controls-row">
-            <button class="play-btn" id="play-btn">▶</button>
-            
-            <div class="scrubber-container" id="scrubber">
-                <div class="scrubber-bg"></div>
-                <div class="scrubber-fill" id="scrubber-fill"></div>
-                <!-- Chapter markers injected by JS -->
-            </div>
-
-            <div class="time-display" id="time-display">0:00 / 0:00</div>
-        </div>
-
-        <div class="ticker-container">
-            <div class="subtitle-ticker" id="subtitle-ticker">
-                <span class="speaker-name">Tip:</span> Press play to begin the episode
-            </div>
+        <div class="mini-controls">
+            <div class="time-display" id="time-display" style="min-width: auto;">0:00 / 0:00</div>
+            <button class="mini-play-btn" id="play-btn">▶</button>
         </div>
 
     </div>
@@ -256,32 +35,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('audio-player');
             const playBtn = document.getElementById('play-btn');
-            const scrubber = document.getElementById('scrubber');
-            const scrubberFill = document.getElementById('scrubber-fill');
             const timeDisplay = document.getElementById('time-display');
             const subtitleTicker = document.getElementById('subtitle-ticker');
             
             // Wait for track to load
             let textTrack = audio.textTracks[0];
-
-            // CHAPTER DATA
-            const chapters = [
-                { time: 5, label: "Kaspar König: Show Intro" },
-                { time: 154, label: "Bora Hong: Parang Cafe & Interdisciplinary Arts" },
-                { time: 794, label: "🎶 Audio Sample (Bacteria in the teeth)" },
-                { time: 888, label: "Kaspar König: Transition" },
-                { time: 906, label: "Bora Hong: New Forms of Education" },
-                { time: 1308, label: "Kaspar König: Introducing Shi Wei Chieh" },
-                { time: 1350, label: "Shi Wei Chieh: Nomadic Labs & E-textiles" },
-                { time: 1980, label: "Adam Zaretsky: Human Embryos" },
-                { time: 2045, label: "Shi Wei Chieh: Dye-sensitized Solar Cells" },
-                { time: 2280, label: "Adam Zaretsky: Wet and Juicy Bioart" },
-                { time: 2624, label: "Shi Wei Chieh: LLM Wiki & AI Interactions" },
-                { time: 3119, label: "Kaspar König: Show Outro & Credits" },
-                { time: 3457, label: "Shi Wei Chieh: Cognition Philosophy" },
-                { time: 3506, label: "Kaspar König: The Clap Concept" },
-                { time: 3570, label: "Marc Dusseiller: Personal Future" }
-            ];
 
             let duration = 0;
 
@@ -296,19 +54,6 @@
                 if (duration > 0) return;
                 duration = audio.duration;
                 timeDisplay.textContent = `0:00 / ${formatTime(duration)}`;
-                
-                // Create chapter markers
-                chapters.forEach(ch => {
-                    const pct = (ch.time / duration) * 100;
-                    const marker = document.createElement('div');
-                    marker.className = 'chapter-marker';
-                    if (ch.label.includes("🎶") || ch.label.includes("Music")) {
-                        marker.classList.add('chapter-marker-music');
-                    }
-                    marker.style.left = `${pct}%`;
-                    marker.setAttribute('data-label', ch.label);
-                    scrubber.appendChild(marker);
-                });
             }
 
             if (audio.readyState >= 1) {
@@ -329,19 +74,7 @@
 
             audio.addEventListener('timeupdate', () => {
                 const current = audio.currentTime;
-                const pct = (current / duration) * 100;
-                scrubberFill.style.width = `${pct}%`;
                 timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
-            });
-
-            scrubber.addEventListener('click', (e) => {
-                const rect = scrubber.getBoundingClientRect();
-                const pos = (e.clientX - rect.left) / rect.width;
-                audio.currentTime = pos * duration;
-                if(audio.paused) {
-                    audio.play();
-                    playBtn.textContent = '⏸';
-                }
             });
 
             // Handle Subtitles Ticker
@@ -361,6 +94,8 @@
                         } else {
                             subtitleTicker.innerHTML = text;
                         }
+                    } else {
+                        // Keep the last subtitle, maybe fade it slightly, or just leave it
                     }
                 });
             }
