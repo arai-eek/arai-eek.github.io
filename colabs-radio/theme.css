@@ -602,15 +602,21 @@ body.mini-mode {
     background: transparent !important;
 }
 
+body.mini-mode .speaker-name {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
 .mini-player {
     background: var(--panel-bg);
     border: var(--card-border-width) solid var(--border);
     border-radius: var(--card-border-radius);
-    padding: 20px;
+    padding: 10px 15px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 15px;
+    gap: 10px;
     box-shadow: var(--shadow);
     max-width: 100%;
 }
