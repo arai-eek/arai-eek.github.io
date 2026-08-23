@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (document.body.classList.contains('theme-tropical')) {
                 toggleBtn.innerHTML = '🌴 Tropical';
             } else {
-                toggleBtn.innerHTML = '<img src="../arai-icon.svg" class="toggle-icon" alt="Arai-eek Face"> Arai-eek';
+                toggleBtn.innerHTML = '<img src="arai-icon.svg" class="toggle-icon" alt="Arai-eek Face"> Arai-eek';
             }
         }
         
