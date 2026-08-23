@@ -11,23 +11,29 @@
 
     <div class="mini-player">
         
-        <div class="mini-info">
-            <div class="mini-title">Clap to COLAB - Part 3: Homemade Festival</div>
-            <div class="mini-host">Hosted by Kaspar König • <a href="clap-to-colab3-player.html" target="_blank">View Full Player ↗</a></div>
-            
-            <div class="transcript-line active" id="subtitle-ticker" style="margin-top: 10px; font-size: 13px; padding: 5px;">
-                <span class="speaker-name">Tip:</span> Press play to begin the episode
+        <div class="mini-header">
+            <div>
+                <div class="mini-title">Clap to COLAB - Part 3: Homemade Festival</div>
+                <div class="mini-host">Hosted by Kaspar König</div>
             </div>
+            <a href="clap-to-colab3-player.html" target="_blank" style="font-size: 12px; white-space: nowrap;">View Full Player ↗</a>
+        </div>
+
+        <div class="mini-controls" style="width: 100%; display: flex; align-items: center; gap: 15px;">
+            <button class="mini-play-btn" id="play-btn" style="flex-shrink: 0;">▶</button>
+            <div class="progress-container" id="scrubber" style="flex-grow: 1;">
+                <div class="progress-bar" id="scrubber-fill"></div>
+            </div>
+            <div class="time-display" id="time-display" style="min-width: 80px;">0:00 / 0:00</div>
+        </div>
+        
+        <div class="transcript-line active" id="subtitle-ticker" style="margin: 0; font-size: 13px; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 4px;">
+            <span class="speaker-name">Tip:</span> Press play to begin the episode
         </div>
 
         <audio id="audio-player" src="Clap_to_Colab3_kaspar_koenig_260818_14_colaboradio_broadcast.mp3" preload="metadata">
             <track id="subtitles" kind="subtitles" src="Clap_to_Colab3_kaspar_koenig_260818_14_colaboradio_improved.vtt" srclang="en" label="English" default>
         </audio>
-
-        <div class="mini-controls">
-            <div class="time-display" id="time-display" style="min-width: auto;">0:00 / 0:00</div>
-            <button class="mini-play-btn" id="play-btn">▶</button>
-        </div>
 
     </div>
 
@@ -37,6 +43,8 @@
             const playBtn = document.getElementById('play-btn');
             const timeDisplay = document.getElementById('time-display');
             const subtitleTicker = document.getElementById('subtitle-ticker');
+            const scrubber = document.getElementById('scrubber');
+            const scrubberFill = document.getElementById('scrubber-fill');
             
             // Wait for track to load
             let textTrack = audio.textTracks[0];
@@ -50,10 +58,38 @@
                 return `${m}:${s < 10 ? '0' : ''}${s}`;
             }
 
+            // CHAPTER DATA
+            const chapters = [
+                { time: 0, label: "Kaspar König: Show Intro" },
+                { time: 141, label: "Workshop Participants: The SCHAISS Workshop" },
+                { time: 330, label: "🎶 Music (Intermezzo)" },
+                { time: 421, label: "Pije: Anti-Capitalist Hardware" },
+                { time: 647, label: "Gandalf & Valentina: Robots and Data Art" },
+                { time: 1011, label: "Flo Kaufmann: Bricolage Universal" },
+                { time: 1391, label: "🎶 Music (Intermezzo)" },
+                { time: 1417, label: "Alwin Weber: The Simulation of Utopia" },
+                { time: 1673, label: "Olsen: Automotive Pixel Art" },
+                { time: 2011, label: "Oli Jäggi: The Origins of Homemade" },
+                { time: 2270, label: "Taras: Micro-Sound & Touch-Micing" },
+                { time: 3209, label: "Kaspar König: Outro & Credits" }
+            ];
+
             function initAudio() {
                 if (duration > 0) return;
                 duration = audio.duration;
                 timeDisplay.textContent = `0:00 / ${formatTime(duration)}`;
+                
+                chapters.forEach(ch => {
+                    const pct = (ch.time / duration) * 100;
+                    const marker = document.createElement('div');
+                    marker.className = 'chapter-marker';
+                    if (ch.label.includes("🎶") || ch.label.includes("Music")) {
+                        marker.classList.add('chapter-marker-music');
+                    }
+                    marker.style.left = `${pct}%`;
+                    marker.setAttribute('data-label', ch.label);
+                    scrubber.appendChild(marker);
+                });
             }
 
             if (audio.readyState >= 1) {
@@ -74,7 +110,19 @@
 
             audio.addEventListener('timeupdate', () => {
                 const current = audio.currentTime;
+                const pct = (current / duration) * 100;
+                scrubberFill.style.width = `${pct}%`;
                 timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+            });
+
+            scrubber.addEventListener('click', (e) => {
+                const rect = scrubber.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pos * duration;
+                if(audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '⏸';
+                }
             });
 
             // Handle Subtitles Ticker

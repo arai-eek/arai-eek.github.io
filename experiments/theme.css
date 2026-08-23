@@ -387,6 +387,56 @@ body.theme-tropical .custom-audio-player {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
+.chapter-marker {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--bg-color);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease;
+    z-index: 2;
+}
+
+body.theme-tropical .chapter-marker {
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.chapter-marker-music {
+    background: #ffd700;
+    border-color: #ffd700;
+}
+
+.chapter-marker:hover {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.chapter-marker::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--panel-bg);
+    color: var(--text-main);
+    border: var(--card-border-width) solid var(--border);
+    padding: 6px 10px;
+    border-radius: var(--card-border-radius);
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.chapter-marker:hover::after {
+    opacity: 1;
+}
+
 .time-display {
     font-family: var(--font-main);
     font-size: 14px;
@@ -556,12 +606,20 @@ body.mini-mode {
     background: var(--panel-bg);
     border: var(--card-border-width) solid var(--border);
     border-radius: var(--card-border-radius);
-    padding: 15px 20px;
+    padding: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     gap: 15px;
     box-shadow: var(--shadow);
     max-width: 100%;
+}
+
+.mini-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 15px;
 }
 
 .mini-info {
