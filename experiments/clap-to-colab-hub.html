@@ -207,13 +207,56 @@
             filter: brightness(0) invert(1) opacity(1);
         }
 
+        .hub-formal-text {
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 25px 30px;
+            color: var(--text-dim);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .hub-formal-text p {
+            margin-bottom: 15px;
+        }
+
+        .hub-formal-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .hub-formal-text a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hub-formal-text a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="hub-header">
         <h1 class="hub-title">Clap to COLAB</h1>
-        <p class="hub-subtitle">Explore the complete collection of collaborative, technobiological, and mechatronic radio shows hosted by Kaspar König.</p>
+        <p class="hub-subtitle">
+            Explore the complete collection of collaborative, technobiological, and mechatronic radio shows hosted by Kaspar König.<br><br>
+            Produced for <a href="https://fr-bb.org/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">Freie Radios – Berlin Brandenburg</a> (Colaboradio).
+        </p>
+        
+        <div class="hub-formal-text">
+            <p>Sound artist Kaspar König presents interviews and sound recordings from <a href="https://www.hackteria.org/wiki/Technobiological_Futures_Co-Laboratories" target="_blank" rel="noopener noreferrer">Colab: Technobiological futures</a> – a project by the artist-run bio- and hacking-labs hosted on Hackteria.</p>
+            <p>Listeners are invited into a global network of makers, exploring the collective motivations behind the work and the unique context of this collaborative lab culture. The show is edited and produced between Zürich and the Emmental – so expect a few holes here and there, both in the sound and the narrative.</p>
+            <p>Alongside uncovering these collaborations, the episode dips into music and sound art made in the DIWO spirit (Do It With Others). Kaspar König, himself a sound artist, also shares his fascination with unexpected sounds and surprising discoveries from the workshops.</p>
+        </div>
     </div>
 
     <div class="grid-container">
@@ -315,12 +358,12 @@
     <!-- Funding & Credits Section -->
     <div class="funding-info">
         <div class="logos-row">
-            <img src="../logos/proh_logo.svg" alt="Pro Helvetia" class="partner-logo">
-            <img src="../logos/hackteria_logo.svg" alt="Global Hackteria Network" class="partner-logo">
-            <img src="../logos/sgmk_logo.svg" alt="SGMK" class="partner-logo">
-            <img src="../logos/tomorrow_logo.svg" alt="Tomorrow Lab" class="partner-logo">
-            <img src="../logos/CACR_logo.svg" alt="CACR" class="partner-logo">
-            <img src="../logos/EAR_logo.svg" alt="EAR" class="partner-logo">
+            <a href="https://prohelvetia.ch/en/whats-on/synergies-selected-projects-2026/#acc-co-laboratories-technobiological-futures" target="_blank" rel="noopener noreferrer"><img src="../logos/proh_logo.svg" alt="Pro Helvetia" class="partner-logo"></a>
+            <a href="https://www.hackteria.org/" target="_blank" rel="noopener noreferrer"><img src="../logos/hackteria_logo.svg" alt="Global Hackteria Network" class="partner-logo"></a>
+            <a href="https://mechatronicart.ch/" target="_blank" rel="noopener noreferrer"><img src="../logos/sgmk_logo.svg" alt="SGMK" class="partner-logo"></a>
+            <a href="https://tomorrowlab.my.canva.site/" target="_blank" rel="noopener noreferrer"><img src="../logos/tomorrow_logo.svg" alt="Tomorrow Lab" class="partner-logo"></a>
+            <a href="http://bio.dusseiller.ch/" target="_blank" rel="noopener noreferrer"><img src="../logos/CACR_logo.svg" alt="CACR" class="partner-logo"></a>
+            <a href="https://ear.education/" target="_blank" rel="noopener noreferrer"><img src="../logos/EAR_logo.svg" alt="EAR" class="partner-logo"></a>
         </div>
         <p>This project is partially supported through the <a href="https://www.hackteria.org/wiki/Technobiological_Futures_Co-Laboratories" target="_blank" rel="noreferrer noopener">“Technobiological Futures” programme</a> (February 2026 — August 2027), a multi-phase initiative spanning Thailand, Switzerland, Indonesia, and India. Co-funded by <a href="https://prohelvetia.ch/en/whats-on/synergies-selected-projects-2026/#acc-co-laboratories-technobiological-futures" target="_blank" rel="noreferrer noopener">“Synergies”</a>, by the Swiss Arts Council Pro Helvetia, the Co-Laboratories catalyse South-South collaborations that bypass traditional North-mediated routes, building sustainable networks for art-science-technology exchange across the Global South. Connecting the Global Hackteria Network, SGMK (Swiss Mechatronic Art Society), Tomorrow.lab. Embracing a Do-It-With-Others (DIWO) approach to collective experimentation across multiple perspectives.</p>
     </div>
