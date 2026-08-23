@@ -670,6 +670,24 @@ body.mini-mode {
     transform: scale(1.1);
 }
 
+.mini-ticker {
+    margin: 0;
+    font-size: 13px;
+    padding: 10px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    /* Constrain height to exactly 2 lines (approx 40px depending on line height) or 1 line */
+    height: 42px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+body.theme-tropical .mini-ticker {
+    background: rgba(255,255,255,0.05);
+}
+
 /* Production Info Section */
 .production-info {
     width: 100%;
