@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clap to COLAB - Part 5</title>
+    <link rel="stylesheet" href="theme.css">
+    <script src="theme.js"></script>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Back to Hub</a>
+
+    <div class="player-container">
+        
+        <!-- Main Player UI -->
+        <div class="glass-panel">
+            <div class="header player-header">
+                <div class="cover-art" style="width: 150px; height: 150px; border-radius: 15px; background: linear-gradient(45deg, #ff007f, #7928ca); box-shadow: 0 10px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 40px; flex-shrink: 0; margin: 0 auto 20px;">🛠️</div>
+                <div class="track-info">
+                    <div class="episode-number">Part 5</div>
+                    <div class="episode-title">Tools, Black Boxes and the Joy of Jamming</div>
+                    <div class="host-info">Hosted by Kaspar König • Featuring Darcy Neal & Yashas Shetty</div>
+                </div>
+            </div>
+
+            <div class="podcast-description">
+                Kaspar König explores tools, creative technology, and collaborative spaces with Darcy Neal and Yashas Shetty. From electromagnetic listening and cafeteria trays to Ayudha Puja, reclaiming biohacking, and the raw joy of jamming over grant-writing.
+            </div>
+
+            <!-- Audio Element (Hidden, controlled by custom UI) -->
+            <audio id="audio-player" src="Clap_to_Colab5_kaspar_koenig_261020_14h_colaboradio_broadcast.mp3" preload="metadata">
+                <track id="subtitles" kind="subtitles" src="Clap_to_Colab5_kaspar_koenig_261020_14h_colaboradio_improved.vtt" srclang="en" label="English" default>
+            </audio>
+
+            <div class="audio-player-wrapper custom-audio-player">
+                <button class="play-btn play-pause-btn" id="play-btn">▶</button>
+                
+                <div class="progress-container" id="scrubber">
+                    <div class="progress-bar" id="scrubber-fill"></div>
+                </div>
+
+                <div class="time-display" id="time-display">0:00 / 0:00</div>
+            </div>
+
+            <!-- Dynamic Transcript -->
+            <div class="transcript-container" id="transcript-box">
+                <div class="transcript-line active subtitle-line">
+                    <span class="speaker-name">Tip:</span> Press play to begin the episode
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="glass-panel two-columns" style="margin-top: 40px;">
+            <div class="summary-box">
+                <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 18px;">About This Episode</h3>
+                <p style="color: var(--text-dim); line-height: 1.6; font-size: 14px; margin-bottom: 15px;">In this episode, Darcy Neal shares her workshopology practice, listening in on invisible electromagnetic fields, and the power of shared communal maker spaces. Later, Yashas Shetty reflects on Ayudha Puja (giving thanks to one's tools and synthesizers), calls for opening up black boxes, and explains why true collaboration starts with simply getting a bottle of beer and jamming together.</p>
+            </div>
+            
+            <div class="summary-box">
+                <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 18px;">Episode Timeline</h3>
+                <ul class="timeline-list chapter-list" id="timeline-list">
+                    <!-- Injected by JS -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Detailed Summary Section -->
+    <div class="summary-container player-container" style="margin-top: 40px;">
+        <h1 class="episode-title" style="text-align: center;">Show Summary</h1>
+        <blockquote class="podcast-description">
+            In this fifth installment of Clap to COLAB, host Kaspar König dives into the physical, social, and political dimensions of tools, creative technology, and collaborative spaces. Creative technologist and workshopologist Darcy Neal discusses listening to invisible electromagnetic fields, organizing dynamic hardware labs with cafeteria trays, and the resilience of maker communities from Chiang Mai to Chaos Communication Camp. Later, artist and educator Yashas Shetty (co-founder of Hackteria and ISRO) reflects on the ancient Indian ritual of Ayudha Puja—giving thanks to one's tools and synthesizers—while unpacking the need to reclaim biohacking from Silicon Valley, unmasking non-neutral algorithms, and celebrating the raw, informal joy of jamming over bureaucratic grant-writing.
+        </blockquote>
+        <p style="color: var(--text-dim); margin-bottom: 20px;"><strong>Host:</strong> Kaspar König<br>
+        <strong>Station:</strong> Colaboradio.org (Freie Radios Berlin Brandenburg)</p>
+        
+        <h2 style="font-family: var(--font-head); color: var(--accent); font-size: 22px; margin: 30px 0 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">🎙️ Key Interviews & Segments</h2>
+        
+        <h3 style="color: var(--text-main); font-size: 18px; margin: 25px 0 10px;">1. Darcy Neal on Electromagnetic Listening & Workshopology</h3>
+        <p style="color: var(--text-dim); line-height: 1.6; margin-bottom: 15px;"><strong>Background:</strong> Darcy Neal is a creative technologist and self-described "workshopologist" working primarily with hardware electronics and interactive synthesizer controllers.<br>
+        <strong>Listening to the Invisible:</strong> Darcy discusses her focus on exploring electromagnetic frequencies (EMF), building custom pickup coils that allow listeners to tap into the invisible electromagnetic soundscapes radiated by everyday gadgets and power grids.<br>
+        <strong>Lab Organization in Flux:</strong> She shares her modular workspace system using cafeteria/baker's trays to manage half a dozen parallel hardware projects, keeping surface mount components cataloged in baseball card binder sleeves.</p>
+        
+        <h3 style="color: var(--text-main); font-size: 18px; margin: 25px 0 10px;">2. Darcy Neal on Collective Energy & Living Laboratories</h3>
+        <p style="color: var(--text-dim); line-height: 1.6; margin-bottom: 15px;"><strong>The Importance of Community:</strong> Reflecting on the political and cultural challenges facing independent artists, Darcy stresses that physical community gatherings are more critical than ever.<br>
+        <strong>Chiang Mai CoLab:</strong> She reflects on the transformative experience of living, working, and cooking together during the Technobiological Futures CoLab in Chiang Mai, surrounded by rich biodiversity.<br>
+        <strong>Outdoor Soldering:</strong> Inspired by the massive soldering villages at Chaos Communication Camp (CCCamp 2023), Darcy highlights the joy and mental relief of taking electronic tinkering outside the four walls of the laboratory.</p>
+        
+        <h3 style="color: var(--text-main); font-size: 18px; margin: 25px 0 10px;">3. Yashas Shetty on Ayudha Puja & Tool Worship</h3>
+        <p style="color: var(--text-dim); line-height: 1.6; margin-bottom: 15px;"><strong>Ayudha Puja:</strong> Speaking from Bangalore, Yashas describes the regional festival of Ayudha Puja—a day dedicated to blessing, cleaning, and offering gratitude to one's tools, instruments, and synthesizers.<br>
+        <strong>Indian Sonic Research Organisation (ISRO):</strong> Yashas introduces ISRO, an open Bangalore-based collective and sound lab exploring experimental music, open workshops, and artist residencies.<br>
+        <strong>Founding Hackteria (2009):</strong> Yashas recounts the genesis of the Hackteria network in 2009 with Marc Dusseiller and Andy Garcia, driven by open questions about what it means to collaborate across science and art.</p>
+        
+        <h3 style="color: var(--text-main); font-size: 18px; margin: 25px 0 10px;">4. Yashas Shetty on Reclaiming Biohacking & Seizing the Machine</h3>
+        <p style="color: var(--text-dim); line-height: 1.6; margin-bottom: 15px;"><strong>What Grows in Labs:</strong> When asked what thrives in laboratories, Yashas answers: "People grow best in our labs." The core purpose of a laboratory is human transformation and shared ideas.<br>
+        <strong>Reclaiming Biohacking:</strong> Yashas critiques the co-optation of biohacking by Silicon Valley into an elitist pursuit of personal immortality and optimization. He advocates reclaiming technobiology as an open, collective, and socially just human endeavor rooted in historical alchemy.<br>
+        <strong>Opening Black Boxes & The Luddite Spirit:</strong> Machines and algorithms are not neutral; they carry cultural biases and institutional agendas. Yashas re-evaluates the historical Luddites not as anti-technology, but as master machine operators who understood their tools and sought to seize control rather than submit to exploitation.</p>
+
+        <h3 style="color: var(--text-main); font-size: 18px; margin: 25px 0 10px;">5. The Joy of Jamming vs. Grant-Writing</h3>
+        <p style="color: var(--text-dim); line-height: 1.6; margin-bottom: 15px;"><strong>Jamming Culture:</strong> In a memorable closing reflection, Yashas contrasts institutional collaboration with musical jam sessions. While architects and academics often spend months drafting grant applications before ever working together, musicians simply say: <em>"Bring a bottle of beer to my room and let's jam."</em> True DIWO collaboration begins with low-barrier social presence and human connection.</p>
+    </div>
+
+    <!-- Production Process Info -->
+    <div class="production-info">
+        <h3>🤖 About the Production Process</h3>
+        <p>This project is an exploration of human-AI collaboration. The original radio broadcasts (approx. 3 hours of audio) were transcribed using <strong>Deepgram Nova-2</strong> cloud speech recognition and refined with human editorial oversight.</p>
+        <p>Those transcripts were then processed by <strong>Google's Gemini AI</strong> to extract the chapter timelines, resolve speaker identities, and generate the episode summaries. Finally, the entire web experience—from the custom audio players to the 'glassmorphism' UI design—was collaboratively coded using the <strong>Antigravity AI coding assistant</strong> pair-programming with the creator.</p>
+        
+        <h4>Approximate Compute & Ecological Footprint:</h4>
+        <ul>
+            <li><strong>Token Usage:</strong> ~1,200,000 input tokens (due to the AI repeatedly reading 55,000+ words of transcripts in context) and ~35,000 output tokens (writing the code, HTML, and summaries).</li>
+            <li><strong>Estimated Compute Cost:</strong> ~$4.50 USD (equivalent API cost for the LLM).</li>
+            <li><strong>Energy Consumption:</strong> ~0.35 kWh (Deepgram audio transcription + Cloud AI inference) — <em>Roughly equivalent to boiling a kettle of water 3.5 times.</em></li>
+        </ul>
+    </div>
+
+    <!-- Funding & Credits Section -->
+    <div class="funding-info">
+        <div class="logos-row">
+            <a href="https://prohelvetia.ch/en/whats-on/synergies-selected-projects-2026/#acc-co-laboratories-technobiological-futures" target="_blank" rel="noopener noreferrer"><img src="logos/proh_logo.svg" alt="Pro Helvetia" class="partner-logo"></a>
+            <a href="https://www.hackteria.org/" target="_blank" rel="noopener noreferrer"><img src="logos/hackteria_logo.svg" alt="Global Hackteria Network" class="partner-logo"></a>
+            <a href="https://mechatronicart.ch/" target="_blank" rel="noopener noreferrer"><img src="logos/sgmk_logo.svg" alt="SGMK" class="partner-logo"></a>
+            <a href="https://tomorrowlab.my.canva.site/" target="_blank" rel="noopener noreferrer"><img src="logos/tomorrow_logo.svg" alt="Tomorrow Lab" class="partner-logo"></a>
+            <a href="http://bio.dusseiller.ch/" target="_blank" rel="noopener noreferrer"><img src="logos/CACR_logo.svg" alt="CACR" class="partner-logo"></a>
+            <a href="https://ear.education/" target="_blank" rel="noopener noreferrer"><img src="logos/EAR_logo.svg" alt="EAR" class="partner-logo"></a>
+        </div>
+        <p>This project is partially supported through the <a href="https://www.hackteria.org/wiki/Technobiological_Futures_Co-Laboratories" target="_blank" rel="noreferrer noopener">“Technobiological Futures” programme</a> (February 2026 — August 2027), a multi-phase initiative spanning Thailand, Switzerland, Indonesia, and India. Co-funded by <a href="https://prohelvetia.ch/en/whats-on/synergies-selected-projects-2026/#acc-co-laboratories-technobiological-futures" target="_blank" rel="noreferrer noopener">“Synergies”</a>, by the Swiss Arts Council Pro Helvetia, the Co-Laboratories catalyse South-South collaborations that bypass traditional North-mediated routes, building sustainable networks for art-science-technology exchange across the Global South. Connecting the Global Hackteria Network, SGMK (Swiss Mechatronic Art Society), Tomorrow.lab. Embracing a Do-It-With-Others (DIWO) approach to collective experimentation across multiple perspectives.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('audio-player');
+            const playBtn = document.getElementById('play-btn');
+            const scrubber = document.getElementById('scrubber');
+            const scrubberFill = document.getElementById('scrubber-fill');
+            const timeDisplay = document.getElementById('time-display');
+            const transcriptBox = document.getElementById('transcript-box');
+            const timelineList = document.getElementById('timeline-list');
+            
+            // Wait for track to load
+            let textTrack = audio.textTracks[0];
+
+            // CHAPTER DATA for Part 5 (14 Chapters)
+            const chapters = [
+                { time: 0, label: "Kaspar König: Show Intro & DIWO Spirit" },
+                { time: 128, label: "🎶 Music (EAR Birthday Jam)" },
+                { time: 291, label: "Darcy Neal: Creative Technology & Electromagnetic Listening" },
+                { time: 584, label: "Darcy Neal: Collective Energy & Community Resilience" },
+                { time: 861, label: "Darcy Neal: Chiang Mai CoLab & Outdoor Soldering" },
+                { time: 1067, label: "🎶 Music (Intermezzo from Zurich)" },
+                { time: 1160, label: "Yashas Shetty: Ayudha Puja, Tool Worship & Hackteria Origins" },
+                { time: 1362, label: "🎶 Music (ISRO Soundscape)" },
+                { time: 1742, label: "Yashas Shetty: What Grows in Labs & Reclaiming Biohacking" },
+                { time: 2132, label: "🎶 Music (Sound Art Interlude)" },
+                { time: 2600, label: "Yashas Shetty: Biased Algorithms & Seizing Control" },
+                { time: 2913, label: "Yashas Shetty: The Joy of Jamming vs. Grant-Writing" },
+                { time: 3108, label: "🎶 Music (Closing Intermezzo)" },
+                { time: 3400, label: "Kaspar König: Outro & Credits" }
+            ];
+
+            let duration = 0;
+
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return "0:00";
+                const m = Math.floor(seconds / 60);
+                const s = Math.floor(seconds % 60);
+                return `${m}:${s < 10 ? '0' : ''}${s}`;
+            }
+
+            function initAudio() {
+                if (duration > 0) return; // Prevent double init
+                duration = audio.duration;
+                timeDisplay.textContent = `0:00 / ${formatTime(duration)}`;
+                
+                // Create chapter markers
+                chapters.forEach(ch => {
+                    const pct = (ch.time / duration) * 100;
+                    
+                    const marker = document.createElement('div');
+                    marker.className = 'chapter-marker';
+                    if (ch.label.includes("🎶") || ch.label.includes("Music")) {
+                        marker.classList.add('chapter-marker-music');
+                    }
+                    marker.style.left = `${pct}%`;
+                    marker.setAttribute('data-label', ch.label);
+                    scrubber.appendChild(marker);
+                    
+                    // Populate timeline list
+                    const li = document.createElement('li');
+                    li.className = 'chapter-item';
+                    li.innerHTML = `<div class="chapter-time">${formatTime(ch.time)}</div><div class="chapter-title">${ch.label}</div>`;
+                    li.addEventListener('click', () => {
+                        audio.currentTime = ch.time;
+                        if(audio.paused) {
+                            audio.play();
+                            playBtn.textContent = '⏸';
+                        }
+                    });
+                    timelineList.appendChild(li);
+                });
+            }
+
+            if (audio.readyState >= 1) {
+                initAudio();
+            } else {
+                audio.addEventListener('loadedmetadata', initAudio);
+            }
+
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '⏸';
+                } else {
+                    audio.pause();
+                    playBtn.textContent = '▶';
+                }
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                const current = audio.currentTime;
+                const pct = (current / duration) * 100;
+                scrubberFill.style.width = `${pct}%`;
+                timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+            });
+
+            scrubber.addEventListener('click', (e) => {
+                const rect = scrubber.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pos * duration;
+                if(audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '⏸';
+                }
+            });
+
+            // Handle Subtitles
+            if (textTrack) {
+                textTrack.mode = 'hidden'; 
+                textTrack.addEventListener('cuechange', () => {
+                    let activeCues = textTrack.activeCues;
+                    if (activeCues && activeCues.length > 0) {
+                        let text = activeCues[0].text;
+                        
+                        // Parse speaker name if format is [Name]:
+                        const speakerMatch = text.match(/^\[(.*?)\]:\s*(.*)/);
+                        
+                        const p = document.createElement('div');
+                        p.className = 'transcript-line active';
+                        
+                        if (speakerMatch) {
+                            const name = speakerMatch[1];
+                            const dialogue = speakerMatch[2];
+                            p.innerHTML = `<span class="speaker-name">${name}:</span> ${dialogue}`;
+                        } else {
+                            p.innerHTML = text;
+                        }
+
+                        // Dim previous lines
+                        const previousLines = transcriptBox.querySelectorAll('.transcript-line');
+                        previousLines.forEach(line => line.classList.remove('active'));
+
+                        transcriptBox.appendChild(p);
+                        
+                        // Keep only last 20 lines to prevent DOM bloat
+                        if(transcriptBox.children.length > 20) {
+                            transcriptBox.removeChild(transcriptBox.firstChild);
+                        }
+
+                        // Auto-scroll
+                        transcriptBox.scrollTop = transcriptBox.scrollHeight;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

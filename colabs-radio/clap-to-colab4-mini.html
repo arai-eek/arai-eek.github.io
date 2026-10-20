@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clap to COLAB - Mini Player 4</title>
+    <link rel="stylesheet" href="theme.css">
+    <script src="theme.js"></script>
+</head>
+<body class="mini-mode">
+
+    <div class="mini-player">
+        
+        <div class="mini-header">
+            <div>
+                <div class="mini-title">Clap to COLAB - Part 4: Environmental Artistic Research, Living Labs and Sound Gardening</div>
+                <div class="mini-host">Hosted by Kaspar König</div>
+            </div>
+            <a href="clap-to-colab4-player.html" target="_blank" style="font-size: 12px; white-space: nowrap;">View Full Player ↗</a>
+        </div>
+
+        <div class="mini-controls" style="width: 100%; display: flex; align-items: center; gap: 15px;">
+            <button class="mini-play-btn" id="play-btn" style="flex-shrink: 0;">▶</button>
+            <div class="progress-container" id="scrubber" style="flex-grow: 1;">
+                <div class="progress-bar" id="scrubber-fill"></div>
+            </div>
+            <div class="time-display" id="time-display" style="min-width: 80px;">0:00 / 0:00</div>
+        </div>
+        
+        <div class="transcript-line active mini-ticker" id="subtitle-ticker">
+            <span class="speaker-name">Tip:</span> Press play to begin the episode
+        </div>
+
+        <audio id="audio-player" src="Clap_to_Colab4_kaspar_koenig_260914_4_colaboradio_broadcast.mp3" preload="metadata">
+            <track id="subtitles" kind="subtitles" src="Clap_to_Colab4_kaspar_koenig_260914_4_colaboradio_improved.vtt" srclang="en" label="English" default>
+        </audio>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('audio-player');
+            const playBtn = document.getElementById('play-btn');
+            const timeDisplay = document.getElementById('time-display');
+            const subtitleTicker = document.getElementById('subtitle-ticker');
+            const scrubber = document.getElementById('scrubber');
+            const scrubberFill = document.getElementById('scrubber-fill');
+            
+            // Wait for track to load
+            let textTrack = audio.textTracks[0];
+
+            let duration = 0;
+
+            function formatTime(seconds) {
+                if (isNaN(seconds)) return "0:00";
+                const m = Math.floor(seconds / 60);
+                const s = Math.floor(seconds % 60);
+                return `${m}:${s < 10 ? '0' : ''}${s}`;
+            }
+
+            // CHAPTER DATA
+            const chapters = [
+                { time: 0, label: "Kaspar König: Show Intro" },
+                { time: 107, label: "Tengal: Living Labs & Collectivity" },
+                { time: 347, label: "Tengal: The Threshold of Collaboration" },
+                { time: 601, label: "🎶 Music (LLM Sonification)" },
+                { time: 1049, label: "Kaspar König: EAR & Aussian" },
+                { time: 1160, label: "🎶 Music (Intermezzo)" },
+                { time: 1550, label: "Andreas Bosshardt: Sound Gardening" },
+                { time: 2183, label: "Andreas Bosshardt: Cosmic Radio of Quarks" },
+                { time: 2307, label: "🎶 Music (Dreigang und Dreiglang)" },
+                { time: 2429, label: "Kaspar König: Analog Earphones" },
+                { time: 2472, label: "🎶 Music (Analog Earphones Demo)" },
+                { time: 2600, label: "Kaspar König: Join the Network" },
+                { time: 2656, label: "🎶 Music (Archive Deep Dive)" },
+                { time: 3588, label: "Kaspar König: Outro & Credits" }
+            ];
+
+            function initAudio() {
+                if (duration > 0) return;
+                duration = audio.duration;
+                timeDisplay.textContent = `0:00 / ${formatTime(duration)}`;
+                
+                chapters.forEach(ch => {
+                    const pct = (ch.time / duration) * 100;
+                    const marker = document.createElement('div');
+                    marker.className = 'chapter-marker';
+                    if (ch.label.includes("🎶") || ch.label.includes("Music")) {
+                        marker.classList.add('chapter-marker-music');
+                    }
+                    marker.style.left = `${pct}%`;
+                    marker.setAttribute('data-label', ch.label);
+                    scrubber.appendChild(marker);
+                });
+            }
+
+            if (audio.readyState >= 1) {
+                initAudio();
+            } else {
+                audio.addEventListener('loadedmetadata', initAudio);
+            }
+
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '⏸';
+                } else {
+                    audio.pause();
+                    playBtn.textContent = '▶';
+                }
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                const current = audio.currentTime;
+                const pct = (current / duration) * 100;
+                scrubberFill.style.width = `${pct}%`;
+                timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+            });
+
+            scrubber.addEventListener('click', (e) => {
+                const rect = scrubber.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pos * duration;
+                if(audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '⏸';
+                }
+            });
+
+            // Handle Subtitles Ticker
+            if (textTrack) {
+                textTrack.mode = 'hidden'; 
+                textTrack.addEventListener('cuechange', () => {
+                    let activeCues = textTrack.activeCues;
+                    if (activeCues && activeCues.length > 0) {
+                        let text = activeCues[0].text;
+                        
+                        // Parse Speaker Name
+                        const speakerMatch = text.match(/^\[(.*?)\]:\s*(.*)/);
+                        if (speakerMatch) {
+                            const name = speakerMatch[1];
+                            const dialogue = speakerMatch[2];
+                            subtitleTicker.innerHTML = `<span class="speaker-name">${name}:</span> ${dialogue}`;
+                        } else {
+                            subtitleTicker.innerHTML = text;
+                        }
+                    } else {
+                        // Keep the last subtitle, maybe fade it slightly, or just leave it
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
